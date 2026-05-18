@@ -709,6 +709,13 @@
       <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/>
     </svg>
   );
+  const IconContactCard = ({size=14}) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="5" width="20" height="14" rx="2"/>
+      <circle cx="8.5" cy="12" r="2.5"/>
+      <path d="M14 9h4M14 12h4M14 15h2"/>
+    </svg>
+  );
 
   const PRACTICE_ICONS = [
     <svg key="0" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><circle cx="16" cy="16" r="11"/><circle cx="16" cy="16" r="5.5"/><circle cx="16" cy="16" r="1.8" fill="currentColor" stroke="none"/></svg>,
@@ -1406,12 +1413,19 @@
               </div>
               {/* Digital cards */}
               <div style={{marginTop:20,display:'flex',flexDirection:'column',gap:8}}>
-                {[{href:SOCIAL.cardRu,label:'Digital Card (RU)'},{href:SOCIAL.cardHe,label:'Digital Card (HE)'}].map(({href,label})=>(
+                {[
+                  {href:SOCIAL.cardRu, flag:'🇷🇺', label:'Digital Card (RU)'},
+                  {href:SOCIAL.cardHe, flag:'🇮🇱', label:'Digital Card (HE)'},
+                ].map(({href,flag,label})=>(
                   <a key={label} href={href} target="_blank" rel="noopener noreferrer"
-                    style={{display:'inline-flex',alignItems:'center',gap:5,fontSize:'.68rem',color:'var(--text-3)',textDecoration:'none',letterSpacing:'.04em',transition:'color .2s'}}
+                    style={{display:'inline-flex',alignItems:'center',gap:6,fontSize:'.68rem',color:'var(--text-3)',textDecoration:'none',letterSpacing:'.04em',transition:'color .2s'}}
                     onMouseEnter={e=>e.currentTarget.style.color='var(--gold)'}
                     onMouseLeave={e=>e.currentTarget.style.color='var(--text-3)'}
-                  >{label} <IconExternalLink size={9}/></a>
+                  >
+                    <IconContactCard size={13}/>
+                    <span style={{fontSize:'.8rem',lineHeight:1}}>{flag}</span>
+                    {label}
+                  </a>
                 ))}
               </div>
             </div>
