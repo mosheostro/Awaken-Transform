@@ -84,7 +84,20 @@ For any image-aware or photographic work:
 
 ---
 
-## 7. Related Documents
+## 7. Contact Form (Web3Forms)
+
+Every static-site contact form in projects under this account ships through Web3Forms. The reusable skill lives at `.claude/skills/web3forms-contact/` (also mirrored to `~/.claude/skills/`) and includes the per-domain access-key registry plus drop-in templates (vanilla HTML, React).
+
+Rules (enforced by the skill):
+- Only show success after `data.success === true` from `https://api.web3forms.com/submit`.
+- Never use `no-cors` mode, optimistic UI, or a `mailto:` fallback that auto-opens an email client.
+- Pick the project-specific key if the domain is in the registry; otherwise use the generic key.
+
+When asked to add or fix a contact form on **any** project, invoke the `web3forms-contact` skill — don't redesign the pattern.
+
+---
+
+## 8. Related Documents
 
 - `AGENTS.md` — agent roles and handoff rules
 - `DESIGN_SYSTEM.md` — tokens, type, color, spacing, components

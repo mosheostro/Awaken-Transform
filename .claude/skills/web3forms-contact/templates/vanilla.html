@@ -1,0 +1,78 @@
+<!-- Web3Forms contact form — vanilla HTML + JS template
+     Replace WEB3FORMS_KEY with the right key from SKILL.md's registry.
+     Adjust class names + styling to match the host site. -->
+
+<form id="contact-form" novalidate>
+  <input type="hidden" name="access_key" value="WEB3FORMS_KEY">
+  <input type="hidden" name="subject" value="New Lead — {{PROJECT_NAME}}">
+  <input type="hidden" name="from_name" value="{{PROJECT_NAME}} Landing">
+
+  <!-- Honeypot: must stay empty. Hidden visually but visible to bots. -->
+  <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+  <label>
+    Name
+    <input name="name" type="text" required minlength="2" maxlength="80" autocomplete="name">
+  </label>
+
+  <label>
+    Email
+    <input name="email" type="email" required maxlength="120" autocomplete="email">
+  </label>
+
+  <label>
+    Phone (optional)
+    <input name="phone" type="tel" maxlength="40" autocomplete="tel">
+  </label>
+
+  <label>
+    Message
+    <textarea name="message" rows="5" required minlength="10" maxlength="500"></textarea>
+  </label>
+
+  <button type="submit" id="contact-submit">Send message</button>
+
+  <p id="contact-status" role="status" aria-live="polite"></p>
+</form>
+
+<script>
+(() => {
+  const form   = document.getElementById('contact-form');
+  const btn    = document.getElementById('contact-submit');
+  const status = document.getElementById('contact-status');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (form.botcheck && form.botcheck.checked) return; // honeypot tripped
+
+    btn.disabled = true;
+    status.textContent = 'Sending…';
+    status.style.color = '';
+
+    const payload = Object.fromEntries(new FormData(form).entries());
+
+    try {
+      const res  = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json().catch(() => ({}));
+
+      if (res.ok && data.success === true) {
+        status.textContent = 'Message sent! We’ll be in touch shortly.';
+        status.style.color = 'green';
+        form.reset();
+      } else {
+        status.textContent = `Couldn’t send: ${data.message || 'please try again or contact us another way.'}`;
+        status.style.color = 'crimson';
+      }
+    } catch (err) {
+      status.textContent = 'Network error — please check your connection and try again.';
+      status.style.color = 'crimson';
+    } finally {
+      btn.disabled = false;
+    }
+  });
+})();
+</script>
