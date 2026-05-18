@@ -142,12 +142,12 @@
       backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
       border:1px solid var(--border); border-radius:var(--r);
     }
-    .pc { transition:transform .3s,border-color .3s,background .3s; }
+    .pc { transition:transform .3s,border-color .3s,background .3s; cursor:pointer; }
     .pc:hover { transform:translateY(-5px); border-color:rgba(200,168,110,.28)!important; background:var(--gold-faint)!important; }
-    .tc { transition:transform .3s; }
-    .tc:hover { transform:translateY(-4px); }
-    .prog-b { border-left:2px solid var(--border-md); transition:border-color .3s; }
+    .tc { transition:none; }
+    .prog-b { border-left:2px solid var(--border-md); transition:border-color .3s,background .3s; cursor:pointer; }
     .prog-b:hover { border-left-color:var(--gold); }
+    .sdrop-btn { background:none; border:none; cursor:pointer; padding:0; }
 
     /* ── FORM ── */
     .field {
@@ -254,6 +254,36 @@
     [dir="rtl"] .lang-opt { text-align:right; }
     .lang-opt:hover { background:var(--gold-faint); color:var(--gold); }
     .lang-opt.active { color:var(--gold); font-weight:500; }
+
+    /* ── LEGAL MODAL ── */
+    .legal-overlay {
+      position:fixed; inset:0; z-index:200;
+      background:rgba(0,0,0,.65); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+      display:flex; align-items:center; justify-content:center; padding:20px;
+      animation:fadeIn .25s ease-out;
+    }
+    @keyframes fadeIn { from { opacity:0 } to { opacity:1 } }
+    .legal-card {
+      background:var(--surface); border:1px solid var(--border-md); border-radius:6px;
+      max-width:720px; width:100%; max-height:85vh; overflow-y:auto;
+      padding:clamp(28px,4vw,48px);
+      box-shadow:0 30px 80px rgba(0,0,0,.5);
+    }
+    .legal-card h3 { font-family:var(--font-d); font-size:clamp(22px,3vw,32px); font-weight:400; color:var(--text-1); margin-bottom:18px; letter-spacing:-.01em; }
+    .legal-card .body { font-size:.88rem; color:var(--text-2); line-height:1.78; font-weight:300; white-space:pre-wrap; }
+    .legal-close {
+      background:none; border:1px solid var(--border-md); color:var(--text-2);
+      padding:8px 18px; border-radius:var(--r); cursor:pointer;
+      font-family:var(--font-b); font-size:.74rem; letter-spacing:.08em; text-transform:uppercase;
+      margin-top:24px; transition:border-color .2s,color .2s;
+    }
+    .legal-close:hover { border-color:var(--gold); color:var(--gold); }
+    .legal-link {
+      background:none; border:none; cursor:pointer; padding:0;
+      font-size:.66rem; color:var(--text-3); letter-spacing:.05em;
+      transition:color .2s; font-family:var(--font-b);
+    }
+    .legal-link:hover { color:var(--gold); }
 
     /* ── CONTACT CARDS ── */
     .ccard {
@@ -382,12 +412,32 @@
           submit:'Send Message',sending:'Sending…',
           ok:'Message sent! We\'ll be in touch shortly.',
           err:'Something went wrong. Please reach us on WhatsApp or Telegram.',
+          verify:'Verification — what is',verifyEq:'= ?',verifyPh:'answer',verifyErr:'Incorrect — try again',
+          robot:'I\'m not a robot',robotErr:'Please confirm you\'re not a robot',
+          mailFallback:'Or email us directly →',
         },
       },
       footer: {
         copy:'© 2026 Svarga International · Moshe Om. All rights reserved.',
-        links:['About','Practices','Program','Contact'],
+        links:['About','Practices','Program','Teacher','Contact'],
         followUs:'Follow',
+        legalHeader:'Legal',
+        terms:'Terms & Conditions', privacy:'Privacy Policy', accessibility:'Accessibility Statement',
+      },
+      legal: {
+        close:'Close',
+        terms: {
+          title:'Terms & Conditions — Svarga International',
+          body:'Last updated: May 2026\n\nThese Terms & Conditions govern your use of the Svarga International website and the 21-Day Transformation Marathon program operated by Moshe Ostrovsky ("Svarga", "we", "us").\n\n1. Acceptance of Terms\nBy accessing this website or enrolling in any program, you agree to be bound by these Terms.\n\n2. Programs and Services\nThe Marathon is an educational and contemplative practice program. It is not a substitute for medical, psychological, or psychiatric treatment. Consult a qualified professional before beginning any new wellness practice.\n\n3. Enrollment, Payments and Refunds\nProgram fees, schedules and refund policies are communicated at the time of enrollment. Cancellations made at least 7 days before the start date are eligible for a full refund.\n\n4. Intellectual Property\nAll content, recordings, and materials provided through Svarga are the intellectual property of Moshe Ostrovsky / Svarga International and may not be reproduced, redistributed, or resold without written permission.\n\n5. Conduct\nParticipants agree to engage respectfully with teachers, staff, and fellow participants. We reserve the right to remove anyone whose behavior is disruptive or harmful.\n\n6. Limitation of Liability\nTo the maximum extent permitted by law, Svarga International is not liable for any indirect, incidental, or consequential damages arising from use of the website or participation in any program.\n\n7. Contact\nFor questions about these Terms, write to moshe.svarga@gmail.com.',
+        },
+        privacy: {
+          title:'Privacy Policy',
+          body:'Last updated: May 2026\n\nThis Privacy Policy explains how Svarga International collects and uses your personal information.\n\n1. Information We Collect\nWhen you submit the contact form, we collect your name, email, phone number (if provided), the language you selected, and the message you write. We do not use third-party tracking cookies on this site.\n\n2. How We Use Your Information\nWe use your information solely to respond to your inquiry and, where you have opted in, to send information about upcoming programs.\n\n3. How We Store and Share Your Information\nForm submissions are delivered via the FormSubmit.co relay service to moshe.svarga@gmail.com. We do not sell or rent your data. We share information only with service providers that help us operate (email, hosting), under confidentiality obligations.\n\n4. Your Rights\nYou may request access, correction, or deletion of your personal data at any time by writing to moshe.svarga@gmail.com. We will respond within 30 days.\n\n5. Data Retention\nLeads and correspondence are retained for as long as necessary to respond to your inquiry and provide services, then deleted on request.\n\n6. Children\nThis website is not directed at children under 16. We do not knowingly collect data from minors.\n\n7. Contact\nFor privacy questions, write to moshe.svarga@gmail.com.',
+        },
+        accessibility: {
+          title:'Accessibility Statement',
+          body:'Last updated: May 2026\n\nSvarga International is committed to making our digital presence accessible to people with disabilities.\n\n1. Standards\nThis website strives to conform to WCAG 2.1 Level AA. We continuously test and improve color contrast, keyboard navigation, screen-reader compatibility, and responsive layout.\n\n2. Features\n• Full keyboard navigation for all interactive elements.\n• Sufficient color contrast for text and controls.\n• Resizable text without loss of content or function.\n• Right-to-left layout support for Hebrew.\n• Dark and light themes for visual comfort.\n• Descriptive alt-text on images.\n\n3. Known Limitations\nSome embedded third-party content and PDFs may not yet be fully accessible. We are working to address these.\n\n4. Feedback\nIf you encounter accessibility barriers or need content in an alternative format, contact us at moshe.svarga@gmail.com. We aim to respond within 5 business days.\n\n5. Enforcement\nIn Israel, the supervising authority for accessibility is the Commission for Equal Rights of Persons with Disabilities (Ministry of Justice).',
+        },
       },
     },
 
@@ -463,12 +513,32 @@
           submit:'Отправить',sending:'Отправка…',
           ok:'Сообщение отправлено! Мы свяжемся с вами в ближайшее время.',
           err:'Что-то пошло не так. Пожалуйста, напишите через WhatsApp или Telegram.',
+          verify:'Проверка — сколько будет',verifyEq:'= ?',verifyPh:'ответ',verifyErr:'Неверно — попробуйте ещё раз',
+          robot:'Я не робот',robotErr:'Подтвердите, что вы не робот',
+          mailFallback:'Или напишите нам напрямую →',
         },
       },
       footer: {
         copy:'© 2026 Svarga International · Моше Ом. Все права защищены.',
-        links:['О марафоне','Практики','Программа','Контакты'],
+        links:['О марафоне','Практики','Программа','Учитель','Контакты'],
         followUs:'Соцсети',
+        legalHeader:'Документы',
+        terms:'Правила и условия сайта SVARGA', privacy:'Политика конфиденциальности', accessibility:'Декларация доступности',
+      },
+      legal: {
+        close:'Закрыть',
+        terms: {
+          title:'Правила и условия сайта SVARGA',
+          body:'Последнее обновление: май 2026\n\nНастоящие Правила и условия регулируют использование сайта Svarga International и участие в программе «Марафон Трансформации 21 день» под руководством Моше Островского («Svarga», «мы»).\n\n1. Принятие условий\nИспользуя сайт или записываясь на любую программу, вы соглашаетесь с этими условиями.\n\n2. Программы и услуги\nМарафон — это образовательная и созерцательная практика. Он не заменяет медицинское, психологическое или психиатрическое лечение. Перед началом любой новой практики проконсультируйтесь со специалистом.\n\n3. Запись, оплата и возвраты\nСтоимость, расписание и условия возврата сообщаются при записи. При отмене не позднее, чем за 7 дней до старта, возможен полный возврат средств.\n\n4. Интеллектуальная собственность\nВсе материалы, аудио- и видеозаписи являются собственностью Моше Островского / Svarga International. Воспроизведение, распространение или перепродажа без письменного разрешения запрещены.\n\n5. Поведение\nУчастники обязуются уважительно относиться к преподавателям, организаторам и другим участникам. Мы оставляем за собой право удалить любого, чьё поведение нарушает атмосферу.\n\n6. Ограничение ответственности\nВ максимально допустимом законом объёме Svarga International не несёт ответственности за косвенные, случайные или последующие убытки, связанные с использованием сайта или участием в программах.\n\n7. Контакт\nПо вопросам Правил пишите на moshe.svarga@gmail.com.',
+        },
+        privacy: {
+          title:'Политика конфиденциальности',
+          body:'Последнее обновление: май 2026\n\nЭта Политика объясняет, как Svarga International собирает и использует ваши персональные данные.\n\n1. Какие данные мы собираем\nПри отправке контактной формы мы получаем ваше имя, e-mail, телефон (если указан), выбранный язык и текст сообщения. Мы не используем сторонние трекинговые cookie.\n\n2. Как мы используем данные\nДанные используются исключительно для ответа на ваш запрос и, по вашему согласию, для информирования о ближайших программах.\n\n3. Хранение и передача данных\nЗаявки доставляются через сервис FormSubmit.co на адрес moshe.svarga@gmail.com. Мы не продаём и не передаём ваши данные третьим лицам. Передача возможна только сервис-провайдерам (email, хостинг) на условиях конфиденциальности.\n\n4. Ваши права\nВы можете запросить доступ, исправление или удаление ваших данных, написав на moshe.svarga@gmail.com. Мы ответим в течение 30 дней.\n\n5. Срок хранения\nЗаявки и переписка хранятся столько, сколько необходимо для ответа и оказания услуг, и удаляются по запросу.\n\n6. Дети\nСайт не предназначен для детей младше 16 лет. Мы не собираем данные несовершеннолетних.\n\n7. Контакт\nПо вопросам конфиденциальности пишите на moshe.svarga@gmail.com.',
+        },
+        accessibility: {
+          title:'Декларация доступности',
+          body:'Последнее обновление: май 2026\n\nSvarga International стремится сделать свой цифровой контент доступным для людей с ограниченными возможностями.\n\n1. Стандарты\nСайт стремится соответствовать WCAG 2.1 уровень AA. Мы постоянно проверяем и улучшаем контрастность, навигацию с клавиатуры, совместимость со скринридерами и адаптивную вёрстку.\n\n2. Возможности\n• Полная клавиатурная навигация по всем интерактивным элементам.\n• Достаточный контраст текста и элементов управления.\n• Изменение размера текста без потери содержимого и функций.\n• Поддержка письма справа налево для иврита.\n• Тёмная и светлая темы.\n• Описательный alt-текст у изображений.\n\n3. Известные ограничения\nНекоторый встроенный сторонний контент и PDF-файлы пока могут быть недоступны полностью. Мы работаем над их улучшением.\n\n4. Обратная связь\nЕсли вы столкнулись с барьерами доступности или нуждаетесь в альтернативном формате — напишите на moshe.svarga@gmail.com. Мы стремимся ответить в течение 5 рабочих дней.\n\n5. Орган контроля\nВ Израиле надзор за доступностью осуществляет Комиссия по равным правам лиц с инвалидностью (Министерство юстиции).',
+        },
       },
     },
 
@@ -544,12 +614,32 @@
           submit:'שלח הודעה',sending:'שולח…',
           ok:'ההודעה נשלחה! נחזור אליך בקרוב.',
           err:'משהו השתבש. אנא פנה דרך WhatsApp או Telegram.',
+          verify:'אימות — כמה זה',verifyEq:'= ?',verifyPh:'תשובה',verifyErr:'תשובה שגויה — נסה שוב',
+          robot:'אני לא רובוט',robotErr:'אנא אשר שאתה לא רובוט',
+          mailFallback:'או שלח לנו מייל ישירות ←',
         },
       },
       footer: {
         copy:'© 2026 Svarga International · משה אוסטרובסקי. כל הזכויות שמורות.',
-        links:['על המרתון','פרקטיקות','תוכנית','צור קשר'],
+        links:['על המרתון','פרקטיקות','תוכנית','המנחה','צור קשר'],
         followUs:'עקוב',
+        legalHeader:'מסמכים',
+        terms:'תנאי שימוש באתר SVARGA', privacy:'מדיניות פרטיות', accessibility:'הצהרת נגישות',
+      },
+      legal: {
+        close:'סגירה',
+        terms: {
+          title:'תנאי שימוש באתר SVARGA',
+          body:'עודכן לאחרונה: מאי 2026\n\nתנאי שימוש אלה חלים על השימוש באתר Svarga International ובתוכנית "מרתון הטרנספורמציה של 21 יום" בהנחיית משה אוסטרובסקי ("Svarga", "אנו").\n\n1. הסכמה לתנאים\nשימוש באתר או הרשמה לכל תוכנית מהווים הסכמה לתנאים אלה.\n\n2. תוכניות ושירותים\nהמרתון הוא תוכנית חינוכית ופרקטית. הוא אינו תחליף לטיפול רפואי, פסיכולוגי או פסיכיאטרי. יש להתייעץ עם איש מקצוע מוסמך לפני התחלת כל פרקטיקה חדשה.\n\n3. הרשמה, תשלום והחזרים\nעלויות, לוחות זמנים ומדיניות החזרים נמסרים בעת ההרשמה. ביטולים שנעשים לפחות 7 ימים לפני מועד הפתיחה זכאים להחזר מלא.\n\n4. קניין רוחני\nכל התכנים, ההקלטות והחומרים שייכים למשה אוסטרובסקי / Svarga International. אסור להעתיק, להפיץ או למכור אותם ללא אישור בכתב.\n\n5. התנהגות\nהמשתתפים מתחייבים להתנהל בכבוד מול המורים, הצוות ויתר המשתתפים. אנו שומרים את הזכות להרחיק כל אדם שהתנהגותו פוגעת.\n\n6. הגבלת אחריות\nבמידה המרבית המותרת על פי דין, Svarga International אינה אחראית לנזקים עקיפים, מקריים או תוצאתיים הנובעים משימוש באתר או מהשתתפות בתוכניות.\n\n7. יצירת קשר\nלשאלות על תנאים אלה — moshe.svarga@gmail.com.',
+        },
+        privacy: {
+          title:'מדיניות פרטיות',
+          body:'עודכן לאחרונה: מאי 2026\n\nמדיניות זו מסבירה כיצד Svarga International אוספת ומשתמשת במידע האישי שלך.\n\n1. מידע שאנחנו אוספים\nכשאתם שולחים טופס יצירת קשר, אנו אוספים את השם, האימייל, מספר הטלפון (אם נמסר), השפה שבחרתם ותוכן ההודעה. אנו לא משתמשים בעוגיות מעקב של צד שלישי.\n\n2. שימוש במידע\nאנו משתמשים במידע אך ורק כדי להשיב לפנייתכם, ובהסכמתכם — כדי לעדכן אתכם על תוכניות עתידיות.\n\n3. שמירת המידע ושיתופו\nההגשות מועברות דרך שירות FormSubmit.co לכתובת moshe.svarga@gmail.com. אנו לא מוכרים או משכירים את הנתונים שלכם. שיתוף נעשה רק עם ספקי שירות (אימייל, אחסון) תחת התחייבויות סודיות.\n\n4. הזכויות שלכם\nניתן לבקש גישה, תיקון או מחיקה של הנתונים האישיים בכל עת בכתובת moshe.svarga@gmail.com. נשיב בתוך 30 יום.\n\n5. תקופת שמירה\nלידים והתכתבויות נשמרים כל עוד הדבר נדרש כדי להשיב ולספק שירות, ונמחקים על פי דרישה.\n\n6. ילדים\nהאתר אינו מיועד לילדים מתחת לגיל 16. אנו לא אוספים נתונים מקטינים ביודעין.\n\n7. יצירת קשר\nלשאלות פרטיות — moshe.svarga@gmail.com.',
+        },
+        accessibility: {
+          title:'הצהרת נגישות',
+          body:'עודכן לאחרונה: מאי 2026\n\nSvarga International מחויבת להנגיש את הנוכחות הדיגיטלית שלה לאנשים עם מוגבלויות.\n\n1. תקנים\nהאתר שואף לעמוד בתקן WCAG 2.1 ברמה AA. אנו בודקים ומשפרים באופן רציף את ניגודיות הצבעים, ניווט במקלדת, תאימות לקוראי מסך ופריסה רספונסיבית.\n\n2. תכונות\n• ניווט מלא במקלדת לכל הרכיבים האינטראקטיביים.\n• ניגודיות מספקת לטקסט ולפקדים.\n• שינוי גודל טקסט ללא אובדן תוכן או פונקציה.\n• תמיכה בעברית מימין לשמאל (RTL).\n• מצבי עיצוב כהה ובהיר.\n• טקסט חלופי תיאורי לתמונות.\n\n3. מגבלות ידועות\nחלק מהתכנים החיצוניים המוטמעים וקבצי PDF עדיין אינם נגישים במלואם. אנו פועלים לתיקון.\n\n4. משוב\nאם נתקלתם במחסום נגישות או זקוקים לתוכן בפורמט חלופי — פנו ל-moshe.svarga@gmail.com. נשיב תוך 5 ימי עסקים.\n\n5. אכיפה\nבישראל, רשות הפיקוח על נגישות היא נציבות שוויון זכויות לאנשים עם מוגבלות (משרד המשפטים).',
+        },
       },
     },
 
@@ -625,12 +715,32 @@
           submit:'Nachricht senden',sending:'Wird gesendet…',
           ok:'Nachricht gesendet! Wir melden uns bald.',
           err:'Etwas ist schiefgelaufen. Bitte nutze WhatsApp oder Telegram.',
+          verify:'Verifikation — was ist',verifyEq:'= ?',verifyPh:'Antwort',verifyErr:'Falsche Antwort — bitte erneut versuchen',
+          robot:'Ich bin kein Roboter',robotErr:'Bitte bestätige, dass du kein Roboter bist',
+          mailFallback:'Oder schreibe uns direkt →',
         },
       },
       footer: {
         copy:'© 2026 Svarga International · Moshe Om. Alle Rechte vorbehalten.',
-        links:['Über','Praktiken','Programm','Kontakt'],
+        links:['Über','Praktiken','Programm','Begleiter','Kontakt'],
         followUs:'Folge uns',
+        legalHeader:'Rechtliches',
+        terms:'AGB der SVARGA-Website', privacy:'Datenschutzerklärung', accessibility:'Erklärung zur Barrierefreiheit',
+      },
+      legal: {
+        close:'Schließen',
+        terms: {
+          title:'AGB der SVARGA-Website',
+          body:'Zuletzt aktualisiert: Mai 2026\n\nDiese Allgemeinen Geschäftsbedingungen regeln die Nutzung der Svarga-International-Website und des 21-Tage-Transformations-Marathons unter der Leitung von Moshe Ostrovsky („Svarga", „wir").\n\n1. Annahme der Bedingungen\nMit der Nutzung dieser Website oder der Anmeldung zu einem Programm akzeptierst du diese Bedingungen.\n\n2. Programme und Leistungen\nDer Marathon ist ein Bildungs- und Achtsamkeitsprogramm. Er ersetzt keine medizinische, psychologische oder psychiatrische Behandlung. Konsultiere vor Beginn einer neuen Praxis eine qualifizierte Fachperson.\n\n3. Anmeldung, Zahlung und Rückerstattung\nKosten, Termine und Rückerstattungsbedingungen werden bei der Anmeldung mitgeteilt. Bei Stornierungen bis 7 Tage vor Programmbeginn erstatten wir die vollen Kosten.\n\n4. Geistiges Eigentum\nAlle Inhalte, Aufnahmen und Materialien sind Eigentum von Moshe Ostrovsky / Svarga International. Vervielfältigung, Verbreitung oder Weiterverkauf sind ohne schriftliche Genehmigung untersagt.\n\n5. Verhalten\nTeilnehmer verpflichten sich zu respektvollem Umgang mit Lehrern, Mitarbeitenden und anderen Teilnehmenden. Wir behalten uns vor, Personen mit störendem oder schädigendem Verhalten auszuschließen.\n\n6. Haftungsbeschränkung\nIm gesetzlich zulässigen Rahmen haftet Svarga International nicht für indirekte, zufällige oder Folgeschäden aus der Nutzung der Website oder der Teilnahme an Programmen.\n\n7. Kontakt\nFragen zu diesen AGB: moshe.svarga@gmail.com.',
+        },
+        privacy: {
+          title:'Datenschutzerklärung',
+          body:'Zuletzt aktualisiert: Mai 2026\n\nDiese Datenschutzerklärung erklärt, wie Svarga International personenbezogene Daten verarbeitet.\n\n1. Welche Daten wir erfassen\nBeim Absenden des Kontaktformulars erfassen wir Name, E-Mail, Telefonnummer (sofern angegeben), die gewählte Sprache und den Nachrichtentext. Wir verwenden keine Tracking-Cookies von Drittanbietern.\n\n2. Verwendung der Daten\nDie Daten dienen ausschließlich der Beantwortung deiner Anfrage und – mit deiner Einwilligung – der Information über kommende Programme.\n\n3. Speicherung und Weitergabe\nFormular-Übermittlungen werden über den Dienst FormSubmit.co an moshe.svarga@gmail.com geleitet. Wir verkaufen oder vermieten deine Daten nicht. Eine Weitergabe erfolgt ausschließlich an Dienstleister (E-Mail, Hosting) unter Vertraulichkeitsverpflichtung.\n\n4. Deine Rechte\nDu kannst jederzeit Auskunft, Berichtigung oder Löschung deiner Daten verlangen unter moshe.svarga@gmail.com. Wir antworten innerhalb von 30 Tagen.\n\n5. Aufbewahrung\nAnfragen und Korrespondenz werden so lange aufbewahrt, wie es zur Bearbeitung erforderlich ist, und auf Wunsch gelöscht.\n\n6. Kinder\nDie Website richtet sich nicht an Kinder unter 16 Jahren. Wir erfassen wissentlich keine Daten von Minderjährigen.\n\n7. Kontakt\nDatenschutzfragen: moshe.svarga@gmail.com.',
+        },
+        accessibility: {
+          title:'Erklärung zur Barrierefreiheit',
+          body:'Zuletzt aktualisiert: Mai 2026\n\nSvarga International setzt sich für die digitale Barrierefreiheit für Menschen mit Behinderungen ein.\n\n1. Standards\nDie Website strebt die Einhaltung von WCAG 2.1 Stufe AA an. Wir prüfen und verbessern fortlaufend Farbkontraste, Tastatur-Navigation, Screenreader-Kompatibilität und responsives Layout.\n\n2. Funktionen\n• Vollständige Tastatur-Navigation für alle interaktiven Elemente.\n• Ausreichende Farbkontraste für Text und Bedienelemente.\n• Skalierbarer Text ohne Verlust von Inhalt oder Funktion.\n• Rechts-nach-links-Layout für Hebräisch.\n• Dunkles und helles Farbschema.\n• Beschreibende Alt-Texte für Bilder.\n\n3. Bekannte Einschränkungen\nEingebettete Drittinhalte und PDFs sind möglicherweise noch nicht vollständig barrierefrei. Wir arbeiten daran.\n\n4. Feedback\nBei Barrieren oder Bedarf an alternativen Formaten: moshe.svarga@gmail.com. Wir antworten innerhalb von 5 Werktagen.\n\n5. Aufsicht\nIn Israel ist die Kommission für die Gleichberechtigung von Menschen mit Behinderungen (Justizministerium) zuständig.',
+        },
       },
     },
   };
@@ -962,10 +1072,11 @@
             <button className="btn-g" onClick={()=>scrollTo('about')} style={{borderColor:'rgba(237,233,226,.28)',color:'rgba(237,233,226,.72)'}}>{t.cta2}</button>
           </div>
         </div>
-        <div className="sdrop" style={{position:'absolute',bottom:32,zIndex:3,display:'flex',flexDirection:'column',alignItems:'center',gap:6}}>
+        <button className="sdrop sdrop-btn" onClick={()=>scrollTo('about')} aria-label="Scroll down"
+          style={{position:'absolute',bottom:32,zIndex:3,display:'flex',flexDirection:'column',alignItems:'center',gap:6}}>
           <div style={{width:1,height:52,background:'linear-gradient(to bottom, transparent, #C8A86E)',opacity:.55}}/>
           <div style={{width:5,height:5,borderRadius:'50%',background:'#C8A86E',opacity:.6}}/>
-        </div>
+        </button>
       </section>
     );
   }
@@ -1025,11 +1136,13 @@
           </div>
           <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(min(100%,230px),1fr))',gap:18}}>
             {t.items.map((item,i)=>(
-              <div key={i} className={`pc glass rv d${Math.min(i+1,7)}`} style={{padding:'32px 24px',display:'flex',flexDirection:'column',gap:12}}>
+              <button key={i} type="button" onClick={()=>scrollTo('contact')}
+                className={`pc glass rv d${Math.min(i+1,7)}`}
+                style={{padding:'32px 24px',display:'flex',flexDirection:'column',alignItems:'flex-start',gap:12,textAlign:'start',color:'inherit',font:'inherit'}}>
                 <div style={{width:32,height:32,color:'var(--gold)'}}>{PRACTICE_ICONS[i]}</div>
                 <h3 style={{fontFamily:'var(--font-d)',fontSize:'1.28rem',fontWeight:400}}>{item.title}</h3>
                 <p style={{fontSize:'.84rem',color:'var(--text-2)',lineHeight:1.78,fontWeight:300}}>{item.desc}</p>
-              </div>
+              </button>
             ))}
           </div>
         </div>
@@ -1053,7 +1166,9 @@
           </div>
           <div style={{display:'flex',flexDirection:'column',gap:40}}>
             {t.weeks.map((w,i)=>(
-              <div key={i} className={`prog-b rv d${i+1}`} style={{paddingLeft:28,paddingBottom:4}}>
+              <button key={i} type="button" onClick={()=>scrollTo('contact')}
+                className={`prog-b rv d${i+1}`}
+                style={{paddingLeft:28,paddingBottom:4,background:'none',color:'inherit',font:'inherit',textAlign:'start',display:'block',width:'100%'}}>
                 <div style={{fontSize:'.66rem',color:'var(--gold-dim)',letterSpacing:'.18em',textTransform:'uppercase',marginBottom:8}}>{w.days}</div>
                 <div style={{display:'flex',alignItems:'baseline',gap:18,marginBottom:12,flexWrap:'wrap'}}>
                   <span style={{fontFamily:'var(--font-d)',fontSize:'clamp(52px,7vw,84px)',fontWeight:300,lineHeight:.82,color:'rgba(200,168,110,.09)',letterSpacing:'-.02em',userSelect:'none'}}>{w.num}</span>
@@ -1065,7 +1180,7 @@
                     <span key={j} style={{padding:'5px 14px',border:'1px solid var(--border-md)',borderRadius:2,fontSize:'.7rem',color:'var(--text-3)',letterSpacing:'.05em'}}>{tag}</span>
                   ))}
                 </div>
-              </div>
+              </button>
             ))}
           </div>
         </div>
@@ -1197,20 +1312,40 @@
     const [honey, setHoney] = React.useState('');
     const [errors, setErrors] = React.useState({});
     const [status, setStatus] = React.useState('idle'); // idle | sending | ok | err
-    const [loadTime] = React.useState(Date.now());
+    const [robot, setRobot] = React.useState(false);
+    const [mathAns, setMathAns] = React.useState('');
+    // Stable per-mount math challenge
+    const math = React.useMemo(() => {
+      const a = 2 + Math.floor(Math.random() * 7); // 2..8
+      const b = 2 + Math.floor(Math.random() * 7); // 2..8
+      return { a, b, sum: a + b };
+    }, []);
 
     const validate = () => {
       const e = {};
       if (!form.name.trim() || form.name.trim().length < 2) e.name = true;
       if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = true;
       if (!form.message.trim() || form.message.trim().length < 10) e.message = true;
+      if (!robot) e.robot = true;
+      if (parseInt(mathAns, 10) !== math.sum) e.math = true;
       return e;
+    };
+
+    const mailtoFallback = () => {
+      const subject = encodeURIComponent('New Lead — Svarga Marathon');
+      const body = encodeURIComponent(
+        `Name: ${form.name || '—'}\n` +
+        `Email: ${form.email || '—'}\n` +
+        `Phone: ${form.phone || '—'}\n` +
+        `Language: ${lang}\n\n` +
+        `Message:\n${form.message || '—'}`
+      );
+      window.location.href = `mailto:${FORM_EMAIL}?subject=${subject}&body=${body}`;
     };
 
     const handleSubmit = async (e) => {
       e.preventDefault();
-      if (honey) return; // honeypot triggered
-      if (Date.now() - loadTime < 2500) return; // too fast
+      if (honey) return; // honeypot triggered — silently drop
       const errs = validate();
       if (Object.keys(errs).length) { setErrors(errs); return; }
       setErrors({});
@@ -1233,8 +1368,9 @@
           headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
           body: JSON.stringify(payload),
         });
-        const data = await res.json();
-        setStatus(data.success === 'true' || data.success === true ? 'ok' : 'err');
+        const data = await res.json().catch(() => ({}));
+        const success = data && (data.success === 'true' || data.success === true);
+        setStatus(success ? 'ok' : 'err');
       } catch {
         setStatus('err');
       }
@@ -1287,7 +1423,7 @@
               <div style={{textAlign:'center',padding:'48px 24px',border:'1px solid var(--border-md)',borderRadius:4,background:'var(--gold-faint)'}}>
                 <div style={{fontSize:'2rem',marginBottom:12}}>✓</div>
                 <p style={{fontFamily:'var(--font-d)',fontSize:'1.2rem',color:'var(--text-1)',marginBottom:20}}>{ft.ok}</p>
-                <button type="button" className="btn-g" onClick={()=>{setForm({name:'',email:'',phone:'',message:''});setStatus('idle');}}
+                <button type="button" className="btn-g" onClick={()=>{setForm({name:'',email:'',phone:'',message:''});setRobot(false);setMathAns('');setErrors({});setStatus('idle');}}
                   style={{fontSize:'.72rem'}}>
                   {ft.submit}
                 </button>
@@ -1330,8 +1466,37 @@
                   {errors.message && <div className="err-msg">↑ required (min 10 chars)</div>}
                 </div>
 
+                {/* Verification: math + not-a-robot */}
+                <div style={{padding:'18px 20px',border:'1px solid var(--border)',borderRadius:'var(--r)',background:'var(--gold-faint)',display:'flex',flexDirection:'column',gap:14}}>
+                  <label htmlFor="f-robot" style={{display:'flex',alignItems:'center',gap:10,cursor:'pointer',textTransform:'none',letterSpacing:0,fontSize:'.86rem',color:'var(--text-1)',fontWeight:400,marginBottom:0}}>
+                    <input id="f-robot" type="checkbox" checked={robot}
+                      onChange={e=>setRobot(e.target.checked)}
+                      style={{width:18,height:18,accentColor:'var(--gold)',cursor:'pointer',flexShrink:0}}/>
+                    <span>{ft.robot}</span>
+                  </label>
+                  {errors.robot && <div className="err-msg" style={{marginTop:-6}}>↑ {ft.robotErr}</div>}
+
+                  <div style={{display:'flex',alignItems:'center',gap:10,flexWrap:'wrap'}}>
+                    <span style={{fontSize:'.82rem',color:'var(--text-2)'}}>
+                      {ft.verify} <strong style={{color:'var(--gold)'}}>{math.a} + {math.b}</strong> {ft.verifyEq}
+                    </span>
+                    <input id="f-math" type="text" inputMode="numeric" placeholder={ft.verifyPh}
+                      className={`field${errors.math?' field-error':''}`}
+                      value={mathAns} onChange={e=>setMathAns(e.target.value.replace(/[^0-9-]/g,''))}
+                      style={{width:90,padding:'8px 12px',fontSize:'.86rem'}}
+                      autoComplete="off"/>
+                  </div>
+                  {errors.math && <div className="err-msg" style={{marginTop:-6}}>↑ {ft.verifyErr}</div>}
+                </div>
+
                 {status === 'err' && (
-                  <p style={{fontSize:'.82rem',color:'#E07070',textAlign:'center'}}>{ft.err}</p>
+                  <div style={{textAlign:'center',padding:'14px 18px',border:'1px solid rgba(224,112,112,.35)',borderRadius:'var(--r)',background:'rgba(224,112,112,.06)'}}>
+                    <p style={{fontSize:'.82rem',color:'#E07070',marginBottom:10}}>{ft.err}</p>
+                    <button type="button" onClick={mailtoFallback}
+                      style={{background:'none',border:'none',color:'var(--gold)',cursor:'pointer',fontSize:'.78rem',letterSpacing:'.04em',textDecoration:'underline',padding:0}}>
+                      {ft.mailFallback}
+                    </button>
+                  </div>
                 )}
 
                 <button type="submit" className="btn-p" disabled={status==='sending'}
@@ -1351,13 +1516,25 @@
   // ─────────────────────────────────────────────────────────────
   function FooterSection({ lang }) {
     const t = T[lang].footer;
-    const navIds = ['about','practices','program','contact'];
+    const lt = T[lang].legal;
+    const navIds = ['about','practices','program','teacher','contact'];
+    const [legalDoc, setLegalDoc] = React.useState(null); // null | 'terms' | 'privacy' | 'accessibility'
     const socials = [
       { icon:<IconFacebook size={18}/>, href:SOCIAL.facebook, label:'Facebook' },
       { icon:<IconInstagram size={18}/>, href:SOCIAL.instagram, label:'Instagram' },
       { icon:<IconYoutube size={20}/>, href:SOCIAL.youtube, label:'YouTube' },
       { icon:<IconTelegram size={17}/>, href:SOCIAL.telegram, label:'Telegram' },
     ];
+
+    React.useEffect(() => {
+      if (!legalDoc) return;
+      const onKey = (e) => { if (e.key === 'Escape') setLegalDoc(null); };
+      document.addEventListener('keydown', onKey);
+      const prev = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => { document.removeEventListener('keydown', onKey); document.body.style.overflow = prev; };
+    }, [legalDoc]);
+
     return (
       <footer style={{background:'var(--surface)',borderTop:'1px solid var(--border)'}}>
         <div style={{padding:'48px clamp(24px,7.5vw,112px) 32px'}}>
@@ -1431,8 +1608,18 @@
             </div>
           </div>
 
+          {/* Legal links row */}
+          <div style={{borderTop:'1px solid var(--border)',paddingTop:22,marginBottom:18,display:'flex',flexWrap:'wrap',gap:'12px 22px',alignItems:'center'}}>
+            <span style={{fontSize:'.6rem',color:'var(--text-3)',letterSpacing:'.18em',textTransform:'uppercase',opacity:.8}}>{t.legalHeader}:</span>
+            <button className="legal-link" onClick={()=>setLegalDoc('terms')}>{t.terms}</button>
+            <span style={{color:'var(--border-md)'}}>·</span>
+            <button className="legal-link" onClick={()=>setLegalDoc('privacy')}>{t.privacy}</button>
+            <span style={{color:'var(--border-md)'}}>·</span>
+            <button className="legal-link" onClick={()=>setLegalDoc('accessibility')}>{t.accessibility}</button>
+          </div>
+
           {/* Bottom bar */}
-          <div style={{borderTop:'1px solid var(--border)',paddingTop:22,display:'flex',flexWrap:'wrap',gap:16,alignItems:'center',justifyContent:'space-between'}}>
+          <div style={{paddingTop:14,display:'flex',flexWrap:'wrap',gap:16,alignItems:'center',justifyContent:'space-between'}}>
             <span style={{fontSize:'.68rem',color:'var(--text-3)',letterSpacing:'.04em'}}>{t.copy}</span>
             <a href={WHATSAPP} target="_blank" rel="noopener noreferrer"
               style={{display:'inline-flex',alignItems:'center',gap:6,fontSize:'.68rem',color:'var(--text-3)',textDecoration:'none',letterSpacing:'.04em',transition:'color .2s'}}
@@ -1443,6 +1630,17 @@
             </a>
           </div>
         </div>
+
+        {/* Legal modal */}
+        {legalDoc && lt && lt[legalDoc] && (
+          <div className="legal-overlay" onClick={()=>setLegalDoc(null)} role="dialog" aria-modal="true">
+            <div className="legal-card" onClick={e=>e.stopPropagation()}>
+              <h3>{lt[legalDoc].title}</h3>
+              <div className="body">{lt[legalDoc].body}</div>
+              <button className="legal-close" onClick={()=>setLegalDoc(null)}>{lt.close}</button>
+            </div>
+          </div>
+        )}
       </footer>
     );
   }
