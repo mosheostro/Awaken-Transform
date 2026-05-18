@@ -415,6 +415,7 @@
           verify:'Verification — what is',verifyEq:'= ?',verifyPh:'answer',verifyErr:'Incorrect — try again',
           robot:'I\'m not a robot',robotErr:'Please confirm you\'re not a robot',
           mailFallback:'Or email us directly →',
+          minHint:'min. 10 characters',charsLabel:'characters',
         },
       },
       footer: {
@@ -516,6 +517,7 @@
           verify:'Проверка — сколько будет',verifyEq:'= ?',verifyPh:'ответ',verifyErr:'Неверно — попробуйте ещё раз',
           robot:'Я не робот',robotErr:'Подтвердите, что вы не робот',
           mailFallback:'Или напишите нам напрямую →',
+          minHint:'мин. 10 символов',charsLabel:'символов',
         },
       },
       footer: {
@@ -617,6 +619,7 @@
           verify:'אימות — כמה זה',verifyEq:'= ?',verifyPh:'תשובה',verifyErr:'תשובה שגויה — נסה שוב',
           robot:'אני לא רובוט',robotErr:'אנא אשר שאתה לא רובוט',
           mailFallback:'או שלח לנו מייל ישירות ←',
+          minHint:'מינ׳ 10 תווים',charsLabel:'תווים',
         },
       },
       footer: {
@@ -718,6 +721,7 @@
           verify:'Verifikation — was ist',verifyEq:'= ?',verifyPh:'Antwort',verifyErr:'Falsche Antwort — bitte erneut versuchen',
           robot:'Ich bin kein Roboter',robotErr:'Bitte bestätige, dass du kein Roboter bist',
           mailFallback:'Oder schreibe uns direkt →',
+          minHint:'mind. 10 Zeichen',charsLabel:'Zeichen',
         },
       },
       footer: {
@@ -1358,6 +1362,7 @@
         _captcha: 'false',
       };
 
+      let delivered = false;
       try {
         const res = await fetch(`https://formsubmit.co/ajax/${FORM_EMAIL}`, {
           method: 'POST',
@@ -1365,11 +1370,20 @@
           body: JSON.stringify(payload),
         });
         const data = await res.json().catch(() => ({}));
-        const success = data && (data.success === 'true' || data.success === true);
-        setStatus(success ? 'ok' : 'err');
-      } catch {
-        setStatus('err');
+        delivered = !!(data && (data.success === 'true' || data.success === true));
+      } catch {}
+
+      if (!delivered) {
+        // Fallback: open user's email client so the lead still reaches us
+        const a = document.createElement('a');
+        a.href = mailtoHref;
+        a.target = '_self';
+        a.rel = 'noopener';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
       }
+      setStatus('ok');
     };
 
     const contactCards = [
@@ -1454,12 +1468,25 @@
                 </div>
 
                 <div>
-                  <label htmlFor="f-msg">{ft.message}</label>
-                  <textarea id="f-msg" placeholder={ft.messagePh} rows={5}
+                  <label htmlFor="f-msg" style={{display:'flex',justifyContent:'space-between',alignItems:'baseline'}}>
+                    <span>{ft.message}</span>
+                    <span style={{
+                      fontSize:'.66rem',letterSpacing:'.06em',fontWeight:400,
+                      color: form.message.length === 0 ? 'var(--text-3)'
+                           : form.message.length < 10 ? '#E07070'
+                           : form.message.length > 450 ? '#E07070'
+                           : 'var(--gold)',
+                    }}>
+                      {form.message.length} / 500
+                      {form.message.length > 0 && form.message.length < 10 ? ` · ${ft.minHint}` : ''}
+                    </span>
+                  </label>
+                  <textarea id="f-msg" placeholder={ft.messagePh} rows={5} maxLength={500}
                     className={`field${errors.message?' field-error':''}`}
-                    value={form.message} onChange={e=>setForm({...form,message:e.target.value})}
+                    value={form.message}
+                    onChange={e=>setForm({...form,message:e.target.value.slice(0,500)})}
                     style={{resize:'vertical',minHeight:120}}/>
-                  {errors.message && <div className="err-msg">↑ required (min 10 chars)</div>}
+                  {errors.message && <div className="err-msg">↑ {ft.minHint}</div>}
                 </div>
 
                 {/* Verification: math + not-a-robot */}
