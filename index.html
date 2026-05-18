@@ -1373,17 +1373,7 @@
         delivered = !!(data && (data.success === 'true' || data.success === true));
       } catch {}
 
-      if (!delivered) {
-        // Fallback: open user's email client so the lead still reaches us
-        const a = document.createElement('a');
-        a.href = mailtoHref;
-        a.target = '_self';
-        a.rel = 'noopener';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-      }
-      setStatus('ok');
+      setStatus(delivered ? 'ok' : 'err');
     };
 
     const contactCards = [
