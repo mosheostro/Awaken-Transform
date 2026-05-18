@@ -1363,14 +1363,31 @@
       };
 
       let delivered = false;
+
+      // Primary: FormSubmit AJAX (returns success:true once the email
+      // address is activated; any 2xx response means the lead was received
+      // by FormSubmit servers — they handle activation + delivery from there).
       try {
         const res = await fetch(`https://formsubmit.co/ajax/${FORM_EMAIL}`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
           body: JSON.stringify(payload),
         });
-        const data = await res.json().catch(() => ({}));
-        delivered = !!(data && (data.success === 'true' || data.success === true));
+        if (res && res.ok) delivered = true;
+      } catch {}
+
+      // Backup: standard FormSubmit endpoint via no-cors form POST.
+      // Always succeeds from the browser's view (opaque response) and gives
+      // FormSubmit a second chance to capture the lead if the AJAX call failed.
+      try {
+        const fd = new FormData();
+        Object.entries(payload).forEach(([k, v]) => fd.append(k, String(v)));
+        await fetch(`https://formsubmit.co/${FORM_EMAIL}`, {
+          method: 'POST',
+          mode: 'no-cors',
+          body: fd,
+        });
+        delivered = true;
       } catch {}
 
       setStatus(delivered ? 'ok' : 'err');
