@@ -759,7 +759,7 @@
     }, []);
   }
 
-  function scrollTo(id) {
+  function scrollToSectionSection(id) {
     const el = document.getElementById(id);
     if (!el) return;
     window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - 72, behavior: 'smooth' });
@@ -915,7 +915,7 @@
       { code: 'de', label: 'Deutsch' },
     ];
 
-    const handleNav = (id) => { setMenuOpen(false); scrollTo(id); };
+    const handleNav = (id) => { setMenuOpen(false); scrollToSectionSection(id); };
 
     return (
       <>
@@ -943,7 +943,7 @@
           {/* Desktop links */}
           <div className="dsk-hide" style={{display:'flex',alignItems:'center',gap:28}}>
             {navLinks.map(l => (
-              <button key={l.id} onClick={() => scrollTo(l.id)} style={{
+              <button key={l.id} onClick={() => scrollToSectionSection(l.id)} style={{
                 background:'none',border:'none',cursor:'pointer',padding:0,
                 fontFamily:'var(--font-b)',fontSize:'.74rem',fontWeight:400,
                 color:linkColor,letterSpacing:'.09em',textTransform:'uppercase',
@@ -983,7 +983,7 @@
             </div>
 
             {/* CTA */}
-            <button className="btn-p" style={{padding:'9px 22px',fontSize:'.7rem'}} onClick={()=>scrollTo('contact')}>{t.cta}</button>
+            <button className="btn-p" style={{padding:'9px 22px',fontSize:'.7rem'}} onClick={()=>scrollToSectionSection('contact')}>{t.cta}</button>
           </div>
 
           {/* Mobile hamburger */}
@@ -1068,11 +1068,11 @@
             {t.sub}
           </p>
           <div className="hl5" style={{display:'flex',gap:14,justifyContent:'center',flexWrap:'wrap'}}>
-            <button className="btn-p glow" onClick={()=>scrollTo('contact')} style={{background:'#C8A86E',color:'#0D1018'}}>{t.cta}</button>
-            <button className="btn-g" onClick={()=>scrollTo('about')} style={{borderColor:'rgba(237,233,226,.28)',color:'rgba(237,233,226,.72)'}}>{t.cta2}</button>
+            <button className="btn-p glow" onClick={()=>scrollToSectionSection('contact')} style={{background:'#C8A86E',color:'#0D1018'}}>{t.cta}</button>
+            <button className="btn-g" onClick={()=>scrollToSectionSection('about')} style={{borderColor:'rgba(237,233,226,.28)',color:'rgba(237,233,226,.72)'}}>{t.cta2}</button>
           </div>
         </div>
-        <button className="sdrop sdrop-btn" onClick={()=>scrollTo('about')} aria-label="Scroll down"
+        <button className="sdrop sdrop-btn" onClick={()=>scrollToSectionSection('about')} aria-label="Scroll down"
           style={{position:'absolute',bottom:32,zIndex:3,display:'flex',flexDirection:'column',alignItems:'center',gap:6}}>
           <div style={{width:1,height:52,background:'linear-gradient(to bottom, transparent, #C8A86E)',opacity:.55}}/>
           <div style={{width:5,height:5,borderRadius:'50%',background:'#C8A86E',opacity:.6}}/>
@@ -1136,7 +1136,7 @@
           </div>
           <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(min(100%,230px),1fr))',gap:18}}>
             {t.items.map((item,i)=>(
-              <button key={i} type="button" onClick={()=>scrollTo('contact')}
+              <button key={i} type="button" onClick={()=>scrollToSectionSection('contact')}
                 className={`pc glass rv d${Math.min(i+1,7)}`}
                 style={{padding:'32px 24px',display:'flex',flexDirection:'column',alignItems:'flex-start',gap:12,textAlign:'start',color:'inherit',font:'inherit'}}>
                 <div style={{width:32,height:32,color:'var(--gold)'}}>{PRACTICE_ICONS[i]}</div>
@@ -1166,7 +1166,7 @@
           </div>
           <div style={{display:'flex',flexDirection:'column',gap:40}}>
             {t.weeks.map((w,i)=>(
-              <button key={i} type="button" onClick={()=>scrollTo('contact')}
+              <button key={i} type="button" onClick={()=>scrollToSectionSection('contact')}
                 className={`prog-b rv d${i+1}`}
                 style={{paddingLeft:28,paddingBottom:4,background:'none',color:'inherit',font:'inherit',textAlign:'start',display:'block',width:'100%'}}>
                 <div style={{fontSize:'.66rem',color:'var(--gold-dim)',letterSpacing:'.18em',textTransform:'uppercase',marginBottom:8}}>{w.days}</div>
@@ -1292,8 +1292,8 @@
           </h2>
           <p className="rv d2" style={{fontSize:'.9rem',color:'rgba(237,233,226,.65)',fontWeight:300,lineHeight:1.8,letterSpacing:'.025em',marginBottom:44}}>{t.sub}</p>
           <div className="rv d3" style={{display:'flex',gap:14,justifyContent:'center',flexWrap:'wrap'}}>
-            <button className="btn-p glow" style={{background:'#C8A86E',color:'#0D1018'}} onClick={()=>scrollTo('contact')}>{t.btn}</button>
-            <button className="btn-g" style={{borderColor:'rgba(237,233,226,.28)',color:'rgba(237,233,226,.65)'}} onClick={()=>scrollTo('contact')}>{t.btn2}</button>
+            <button className="btn-p glow" style={{background:'#C8A86E',color:'#0D1018'}} onClick={()=>scrollToSectionSection('contact')}>{t.btn}</button>
+            <button className="btn-g" style={{borderColor:'rgba(237,233,226,.28)',color:'rgba(237,233,226,.65)'}} onClick={()=>scrollToSectionSection('contact')}>{t.btn2}</button>
           </div>
         </div>
       </section>
@@ -1331,17 +1331,13 @@
       return e;
     };
 
-    const mailtoFallback = () => {
+    const mailtoHref = React.useMemo(() => {
       const subject = encodeURIComponent('New Lead — Svarga Marathon');
       const body = encodeURIComponent(
-        `Name: ${form.name || '—'}\n` +
-        `Email: ${form.email || '—'}\n` +
-        `Phone: ${form.phone || '—'}\n` +
-        `Language: ${lang}\n\n` +
-        `Message:\n${form.message || '—'}`
+        `Name: ${form.name || '—'}\nEmail: ${form.email || '—'}\nPhone: ${form.phone || '—'}\nLanguage: ${lang}\n\nMessage:\n${form.message || '—'}`
       );
-      window.location.href = `mailto:${FORM_EMAIL}?subject=${subject}&body=${body}`;
-    };
+      return `mailto:${FORM_EMAIL}?subject=${subject}&body=${body}`;
+    }, [form, lang]);
 
     const handleSubmit = async (e) => {
       e.preventDefault();
@@ -1492,10 +1488,10 @@
                 {status === 'err' && (
                   <div style={{textAlign:'center',padding:'14px 18px',border:'1px solid rgba(224,112,112,.35)',borderRadius:'var(--r)',background:'rgba(224,112,112,.06)'}}>
                     <p style={{fontSize:'.82rem',color:'#E07070',marginBottom:10}}>{ft.err}</p>
-                    <button type="button" onClick={mailtoFallback}
-                      style={{background:'none',border:'none',color:'var(--gold)',cursor:'pointer',fontSize:'.78rem',letterSpacing:'.04em',textDecoration:'underline',padding:0}}>
+                    <a href={mailtoHref}
+                      style={{color:'var(--gold)',fontSize:'.78rem',letterSpacing:'.04em',textDecoration:'underline'}}>
                       {ft.mailFallback}
-                    </button>
+                    </a>
                   </div>
                 )}
 
@@ -1560,7 +1556,7 @@
               <div style={{fontSize:'.64rem',color:'var(--text-3)',letterSpacing:'.18em',textTransform:'uppercase',marginBottom:14}}>Menu</div>
               <div style={{display:'flex',flexDirection:'column',gap:10}}>
                 {t.links.map((l,i)=>(
-                  <button key={i} onClick={()=>scrollTo(navIds[i])} style={{
+                  <button key={i} onClick={()=>scrollToSectionSection(navIds[i])} style={{
                     background:'none',border:'none',cursor:'pointer',textAlign:'start',
                     fontSize:'.78rem',color:'var(--text-2)',letterSpacing:'.04em',padding:0,
                     transition:'color .2s',
