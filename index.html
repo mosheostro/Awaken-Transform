@@ -314,11 +314,12 @@
 
   <script type="text/babel">
   // ─────────────────────────────────────────────────────────────
-  // FORM CONFIG  — FormSubmit.co (free, no account needed)
-  // First submission triggers a one-time verification email to the
-  // address below; after confirming, all future leads arrive there.
+  // FORM CONFIG  — Web3Forms (free, 250 submissions/month).
+  // Access key is public by design; submissions are routed to the
+  // email registered with this key on web3forms.com.
   // ─────────────────────────────────────────────────────────────
-  const FORM_EMAIL = 'moshe.svarga@gmail.com';
+  const WEB3FORMS_KEY = 'beb93abe-d1f3-4ce7-b12b-4e3bc915465a';
+  const FORM_EMAIL    = 'moshe.svarga@gmail.com';
 
   // Contact details
   const WHATSAPP    = 'https://wa.me/972549989627?text=Hello%2C%20I%27m%20interested%20in%20the%20Svarga%20Marathon';
@@ -1352,45 +1353,28 @@
       setStatus('sending');
 
       const payload = {
+        access_key: WEB3FORMS_KEY,
+        subject: 'New Lead — Svarga Marathon',
+        from_name: 'Svarga Marathon Landing',
         name: form.name,
         email: form.email,
         phone: form.phone || '—',
         message: form.message,
         language: lang,
-        _subject: 'New Lead — Svarga Marathon',
-        _template: 'table',
-        _captcha: 'false',
+        botcheck: '',
       };
 
-      let delivered = false;
-
-      // Primary: FormSubmit AJAX (returns success:true once the email
-      // address is activated; any 2xx response means the lead was received
-      // by FormSubmit servers — they handle activation + delivery from there).
       try {
-        const res = await fetch(`https://formsubmit.co/ajax/${FORM_EMAIL}`, {
+        const res = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
           body: JSON.stringify(payload),
         });
-        if (res && res.ok) delivered = true;
-      } catch {}
-
-      // Backup: standard FormSubmit endpoint via no-cors form POST.
-      // Always succeeds from the browser's view (opaque response) and gives
-      // FormSubmit a second chance to capture the lead if the AJAX call failed.
-      try {
-        const fd = new FormData();
-        Object.entries(payload).forEach(([k, v]) => fd.append(k, String(v)));
-        await fetch(`https://formsubmit.co/${FORM_EMAIL}`, {
-          method: 'POST',
-          mode: 'no-cors',
-          body: fd,
-        });
-        delivered = true;
-      } catch {}
-
-      setStatus(delivered ? 'ok' : 'err');
+        const data = await res.json().catch(() => ({}));
+        setStatus(res.ok && data && data.success === true ? 'ok' : 'err');
+      } catch {
+        setStatus('err');
+      }
     };
 
     const contactCards = [
