@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="5" fill="#0E1016"/>
+  <!-- Lotus: 3 main petals -->
+  <path fill="#C8A86E" d="M16 7 Q13.5 12 14.5 18 Q15 20 16 20 Q17 20 17.5 18 Q18.5 12 16 7Z"/>
+  <path fill="#C8A86E" d="M9 15 Q11 10 16 13 Q15 16 14.5 18 Q11 19 9 15Z" opacity="0.82"/>
+  <path fill="#C8A86E" d="M23 15 Q21 10 16 13 Q17 16 17.5 18 Q21 19 23 15Z" opacity="0.82"/>
+  <!-- Outer side petals -->
+  <path fill="#C8A86E" d="M6 19 Q9 14 15 16 Q14 19 14.5 22 Q9 22 6 19Z" opacity="0.55"/>
+  <path fill="#C8A86E" d="M26 19 Q23 14 17 16 Q18 19 17.5 22 Q23 22 26 19Z" opacity="0.55"/>
+  <!-- Water line -->
+  <path fill="none" stroke="#C8A86E" stroke-width="0.9" stroke-linecap="round"
+        d="M8 26 Q12 24 16 25.5 Q20 24 24 26"/>
+  <!-- Stem -->
+  <line x1="16" y1="20" x2="16" y2="25" stroke="#C8A86E" stroke-width="0.8" opacity="0.6"/>
+</svg>
