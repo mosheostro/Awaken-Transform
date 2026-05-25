@@ -1,72 +1,55 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark" dir="ltr">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="21-day integral transformation marathon with Moshe Om — body, breath, mind, consciousness.">
-  <title>Awaken · Transform — Moshe Om · Svarga International</title>
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="icon" type="image/png" href="assets/LOGO-2.png" sizes="192x192">
-  <link rel="apple-touch-icon" href="assets/LOGO-2.png">
+  <meta name="description" content="Svarga International — Choose your guide. Integral transformation, breathwork, meditation, and business mastery.">
+  <title>LifeForge AI · Svarga International — Choose Your Guide</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%23C8A86E'/><text x='16' y='22' text-anchor='middle' font-family='Georgia' font-size='18' fill='%230D0B08'>S</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* ── THEME TOKENS ── */
     :root {
-      --bg:           #0D1018;
-      --bg-alt:       #131820;
-      --surface:      #171D28;
-      --surface-2:    #1D2433;
-      --text-1:       #EDE9E2;
-      --text-2:       #A8A49C;
-      --text-3:       #6B6762;
-      --border:       rgba(237,233,226,.10);
-      --border-md:    rgba(237,233,226,.18);
-      --gold:         #C8A86E;
-      --gold-hover:   #DDBB7E;
-      --gold-dim:     #9A7E4A;
-      --gold-faint:   rgba(200,168,110,.12);
-      --sage:         #6EA080;
-      --shadow:       rgba(0,0,0,.55);
-      --nav-bg:       rgba(13,16,24,.93);
-      --about-bg:     #F5F1E8;
-      --about-text:   #1C1810;
-      --about-text2:  #5A5650;
-      --about-sage:   #4E7E64;
-      --input-bg:     rgba(237,233,226,.055);
-      --input-border: rgba(237,233,226,.14);
-      --input-focus:  rgba(200,168,110,.45);
+      --bg:        #0D0B08;
+      --bg-alt:    #141108;
+      --surface:   #1B1710;
+      --surface-2: #232018;
+      --text-1:    #EDE9E2;
+      --text-2:    #A8A49C;
+      --text-3:    #6B6762;
+      --border:    rgba(237,233,226,.09);
+      --border-md: rgba(237,233,226,.17);
+      --gold:      #C8A86E;
+      --gold-h:    #DDBB7E;
+      --gold-dim:  #9A7E4A;
+      --gold-f:    rgba(200,168,110,.10);
+      --sage:      #6EA080;
+      --shadow:    rgba(0,0,0,.65);
+      --nav-bg:    rgba(13,11,8,.94);
       --font-d: 'Cormorant Garamond', Georgia, serif;
       --font-b: 'DM Sans', system-ui, sans-serif;
-      --r: 3px;
+      --r: 4px;
     }
     [data-theme="light"] {
-      --bg:           #F8F5EE;
-      --bg-alt:       #F0EDE6;
-      --surface:      #FFFFFF;
-      --surface-2:    #EDE9E0;
-      --text-1:       #1C1810;
-      --text-2:       #5A5650;
-      --text-3:       #9A9590;
-      --border:       rgba(28,24,16,.10);
-      --border-md:    rgba(28,24,16,.20);
-      --gold:         #9A6E28;
-      --gold-hover:   #7E5818;
-      --gold-dim:     #BF9040;
-      --gold-faint:   rgba(154,110,40,.10);
-      --sage:         #3A7556;
-      --shadow:       rgba(0,0,0,.10);
-      --nav-bg:       rgba(248,245,238,.95);
-      --about-bg:     #FFFFFF;
-      --about-text:   #1C1810;
-      --about-text2:  #5A5650;
-      --about-sage:   #3A7556;
-      --input-bg:     rgba(28,24,16,.04);
-      --input-border: rgba(28,24,16,.16);
-      --input-focus:  rgba(154,110,40,.40);
+      --bg:        #FAF7F0;
+      --bg-alt:    #F2EFE7;
+      --surface:   #FFFFFF;
+      --surface-2: #EDE9E0;
+      --text-1:    #1C1810;
+      --text-2:    #5A5650;
+      --text-3:    #9A9590;
+      --border:    rgba(28,24,16,.09);
+      --border-md: rgba(28,24,16,.18);
+      --gold:      #8B6520;
+      --gold-h:    #724F12;
+      --gold-dim:  #B08030;
+      --gold-f:    rgba(139,101,32,.09);
+      --sage:      #3A7556;
+      --shadow:    rgba(0,0,0,.10);
+      --nav-bg:    rgba(250,247,240,.96);
     }
 
     html { scroll-behavior: smooth; }
@@ -84,225 +67,245 @@
     ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 2px; }
     ::selection { background: rgba(200,168,110,.22); }
     img { display: block; max-width: 100%; }
-    a { color: inherit; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: var(--font-b); }
 
-    /* ── LAYOUT ── */
-    .sp { padding: clamp(72px,10vw,140px) clamp(24px,7.5vw,112px); }
-    .mw { max-width: 1280px; margin: 0 auto; }
+    .sp  { padding: clamp(72px,10vw,130px) clamp(24px,7vw,100px); }
+    .sp2 { padding: clamp(48px,7vw,96px) clamp(24px,7vw,100px); }
+    .mw  { max-width: 1280px; margin: 0 auto; }
 
-    /* ── SCROLL REVEAL ── */
-    .rv  { opacity:0; transform:translateY(22px); transition:opacity .85s cubic-bezier(.2,0,.2,1),transform .85s cubic-bezier(.2,0,.2,1); }
-    .rvl { opacity:0; transform:translateX(-22px);transition:opacity .85s cubic-bezier(.2,0,.2,1),transform .85s cubic-bezier(.2,0,.2,1); }
-    .rvr { opacity:0; transform:translateX(22px); transition:opacity .85s cubic-bezier(.2,0,.2,1),transform .85s cubic-bezier(.2,0,.2,1); }
+    .rv  { opacity:0; transform:translateY(20px); transition:opacity .8s cubic-bezier(.2,0,.2,1),transform .8s cubic-bezier(.2,0,.2,1); }
+    .rvl { opacity:0; transform:translateX(-20px);transition:opacity .8s cubic-bezier(.2,0,.2,1),transform .8s cubic-bezier(.2,0,.2,1); }
+    .rvr { opacity:0; transform:translateX(20px); transition:opacity .8s cubic-bezier(.2,0,.2,1),transform .8s cubic-bezier(.2,0,.2,1); }
     .rv.in,.rvl.in,.rvr.in { opacity:1; transform:none; }
-    .d1{transition-delay:.10s}.d2{transition-delay:.20s}.d3{transition-delay:.30s}
-    .d4{transition-delay:.42s}.d5{transition-delay:.54s}.d6{transition-delay:.66s}.d7{transition-delay:.78s}
+    .d1{transition-delay:.10s}.d2{transition-delay:.22s}.d3{transition-delay:.34s}
+    .d4{transition-delay:.46s}.d5{transition-delay:.58s}.d6{transition-delay:.70s}
 
-    /* ── TYPOGRAPHY ── */
     .eyebrow {
-      font-family: var(--font-b); font-size:.68rem; font-weight:500;
+      font-family:var(--font-b); font-size:.64rem; font-weight:500;
       letter-spacing:.22em; text-transform:uppercase; color:var(--gold);
     }
-    .eyebrow-sage { color:var(--sage); }
-    .gline { flex-shrink:0; width:40px; height:1px; background:linear-gradient(90deg,var(--gold),transparent); opacity:.65; }
-    .gline-r { background:linear-gradient(270deg,var(--gold),transparent); }
 
-    /* ── BUTTONS ── */
     .btn-p {
-      display:inline-flex; align-items:center; gap:10px;
-      padding:15px 38px; background:var(--gold); color:#0D1018;
-      font-family:var(--font-b); font-size:.78rem; font-weight:500;
-      letter-spacing:.13em; text-transform:uppercase;
-      border:none; border-radius:var(--r); cursor:pointer; text-decoration:none;
+      display:inline-flex; align-items:center; gap:8px;
+      padding:13px 34px; background:var(--gold); color:#0D0B08;
+      font-size:.76rem; font-weight:500; letter-spacing:.13em; text-transform:uppercase;
+      border:none; border-radius:var(--r); cursor:pointer;
       transition:background .3s,transform .25s,box-shadow .3s;
     }
-    .btn-p:hover { background:var(--gold-hover); transform:translateY(-2px); box-shadow:0 16px 48px rgba(200,168,110,.28); }
+    .btn-p:hover { background:var(--gold-h); transform:translateY(-2px); box-shadow:0 14px 40px rgba(200,168,110,.28); }
     .btn-g {
-      display:inline-flex; align-items:center; gap:10px;
-      padding:14px 36px; background:transparent; color:var(--text-2);
-      font-family:var(--font-b); font-size:.78rem; font-weight:400;
-      letter-spacing:.09em; text-transform:uppercase;
-      border:1px solid var(--border-md); border-radius:var(--r);
-      cursor:pointer; text-decoration:none;
+      display:inline-flex; align-items:center; gap:8px;
+      padding:12px 32px; background:transparent; color:var(--text-2);
+      font-size:.76rem; font-weight:400; letter-spacing:.09em; text-transform:uppercase;
+      border:1px solid var(--border-md); border-radius:var(--r); cursor:pointer;
       transition:border-color .3s,color .3s;
     }
     .btn-g:hover { border-color:var(--gold); color:var(--gold); }
 
-    /* ── NAV ── */
-    nav.scrolled {
-      background:var(--nav-bg) !important;
-      backdrop-filter:blur(24px) !important;
-      -webkit-backdrop-filter:blur(24px) !important;
-      border-bottom:1px solid var(--border) !important;
+    /* NAV */
+    .nav-wrap {
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:0 clamp(20px,5.5vw,72px); height:68px;
+      background:transparent;
+      transition:background .4s,border-color .4s,backdrop-filter .4s;
     }
-
-    /* ── CARDS ── */
-    .glass {
-      background:var(--gold-faint);
-      backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
-      border:1px solid var(--border); border-radius:var(--r);
+    .nav-wrap.scrolled {
+      background:var(--nav-bg);
+      backdrop-filter:blur(22px); -webkit-backdrop-filter:blur(22px);
+      border-bottom:1px solid var(--border);
     }
-    .pc { transition:transform .3s,border-color .3s,background .3s; cursor:pointer; }
-    .pc:hover { transform:translateY(-5px); border-color:rgba(200,168,110,.28)!important; background:var(--gold-faint)!important; }
-    .tc { transition:none; }
-    .prog-b { border-left:2px solid var(--border-md); transition:border-color .3s,background .3s; cursor:pointer; }
-    .prog-b:hover { border-left-color:var(--gold); }
-    .sdrop-btn { background:none; border:none; cursor:pointer; padding:0; }
+    .nav-logo { display:flex; align-items:center; gap:10px; cursor:pointer; background:none; border:none; }
+    .nav-logo img { width:34px; height:34px; border-radius:50%; object-fit:cover; border:1px solid rgba(200,168,110,.30); }
+    .nav-logo-name { font-family:var(--font-d); font-size:1rem; font-weight:400; color:var(--text-1); letter-spacing:.03em; display:block; }
+    .nav-logo-sub  { font-size:.56rem; color:var(--gold); letter-spacing:.20em; text-transform:uppercase; display:block; }
+    .nav-right { display:flex; align-items:center; gap:10px; }
 
-    /* ── FORM ── */
-    .field {
-      width:100%; padding:13px 16px;
-      background:var(--input-bg); color:var(--text-1);
-      border:1px solid var(--input-border); border-radius:var(--r);
-      font-family:var(--font-b); font-size:.9rem; font-weight:300;
-      transition:border-color .2s,box-shadow .2s;
-      outline:none;
+    .ctrl-btn {
+      background:none; border:1px solid var(--border-md); border-radius:var(--r);
+      padding:6px 12px; cursor:pointer;
+      font-size:.66rem; font-weight:500; letter-spacing:.10em; color:var(--text-3);
+      transition:border-color .2s,color .2s; white-space:nowrap;
+      display:flex; align-items:center; gap:5px;
     }
-    .field::placeholder { color:var(--text-3); }
-    .field:focus { border-color:var(--gold); box-shadow:0 0 0 3px var(--input-focus); }
-    .field-error { border-color:#E05050 !important; }
-    label { display:block; font-size:.72rem; font-weight:500; letter-spacing:.08em; color:var(--text-3); text-transform:uppercase; margin-bottom:7px; }
-    .err-msg { font-size:.72rem; color:#E07070; margin-top:5px; }
+    .ctrl-btn:hover { border-color:var(--gold); color:var(--gold); }
 
-    /* ── MOBILE DRAWER ── */
-    .drawer-overlay {
-      position:fixed; inset:0; z-index:200;
-      background:rgba(13,16,24,.98);
-      backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px);
-      display:flex; flex-direction:column;
-      padding:88px 36px 48px;
-      opacity:0; pointer-events:none;
-      transition:opacity .35s cubic-bezier(.2,0,.2,1);
-    }
-    .drawer-overlay.open { opacity:1; pointer-events:all; }
-    [data-theme="light"] .drawer-overlay { background:rgba(248,245,238,.98); }
-
-    /* ── ANIMATIONS ── */
-    @keyframes glow-pulse {
-      0%,100% { box-shadow:0 0 28px rgba(200,168,110,.18); }
-      50%      { box-shadow:0 0 56px rgba(200,168,110,.42); }
-    }
-    .glow { animation:glow-pulse 3.2s ease-in-out infinite; }
-
-    @keyframes scroll-drop {
-      0%,100% { transform:translateY(0); opacity:.4; }
-      50%      { transform:translateY(8px); opacity:.9; }
-    }
-    .sdrop { animation:scroll-drop 2.4s ease-in-out infinite; }
-
-    @keyframes hfade {
-      from { opacity:0; transform:translateY(18px); }
-      to   { opacity:1; transform:none; }
-    }
-    .hl1{animation:hfade 1s cubic-bezier(.2,0,.2,1) .3s both}
-    .hl2{animation:hfade 1s cubic-bezier(.2,0,.2,1) .5s both}
-    .hl3{animation:hfade 1s cubic-bezier(.2,0,.2,1) .7s both}
-    .hl4{animation:hfade 1s cubic-bezier(.2,0,.2,1) .9s both}
-    .hl5{animation:hfade 1s cubic-bezier(.2,0,.2,1) 1.1s both}
-
-    /* ── WHATSAPP FLOAT ── */
-    .wa-float {
-      position:fixed; bottom:28px; right:28px; z-index:150;
-      width:58px; height:58px; border-radius:50%;
-      background:#25D366; border:none; cursor:pointer;
-      display:flex; align-items:center; justify-content:center;
-      box-shadow:0 8px 32px rgba(37,211,102,.35);
-      transition:transform .25s,box-shadow .25s;
-      text-decoration:none;
-    }
-    .wa-float:hover { transform:scale(1.08) translateY(-2px); box-shadow:0 12px 40px rgba(37,211,102,.48); }
-    [dir="rtl"] .wa-float { right:auto; left:28px; }
-
-    /* ── THEME TOGGLE ── */
-    .theme-btn {
-      background:none; border:1px solid var(--border-md);
-      border-radius:20px; padding:7px 13px;
-      cursor:pointer; display:flex; align-items:center; gap:7px;
-      font-family:var(--font-b); font-size:.68rem; font-weight:500;
-      letter-spacing:.08em; color:var(--text-3);
-      transition:border-color .2s,color .2s;
-    }
-    .theme-btn:hover { border-color:var(--gold); color:var(--gold); }
-
-    /* ── LANG DROPDOWN ── */
     .lang-wrap { position:relative; }
-    .lang-btn {
-      background:none; border:1px solid var(--border-md);
-      border-radius:var(--r); padding:7px 12px;
-      cursor:pointer; display:flex; align-items:center; gap:5px;
-      font-family:var(--font-b); font-size:.68rem; font-weight:500;
-      letter-spacing:.12em; color:var(--text-3);
-      transition:border-color .2s,color .2s;
-    }
-    .lang-btn:hover,.lang-btn.open { border-color:var(--gold); color:var(--gold); }
     .lang-drop {
-      position:absolute; top:calc(100% + 8px); right:0;
+      position:absolute; top:calc(100% + 7px); right:0;
       background:var(--surface); border:1px solid var(--border-md);
-      border-radius:var(--r); min-width:120px; overflow:hidden;
-      box-shadow:0 16px 48px var(--shadow);
-      opacity:0; pointer-events:none; transform:translateY(-6px);
+      border-radius:var(--r); min-width:110px; overflow:hidden;
+      box-shadow:0 14px 40px var(--shadow);
+      opacity:0; pointer-events:none; transform:translateY(-4px);
       transition:opacity .2s,transform .2s;
     }
-    [dir="rtl"] .lang-drop { right:auto; left:0; }
     .lang-drop.open { opacity:1; pointer-events:all; transform:none; }
     .lang-opt {
-      display:block; width:100%; padding:10px 16px; background:none; border:none;
-      text-align:left; cursor:pointer; font-family:var(--font-b);
-      font-size:.76rem; color:var(--text-2); letter-spacing:.06em;
+      display:block; width:100%; padding:9px 14px; background:none; border:none;
+      text-align:left; cursor:pointer; font-size:.73rem; color:var(--text-2);
       transition:background .15s,color .15s;
     }
-    [dir="rtl"] .lang-opt { text-align:right; }
-    .lang-opt:hover { background:var(--gold-faint); color:var(--gold); }
+    .lang-opt:hover { background:var(--gold-f); color:var(--gold); }
     .lang-opt.active { color:var(--gold); font-weight:500; }
 
-    /* ── LEGAL MODAL ── */
-    .legal-overlay {
+    .mob-drawer {
       position:fixed; inset:0; z-index:200;
-      background:rgba(0,0,0,.65); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
-      display:flex; align-items:center; justify-content:center; padding:20px;
-      animation:fadeIn .25s ease-out;
+      background:rgba(13,11,8,.97); backdrop-filter:blur(20px);
+      display:flex; flex-direction:column; padding:80px 36px 48px;
+      opacity:0; pointer-events:none; transition:opacity .3s;
     }
-    @keyframes fadeIn { from { opacity:0 } to { opacity:1 } }
-    .legal-card {
-      background:var(--surface); border:1px solid var(--border-md); border-radius:6px;
-      max-width:720px; width:100%; max-height:85vh; overflow-y:auto;
-      padding:clamp(28px,4vw,48px);
-      box-shadow:0 30px 80px rgba(0,0,0,.5);
-    }
-    .legal-card h3 { font-family:var(--font-d); font-size:clamp(22px,3vw,32px); font-weight:400; color:var(--text-1); margin-bottom:18px; letter-spacing:-.01em; }
-    .legal-card .body { font-size:.88rem; color:var(--text-2); line-height:1.78; font-weight:300; white-space:pre-wrap; }
-    .legal-close {
-      background:none; border:1px solid var(--border-md); color:var(--text-2);
-      padding:8px 18px; border-radius:var(--r); cursor:pointer;
-      font-family:var(--font-b); font-size:.74rem; letter-spacing:.08em; text-transform:uppercase;
-      margin-top:24px; transition:border-color .2s,color .2s;
-    }
-    .legal-close:hover { border-color:var(--gold); color:var(--gold); }
-    .legal-link {
-      background:none; border:none; cursor:pointer; padding:0;
-      font-size:.66rem; color:var(--text-3); letter-spacing:.05em;
-      transition:color .2s; font-family:var(--font-b);
-    }
-    .legal-link:hover { color:var(--gold); }
+    [data-theme="light"] .mob-drawer { background:rgba(250,247,240,.97); }
+    .mob-drawer.open { opacity:1; pointer-events:all; }
 
-    /* ── CONTACT CARDS ── */
-    .ccard {
-      display:flex; flex-direction:column; gap:10px;
-      padding:28px 24px; border-radius:var(--r);
-      border:1px solid var(--border); background:var(--gold-faint);
-      text-decoration:none; transition:transform .25s,border-color .25s,box-shadow .25s;
-    }
-    .ccard:hover { transform:translateY(-4px); border-color:rgba(200,168,110,.32); box-shadow:0 16px 40px var(--shadow); }
+    /* PORTAL HERO */
+    @keyframes hfade { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:none} }
+    .hl1{animation:hfade 1s cubic-bezier(.2,0,.2,1) .25s both}
+    .hl2{animation:hfade 1s cubic-bezier(.2,0,.2,1) .45s both}
+    .hl3{animation:hfade 1s cubic-bezier(.2,0,.2,1) .65s both}
+    .hl4{animation:hfade 1s cubic-bezier(.2,0,.2,1) .85s both}
 
-    /* ── RESPONSIVE ── */
+    .portal-hero {
+      min-height:62vh; display:flex; align-items:center; justify-content:center;
+      text-align:center; position:relative; overflow:hidden;
+      padding:clamp(110px,15vw,170px) clamp(24px,6vw,80px) clamp(56px,8vw,100px);
+    }
+    .portal-hero::before {
+      content:''; position:absolute; inset:0; z-index:0;
+      background:radial-gradient(ellipse 80% 60% at 50% 40%, rgba(200,168,110,.10) 0%, transparent 70%);
+    }
+    .portal-hero-content { position:relative; z-index:1; max-width:780px; }
+
+    /* CARDS GRID */
+    .cards-section { padding:0 clamp(24px,7vw,100px) clamp(80px,10vw,130px); }
+    .cards-grid {
+      max-width:1280px; margin:0 auto;
+      display:grid; grid-template-columns:repeat(2,1fr); gap:20px;
+    }
+    @media(max-width:840px){ .cards-grid { grid-template-columns:1fr; } }
+
+    .s-card {
+      position:relative; overflow:hidden;
+      background:var(--surface); border:1px solid var(--border);
+      border-radius:8px; padding:38px 32px 32px;
+      cursor:pointer; transition:transform .35s,border-color .35s,box-shadow .35s;
+      display:flex; flex-direction:column;
+    }
+    .s-card::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:3px;
+      background:var(--card-accent, var(--gold)); opacity:.75; transition:opacity .35s;
+    }
+    .s-card:hover { transform:translateY(-7px); border-color:var(--border-md); box-shadow:0 24px 64px var(--shadow); }
+    .s-card:hover::before { opacity:1; }
+
+    .s-card-num {
+      position:absolute; top:24px; right:26px;
+      font-family:var(--font-d); font-size:2.8rem; font-weight:300;
+      color:var(--border-md); line-height:1; user-select:none;
+    }
+    .s-card-tag  { font-size:.60rem; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:var(--card-accent,var(--gold)); margin-bottom:16px; }
+    .s-card-name { font-family:var(--font-d); font-size:clamp(26px,3.2vw,34px); font-weight:400; color:var(--text-1); line-height:1.1; margin-bottom:5px; }
+    .s-card-ttl  { font-size:.79rem; color:var(--text-2); font-weight:400; letter-spacing:.03em; margin-bottom:20px; }
+    .s-card-tl   { font-family:var(--font-d); font-size:1.05rem; font-style:italic; color:var(--text-2); line-height:1.6; margin-bottom:22px; flex:1; }
+    .s-card-pills{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:26px; }
+    .s-card-pill { font-size:.59rem; letter-spacing:.10em; text-transform:uppercase; padding:5px 11px; background:var(--gold-f); color:var(--text-2); border-radius:20px; border:1px solid var(--border); }
+    .s-card-cta  {
+      display:inline-flex; align-items:center; gap:8px;
+      font-size:.72rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase;
+      color:var(--card-accent,var(--gold)); background:none; border:none; cursor:pointer; padding:0;
+      transition:gap .2s;
+    }
+    .s-card-cta:hover { gap:13px; }
+
+    /* SPECIALIST DETAIL */
+    .sp-back {
+      position:fixed; top:18px; left:clamp(18px,4vw,56px); z-index:400;
+      display:flex; align-items:center; gap:7px;
+      background:var(--surface); border:1px solid var(--border-md);
+      border-radius:20px; padding:8px 16px; cursor:pointer;
+      font-size:.70rem; font-weight:500; letter-spacing:.09em; text-transform:uppercase;
+      color:var(--text-2); transition:border-color .2s,color .2s; white-space:nowrap;
+    }
+    .sp-back:hover { border-color:var(--gold); color:var(--gold); }
+
+    .sp-hero {
+      min-height:52vh; display:flex; align-items:flex-end;
+      padding:clamp(110px,14vw,170px) clamp(24px,7vw,100px) clamp(48px,6vw,80px);
+      position:relative; overflow:hidden;
+    }
+    .sp-hero::before {
+      content:''; position:absolute; inset:0;
+      background:radial-gradient(ellipse 90% 70% at 15% 80%, var(--hero-glow,rgba(200,168,110,.13)) 0%, transparent 60%);
+    }
+    .sp-hero-content { position:relative; z-index:1; max-width:820px; }
+
+    .detail-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(36px,5vw,80px); align-items:start; }
+    @media(max-width:768px){ .detail-grid { grid-template-columns:1fr; } }
+
+    .prog-card {
+      padding:30px 26px; border-radius:8px; border:1px solid var(--border);
+      background:var(--surface); transition:border-color .3s,transform .3s;
+    }
+    .prog-card:hover { border-color:var(--border-md); transform:translateY(-3px); }
+    .prog-num { font-family:var(--font-d); font-size:2rem; font-weight:300; line-height:1; margin-bottom:14px; }
+
+    .stat-row { display:flex; gap:clamp(22px,4vw,52px); flex-wrap:wrap; }
+    .stat-num { font-family:var(--font-d); font-size:clamp(28px,3.5vw,38px); font-weight:400; line-height:1; display:block; }
+    .stat-lbl { font-size:.66rem; color:var(--text-3); letter-spacing:.12em; text-transform:uppercase; display:block; margin-top:3px; }
+
+    .tcard {
+      padding:28px; border-radius:8px; border:1px solid var(--border);
+      background:var(--gold-f); margin-bottom:16px;
+    }
+    .tcard:last-child { margin-bottom:0; }
+    .tcard-name { font-size:.78rem; font-weight:500; color:var(--text-1); }
+    .tcard-city { font-size:.65rem; color:var(--text-3); letter-spacing:.08em; }
+    .tcard-text { font-family:var(--font-d); font-size:1.05rem; font-style:italic; color:var(--text-2); line-height:1.68; margin-top:14px; }
+
+    .cta-strip {
+      text-align:center; padding:clamp(72px,10vw,120px) clamp(24px,7vw,100px);
+      background:var(--bg-alt); position:relative; overflow:hidden;
+    }
+    .cta-strip::before {
+      content:''; position:absolute; inset:0;
+      background:radial-gradient(ellipse 60% 80% at 50% 100%, rgba(200,168,110,.10),transparent);
+    }
+
+    .footer-bar {
+      padding:clamp(36px,5vw,64px) clamp(24px,7vw,100px);
+      border-top:1px solid var(--border);
+      display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;
+    }
+    .f-links { display:flex; gap:22px; flex-wrap:wrap; }
+    .f-link {
+      background:none; border:none; cursor:pointer;
+      font-size:.67rem; color:var(--text-3); letter-spacing:.07em;
+      transition:color .2s;
+    }
+    .f-link:hover { color:var(--gold); }
+
+    .wa-float {
+      position:fixed; bottom:26px; right:26px; z-index:150;
+      width:54px; height:54px; border-radius:50%;
+      background:#25D366; border:none; cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:0 8px 28px rgba(37,211,102,.35);
+      transition:transform .25s,box-shadow .25s; text-decoration:none;
+    }
+    .wa-float:hover { transform:scale(1.08) translateY(-2px); }
+
     @media(max-width:768px){
-      .dsk-hide{display:none!important}
-      .mob-center{text-align:center!important;align-items:center!important}
-      .mob-col{flex-direction:column!important}
+      .dsk{ display:none!important; }
+      .mob-center{ text-align:center!important; align-items:center!important; }
+      .mob-col{ flex-direction:column!important; }
     }
-    @media(min-width:769px){
-      .mob-only{display:none!important}
+    @media(min-width:769px){ .mob-only{ display:none!important; } }
+
+    @keyframes glow-pulse {
+      0%,100% { box-shadow:0 0 26px rgba(200,168,110,.15); }
+      50%      { box-shadow:0 0 50px rgba(200,168,110,.36); }
     }
+    .glow { animation:glow-pulse 3.2s ease-in-out infinite; }
   </style>
 </head>
 <body>
@@ -313,587 +316,343 @@
   <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 
   <script type="text/babel">
-  // ─────────────────────────────────────────────────────────────
-  // FORM CONFIG  — Web3Forms (free, 250 submissions/month).
-  // Access key is public by design; submissions are routed to the
-  // email registered with this key on web3forms.com.
-  // ─────────────────────────────────────────────────────────────
-  const WEB3FORMS_KEY = 'beb93abe-d1f3-4ce7-b12b-4e3bc915465a';
-  const FORM_EMAIL    = 'moshe.svarga@gmail.com';
+  const WHATSAPP = 'https://wa.me/972549989627';
+  const TELEGRAM = 'https://t.me/+2Vk8kbR_70kyN2Qy';
 
-  // Contact details
-  const WHATSAPP    = 'https://wa.me/972549989627?text=Hello%2C%20I%27m%20interested%20in%20the%20Svarga%20Marathon';
-  const TELEGRAM    = 'https://t.me/+2Vk8kbR_70kyN2Qy';
-  const CONTACT_EMAIL = 'moshe.svarga@gmail.com';
-
-  // Social links
-  const SOCIAL = {
-    facebook:  'https://www.facebook.com/share/15oRwf6uU6/?mibextid=wwXIfr',
-    instagram: 'https://www.instagram.com/mosheostrovsky/',
-    youtube:   'https://m.youtube.com/@mosheostrovsky',
-    telegram:  'https://t.me/+2Vk8kbR_70kyN2Qy',
-    site:      'https://www.svarga-om.com',
-    cardRu:    'https://get-marketing.net/moshe-om/',
-    cardHe:    'https://get-marketing.co.il/moshe-om/',
-  };
-
-  // ─────────────────────────────────────────────────────────────
-  // TRANSLATIONS
-  // ─────────────────────────────────────────────────────────────
-  const T = {
+  /* ─── UI translations ─── */
+  const UI = {
     en: {
-      nav: { about:'About', practices:'Practices', program:'Program', teacher:'Teacher', contact:'Contact', cta:'Join Now' },
-      hero: {
-        eyebrow:'Svarga International · 21-Day Transformation Marathon',
-        h1a:'Awaken.', h1b:'Transform.', h1c:'Become yourself.',
-        sub:'Integral inner development — body, breath, mind, and consciousness.',
-        cta:'Begin Your Journey', cta2:'Learn More',
-      },
-      about: {
-        eyebrow:'ABOUT THE PROGRAM',
-        h2:'Integral Awakening for Modern Life',
-        p1:'The Svarga Marathon is a living process of deep integration across four dimensions of being: body, mind, energy, and consciousness. Each day you receive concrete practices that work in real-life conditions.',
-        p2:'We unite ancient traditions with modern psychology, somatic practices, and energy work — creating a powerful synergistic effect of transformation.',
-        stats:[{num:'3,000+',label:'participants'},{num:'20+',label:'years practice'},{num:'15+',label:'countries'}],
-      },
-      practices: {
-        eyebrow:'WHAT YOU WILL RECEIVE', h2:'Marathon Practices',
-        items:[
-          {title:'Meditation',desc:'Daily meditative practices to deepen awareness and cultivate inner peace.'},
-          {title:'Breathwork',desc:'Pranayama and breathwork techniques for cleansing and activating vital energy.'},
-          {title:'Energy Techniques',desc:'Subtle body work, qigong, and life-force management practices.'},
-          {title:'Mindset Shift',desc:'Reprogramming limiting beliefs and creating new neural pathways.'},
-          {title:'Emotional Balance',desc:'Accepting, integrating, and transforming emotions as a source of inner strength.'},
-          {title:'Integral Growth',desc:'A holistic approach to development through all aspects of the self.'},
-          {title:'Community',desc:'A living community of like-minded seekers and a guide at every step.'},
-        ],
-      },
-      program: {
-        eyebrow:'PROGRAM', h2:'21 Days of Transformation',
-        weeks:[
-          {num:'01',days:'Days 1–7',title:'Cleansing & Awakening',desc:'Release accumulated tension and activate primary vitality. Form a daily practice ritual and experience your body\'s depth for the first time.',tags:['Cleansing Meditation','Breath Activation','Body & Awareness']},
-          {num:'02',days:'Days 8–14',title:'Transformation & Integration',desc:'Deep work with beliefs and emotional patterns. Reprogram the mind, open new states of consciousness, and release blockages.',tags:['Shadow Work','Energy Integration','New Neural Pathways']},
-          {num:'03',days:'Days 15–21',title:'Anchoring New Reality',desc:'Integrate all practices into daily life. Step into a new level of awareness, vitality, and quality of life.',tags:['Integration Practices','Future Vision','New Quality of Life']},
-        ],
-      },
-      teacher: {
-        eyebrow:'YOUR GUIDE', name:'Moshe Om', title:'Master of the Svarga System',
-        cert:'Lin Tzi Instructor · Iron Shirt · Qigong',
-        bio:'For over 20 years, Moshe Om has dedicated himself to studying and transmitting integral spiritual practices. He is the founder of the Svarga system — a unique synthesis of Eastern traditions, modern psychology, and somatic work.',
-        bio2:'He has conducted hundreds of retreats and marathons across three continents. Over 3,000 participants have undergone transformational journeys under his guidance.',
-        stats:[{num:'20+',label:'years experience'},{num:'3,000+',label:'participants'},{num:'30+',label:'countries'}],
-      },
-      testimonials: {
-        eyebrow:'TESTIMONIALS', h2:'Stories of Transformation',
-        items:[
-          {name:'Anna M.',city:'Moscow',text:'The marathon changed my relationship with myself and life. In 21 days I traveled a path that usually takes years. Moshe is an incredible guide.'},
-          {name:'Dmitry K.',city:'St. Petersburg',text:'Breathing and meditation practices have become a daily ritual. I felt clarity and strength that hadn\'t been there for years. It works.'},
-          {name:'Elena V.',city:'Kyiv',text:'The marathon community is a special space. The feeling that you\'re not alone on your path. Deep gratitude to Moshe and the whole team.'},
-        ],
-      },
-      cta: {
-        eyebrow:'BEGIN YOUR PATH',
-        h2a:'Your transformation', h2b:'starts here.',
-        sub:'Limited spots available. The next marathon begins June 1, 2026.',
-        btn:'Join the Marathon', btn2:'Ask a Question',
-      },
-      contact: {
-        eyebrow:'GET IN TOUCH', h2:'Ready to Begin?',
-        sub:'Reach out directly or leave your details — we\'ll contact you within 24 hours.',
-        cards:{
-          whatsapp:{title:'WhatsApp',sub:'+972 54 998 9627',action:'Message Us'},
-          telegram:{title:'Telegram',sub:'Join the community',action:'Open Telegram'},
-          email:{title:'Email',sub:CONTACT_EMAIL,action:'Send Email'},
-        },
-        form:{
-          name:'Full name',namePh:'Your name',
-          email:'Email',emailPh:'your@email.com',
-          phone:'Phone (optional)',phonePh:'+1 234 567 8900',
-          message:'Message',messagePh:'Tell us about yourself and what brings you here…',
-          submit:'Send Message',sending:'Sending…',
-          ok:'Message sent! We\'ll be in touch shortly.',
-          err:'Something went wrong. Please reach us on WhatsApp or Telegram.',
-          verify:'Verification — what is',verifyEq:'= ?',verifyPh:'answer',verifyErr:'Incorrect — try again',
-          robot:'I\'m not a robot',robotErr:'Please confirm you\'re not a robot',
-          mailFallback:'Or email us directly →',
-          minHint:'min. 10 characters',charsLabel:'characters',
-        },
-      },
-      footer: {
-        copy:'© 2026 Svarga International · Moshe Om. All rights reserved.',
-        links:['About','Practices','Program','Teacher','Contact'],
-        followUs:'Follow',
-        legalHeader:'Legal',
-        terms:'Terms & Conditions', privacy:'Privacy Policy', accessibility:'Accessibility Statement',
-      },
-      legal: {
-        close:'Close',
-        terms: {
-          title:'Terms & Conditions — Svarga International',
-          body:'Last updated: May 2026\n\nThese Terms & Conditions govern your use of the Svarga International website and the 21-Day Transformation Marathon program operated by Moshe Ostrovsky ("Svarga", "we", "us").\n\n1. Acceptance of Terms\nBy accessing this website or enrolling in any program, you agree to be bound by these Terms.\n\n2. Programs and Services\nThe Marathon is an educational and contemplative practice program. It is not a substitute for medical, psychological, or psychiatric treatment. Consult a qualified professional before beginning any new wellness practice.\n\n3. Enrollment, Payments and Refunds\nProgram fees, schedules and refund policies are communicated at the time of enrollment. Cancellations made at least 7 days before the start date are eligible for a full refund.\n\n4. Intellectual Property\nAll content, recordings, and materials provided through Svarga are the intellectual property of Moshe Ostrovsky / Svarga International and may not be reproduced, redistributed, or resold without written permission.\n\n5. Conduct\nParticipants agree to engage respectfully with teachers, staff, and fellow participants. We reserve the right to remove anyone whose behavior is disruptive or harmful.\n\n6. Limitation of Liability\nTo the maximum extent permitted by law, Svarga International is not liable for any indirect, incidental, or consequential damages arising from use of the website or participation in any program.\n\n7. Contact\nFor questions about these Terms, write to moshe.svarga@gmail.com.',
-        },
-        privacy: {
-          title:'Privacy Policy',
-          body:'Last updated: May 2026\n\nThis Privacy Policy explains how Svarga International collects and uses your personal information.\n\n1. Information We Collect\nWhen you submit the contact form, we collect your name, email, phone number (if provided), the language you selected, and the message you write. We do not use third-party tracking cookies on this site.\n\n2. How We Use Your Information\nWe use your information solely to respond to your inquiry and, where you have opted in, to send information about upcoming programs.\n\n3. How We Store and Share Your Information\nForm submissions are delivered via the FormSubmit.co relay service to moshe.svarga@gmail.com. We do not sell or rent your data. We share information only with service providers that help us operate (email, hosting), under confidentiality obligations.\n\n4. Your Rights\nYou may request access, correction, or deletion of your personal data at any time by writing to moshe.svarga@gmail.com. We will respond within 30 days.\n\n5. Data Retention\nLeads and correspondence are retained for as long as necessary to respond to your inquiry and provide services, then deleted on request.\n\n6. Children\nThis website is not directed at children under 16. We do not knowingly collect data from minors.\n\n7. Contact\nFor privacy questions, write to moshe.svarga@gmail.com.',
-        },
-        accessibility: {
-          title:'Accessibility Statement',
-          body:'Last updated: May 2026\n\nSvarga International is committed to making our digital presence accessible to people with disabilities.\n\n1. Standards\nThis website strives to conform to WCAG 2.1 Level AA. We continuously test and improve color contrast, keyboard navigation, screen-reader compatibility, and responsive layout.\n\n2. Features\n• Full keyboard navigation for all interactive elements.\n• Sufficient color contrast for text and controls.\n• Resizable text without loss of content or function.\n• Right-to-left layout support for Hebrew.\n• Dark and light themes for visual comfort.\n• Descriptive alt-text on images.\n\n3. Known Limitations\nSome embedded third-party content and PDFs may not yet be fully accessible. We are working to address these.\n\n4. Feedback\nIf you encounter accessibility barriers or need content in an alternative format, contact us at moshe.svarga@gmail.com. We aim to respond within 5 business days.\n\n5. Enforcement\nIn Israel, the supervising authority for accessibility is the Commission for Equal Rights of Persons with Disabilities (Ministry of Justice).',
-        },
-      },
+      back:'All Specialists', themeD:'Dark', themeL:'Light',
+      portal:{ eyebrow:'Svarga International · Choose Your Path', h1a:'Your Transformation', h1b:'Begins Here.',
+        sub:'Four world-class guides. One destination — the highest version of yourself. Choose the path that calls to you.',
+        hint:'Explore the guides' },
+      cta:{ title:'Ready to begin?', sub:'Reach out directly — we respond within 24 hours.', wa:'Write on WhatsApp', tg:'Join Telegram' },
+      explore:'Explore →', programs:'Programs', testimonials:'Testimonials', framework:'Framework',
+      footer:{ copy:'© 2026 Svarga International. All rights reserved.', links:['About','Contact','Privacy Policy'] },
     },
-
     ru: {
-      nav: { about:'О марафоне', practices:'Практики', program:'Программа', teacher:'Учитель', contact:'Контакты', cta:'Записаться' },
-      hero: {
-        eyebrow:'Svarga International · 21-дневный марафон трансформации',
-        h1a:'Пробудись.', h1b:'Трансформируйся.', h1c:'Стань собой.',
-        sub:'Интегральное развитие — тело, разум, энергия, сознание.',
-        cta:'Начать трансформацию', cta2:'Узнать больше',
-      },
-      about: {
-        eyebrow:'О ПРОГРАММЕ',
-        h2:'Интегральное пробуждение для современного человека',
-        p1:'Марафон Svarga — это живой процесс глубокой интеграции четырёх измерений бытия: тела, разума, энергии и сознания. Каждый день вы получаете конкретные практики, которые работают в реальных условиях жизни.',
-        p2:'Мы объединяем древние традиции с современной психологией, телесными практиками и энергетической работой — создавая мощный синергетический эффект трансформации.',
-        stats:[{num:'3 000+',label:'участников'},{num:'20+',label:'лет практики'},{num:'15+',label:'стран'}],
-      },
-      practices: {
-        eyebrow:'ЧТО ВАС ЖДЁТ', h2:'Практики марафона',
-        items:[
-          {title:'Медитации',desc:'Ежедневные медитативные практики для углубления осознанности и внутреннего покоя.'},
-          {title:'Дыхательные практики',desc:'Техники пранаямы и дыхательной работы для очищения и активации витальной энергии.'},
-          {title:'Энергетические техники',desc:'Работа с тонким телом, цигун и практики управления жизненной силой.'},
-          {title:'Трансформация мышления',desc:'Перепрограммирование ограничивающих убеждений и создание новых нейронных путей.'},
-          {title:'Эмоциональный баланс',desc:'Принятие, интеграция и трансформация эмоций как источника внутренней силы.'},
-          {title:'Интегральное развитие',desc:'Целостный подход к росту через работу со всеми аспектами личности.'},
-          {title:'Поддержка сообщества',desc:'Живое сообщество единомышленников и поддержка куратора на каждом шагу пути.'},
-        ],
-      },
-      program: {
-        eyebrow:'ПРОГРАММА', h2:'21 день трансформации',
-        weeks:[
-          {num:'01',days:'Дни 1–7',title:'Очищение и Пробуждение',desc:'Снятие накопленного напряжения и активация первичной витальности. Формирование ежедневного ритуала практики и первое знакомство с глубиной собственного тела.',tags:['Медитация очищения','Дыхательная активация','Тело и осознанность']},
-          {num:'02',days:'Дни 8–14',title:'Трансформация и Интеграция',desc:'Глубокая работа с убеждениями и эмоциональными паттернами. Перепрограммирование ума, открытие новых состояний сознания и высвобождение блокировок.',tags:['Работа с тенью','Энергетическая интеграция','Новые нейронные пути']},
-          {num:'03',days:'Дни 15–21',title:'Закрепление и Новая Реальность',desc:'Интеграция всех практик в ткань повседневной жизни. Выход на новый уровень осознанности, витальности и качества жизни.',tags:['Интеграционные практики','Видение будущего','Новое качество жизни']},
-        ],
-      },
-      teacher: {
-        eyebrow:'ВАШ ПРОВОДНИК', name:'Моше Ом', title:'Мастер системы Svarga',
-        cert:'Инструктор Линь Цзи · Железная рубашка · Цигун',
-        bio:'Более 20 лет Моше Ом посвящает себя изучению и передаче интегральных духовных практик. Основатель системы Svarga — уникального синтеза восточных традиций, современной психологии и соматической работы с телом.',
-        bio2:'Провёл сотни ретритов и марафонов на трёх континентах. Более 3 000 участников прошли трансформационный путь под его руководством.',
-        stats:[{num:'20+',label:'лет опыта'},{num:'3 000+',label:'участников'},{num:'30+',label:'стран'}],
-      },
-      testimonials: {
-        eyebrow:'ОТЗЫВЫ', h2:'Истории трансформации',
-        items:[
-          {name:'Анна М.',city:'Москва',text:'Марафон изменил моё отношение к себе и к жизни. За 21 день я прошла путь, который обычно занимает годы. Моше — невероятный проводник.'},
-          {name:'Дмитрий К.',city:'Санкт-Петербург',text:'Практики дыхания и медитации стали ежедневным ритуалом. Я почувствовал ясность и силу, которых не было много лет. Это работает.'},
-          {name:'Елена В.',city:'Киев',text:'Сообщество марафона — это особое пространство. Ощущение, что ты не один в своём пути. Огромная благодарность Моше и всей команде.'},
-        ],
-      },
-      cta: {
-        eyebrow:'НАЧАТЬ ПУТЬ',
-        h2a:'Твоя трансформация', h2b:'начинается здесь.',
-        sub:'Ограниченное количество мест. Следующий марафон стартует 1 июня 2026 года.',
-        btn:'Записаться на марафон', btn2:'Задать вопрос',
-      },
-      contact: {
-        eyebrow:'СВЯЗАТЬСЯ', h2:'Готовы начать?',
-        sub:'Напишите нам напрямую или оставьте свои контакты — мы ответим в течение 24 часов.',
-        cards:{
-          whatsapp:{title:'WhatsApp',sub:'+972 54 998 9627',action:'Написать'},
-          telegram:{title:'Telegram',sub:'Присоединиться к каналу',action:'Открыть Telegram'},
-          email:{title:'Email',sub:CONTACT_EMAIL,action:'Написать письмо'},
-        },
-        form:{
-          name:'Имя',namePh:'Ваше имя',
-          email:'Email',emailPh:'ваш@email.com',
-          phone:'Телефон (опционально)',phonePh:'+7 900 000 0000',
-          message:'Сообщение',messagePh:'Расскажите о себе и что привело вас сюда…',
-          submit:'Отправить',sending:'Отправка…',
-          ok:'Сообщение отправлено! Мы свяжемся с вами в ближайшее время.',
-          err:'Что-то пошло не так. Пожалуйста, напишите через WhatsApp или Telegram.',
-          verify:'Проверка — сколько будет',verifyEq:'= ?',verifyPh:'ответ',verifyErr:'Неверно — попробуйте ещё раз',
-          robot:'Я не робот',robotErr:'Подтвердите, что вы не робот',
-          mailFallback:'Или напишите нам напрямую →',
-          minHint:'мин. 10 символов',charsLabel:'символов',
-        },
-      },
-      footer: {
-        copy:'© 2026 Svarga International · Моше Ом. Все права защищены.',
-        links:['О марафоне','Практики','Программа','Учитель','Контакты'],
-        followUs:'Соцсети',
-        legalHeader:'Документы',
-        terms:'Правила и условия сайта SVARGA', privacy:'Политика конфиденциальности', accessibility:'Декларация доступности',
-      },
-      legal: {
-        close:'Закрыть',
-        terms: {
-          title:'Правила и условия сайта SVARGA',
-          body:'Последнее обновление: май 2026\n\nНастоящие Правила и условия регулируют использование сайта Svarga International и участие в программе «Марафон Трансформации 21 день» под руководством Моше Островского («Svarga», «мы»).\n\n1. Принятие условий\nИспользуя сайт или записываясь на любую программу, вы соглашаетесь с этими условиями.\n\n2. Программы и услуги\nМарафон — это образовательная и созерцательная практика. Он не заменяет медицинское, психологическое или психиатрическое лечение. Перед началом любой новой практики проконсультируйтесь со специалистом.\n\n3. Запись, оплата и возвраты\nСтоимость, расписание и условия возврата сообщаются при записи. При отмене не позднее, чем за 7 дней до старта, возможен полный возврат средств.\n\n4. Интеллектуальная собственность\nВсе материалы, аудио- и видеозаписи являются собственностью Моше Островского / Svarga International. Воспроизведение, распространение или перепродажа без письменного разрешения запрещены.\n\n5. Поведение\nУчастники обязуются уважительно относиться к преподавателям, организаторам и другим участникам. Мы оставляем за собой право удалить любого, чьё поведение нарушает атмосферу.\n\n6. Ограничение ответственности\nВ максимально допустимом законом объёме Svarga International не несёт ответственности за косвенные, случайные или последующие убытки, связанные с использованием сайта или участием в программах.\n\n7. Контакт\nПо вопросам Правил пишите на moshe.svarga@gmail.com.',
-        },
-        privacy: {
-          title:'Политика конфиденциальности',
-          body:'Последнее обновление: май 2026\n\nЭта Политика объясняет, как Svarga International собирает и использует ваши персональные данные.\n\n1. Какие данные мы собираем\nПри отправке контактной формы мы получаем ваше имя, e-mail, телефон (если указан), выбранный язык и текст сообщения. Мы не используем сторонние трекинговые cookie.\n\n2. Как мы используем данные\nДанные используются исключительно для ответа на ваш запрос и, по вашему согласию, для информирования о ближайших программах.\n\n3. Хранение и передача данных\nЗаявки доставляются через сервис FormSubmit.co на адрес moshe.svarga@gmail.com. Мы не продаём и не передаём ваши данные третьим лицам. Передача возможна только сервис-провайдерам (email, хостинг) на условиях конфиденциальности.\n\n4. Ваши права\nВы можете запросить доступ, исправление или удаление ваших данных, написав на moshe.svarga@gmail.com. Мы ответим в течение 30 дней.\n\n5. Срок хранения\nЗаявки и переписка хранятся столько, сколько необходимо для ответа и оказания услуг, и удаляются по запросу.\n\n6. Дети\nСайт не предназначен для детей младше 16 лет. Мы не собираем данные несовершеннолетних.\n\n7. Контакт\nПо вопросам конфиденциальности пишите на moshe.svarga@gmail.com.',
-        },
-        accessibility: {
-          title:'Декларация доступности',
-          body:'Последнее обновление: май 2026\n\nSvarga International стремится сделать свой цифровой контент доступным для людей с ограниченными возможностями.\n\n1. Стандарты\nСайт стремится соответствовать WCAG 2.1 уровень AA. Мы постоянно проверяем и улучшаем контрастность, навигацию с клавиатуры, совместимость со скринридерами и адаптивную вёрстку.\n\n2. Возможности\n• Полная клавиатурная навигация по всем интерактивным элементам.\n• Достаточный контраст текста и элементов управления.\n• Изменение размера текста без потери содержимого и функций.\n• Поддержка письма справа налево для иврита.\n• Тёмная и светлая темы.\n• Описательный alt-текст у изображений.\n\n3. Известные ограничения\nНекоторый встроенный сторонний контент и PDF-файлы пока могут быть недоступны полностью. Мы работаем над их улучшением.\n\n4. Обратная связь\nЕсли вы столкнулись с барьерами доступности или нуждаетесь в альтернативном формате — напишите на moshe.svarga@gmail.com. Мы стремимся ответить в течение 5 рабочих дней.\n\n5. Орган контроля\nВ Израиле надзор за доступностью осуществляет Комиссия по равным правам лиц с инвалидностью (Министерство юстиции).',
-        },
-      },
+      back:'Все специалисты', themeD:'Тёмная', themeL:'Светлая',
+      portal:{ eyebrow:'Svarga International · Выберите свой путь', h1a:'Ваша трансформация', h1b:'начинается здесь.',
+        sub:'Четыре проводника мирового уровня. Одна цель — ваше высшее Я. Выберите путь, который отзывается в вас.',
+        hint:'Выберите проводника' },
+      cta:{ title:'Готовы начать?', sub:'Свяжитесь с нами напрямую — отвечаем в течение 24 часов.', wa:'Написать в WhatsApp', tg:'Открыть Telegram' },
+      explore:'Подробнее →', programs:'Программы', testimonials:'Отзывы', framework:'Система',
+      footer:{ copy:'© 2026 Svarga International. Все права защищены.', links:['О нас','Контакты','Конфиденциальность'] },
     },
-
-    he: {
-      nav: { about:'על המרתון', practices:'פרקטיקות', program:'תוכנית', teacher:'מורה', contact:'צור קשר', cta:'הצטרף' },
-      hero: {
-        eyebrow:'Svarga International · מרתון טרנספורמציה 21 יום',
-        h1a:'התעורר.', h1b:'השתנה.', h1c:'היה עצמך.',
-        sub:'פיתוח פנימי אינטגרלי — גוף, נשימה, מוח ותודעה.',
-        cta:'התחל את המסע', cta2:'למד עוד',
-      },
-      about: {
-        eyebrow:'על התוכנית',
-        h2:'התעוררות אינטגרלית לאדם המודרני',
-        p1:'מרתון Svarga הוא תהליך חי של שילוב עמוק בארבעה ממדי הקיום: גוף, מוח, אנרגיה ותודעה. בכל יום אתה מקבל פרקטיקות קונקרטיות שעובדות בתנאי חיים אמיתיים.',
-        p2:'אנו משלבים מסורות עתיקות עם פסיכולוגיה מודרנית, פרקטיקות גופניות ועבודה אנרגטית — ויוצרים אפקט סינרגטי עוצמתי של טרנספורמציה.',
-        stats:[{num:'3,000+',label:'משתתפים'},{num:'20+',label:'שנות ניסיון'},{num:'15+',label:'מדינות'}],
-      },
-      practices: {
-        eyebrow:'מה מחכה לכם', h2:'פרקטיקות המרתון',
-        items:[
-          {title:'מדיטציות',desc:'פרקטיקות מדיטטיביות יומיומיות להעמקת המודעות ולשלווה פנימית.'},
-          {title:'פרקטיקות נשימה',desc:'טכניקות פראניאמה ועבודת נשימה לניקוי והפעלת האנרגיה החיונית.'},
-          {title:'טכניקות אנרגיה',desc:'עבודה עם הגוף העדין, צ׳יגונג ופרקטיקות לניהול כוח החיים.'},
-          {title:'שינוי חשיבה',desc:'תכנות מחדש של אמונות מגבילות ויצירת מסלולים עצביים חדשים.'},
-          {title:'איזון רגשי',desc:'קבלה, שילוב ושינוי רגשות כמקור כוח פנימי.'},
-          {title:'פיתוח אינטגרלי',desc:'גישה הוליסטית לצמיחה דרך עבודה עם כל היבטי האישיות.'},
-          {title:'קהילה',desc:'קהילה חיה של אנשים בעלי דעות דומות ותמיכה בכל שלב בדרך.'},
-        ],
-      },
-      program: {
-        eyebrow:'תוכנית', h2:'21 ימי טרנספורמציה',
-        weeks:[
-          {num:'01',days:'ימים 1–7',title:'ניקוי והתעוררות',desc:'שחרור מתחים מצטברים והפעלת חיוניות ראשונית. יצירת טקס פרקטיקה יומי והיכרות ראשונה עם עומק הגוף שלך.',tags:['מדיטציית ניקוי','הפעלת נשימה','גוף ומודעות']},
-          {num:'02',days:'ימים 8–14',title:'טרנספורמציה ואינטגרציה',desc:'עבודה עמוקה עם אמונות ודפוסים רגשיים. תכנות מחדש של המוח, פתיחת מצבי תודעה חדשים ושחרור חסימות.',tags:['עבודת צל','אינטגרציה אנרגטית','מסלולים עצביים חדשים']},
-          {num:'03',days:'ימים 15–21',title:'עיגון מציאות חדשה',desc:'שילוב כל הפרקטיקות ברקמת החיים היומיומיים. מעבר לרמה חדשה של מודעות, חיוניות ואיכות חיים.',tags:['פרקטיקות אינטגרציה','חזון עתיד','איכות חיים חדשה']},
-        ],
-      },
-      teacher: {
-        eyebrow:'המנחה שלך', name:'משה אוסטרובסקי', title:'מאסטר מערכת Svarga',
-        cert:'מדריך לין צ׳י · חולצת ברזל · צ׳יגונג',
-        bio:'יותר מ-20 שנה משה אוסטרובסקי מקדיש את עצמו לחקר והעברה של פרקטיקות רוחניות אינטגרליות. מייסד מערכת Svarga — סינתזה ייחודית של מסורות מזרחיות, פסיכולוגיה מודרנית ועבודה סומטית עם הגוף.',
-        bio2:'ניהל מאות ריטריטים ומרתונים בשלוש יבשות. יותר מ-3,000 משתתפים עברו את מסלול הטרנספורמציה תחת הדרכתו.',
-        stats:[{num:'20+',label:'שנות ניסיון'},{num:'3,000+',label:'משתתפים'},{num:'30+',label:'מדינות'}],
-      },
-      testimonials: {
-        eyebrow:'עדויות', h2:'סיפורי טרנספורמציה',
-        items:[
-          {name:'אנה מ.',city:'מוסקבה',text:'המרתון שינה את היחס שלי לעצמי ולחיים. ב-21 יום עברתי מסע שלרוב לוקח שנים. משה הוא מלווה מדהים.'},
-          {name:'דמיטרי ק.',city:'סנט פטרבורג',text:'פרקטיקות הנשימה והמדיטציה הפכו לטקס יומי. הרגשתי בהירות וכוח שלא היו שם שנים רבות. זה עובד.'},
-          {name:'אלנה ו.',city:'קייב',text:'קהילת המרתון היא מרחב מיוחד. התחושה שאתה לא לבד בדרך שלך. תודה עמוקה למשה ולכל הצוות.'},
-        ],
-      },
-      cta: {
-        eyebrow:'התחל את הדרך',
-        h2a:'הטרנספורמציה שלך', h2b:'מתחילה כאן.',
-        sub:'מספר מקומות מוגבל. המרתון הבא מתחיל ב-1 ביוני 2026.',
-        btn:'הצטרף למרתון', btn2:'שאל שאלה',
-      },
-      contact: {
-        eyebrow:'צור קשר', h2:'מוכן להתחיל?',
-        sub:'פנה אלינו ישירות או השאר פרטים — נחזור אליך תוך 24 שעות.',
-        cards:{
-          whatsapp:{title:'WhatsApp',sub:'‎+972 54 998 9627',action:'שלח הודעה'},
-          telegram:{title:'Telegram',sub:'הצטרף לקהילה',action:'פתח Telegram'},
-          email:{title:'Email',sub:CONTACT_EMAIL,action:'שלח מייל'},
-        },
-        form:{
-          name:'שם מלא',namePh:'השם שלך',
-          email:'כתובת מייל',emailPh:'your@email.com',
-          phone:'טלפון (אופציונלי)',phonePh:'‎050-000-0000',
-          message:'הודעה',messagePh:'ספר לנו על עצמך ומה הביא אותך לכאן…',
-          submit:'שלח הודעה',sending:'שולח…',
-          ok:'ההודעה נשלחה! נחזור אליך בקרוב.',
-          err:'משהו השתבש. אנא פנה דרך WhatsApp או Telegram.',
-          verify:'אימות — כמה זה',verifyEq:'= ?',verifyPh:'תשובה',verifyErr:'תשובה שגויה — נסה שוב',
-          robot:'אני לא רובוט',robotErr:'אנא אשר שאתה לא רובוט',
-          mailFallback:'או שלח לנו מייל ישירות ←',
-          minHint:'מינ׳ 10 תווים',charsLabel:'תווים',
-        },
-      },
-      footer: {
-        copy:'© 2026 Svarga International · משה אוסטרובסקי. כל הזכויות שמורות.',
-        links:['על המרתון','פרקטיקות','תוכנית','המנחה','צור קשר'],
-        followUs:'עקוב',
-        legalHeader:'מסמכים',
-        terms:'תנאי שימוש באתר SVARGA', privacy:'מדיניות פרטיות', accessibility:'הצהרת נגישות',
-      },
-      legal: {
-        close:'סגירה',
-        terms: {
-          title:'תנאי שימוש באתר SVARGA',
-          body:'עודכן לאחרונה: מאי 2026\n\nתנאי שימוש אלה חלים על השימוש באתר Svarga International ובתוכנית "מרתון הטרנספורמציה של 21 יום" בהנחיית משה אוסטרובסקי ("Svarga", "אנו").\n\n1. הסכמה לתנאים\nשימוש באתר או הרשמה לכל תוכנית מהווים הסכמה לתנאים אלה.\n\n2. תוכניות ושירותים\nהמרתון הוא תוכנית חינוכית ופרקטית. הוא אינו תחליף לטיפול רפואי, פסיכולוגי או פסיכיאטרי. יש להתייעץ עם איש מקצוע מוסמך לפני התחלת כל פרקטיקה חדשה.\n\n3. הרשמה, תשלום והחזרים\nעלויות, לוחות זמנים ומדיניות החזרים נמסרים בעת ההרשמה. ביטולים שנעשים לפחות 7 ימים לפני מועד הפתיחה זכאים להחזר מלא.\n\n4. קניין רוחני\nכל התכנים, ההקלטות והחומרים שייכים למשה אוסטרובסקי / Svarga International. אסור להעתיק, להפיץ או למכור אותם ללא אישור בכתב.\n\n5. התנהגות\nהמשתתפים מתחייבים להתנהל בכבוד מול המורים, הצוות ויתר המשתתפים. אנו שומרים את הזכות להרחיק כל אדם שהתנהגותו פוגעת.\n\n6. הגבלת אחריות\nבמידה המרבית המותרת על פי דין, Svarga International אינה אחראית לנזקים עקיפים, מקריים או תוצאתיים הנובעים משימוש באתר או מהשתתפות בתוכניות.\n\n7. יצירת קשר\nלשאלות על תנאים אלה — moshe.svarga@gmail.com.',
-        },
-        privacy: {
-          title:'מדיניות פרטיות',
-          body:'עודכן לאחרונה: מאי 2026\n\nמדיניות זו מסבירה כיצד Svarga International אוספת ומשתמשת במידע האישי שלך.\n\n1. מידע שאנחנו אוספים\nכשאתם שולחים טופס יצירת קשר, אנו אוספים את השם, האימייל, מספר הטלפון (אם נמסר), השפה שבחרתם ותוכן ההודעה. אנו לא משתמשים בעוגיות מעקב של צד שלישי.\n\n2. שימוש במידע\nאנו משתמשים במידע אך ורק כדי להשיב לפנייתכם, ובהסכמתכם — כדי לעדכן אתכם על תוכניות עתידיות.\n\n3. שמירת המידע ושיתופו\nההגשות מועברות דרך שירות FormSubmit.co לכתובת moshe.svarga@gmail.com. אנו לא מוכרים או משכירים את הנתונים שלכם. שיתוף נעשה רק עם ספקי שירות (אימייל, אחסון) תחת התחייבויות סודיות.\n\n4. הזכויות שלכם\nניתן לבקש גישה, תיקון או מחיקה של הנתונים האישיים בכל עת בכתובת moshe.svarga@gmail.com. נשיב בתוך 30 יום.\n\n5. תקופת שמירה\nלידים והתכתבויות נשמרים כל עוד הדבר נדרש כדי להשיב ולספק שירות, ונמחקים על פי דרישה.\n\n6. ילדים\nהאתר אינו מיועד לילדים מתחת לגיל 16. אנו לא אוספים נתונים מקטינים ביודעין.\n\n7. יצירת קשר\nלשאלות פרטיות — moshe.svarga@gmail.com.',
-        },
-        accessibility: {
-          title:'הצהרת נגישות',
-          body:'עודכן לאחרונה: מאי 2026\n\nSvarga International מחויבת להנגיש את הנוכחות הדיגיטלית שלה לאנשים עם מוגבלויות.\n\n1. תקנים\nהאתר שואף לעמוד בתקן WCAG 2.1 ברמה AA. אנו בודקים ומשפרים באופן רציף את ניגודיות הצבעים, ניווט במקלדת, תאימות לקוראי מסך ופריסה רספונסיבית.\n\n2. תכונות\n• ניווט מלא במקלדת לכל הרכיבים האינטראקטיביים.\n• ניגודיות מספקת לטקסט ולפקדים.\n• שינוי גודל טקסט ללא אובדן תוכן או פונקציה.\n• תמיכה בעברית מימין לשמאל (RTL).\n• מצבי עיצוב כהה ובהיר.\n• טקסט חלופי תיאורי לתמונות.\n\n3. מגבלות ידועות\nחלק מהתכנים החיצוניים המוטמעים וקבצי PDF עדיין אינם נגישים במלואם. אנו פועלים לתיקון.\n\n4. משוב\nאם נתקלתם במחסום נגישות או זקוקים לתוכן בפורמט חלופי — פנו ל-moshe.svarga@gmail.com. נשיב תוך 5 ימי עסקים.\n\n5. אכיפה\nבישראל, רשות הפיקוח על נגישות היא נציבות שוויון זכויות לאנשים עם מוגבלות (משרד המשפטים).',
-        },
-      },
-    },
-
     de: {
-      nav: { about:'Über', practices:'Praktiken', program:'Programm', teacher:'Lehrer', contact:'Kontakt', cta:'Jetzt starten' },
-      hero: {
-        eyebrow:'Svarga International · 21-Tage-Transformationsmarathon',
-        h1a:'Erwache.', h1b:'Transformiere.', h1c:'Werde du selbst.',
-        sub:'Integrale innere Entwicklung — Körper, Atem, Geist und Bewusstsein.',
-        cta:'Beginne deine Reise', cta2:'Mehr erfahren',
-      },
-      about: {
-        eyebrow:'ÜBER DAS PROGRAMM',
-        h2:'Integrale Erweckung für den modernen Menschen',
-        p1:'Der Svarga-Marathon ist ein lebendiger Prozess der tiefen Integration in vier Dimensionen des Seins: Körper, Geist, Energie und Bewusstsein. Jeden Tag erhältst du konkrete Praktiken, die unter realen Lebensbedingungen funktionieren.',
-        p2:'Wir verbinden alte Traditionen mit moderner Psychologie, Körperpraktiken und Energiearbeit — und erzeugen einen kraftvollen synergistischen Transformationseffekt.',
-        stats:[{num:'3.000+',label:'Teilnehmer'},{num:'20+',label:'Jahre Erfahrung'},{num:'15+',label:'Länder'}],
-      },
-      practices: {
-        eyebrow:'WAS SIE ERWARTET', h2:'Praktiken des Marathons',
-        items:[
-          {title:'Meditationen',desc:'Tägliche meditative Praktiken zur Vertiefung des Bewusstseins und inneren Friedens.'},
-          {title:'Atemübungen',desc:'Pranayama- und Atemtechniken zur Reinigung und Aktivierung vitaler Energie.'},
-          {title:'Energetische Techniken',desc:'Arbeit mit dem subtilen Körper, Qigong und Praktiken zur Lebenskraft-Steuerung.'},
-          {title:'Gedankentransformation',desc:'Neuprogrammierung begrenzender Überzeugungen und Schaffung neuer neuronaler Pfade.'},
-          {title:'Emotionales Gleichgewicht',desc:'Annehmen, Integrieren und Transformieren von Emotionen als Kraftquelle.'},
-          {title:'Integrale Entwicklung',desc:'Ganzheitlicher Wachstumsansatz durch Arbeit mit allen Persönlichkeitsaspekten.'},
-          {title:'Gemeinschaft',desc:'Lebendige Gemeinschaft Gleichgesinnter und Begleitung auf jedem Schritt des Weges.'},
-        ],
-      },
-      program: {
-        eyebrow:'PROGRAMM', h2:'21 Tage Transformation',
-        weeks:[
-          {num:'01',days:'Tage 1–7',title:'Reinigung & Erweckung',desc:'Aufgestaute Spannungen lösen und primäre Vitalität aktivieren. Einen täglichen Praxisritus entwickeln und die Tiefe des eigenen Körpers kennenlernen.',tags:['Reinigungs-Meditation','Atem-Aktivierung','Körper & Bewusstsein']},
-          {num:'02',days:'Tage 8–14',title:'Transformation & Integration',desc:'Tiefe Arbeit mit Überzeugungen und emotionalen Mustern. Den Geist umprogrammieren, neue Bewusstseinszustände öffnen und Blockaden lösen.',tags:['Schattenarbeit','Energie-Integration','Neue neuronale Pfade']},
-          {num:'03',days:'Tage 15–21',title:'Verankern neuer Realität',desc:'Alle Praktiken in den Alltag integrieren. Eine neue Ebene des Bewusstseins, der Vitalität und Lebensqualität erreichen.',tags:['Integrations-Praktiken','Zukunftsvision','Neue Lebensqualität']},
-        ],
-      },
-      teacher: {
-        eyebrow:'IHR BEGLEITER', name:'Moshe Om', title:'Meister des Svarga-Systems',
-        cert:'Lin Tzi Instruktor · Eisernes Hemd · Qigong',
-        bio:'Seit über 20 Jahren widmet sich Moshe Om dem Studium und der Weitergabe integraler spiritueller Praktiken. Er ist der Gründer des Svarga-Systems — einer einzigartigen Synthese östlicher Traditionen, moderner Psychologie und somatischer Körperarbeit.',
-        bio2:'Er hat Hunderte von Retreats und Marathons auf drei Kontinenten geleitet. Über 3.000 Teilnehmer haben unter seiner Führung transformative Reisen unternommen.',
-        stats:[{num:'20+',label:'Jahre Erfahrung'},{num:'3.000+',label:'Teilnehmer'},{num:'30+',label:'Länder'}],
-      },
-      testimonials: {
-        eyebrow:'ERFAHRUNGSBERICHTE', h2:'Transformationsgeschichten',
-        items:[
-          {name:'Anna M.',city:'Moskau',text:'Der Marathon veränderte mein Verhältnis zu mir selbst und zum Leben. In 21 Tagen durchlief ich einen Weg, der sonst Jahre dauert. Moshe ist ein unglaublicher Begleiter.'},
-          {name:'Dmitry K.',city:'St. Petersburg',text:'Atem- und Meditationsübungen sind zu einem täglichen Ritual geworden. Ich spürte Klarheit und Kraft, die viele Jahre lang nicht da war. Es funktioniert.'},
-          {name:'Elena V.',city:'Kiew',text:'Die Marathon-Community ist ein besonderer Raum. Das Gefühl, auf dem eigenen Weg nicht allein zu sein. Großer Dank an Moshe und das ganze Team.'},
-        ],
-      },
-      cta: {
-        eyebrow:'BEGINNE DEINEN WEG',
-        h2a:'Deine Transformation', h2b:'beginnt hier.',
-        sub:'Begrenzte Plätze verfügbar. Der nächste Marathon beginnt am 1. Juni 2026.',
-        btn:'Am Marathon teilnehmen', btn2:'Frage stellen',
-      },
-      contact: {
-        eyebrow:'KONTAKT', h2:'Bereit loszulegen?',
-        sub:'Schreib uns direkt oder hinterlasse deine Daten — wir melden uns innerhalb von 24 Stunden.',
-        cards:{
-          whatsapp:{title:'WhatsApp',sub:'+972 54 998 9627',action:'Nachricht senden'},
-          telegram:{title:'Telegram',sub:'Community beitreten',action:'Telegram öffnen'},
-          email:{title:'Email',sub:CONTACT_EMAIL,action:'E-Mail senden'},
-        },
-        form:{
-          name:'Vollständiger Name',namePh:'Dein Name',
-          email:'E-Mail-Adresse',emailPh:'deine@email.com',
-          phone:'Telefon (optional)',phonePh:'+49 000 000 0000',
-          message:'Nachricht',messagePh:'Erzähl uns von dir und was dich hierher führt…',
-          submit:'Nachricht senden',sending:'Wird gesendet…',
-          ok:'Nachricht gesendet! Wir melden uns bald.',
-          err:'Etwas ist schiefgelaufen. Bitte nutze WhatsApp oder Telegram.',
-          verify:'Verifikation — was ist',verifyEq:'= ?',verifyPh:'Antwort',verifyErr:'Falsche Antwort — bitte erneut versuchen',
-          robot:'Ich bin kein Roboter',robotErr:'Bitte bestätige, dass du kein Roboter bist',
-          mailFallback:'Oder schreibe uns direkt →',
-          minHint:'mind. 10 Zeichen',charsLabel:'Zeichen',
-        },
-      },
-      footer: {
-        copy:'© 2026 Svarga International · Moshe Om. Alle Rechte vorbehalten.',
-        links:['Über','Praktiken','Programm','Begleiter','Kontakt'],
-        followUs:'Folge uns',
-        legalHeader:'Rechtliches',
-        terms:'AGB der SVARGA-Website', privacy:'Datenschutzerklärung', accessibility:'Erklärung zur Barrierefreiheit',
-      },
-      legal: {
-        close:'Schließen',
-        terms: {
-          title:'AGB der SVARGA-Website',
-          body:'Zuletzt aktualisiert: Mai 2026\n\nDiese Allgemeinen Geschäftsbedingungen regeln die Nutzung der Svarga-International-Website und des 21-Tage-Transformations-Marathons unter der Leitung von Moshe Ostrovsky („Svarga", „wir").\n\n1. Annahme der Bedingungen\nMit der Nutzung dieser Website oder der Anmeldung zu einem Programm akzeptierst du diese Bedingungen.\n\n2. Programme und Leistungen\nDer Marathon ist ein Bildungs- und Achtsamkeitsprogramm. Er ersetzt keine medizinische, psychologische oder psychiatrische Behandlung. Konsultiere vor Beginn einer neuen Praxis eine qualifizierte Fachperson.\n\n3. Anmeldung, Zahlung und Rückerstattung\nKosten, Termine und Rückerstattungsbedingungen werden bei der Anmeldung mitgeteilt. Bei Stornierungen bis 7 Tage vor Programmbeginn erstatten wir die vollen Kosten.\n\n4. Geistiges Eigentum\nAlle Inhalte, Aufnahmen und Materialien sind Eigentum von Moshe Ostrovsky / Svarga International. Vervielfältigung, Verbreitung oder Weiterverkauf sind ohne schriftliche Genehmigung untersagt.\n\n5. Verhalten\nTeilnehmer verpflichten sich zu respektvollem Umgang mit Lehrern, Mitarbeitenden und anderen Teilnehmenden. Wir behalten uns vor, Personen mit störendem oder schädigendem Verhalten auszuschließen.\n\n6. Haftungsbeschränkung\nIm gesetzlich zulässigen Rahmen haftet Svarga International nicht für indirekte, zufällige oder Folgeschäden aus der Nutzung der Website oder der Teilnahme an Programmen.\n\n7. Kontakt\nFragen zu diesen AGB: moshe.svarga@gmail.com.',
-        },
-        privacy: {
-          title:'Datenschutzerklärung',
-          body:'Zuletzt aktualisiert: Mai 2026\n\nDiese Datenschutzerklärung erklärt, wie Svarga International personenbezogene Daten verarbeitet.\n\n1. Welche Daten wir erfassen\nBeim Absenden des Kontaktformulars erfassen wir Name, E-Mail, Telefonnummer (sofern angegeben), die gewählte Sprache und den Nachrichtentext. Wir verwenden keine Tracking-Cookies von Drittanbietern.\n\n2. Verwendung der Daten\nDie Daten dienen ausschließlich der Beantwortung deiner Anfrage und – mit deiner Einwilligung – der Information über kommende Programme.\n\n3. Speicherung und Weitergabe\nFormular-Übermittlungen werden über den Dienst FormSubmit.co an moshe.svarga@gmail.com geleitet. Wir verkaufen oder vermieten deine Daten nicht. Eine Weitergabe erfolgt ausschließlich an Dienstleister (E-Mail, Hosting) unter Vertraulichkeitsverpflichtung.\n\n4. Deine Rechte\nDu kannst jederzeit Auskunft, Berichtigung oder Löschung deiner Daten verlangen unter moshe.svarga@gmail.com. Wir antworten innerhalb von 30 Tagen.\n\n5. Aufbewahrung\nAnfragen und Korrespondenz werden so lange aufbewahrt, wie es zur Bearbeitung erforderlich ist, und auf Wunsch gelöscht.\n\n6. Kinder\nDie Website richtet sich nicht an Kinder unter 16 Jahren. Wir erfassen wissentlich keine Daten von Minderjährigen.\n\n7. Kontakt\nDatenschutzfragen: moshe.svarga@gmail.com.',
-        },
-        accessibility: {
-          title:'Erklärung zur Barrierefreiheit',
-          body:'Zuletzt aktualisiert: Mai 2026\n\nSvarga International setzt sich für die digitale Barrierefreiheit für Menschen mit Behinderungen ein.\n\n1. Standards\nDie Website strebt die Einhaltung von WCAG 2.1 Stufe AA an. Wir prüfen und verbessern fortlaufend Farbkontraste, Tastatur-Navigation, Screenreader-Kompatibilität und responsives Layout.\n\n2. Funktionen\n• Vollständige Tastatur-Navigation für alle interaktiven Elemente.\n• Ausreichende Farbkontraste für Text und Bedienelemente.\n• Skalierbarer Text ohne Verlust von Inhalt oder Funktion.\n• Rechts-nach-links-Layout für Hebräisch.\n• Dunkles und helles Farbschema.\n• Beschreibende Alt-Texte für Bilder.\n\n3. Bekannte Einschränkungen\nEingebettete Drittinhalte und PDFs sind möglicherweise noch nicht vollständig barrierefrei. Wir arbeiten daran.\n\n4. Feedback\nBei Barrieren oder Bedarf an alternativen Formaten: moshe.svarga@gmail.com. Wir antworten innerhalb von 5 Werktagen.\n\n5. Aufsicht\nIn Israel ist die Kommission für die Gleichberechtigung von Menschen mit Behinderungen (Justizministerium) zuständig.',
-        },
-      },
+      back:'Alle Spezialisten', themeD:'Dunkel', themeL:'Hell',
+      portal:{ eyebrow:'Svarga International · Wähle deinen Weg', h1a:'Deine Transformation', h1b:'beginnt hier.',
+        sub:'Vier Begleiter auf Weltklasse-Niveau. Ein Ziel — dein höchstes Selbst. Wähle den Weg, der dich anspricht.',
+        hint:'Die Begleiter entdecken' },
+      cta:{ title:'Bereit loszulegen?', sub:'Schreib uns direkt — wir antworten innerhalb von 24 Stunden.', wa:'WhatsApp schreiben', tg:'Telegram öffnen' },
+      explore:'Entdecken →', programs:'Programme', testimonials:'Erfahrungen', framework:'System',
+      footer:{ copy:'© 2026 Svarga International. Alle Rechte vorbehalten.', links:['Über uns','Kontakt','Datenschutz'] },
     },
   };
 
-  // ─────────────────────────────────────────────────────────────
-  // UTILITIES
-  // ─────────────────────────────────────────────────────────────
-  function useScrollReveal() {
+  /* ─── Specialist data ─── */
+  const SPECS = {
+    en:[
+      { id:'moshe', num:'01', accent:'#C8A86E', glow:'rgba(200,168,110,.14)', photo:null,
+        tag:'Integral Transformation', name:'Moshe Om', title:'Master of the Svarga System',
+        tagline:'Where ancient wisdom meets modern psychology — an integral path to your deepest self.',
+        pills:['Meditation','Breathwork','Qigong','Energy Work'],
+        about:{ eyebrow:'ABOUT MOSHE', h2:'20 Years of Integral Practice',
+          bio:'For over 20 years, Moshe Om has dedicated himself to studying and transmitting integral spiritual practices across three continents. He is the founder of the Svarga system — a unique synthesis of Eastern traditions, modern psychology, and somatic work with the body.',
+          bio2:'Lin Tzi Instructor · Iron Shirt Qigong · Vipassana · Pranayama. Trained under lineage teachers in India, China, and Israel. His approach unites body, breath, mind, and consciousness into one living practice.' },
+        stats:[{n:'20+',l:'years experience'},{n:'3,000+',l:'participants'},{n:'30+',l:'countries'}],
+        programs:[
+          {num:'01',title:'21-Day Transformation Marathon',desc:'Daily integral practices for body, breath, mind, and consciousness. Live group calls, recordings, and community support throughout.',tags:['Meditation','Breathwork','Energy Work']},
+          {num:'02',title:'Retreat Series',desc:'Immersive multi-day retreats in sacred locations. Deep somatic and energy work in nature with small groups.',tags:['Somatic Work','Qigong','Group Ritual']},
+          {num:'03',title:'Private Mentorship',desc:'Personalized 1:1 guidance on a tailored 3-month journey. For those ready for deep, lasting transformation.',tags:['1:1 Coaching','Custom Path','Weekly Sessions']},
+        ],
+        testimonials:[
+          {name:'Anna M.',city:'Moscow',text:'In 21 days I traveled a path that usually takes years. Moshe is an incredible guide — his presence alone creates transformation.'},
+          {name:'Dmitry K.',city:'St. Petersburg',text:'Breathing and meditation practices became a daily ritual. Clarity and strength I hadn\'t felt in years — it simply works.'},
+          {name:'Elena V.',city:'Kyiv',text:'The community alone is worth it. The feeling of not being alone on your path. Endless gratitude to Moshe and the whole team.'},
+        ],
+      },
+      { id:'maya', num:'02', accent:'#6EA080', glow:'rgba(110,160,128,.14)', photo:null,
+        tag:'Breathwork & Somatics', name:'Maya Liran', title:'Somatic Healing & Trauma Release Specialist',
+        tagline:'The body holds every story you\'ve ever lived. Breathwork is how you rewrite the ending.',
+        pills:['Breathwork','Somatic Therapy','Trauma Release','TRE'],
+        about:{ eyebrow:'ABOUT MAYA', h2:'12 Years of Body-Centered Healing',
+          bio:'Maya Liran spent 12 years studying the body\'s intelligence. Trained in Biodynamic Breathwork & Trauma Release System (BBTRS), Somatic Experiencing (SE), and Tension & Trauma Releasing Exercises (TRE), she works at the intersection of ancient breath practices and cutting-edge trauma science.',
+          bio2:'Certified SE Practitioner · BBTRS Facilitator · TRE Provider. Maya has guided hundreds of people through trauma release, nervous system regulation, and deep emotional liberation using breath as the primary medicine.' },
+        stats:[{n:'12+',l:'years experience'},{n:'800+',l:'sessions'},{n:'20+',l:'countries'}],
+        programs:[
+          {num:'01',title:'21-Day Breath Journey',desc:'Daily breathwork sessions, somatic practices, and nervous system regulation tools. A guided path from tension to ease.',tags:['Breathwork','Nervous System','Somatic']},
+          {num:'02',title:'Trauma Release Intensive',desc:'A focused 7-day online or in-person intensive for deep release of stored trauma and emotional armoring.',tags:['Trauma Release','TRE','BBTRS']},
+          {num:'03',title:'1:1 Somatic Coaching',desc:'Private sessions tailored to your body\'s specific needs. Safe, gentle, and profoundly effective.',tags:['Private Sessions','Custom Protocol','Ongoing Support']},
+        ],
+        testimonials:[
+          {name:'Sophie R.',city:'Berlin',text:'Maya held a space unlike anything I\'d experienced. Three sessions shifted patterns I\'d carried for 15 years. The body really does know.'},
+          {name:'Nadia L.',city:'Tel Aviv',text:'The 21-day journey helped me sleep through the night for the first time in years. Nervous system regulation can feel this gentle.'},
+          {name:'Marcus T.',city:'London',text:'I came skeptical and left transformed. The TRE sessions released something I couldn\'t access in years of talk therapy.'},
+        ],
+      },
+      { id:'arjun', num:'03', accent:'#7E8EC8', glow:'rgba(126,142,200,.14)', photo:null,
+        tag:'Meditation & Mindfulness', name:'Arjun Patel', title:'Vipassana Guide & Mindfulness Teacher',
+        tagline:'Stillness is not the absence of noise — it is the presence of yourself. Come home.',
+        pills:['Vipassana','Mindfulness','Loving-Kindness','Retreat Guidance'],
+        about:{ eyebrow:'ABOUT ARJUN', h2:'18 Years in the Theravada Tradition',
+          bio:'Arjun Patel began his meditation practice at 22 in Dharamshala, India, under Tibetan and Theravada teachers. After 18 years of daily practice and 7 extended silent retreats, he now teaches Vipassana and mindfulness internationally.',
+          bio2:'Trained in the S.N. Goenka Vipassana tradition · Tibetan Buddhist psychology · MBSR (Mindfulness-Based Stress Reduction). Arjun\'s teaching is grounded, warm, and entirely free of dogma.' },
+        stats:[{n:'18+',l:'years practice'},{n:'7',l:'silent retreats'},{n:'500+',l:'students'}],
+        programs:[
+          {num:'01',title:'10-Day Vipassana Retreat',desc:'A traditional silent Vipassana retreat online or in-person. Profound stillness, body scanning, and breath awareness. For committed seekers.',tags:['Vipassana','Silence','Body Scan']},
+          {num:'02',title:'28-Day Mindfulness for Life',desc:'A gentle daily mindfulness course integrating loving-kindness, breath awareness, and daily-life application for lasting change.',tags:['Mindfulness','MBSR','Daily Practice']},
+          {num:'03',title:'Private Meditation Instruction',desc:'One-on-one guidance through your meditation practice. Suitable for beginners and advanced practitioners alike.',tags:['1:1 Sessions','Personalized','Any Level']},
+        ],
+        testimonials:[
+          {name:'Claire B.',city:'Paris',text:'Arjun taught me that meditation is not about emptying the mind — it\'s about befriending it. His 28-day program changed everything.'},
+          {name:'Ravi S.',city:'Mumbai',text:'The 10-day retreat was the hardest and most rewarding thing I\'ve ever done. Arjun\'s guidance was always there exactly when needed.'},
+          {name:'Ingrid H.',city:'Stockholm',text:'I was a complete beginner. Now 6 months later I haven\'t missed a single morning session. Arjun made the practice accessible and alive.'},
+        ],
+      },
+      { id:'viktor', num:'04', accent:'#C8946E', glow:'rgba(200,148,110,.14)', photo:null,
+        tag:'Business & Peak Performance', name:'Viktor Stern', title:'Business Mastery & Peak Performance Coach',
+        tagline:'Your business is a mirror of your being. Transform the inner — and the outer will follow.',
+        pills:['Business Strategy','Peak Performance','Leadership','Executive Coaching'],
+        about:{ eyebrow:'ABOUT VIKTOR', h2:'15 Years Coaching Leaders at the Edge',
+          bio:'Viktor Stern has spent 15 years at the intersection of peak human performance and business strategy. Drawing on frameworks from the world\'s foremost performance coaches — state management, elite morning protocols, high-performance habits, and strategic clarity — he has helped over 1,000 executives and entrepreneurs build businesses that don\'t cost them their lives.',
+          bio2:'Former Fortune 500 executive turned performance coach. Trained in NLP, Strategic Intervention, and High Performance Coaching. Viktor\'s system synthesizes Tony Robbins\' peak state architecture, Robin Sharma\'s elite daily rituals (5 AM Club · 4 Interior Empires), and Brendon Burchard\'s High Performance Habits (Clarity · Energy · Necessity · Productivity · Influence · Courage) into one executable framework.' },
+        stats:[{n:'15+',l:'years experience'},{n:'1,000+',l:'clients coached'},{n:'40+',l:'countries'}],
+        programs:[
+          {num:'01',title:'90-Day Business Breakthrough',desc:'Identity shift, strategy clarity, systems build-out, and daily performance habits. For entrepreneurs and executives ready to operate at a new level.',tags:['Strategy','Identity Work','Daily Habits']},
+          {num:'02',title:'Elite Performance Mastermind',desc:'A curated group of 12 high-achievers meeting monthly for accountability, cross-pollination, and breakthrough thinking. Application required.',tags:['Mastermind','Peer Group','Monthly Intensives']},
+          {num:'03',title:'Peak State Executive Retreat',desc:'A 3-day in-person retreat for senior leaders. Physiology, clarity sessions, strategic planning, and deep inner work in a focused environment.',tags:['In-Person Retreat','Leadership','Deep Work']},
+        ],
+        testimonials:[
+          {name:'Michael K.',city:'New York',text:'Viktor\'s Performance Pyramid changed how I operate. The morning protocol alone added two hours of real productivity. Revenue up 40% in 90 days.'},
+          {name:'Sara J.',city:'Munich',text:'I came burnt out. The retreat cracked something open. Six months later I have more energy, more profit, and finally feel like a leader.'},
+          {name:'James P.',city:'Singapore',text:'The mastermind is the single best investment I\'ve made. The quality of people Viktor curates is extraordinary. Game-changing every session.'},
+        ],
+        framework:{
+          eyebrow:'THE PERFORMANCE PYRAMID',
+          h2:'State → Strategy → Systems',
+          pillars:[
+            {n:'01',title:'Peak State',desc:'Results begin with physiology and emotional state. The Morning Power Protocol, priming rituals, and state calibration ensure you operate from peak — not default. "Motion creates emotion." — Tony Robbins'},
+            {n:'02',title:'Strategic Clarity',desc:'Where focus goes, energy flows. The CAP Framework (Clarity · Action · Power) cuts through overwhelm and aligns your daily actions with your most important goals. Inspired by Robin Sharma\'s 4 Interior Empires.'},
+            {n:'03',title:'Elite Systems',desc:'High performers build systems, not willpower. Delegation frameworks, leverage matrices, and performance dashboards run your business — so your business doesn\'t run you.'},
+            {n:'04',title:'Identity Evolution',desc:'"Who do I need to become?" is the most important business question. Deep identity work — drawn from Brendon Burchard\'s High Performance Habits — ensures your inner operating system matches the business you\'re building.'},
+          ],
+        },
+      },
+    ],
+    ru:[
+      { id:'moshe', num:'01', accent:'#C8A86E', glow:'rgba(200,168,110,.14)', photo:null,
+        tag:'Интегральная трансформация', name:'Моше Ом', title:'Мастер системы Svarga',
+        tagline:'Там, где древняя мудрость встречает современную психологию — интегральный путь к вашему глубинному Я.',
+        pills:['Медитация','Дыхание','Цигун','Энергетика'],
+        about:{ eyebrow:'О МОШЕ', h2:'20 лет интегральной практики',
+          bio:'Более 20 лет Моше Ом посвящает себя изучению и передаче интегральных духовных практик на трёх континентах. Основатель системы Svarga — уникального синтеза восточных традиций, современной психологии и соматической работы с телом.',
+          bio2:'Инструктор Линь Цзи · Железная рубашка Цигун · Випассана · Пранаяма. Прошёл подготовку у учителей-линейных мастеров в Индии, Китае и Израиле. Его подход объединяет тело, дыхание, разум и сознание в единую живую практику.' },
+        stats:[{n:'20+',l:'лет опыта'},{n:'3 000+',l:'участников'},{n:'30+',l:'стран'}],
+        programs:[
+          {num:'01',title:'21-дневный марафон трансформации',desc:'Ежедневные интегральные практики для тела, дыхания, ума и сознания. Живые групповые звонки, записи и поддержка сообщества.',tags:['Медитация','Дыхание','Энергетика']},
+          {num:'02',title:'Серия ретритов',desc:'Многодневные погружения в сакральных местах. Глубокая соматическая и энергетическая работа в природе с малыми группами.',tags:['Соматика','Цигун','Групповой ритуал']},
+          {num:'03',title:'Личное наставничество',desc:'Персональное сопровождение 1:1 через трёхмесячный путь, выстроенный под вас. Для тех, кто готов к глубоким и устойчивым переменам.',tags:['Коучинг 1:1','Индивидуальный путь','Еженедельные сессии']},
+        ],
+        testimonials:[
+          {name:'Анна М.',city:'Москва',text:'За 21 день я прошла путь, который обычно занимает годы. Моше — невероятный проводник. Его присутствие само по себе создаёт трансформацию.'},
+          {name:'Дмитрий К.',city:'Санкт-Петербург',text:'Практики дыхания и медитации стали ежедневным ритуалом. Ясность и сила, которых не было много лет — это просто работает.'},
+          {name:'Елена В.',city:'Киев',text:'Одно только сообщество марафона того стоит. Ощущение, что ты не один в своём пути. Безграничная благодарность Моше и всей команде.'},
+        ],
+      },
+      { id:'maya', num:'02', accent:'#6EA080', glow:'rgba(110,160,128,.14)', photo:null,
+        tag:'Дыхание и соматика', name:'Майя Лиран', title:'Специалист по соматическому исцелению и высвобождению травмы',
+        tagline:'Тело хранит каждую историю, которую вы прожили. Дыхательная работа — это способ переписать конец.',
+        pills:['Дыхание','Соматическая терапия','Высвобождение травмы','TRE'],
+        about:{ eyebrow:'О МАЙЕ', h2:'12 лет телесно-ориентированного исцеления',
+          bio:'Майя Лиран 12 лет изучает интеллект тела. Подготовлена в системах Биодинамической дыхательной работы и высвобождения травмы (BBTRS), Соматического переживания (SE) и Упражнений по высвобождению напряжения и травмы (TRE).',
+          bio2:'Сертифицированный практик SE · Фасилитатор BBTRS · Провайдер TRE. Майя провела сотни людей через высвобождение травмы, регуляцию нервной системы и глубокое эмоциональное освобождение, используя дыхание как основной инструмент.' },
+        stats:[{n:'12+',l:'лет опыта'},{n:'800+',l:'сессий'},{n:'20+',l:'стран'}],
+        programs:[
+          {num:'01',title:'21-дневное дыхательное путешествие',desc:'Ежедневные сессии дыхательной работы, соматические практики и инструменты регуляции нервной системы. Путь от напряжения к лёгкости.',tags:['Дыхание','Нервная система','Соматика']},
+          {num:'02',title:'Интенсив по высвобождению травмы',desc:'7-дневный онлайн- или очный интенсив для глубокого высвобождения накопленной травмы и эмоционального панциря.',tags:['Высвобождение травмы','TRE','BBTRS']},
+          {num:'03',title:'Индивидуальный соматический коучинг',desc:'Личные сессии, выстроенные под специфические потребности вашего тела. Безопасно, мягко и глубоко эффективно.',tags:['Личные сессии','Индивидуальный протокол','Постоянная поддержка']},
+        ],
+        testimonials:[
+          {name:'Вера С.',city:'Берлин',text:'Майя создала пространство, которого я никогда не встречала. Три сессии сдвинули паттерны, которые я несла 15 лет. Тело действительно знает.'},
+          {name:'Надя Л.',city:'Тель-Авив',text:'21-дневное путешествие помогло мне впервые за годы спать всю ночь. Регуляция нервной системы может быть такой мягкой.'},
+          {name:'Маркус Т.',city:'Лондон',text:'Я пришёл скептиком и ушёл трансформированным. TRE-сессии высвободили то, что годы разговорной терапии не могли затронуть.'},
+        ],
+      },
+      { id:'arjun', num:'03', accent:'#7E8EC8', glow:'rgba(126,142,200,.14)', photo:null,
+        tag:'Медитация и осознанность', name:'Арджун Патель', title:'Гид по випассане и учитель медитации',
+        tagline:'Тишина — это не отсутствие шума. Это присутствие вас самих. Возвращайтесь домой.',
+        pills:['Випассана','Медитация осознанности','Медитация любящей доброты','Ведение ретритов'],
+        about:{ eyebrow:'ОБ АРДЖУНЕ', h2:'18 лет в традиции тхеравады',
+          bio:'Арджун Патель начал медитативную практику в 22 года в Дхарамсале, Индия, под руководством тибетских и тхеравадийских учителей. После 18 лет ежедневной практики и 7 молчаливых ретритов он преподаёт випассану и медитацию осознанности по всему миру.',
+          bio2:'Подготовлен в традиции С.Н. Гоенки · Тибетская буддийская психология · MBSR. Преподавание Арджуна — заземлённое, тёплое и полностью свободное от догм.' },
+        stats:[{n:'18+',l:'лет практики'},{n:'7',l:'молчаливых ретритов'},{n:'500+',l:'учеников'}],
+        programs:[
+          {num:'01',title:'10-дневный ретрит випассаны',desc:'Традиционный молчаливый ретрит випассаны — онлайн или очно. Глубокая тишина, сканирование тела и осознанность дыхания.',tags:['Випассана','Тишина','Сканирование тела']},
+          {num:'02',title:'28 дней осознанности для жизни',desc:'Мягкий ежедневный курс медитации с медитацией любящей доброты, осознанностью дыхания и применением в повседневной жизни.',tags:['Осознанность','MBSR','Ежедневная практика']},
+          {num:'03',title:'Личные инструкции по медитации',desc:'Сопровождение один на один. Подходит как для начинающих, так и для опытных практикующих.',tags:['Сессии 1:1','Индивидуально','Любой уровень']},
+        ],
+        testimonials:[
+          {name:'Клер Б.',city:'Париж',text:'Арджун научил меня, что медитация — это не об опустошении ума, а о дружбе с ним. Его 28-дневная программа изменила всё.'},
+          {name:'Рави С.',city:'Мумбаи',text:'10-дневный ретрит был самым трудным и самым ценным. Арджун появлялся именно тогда, когда было нужно.'},
+          {name:'Ингрид Х.',city:'Стокгольм',text:'Я начинала с нуля. Шесть месяцев спустя не пропустила ни одного утреннего сеанса. Арджун сделал практику доступной и живой.'},
+        ],
+      },
+      { id:'viktor', num:'04', accent:'#C8946E', glow:'rgba(200,148,110,.14)', photo:null,
+        tag:'Бизнес и пиковая эффективность', name:'Виктор Штерн', title:'Коуч по бизнес-мастерству и пиковой производительности',
+        tagline:'Ваш бизнес — зеркало вашего существа. Трансформируйте внутреннее — и внешнее последует.',
+        pills:['Бизнес-стратегия','Пиковая производительность','Лидерство','Коучинг руководителей'],
+        about:{ eyebrow:'О ВИКТОРЕ', h2:'15 лет коучинга лидеров на пределе возможностей',
+          bio:'Виктор Штерн 15 лет работает на пересечении пиковой человеческой эффективности и бизнес-стратегии. Используя фреймворки ведущих мировых коучей — управление состоянием, элитные утренние протоколы, привычки высокоэффективных людей и стратегическую ясность — он помог более 1 000 руководителей и предпринимателей.',
+          bio2:'Бывший топ-менеджер Fortune 500, ставший коучем по производительности. Подготовлен в НЛП, стратегическом вмешательстве и коучинге высокой эффективности. Система Виктора синтезирует архитектуру пикового состояния Тони Роббинса, элитные ежедневные ритуалы Робина Шармы (Клуб 5 утра · 4 Внутренние империи) и шесть привычек высокоэффективных людей Брендона Бёрчарда.' },
+        stats:[{n:'15+',l:'лет опыта'},{n:'1 000+',l:'коучинговых клиентов'},{n:'40+',l:'стран'}],
+        programs:[
+          {num:'01',title:'90-дневный прорыв в бизнесе',desc:'Трансформация идентичности, стратегическая ясность, построение систем и ежедневные привычки производительности. Для предпринимателей и руководителей.',tags:['Стратегия','Работа с идентичностью','Ежедневные привычки']},
+          {num:'02',title:'Мастермайнд элитной производительности',desc:'Тщательно отобранная группа из 12 высокоэффективных людей, встречающихся ежемесячно для ответственности и прорывного мышления.',tags:['Мастермайнд','Группа сверстников','Ежемесячные интенсивы']},
+          {num:'03',title:'Ретрит пикового состояния',desc:'3-дневное очное погружение для топ-менеджеров. Физиология, стратегическая ясность и глубокая внутренняя работа.',tags:['Очный ретрит','Лидерство','Глубокая работа']},
+        ],
+        testimonials:[
+          {name:'Михаил К.',city:'Нью-Йорк',text:'Пирамида производительности Виктора изменила то, как я работаю. Только утренний протокол добавил два часа реальной продуктивности. Выручка выросла на 40% за 90 дней.'},
+          {name:'Сара Й.',city:'Мюнхен',text:'Я пришла выгоревшей. Ретрит вскрыл что-то важное. Шесть месяцев спустя у меня больше энергии, больше прибыли, и я наконец чувствую себя лидером.'},
+          {name:'Джеймс П.',city:'Сингапур',text:'Мастермайнд — лучшая инвестиция в моей жизни. Качество людей, которых собирает Виктор, исключительное. Прорывные разговоры на каждой сессии.'},
+        ],
+        framework:{
+          eyebrow:'ПИРАМИДА ПРОИЗВОДИТЕЛЬНОСТИ',
+          h2:'Состояние → Стратегия → Системы',
+          pillars:[
+            {n:'01',title:'Пиковое состояние',desc:'Результаты начинаются с физиологии и эмоционального состояния. Утренний протокол мощи и практики прайминга обеспечивают работу из пика. «Движение создаёт эмоцию.» — Тони Роббинс'},
+            {n:'02',title:'Стратегическая ясность',desc:'Куда идёт фокус — туда идёт энергия. CAP-фреймворк (Clarity · Action · Power) согласует ваши ежедневные действия с наиболее рычажными целями. Вдохновлено 4 Внутренними империями Робина Шармы.'},
+            {n:'03',title:'Элитные системы',desc:'Высокоэффективные люди строят системы, а не полагаются на силу воли. Фреймворки делегирования и матрицы рычагов управляют вашим бизнесом — а не наоборот.'},
+            {n:'04',title:'Эволюция идентичности',desc:'«Кем мне нужно стать?» — самый важный вопрос в бизнесе. Работа с идентичностью (на основе Привычек высокоэффективных людей Брендона Бёрчарда) обеспечивает соответствие вашей внутренней системы вашему бизнесу.'},
+          ],
+        },
+      },
+    ],
+    de:[
+      { id:'moshe', num:'01', accent:'#C8A86E', glow:'rgba(200,168,110,.14)', photo:null,
+        tag:'Integrale Transformation', name:'Moshe Om', title:'Meister des Svarga-Systems',
+        tagline:'Dort wo alte Weisheit auf moderne Psychologie trifft — ein integraler Weg zu deinem tiefsten Selbst.',
+        pills:['Meditation','Atemarbeit','Qigong','Energiearbeit'],
+        about:{ eyebrow:'ÜBER MOSHE', h2:'20 Jahre integrale Praxis',
+          bio:'Seit über 20 Jahren widmet sich Moshe Om dem Studium und der Weitergabe integraler spiritueller Praktiken auf drei Kontinenten. Er ist Gründer des Svarga-Systems — eine einzigartige Synthese östlicher Traditionen, moderner Psychologie und somatischer Körperarbeit.',
+          bio2:'Lin Tzi Instruktor · Eisernes Hemd Qigong · Vipassana · Pranayama. Ausgebildet bei Linien-Lehrern in Indien, China und Israel. Sein Ansatz vereint Körper, Atem, Geist und Bewusstsein zu einer lebendigen Praxis.' },
+        stats:[{n:'20+',l:'Jahre Erfahrung'},{n:'3.000+',l:'Teilnehmer'},{n:'30+',l:'Länder'}],
+        programs:[
+          {num:'01',title:'21-Tage-Transformationsmarathon',desc:'Tägliche integrale Praktiken für Körper, Atem, Geist und Bewusstsein. Live-Gespräche, Aufnahmen und Community-Unterstützung.',tags:['Meditation','Atemarbeit','Energiearbeit']},
+          {num:'02',title:'Retreat-Reihe',desc:'Mehrtägige Eintauchungen an heiligen Orten. Tiefe somatische und energetische Arbeit in der Natur.',tags:['Somatik','Qigong','Gruppenritual']},
+          {num:'03',title:'Persönliches Mentoring',desc:'Individuelle 1:1-Begleitung auf einer maßgeschneiderten 3-Monats-Reise für tiefgreifenden, nachhaltigen Wandel.',tags:['1:1-Coaching','Individueller Weg','Wöchentliche Sessions']},
+        ],
+        testimonials:[
+          {name:'Anna M.',city:'Moskau',text:'In 21 Tagen durchlief ich einen Weg, der sonst Jahre dauert. Moshe ist ein unglaublicher Begleiter — seine Präsenz schafft Transformation.'},
+          {name:'Dmitry K.',city:'St. Petersburg',text:'Atem- und Meditationsübungen sind zu täglichen Ritualen geworden. Klarheit und Stärke, die ich seit Jahren nicht gespürt hatte — es funktioniert.'},
+          {name:'Elena V.',city:'Kiew',text:'Allein die Community ist es wert. Das Gefühl, auf dem eigenen Weg nicht allein zu sein. Tiefer Dank an Moshe und das ganze Team.'},
+        ],
+      },
+      { id:'maya', num:'02', accent:'#6EA080', glow:'rgba(110,160,128,.14)', photo:null,
+        tag:'Atemarbeit & Somatik', name:'Maya Liran', title:'Spezialistin für somatische Heilung & Traumaauflösung',
+        tagline:'Der Körper bewahrt jede Geschichte, die du je gelebt hast. Atemarbeit schreibt das Ende um.',
+        pills:['Atemarbeit','Somatische Therapie','Traumaauflösung','TRE'],
+        about:{ eyebrow:'ÜBER MAYA', h2:'12 Jahre körperzentrierte Heilung',
+          bio:'Maya Liran erforscht seit 12 Jahren die Intelligenz des Körpers. Ausgebildet in Biodynamischer Atemarbeit & Traumaauflösungssystem (BBTRS), Somatischem Erleben (SE) und Traumata- und Spannungsauflösung (TRE).',
+          bio2:'Zertifizierte SE-Praktikerin · BBTRS-Facilitatorin · TRE-Anbieterin. Maya hat Hunderte von Menschen durch Traumaauflösung, Nervensystemregulation und tiefe emotionale Befreiung geführt.' },
+        stats:[{n:'12+',l:'Jahre Erfahrung'},{n:'800+',l:'Sessions'},{n:'20+',l:'Länder'}],
+        programs:[
+          {num:'01',title:'21-Tage-Atemreise',desc:'Tägliche Atemarbeit-Sessions, somatische Praktiken und Nervensystemregulation. Ein geführter Weg von der Anspannung zur Leichtigkeit.',tags:['Atemarbeit','Nervensystem','Somatik']},
+          {num:'02',title:'Trauma-Release-Intensiv',desc:'7-tägiges Online- oder Präsenz-Intensiv zur tiefen Auflösung gespeicherter Traumata und emotionaler Panzerung.',tags:['Traumaauflösung','TRE','BBTRS']},
+          {num:'03',title:'1:1-Somatisches Coaching',desc:'Private Sessions, zugeschnitten auf die spezifischen Bedürfnisse deines Körpers. Sicher, sanft und tiefgreifend wirksam.',tags:['Private Sessions','Individuell','Laufende Begleitung']},
+        ],
+        testimonials:[
+          {name:'Sophie R.',city:'Berlin',text:'Maya hielt einen Raum, den ich so noch nie erlebt hatte. Drei Sessions verschoben Muster, die ich 15 Jahre getragen hatte.'},
+          {name:'Nadia L.',city:'Tel Aviv',text:'Die 21-Tage-Reise half mir, zum ersten Mal seit Jahren durchzuschlafen. Nervensystemregulation kann so sanft sein.'},
+          {name:'Marcus T.',city:'London',text:'Ich kam skeptisch und ging transformiert. Die TRE-Sessions lösten etwas, das Jahre Gesprächstherapie nicht erreichen konnte.'},
+        ],
+      },
+      { id:'arjun', num:'03', accent:'#7E8EC8', glow:'rgba(126,142,200,.14)', photo:null,
+        tag:'Meditation & Achtsamkeit', name:'Arjun Patel', title:'Vipassana-Guide & Meditationslehrer',
+        tagline:'Stille ist nicht die Abwesenheit von Lärm — sie ist die Anwesenheit von dir selbst. Komm nach Hause.',
+        pills:['Vipassana','Achtsamkeit','Liebende Güte','Retreat-Begleitung'],
+        about:{ eyebrow:'ÜBER ARJUN', h2:'18 Jahre in der Theravada-Tradition',
+          bio:'Arjun Patel begann seine Meditationspraxis mit 22 Jahren in Dharamshala, Indien, unter tibetischen und Theravada-Lehrern. Nach 18 Jahren täglicher Praxis und 7 Schweige-Retreats unterrichtet er Vipassana und Achtsamkeit international.',
+          bio2:'Ausgebildet in der S.N.-Goenka-Vipassana-Tradition · Tibetische buddhistische Psychologie · MBSR. Arjuns Unterricht ist geerdet, warm und völlig frei von Dogmen.' },
+        stats:[{n:'18+',l:'Jahre Praxis'},{n:'7',l:'Schweige-Retreats'},{n:'500+',l:'Schüler'}],
+        programs:[
+          {num:'01',title:'10-Tage-Vipassana-Retreat',desc:'Traditionelles Schweige-Retreat online oder in Präsenz. Tiefe Stille, Körperscan und Atemgewahrsein für ernsthafte Suchende.',tags:['Vipassana','Stille','Körperscan']},
+          {num:'02',title:'28 Tage Achtsamkeit für das Leben',desc:'Sanfter täglicher Achtsamkeitskurs mit Liebender Güte, Atemgewahrsein und Anwendung im Alltag.',tags:['Achtsamkeit','MBSR','Tägliche Praxis']},
+          {num:'03',title:'Persönliche Meditationsunterweisung',desc:'Individuelle 1:1-Begleitung durch deine Praxis. Geeignet für Anfänger und Fortgeschrittene.',tags:['1:1-Sessions','Personalisiert','Jedes Level']},
+        ],
+        testimonials:[
+          {name:'Claire B.',city:'Paris',text:'Arjun lehrte mich, dass Meditation nicht darum geht, den Geist zu leeren — sondern sich mit ihm anzufreunden. Sein Programm veränderte alles.'},
+          {name:'Ravi S.',city:'Mumbai',text:'Das 10-Tage-Retreat war das Schwerste und Lohnendste, was ich je getan habe. Arjuns Führung war immer genau dann da, wenn sie gebraucht wurde.'},
+          {name:'Ingrid H.',city:'Stockholm',text:'Ich war Anfänger. Sechs Monate später habe ich keine einzige Morgeneinheit ausgelassen. Arjun machte die Praxis zugänglich und lebendig.'},
+        ],
+      },
+      { id:'viktor', num:'04', accent:'#C8946E', glow:'rgba(200,148,110,.14)', photo:null,
+        tag:'Business & Spitzenleistung', name:'Viktor Stern', title:'Business-Mastery & Peak-Performance-Coach',
+        tagline:'Dein Unternehmen ist ein Spiegel deines Seins. Transformiere das Innere — das Äußere folgt.',
+        pills:['Business-Strategie','Spitzenleistung','Führung','Executive-Coaching'],
+        about:{ eyebrow:'ÜBER VIKTOR', h2:'15 Jahre Coaching von Führungskräften an der Grenze',
+          bio:'Viktor Stern arbeitet seit 15 Jahren an der Schnittstelle von menschlicher Spitzenleistung und Business-Strategie. Er hat über 1.000 Führungskräfte und Unternehmer dabei geholfen, Unternehmen aufzubauen, die ihr Leben nicht kosten.',
+          bio2:'Ehemaliger Fortune-500-Manager, nun Performance-Coach. Ausgebildet in NLP, Strategischer Intervention und High Performance Coaching. Viktors System synthetisiert Tony Robbins\' Peak-State-Architektur, Robin Sharmas Elite-Tagesrituale (5-Uhr-Club · 4 Innere Imperien) und Brendon Burchards High-Performance-Habits.' },
+        stats:[{n:'15+',l:'Jahre Erfahrung'},{n:'1.000+',l:'betreute Klienten'},{n:'40+',l:'Länder'}],
+        programs:[
+          {num:'01',title:'90-Tage-Business-Durchbruch',desc:'Identitätswandel, strategische Klarheit, Systemaufbau und tägliche Performance-Gewohnheiten für Unternehmer und Führungskräfte.',tags:['Strategie','Identitätsarbeit','Tägliche Gewohnheiten']},
+          {num:'02',title:'Elite-Performance-Mastermind',desc:'Eine kuratierte Gruppe von 12 High-Achievern für monatliche Accountability und Durchbruch-Denken. Bewerbung erforderlich.',tags:['Mastermind','Peer-Gruppe','Monatliche Intensivs']},
+          {num:'03',title:'Peak-State-Executive-Retreat',desc:'3-tägiges Präsenz-Retreat für Senior-Leader: Physiologie, Klärungssessions, strategische Planung und tiefe innere Arbeit.',tags:['Präsenz-Retreat','Führung','Tiefe Arbeit']},
+        ],
+        testimonials:[
+          {name:'Michael K.',city:'New York',text:'Viktors Performance-Pyramide veränderte meine Arbeitsweise. Allein das Morgenprotokoll fügte zwei Stunden echter Produktivität hinzu. Umsatz +40% in 90 Tagen.'},
+          {name:'Sara J.',city:'München',text:'Ich kam ausgebrannt. Das Retreat brach etwas auf. Sechs Monate später habe ich mehr Energie, mehr Gewinn und fühle mich endlich wie eine Führungskraft.'},
+          {name:'James P.',city:'Singapur',text:'Das Mastermind ist die beste Investition meines Lebens. Die Qualität der Menschen, die Viktor kuratiert, ist außergewöhnlich.'},
+        ],
+        framework:{
+          eyebrow:'DIE PERFORMANCE-PYRAMIDE',
+          h2:'Zustand → Strategie → Systeme',
+          pillars:[
+            {n:'01',title:'Spitzenzustand',desc:'Ergebnisse beginnen mit Physiologie und emotionalem Zustand. Morgen-Power-Protokoll und Priming-Rituale sorgen dafür, dass du aus dem Spitzenzustand agierst. „Bewegung erzeugt Emotion." — Tony Robbins'},
+            {n:'02',title:'Strategische Klarheit',desc:'Wohin die Aufmerksamkeit geht, fließt die Energie. Das CAP-Framework (Clarity · Action · Power) richtet tägliche Handlungen an den wichtigsten Zielen aus. Inspiriert von Robin Sharmas 4 Inneren Imperien.'},
+            {n:'03',title:'Elite-Systeme',desc:'Spitzenleister bauen Systeme, keine Willenskraft. Delegations-Frameworks und Performance-Dashboards führen dein Unternehmen — damit es nicht dich führt.'},
+            {n:'04',title:'Identitätsentwicklung',desc:'„Wer muss ich werden?" ist die wichtigste Geschäftsfrage. Tiefe Identitätsarbeit — basierend auf Brendon Burchards High-Performance-Habits — sorgt dafür, dass dein inneres System mit deinem Unternehmen übereinstimmt.'},
+          ],
+        },
+      },
+    ],
+  };
+
+  /* ─── Icons ─── */
+  const IcoArrowR = ({s=14}) => <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>;
+  const IcoArrowL = ({s=14}) => <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>;
+  const IcoSun = () => <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>;
+  const IcoMoon = () => <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>;
+  const IcoWA = ({s=26}) => <svg width={s} height={s} viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>;
+  const IcoTG = ({s=18}) => <svg width={s} height={s} viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.94z"/></svg>;
+
+  /* ─── Scroll reveal hook ─── */
+  function useReveal(dep) {
     React.useEffect(() => {
       const obs = new IntersectionObserver(
-        entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); }),
-        { threshold: 0.08 }
+        es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); }),
+        { threshold: 0.07 }
       );
-      document.querySelectorAll('.rv,.rvl,.rvr').forEach(el => obs.observe(el));
-      return () => obs.disconnect();
-    }, []);
+      const timer = setTimeout(() => {
+        document.querySelectorAll('.rv,.rvl,.rvr').forEach(el => { el.classList.remove('in'); obs.observe(el); });
+      }, 80);
+      return () => { clearTimeout(timer); obs.disconnect(); };
+    }, [dep]);
   }
 
-  function scrollToSectionSection(id) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - 72, behavior: 'smooth' });
-  }
-
-  // ─────────────────────────────────────────────────────────────
-  // ICONS
-  // ─────────────────────────────────────────────────────────────
-  const IconFacebook = ({size=22,color='currentColor'}) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill={color}>
-      <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
-    </svg>
-  );
-  const IconInstagram = ({size=22,color='currentColor'}) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round">
-      <rect x="2" y="2" width="20" height="20" rx="5"/>
-      <circle cx="12" cy="12" r="4.5"/>
-      <circle cx="17.5" cy="6.5" r="1.2" fill={color} stroke="none"/>
-    </svg>
-  );
-  const IconYoutube = ({size=22,color='currentColor'}) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill={color}>
-      <path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/>
-      <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="var(--bg,#0D1018)"/>
-    </svg>
-  );
-  const IconTelegram = ({size=22,color='currentColor'}) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill={color}>
-      <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.94z"/>
-    </svg>
-  );
-  const IconWhatsApp = ({size=28,color='#fff'}) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill={color}>
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-    </svg>
-  );
-  const IconSun = () => (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-      <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
-      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-      <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
-      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-    </svg>
-  );
-  const IconMoon = () => (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-      <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
-    </svg>
-  );
-  const IconChevron = ({size=10}) => (
-    <svg width={size} height={size} viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-      <polyline points="2,3 5,7 8,3"/>
-    </svg>
-  );
-  const IconExternalLink = ({size=13}) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-      <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/>
-    </svg>
-  );
-  const IconContactCard = ({size=14}) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="2" y="5" width="20" height="14" rx="2"/>
-      <circle cx="8.5" cy="12" r="2.5"/>
-      <path d="M14 9h4M14 12h4M14 15h2"/>
-    </svg>
-  );
-
-  const PRACTICE_ICONS = [
-    <svg key="0" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><circle cx="16" cy="16" r="11"/><circle cx="16" cy="16" r="5.5"/><circle cx="16" cy="16" r="1.8" fill="currentColor" stroke="none"/></svg>,
-    <svg key="1" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><path d="M4 16 Q7.5 9 11 16 Q14.5 23 18 16 Q21.5 9 25 16 Q26.5 19.5 28 16"/></svg>,
-    <svg key="2" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 4 L18.5 13.5 L28 16 L18.5 18.5 L16 28 L13.5 18.5 L4 16 L13.5 13.5 Z"/></svg>,
-    <svg key="3" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 5 L29 27 L3 27 Z"/><circle cx="16" cy="21" r="2.8"/></svg>,
-    <svg key="4" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 27 C16 27 5 19.5 5 12C5 8.7 7.7 6 11 6C13 6 14.8 7 16 8.6C17.2 7 19 6 21 6C24.3 6 27 8.7 27 12C27 19.5 16 27 16 27Z"/></svg>,
-    <svg key="5" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><circle cx="16" cy="16" r="11"/><path d="M16 5 L16 27 M5 16 L27 16 M8.5 8.5 L23.5 23.5 M23.5 8.5 L8.5 23.5"/></svg>,
-    <svg key="6" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><circle cx="16" cy="9" r="4.5"/><circle cx="8" cy="23" r="4"/><circle cx="24" cy="23" r="4"/><path d="M12.5 13 L10 19 M19.5 13 L22 19 M12 23 L20 23"/></svg>,
-  ];
-
-  // ─────────────────────────────────────────────────────────────
-  // PARTICLE CANVAS
-  // ─────────────────────────────────────────────────────────────
-  function ParticleCanvas() {
-    const ref = React.useRef(null);
-    React.useEffect(() => {
-      const canvas = ref.current;
-      const ctx = canvas.getContext('2d');
-      let w = canvas.width = window.innerWidth;
-      let h = canvas.height = window.innerHeight;
-      const pts = Array.from({ length: 55 }, () => ({
-        x: Math.random()*w, y: Math.random()*h,
-        r: Math.random()*1.2+0.4,
-        vx: (Math.random()-.5)*.22, vy: -(Math.random()*.3+.07),
-        o: Math.random()*.4+.12,
-      }));
-      let raf;
-      const draw = () => {
-        ctx.clearRect(0,0,w,h);
-        for (const p of pts) {
-          ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-          ctx.fillStyle=`rgba(200,168,110,${p.o})`; ctx.fill();
-          p.x+=p.vx; p.y+=p.vy;
-          if (p.y<-4){p.y=h+4;p.x=Math.random()*w;}
-          if (p.x<-4) p.x=w+4; if(p.x>w+4) p.x=-4;
-        }
-        raf=requestAnimationFrame(draw);
-      };
-      draw();
-      const onResize=()=>{w=canvas.width=window.innerWidth;h=canvas.height=window.innerHeight;};
-      window.addEventListener('resize',onResize);
-      return ()=>{cancelAnimationFrame(raf);window.removeEventListener('resize',onResize);};
-    },[]);
-    return <canvas ref={ref} style={{position:'absolute',inset:0,pointerEvents:'none',zIndex:2}}/>;
-  }
-
-  // ─────────────────────────────────────────────────────────────
-  // NAV
-  // ─────────────────────────────────────────────────────────────
-  function NavBar({ lang, setLang, theme, setTheme }) {
-    const t = T[lang].nav;
+  /* ─── Nav ─── */
+  function Nav({ lang, setLang, theme, toggleTheme, isPortal, onBack }) {
+    const ui = UI[lang];
     const [scrolled, setScrolled] = React.useState(false);
-    const [menuOpen, setMenuOpen] = React.useState(false);
     const [langOpen, setLangOpen] = React.useState(false);
+    const [mobOpen,  setMobOpen]  = React.useState(false);
 
     React.useEffect(() => {
-      const onScroll = () => setScrolled(window.scrollY > 56);
-      window.addEventListener('scroll', onScroll, { passive: true });
-      return () => window.removeEventListener('scroll', onScroll);
+      const fn = () => setScrolled(window.scrollY > 50);
+      window.addEventListener('scroll', fn, { passive:true });
+      return () => window.removeEventListener('scroll', fn);
     }, []);
 
-    // Close dropdown on outside click
     React.useEffect(() => {
       if (!langOpen) return;
       const close = () => setLangOpen(false);
@@ -901,816 +660,298 @@
       return () => document.removeEventListener('click', close);
     }, [langOpen]);
 
-    const isTop = !scrolled;
-    const linkColor = isTop ? 'rgba(237,233,226,.82)' : 'var(--text-2)';
-    const iconColor = isTop ? 'rgba(237,233,226,.70)' : 'var(--text-3)';
-
-    const navLinks = [
-      { label: t.about,     id: 'about' },
-      { label: t.practices, id: 'practices' },
-      { label: t.program,   id: 'program' },
-      { label: t.teacher,   id: 'teacher' },
-      { label: t.contact,   id: 'contact' },
-    ];
-
-    const LANGS = [
-      { code: 'en', label: 'English' },
-      { code: 'ru', label: 'Русский' },
-      { code: 'he', label: 'עברית' },
-      { code: 'de', label: 'Deutsch' },
-    ];
-
-    const handleNav = (id) => { setMenuOpen(false); scrollToSectionSection(id); };
+    const LANGS = [{c:'en',l:'English'},{c:'ru',l:'Русский'},{c:'de',l:'Deutsch'}];
 
     return (
       <>
-        <nav className={scrolled ? 'scrolled' : ''} style={{
-          position:'fixed',top:0,left:0,right:0,zIndex:100,
-          display:'flex',alignItems:'center',justifyContent:'space-between',
-          padding:'0 clamp(20px,5vw,72px)',height:72,background:'transparent',
-          transition:'background .4s,backdrop-filter .4s,border-color .4s',
-        }}>
-          {/* Logo */}
-          <button onClick={() => window.scrollTo({top:0,behavior:'smooth'})} style={{
-            background:'none',border:'none',cursor:'pointer',
-            display:'flex',alignItems:'center',gap:10,flexShrink:0,
-          }}>
-            <img src="assets/LOGO.jpg" alt="Svarga" style={{
-              width:36,height:36,borderRadius:'50%',objectFit:'cover',
-              border:'1px solid rgba(200,168,110,.32)',
-            }}/>
-            <div style={{display:'flex',flexDirection:'column',lineHeight:1.15,textAlign:'start'}}>
-              <span style={{fontFamily:'var(--font-d)',fontSize:'1.05rem',fontWeight:400,color:isTop?'#EDE9E2':'var(--text-1)',letterSpacing:'.04em'}}>Moshe Om</span>
-              <span style={{fontFamily:'var(--font-b)',fontSize:'.56rem',color:'var(--gold)',letterSpacing:'.22em',textTransform:'uppercase'}}>Svarga International</span>
-            </div>
+        <nav className={`nav-wrap${scrolled?' scrolled':''}`}>
+          <button className="nav-logo" onClick={onBack}>
+            <span style={{width:34,height:34,borderRadius:'50%',background:'linear-gradient(135deg,var(--gold),var(--gold-dim))',display:'flex',alignItems:'center',justifyContent:'center',fontFamily:'var(--font-d)',fontSize:'1.1rem',color:'#0D0B08',fontWeight:600}}>S</span>
+            <div><span className="nav-logo-name">Svarga</span><span className="nav-logo-sub">International</span></div>
           </button>
 
-          {/* Desktop links */}
-          <div className="dsk-hide" style={{display:'flex',alignItems:'center',gap:28}}>
-            {navLinks.map(l => (
-              <button key={l.id} onClick={() => scrollToSectionSection(l.id)} style={{
-                background:'none',border:'none',cursor:'pointer',padding:0,
-                fontFamily:'var(--font-b)',fontSize:'.74rem',fontWeight:400,
-                color:linkColor,letterSpacing:'.09em',textTransform:'uppercase',
-                transition:'color .2s',
-              }}
-                onMouseEnter={e=>e.currentTarget.style.color='var(--gold)'}
-                onMouseLeave={e=>e.currentTarget.style.color=linkColor}
-              >{l.label}</button>
-            ))}
-          </div>
-
-          {/* Controls */}
-          <div className="dsk-hide" style={{display:'flex',alignItems:'center',gap:10}}>
-            {/* Theme toggle */}
-            <button className="theme-btn" style={{color:iconColor,borderColor:isTop?'rgba(237,233,226,.22)':'var(--border-md)'}} onClick={()=>setTheme(theme==='dark'?'light':'dark')}>
-              {theme==='dark' ? <IconSun/> : <IconMoon/>}
-              <span>{theme==='dark'?'Light':'Dark'}</span>
-            </button>
-
-            {/* Language dropdown */}
+          <div className="nav-right dsk">
             <div className="lang-wrap" onClick={e=>e.stopPropagation()}>
-              <button className={`lang-btn${langOpen?' open':''}`}
-                style={{color:iconColor,borderColor:isTop?'rgba(237,233,226,.22)':'var(--border-md)'}}
-                onClick={()=>setLangOpen(!langOpen)}
-              >
-                <span>{lang.toUpperCase()}</span>
-                <IconChevron/>
+              <button className="ctrl-btn" onClick={()=>setLangOpen(!langOpen)}>
+                {lang.toUpperCase()} <span style={{opacity:.45,fontSize:9}}>▾</span>
               </button>
               <div className={`lang-drop${langOpen?' open':''}`}>
                 {LANGS.map(l=>(
-                  <button key={l.code} className={`lang-opt${lang===l.code?' active':''}`}
-                    onClick={()=>{setLang(l.code);setLangOpen(false);}}>
-                    {l.label}
+                  <button key={l.c} className={`lang-opt${lang===l.c?' active':''}`}
+                    onClick={()=>{setLang(l.c);setLangOpen(false);}}>
+                    {l.l}
                   </button>
                 ))}
               </div>
             </div>
-
-            {/* CTA */}
-            <button className="btn-p" style={{padding:'9px 22px',fontSize:'.7rem'}} onClick={()=>scrollToSectionSection('contact')}>{t.cta}</button>
+            <button className="ctrl-btn" onClick={toggleTheme}>
+              {theme==='dark'?<IcoSun/>:<IcoMoon/>}
+              {theme==='dark'?ui.themeL:ui.themeD}
+            </button>
+            {!isPortal && (
+              <button className="btn-g" style={{padding:'8px 18px',fontSize:'.69rem'}} onClick={onBack}>
+                <IcoArrowL s={12}/> {ui.back}
+              </button>
+            )}
           </div>
 
-          {/* Mobile hamburger */}
-          <button className="mob-only" onClick={()=>setMenuOpen(!menuOpen)} style={{
-            background:'none',border:'none',cursor:'pointer',padding:8,
-            display:'flex',flexDirection:'column',gap:5,justifyContent:'center',
-          }}>
-            {[0,1,2].map(i=>(
-              <span key={i} style={{
-                display:'block',width:22,height:1.5,background:isTop?'rgba(237,233,226,.9)':'var(--text-1)',borderRadius:1,
-                transition:'transform .3s,opacity .3s',
-                transform: menuOpen ? (i===0?'translateY(6.5px) rotate(45deg)':i===2?'translateY(-6.5px) rotate(-45deg)':'none') : 'none',
-                opacity: menuOpen && i===1 ? 0 : 1,
-              }}/>
-            ))}
-          </button>
+          <button className="mob-only ctrl-btn" style={{letterSpacing:'.04em',borderRadius:6}}
+            onClick={()=>setMobOpen(true)}>☰</button>
         </nav>
 
-        {/* Mobile drawer */}
-        <div className={`drawer-overlay${menuOpen?' open':''}`}>
-          <div style={{display:'flex',flexDirection:'column',gap:6,flex:1}}>
-            {navLinks.map(l=>(
-              <button key={l.id} onClick={()=>handleNav(l.id)} style={{
-                background:'none',border:'none',cursor:'pointer',textAlign:'start',
-                fontFamily:'var(--font-d)',fontSize:'clamp(26px,6vw,36px)',fontWeight:300,
-                color:'var(--text-1)',letterSpacing:'.02em',padding:'10px 0',
-                borderBottom:'1px solid var(--border)',
-                transition:'color .2s',
-              }}
-                onMouseEnter={e=>e.currentTarget.style.color='var(--gold)'}
-                onMouseLeave={e=>e.currentTarget.style.color='var(--text-1)'}
-              >{l.label}</button>
+        <div className={`mob-drawer${mobOpen?' open':''}`}>
+          <button style={{position:'absolute',top:20,right:22,background:'none',border:'none',color:'var(--text-2)',fontSize:'1.3rem',cursor:'pointer'}}
+            onClick={()=>setMobOpen(false)}>✕</button>
+          <div style={{display:'flex',flexDirection:'column',gap:18,paddingTop:8}}>
+            {LANGS.map(l=>(
+              <button key={l.c} style={{background:'none',border:'none',cursor:'pointer',textAlign:'left',
+                font:`500 1.05rem/1 var(--font-b)`,letterSpacing:'.06em',
+                color:lang===l.c?'var(--gold)':'var(--text-2)'}}
+                onClick={()=>{setLang(l.c);setMobOpen(false);}}>
+                {l.l}
+              </button>
             ))}
-          </div>
-          <div style={{display:'flex',alignItems:'center',gap:12,marginTop:32,flexWrap:'wrap'}}>
-            {/* Theme */}
-            <button className="theme-btn" onClick={()=>setTheme(theme==='dark'?'light':'dark')}>
-              {theme==='dark'?<IconSun/>:<IconMoon/>}
-              <span>{theme==='dark'?'Light mode':'Dark mode'}</span>
+            <div style={{height:1,background:'var(--border)',margin:'4px 0'}}/>
+            <button style={{background:'none',border:'none',cursor:'pointer',textAlign:'left',
+              font:'400 .88rem/1 var(--font-b)',color:'var(--text-2)',letterSpacing:'.08em'}}
+              onClick={()=>{toggleTheme();setMobOpen(false);}}>
+              {theme==='dark'?'☀ Light Mode':'☾ Dark Mode'}
             </button>
-            {/* Language buttons */}
-            {[{c:'en',l:'EN'},{c:'ru',l:'RU'},{c:'he',l:'HE'},{c:'de',l:'DE'}].map(({c,l})=>(
-              <button key={c} onClick={()=>{setLang(c);setMenuOpen(false);}} style={{
-                background:lang===c?'var(--gold)':'none',
-                color:lang===c?'#0D1018':'var(--text-2)',
-                border:`1px solid ${lang===c?'var(--gold)':'var(--border-md)'}`,
-                borderRadius:'var(--r)',padding:'7px 14px',cursor:'pointer',
-                fontFamily:'var(--font-b)',fontSize:'.72rem',fontWeight:500,
-                letterSpacing:'.12em',transition:'all .2s',
-              }}>{l}</button>
-            ))}
+            {!isPortal&&(
+              <button style={{background:'none',border:'none',cursor:'pointer',textAlign:'left',
+                font:'400 .88rem/1 var(--font-b)',color:'var(--text-2)',letterSpacing:'.08em'}}
+                onClick={()=>{onBack();setMobOpen(false);}}>
+                ← {ui.back}
+              </button>
+            )}
           </div>
-          <button className="btn-p" style={{marginTop:20}} onClick={()=>handleNav('contact')}>{t.cta}</button>
         </div>
       </>
     );
   }
 
-  // ─────────────────────────────────────────────────────────────
-  // HERO
-  // ─────────────────────────────────────────────────────────────
-  function HeroSection({ lang }) {
-    const t = T[lang].hero;
+  /* ─── Portal ─── */
+  function Portal({ lang, onSelect }) {
+    const ui   = UI[lang];
+    const specs = SPECS[lang];
+    useReveal(lang);
+
     return (
-      <section id="hero" style={{position:'relative',height:'100vh',minHeight:640,display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center',textAlign:'center',overflow:'hidden'}}>
-        <div style={{position:'absolute',inset:0,zIndex:0,backgroundImage:'url(assets/gen1.png)',backgroundSize:'cover',backgroundPosition:'center 30%'}}/>
-        <div style={{position:'absolute',inset:0,zIndex:1,background:'radial-gradient(ellipse 75% 65% at 50% 48%, transparent 0%, rgba(13,16,24,.55) 100%), linear-gradient(to bottom, rgba(13,16,24,.60) 0%, rgba(13,16,24,.20) 38%, rgba(13,16,24,.70) 72%, rgba(13,16,24,.97) 100%)'}}/>
-        <ParticleCanvas/>
-        <div style={{position:'relative',zIndex:3,maxWidth:880,padding:'0 24px'}}>
-          <div className="hl1" style={{marginBottom:24}}>
-            <img src="assets/LOGO.jpg" alt="Moshe Om"
-              style={{width:88,height:88,borderRadius:'50%',objectFit:'cover',margin:'0 auto',border:'1px solid rgba(200,168,110,.35)',boxShadow:'0 0 48px rgba(200,168,110,.22)'}}/>
+      <>
+        <section className="portal-hero">
+          <div className="portal-hero-content">
+            <div className="eyebrow hl1" style={{marginBottom:20}}>{ui.portal.eyebrow}</div>
+            <h1 className="hl2" style={{fontFamily:'var(--font-d)',fontWeight:400,fontSize:'clamp(44px,7vw,90px)',lineHeight:1.07,color:'var(--text-1)',letterSpacing:'-.02em',marginBottom:24}}>
+              {ui.portal.h1a}<br/>
+              <em style={{color:'var(--gold)',fontStyle:'italic'}}>{ui.portal.h1b}</em>
+            </h1>
+            <p className="hl3" style={{fontFamily:'var(--font-d)',fontSize:'clamp(16px,2vw,20px)',color:'var(--text-2)',lineHeight:1.7,maxWidth:580,margin:'0 auto 32px'}}>
+              {ui.portal.sub}
+            </p>
+            <div className="hl4" style={{display:'flex',alignItems:'center',justifyContent:'center',gap:10,color:'var(--text-3)',fontSize:'.68rem',letterSpacing:'.18em',textTransform:'uppercase'}}>
+              <span style={{width:20,height:1,background:'var(--border-md)'}}/>
+              {ui.portal.hint}
+              <span style={{width:20,height:1,background:'var(--border-md)'}}/>
+            </div>
           </div>
-          <div className="eyebrow hl2" style={{marginBottom:28,opacity:.82,color:'#C8A86E'}}>{t.eyebrow}</div>
-          <h1 className="hl3" style={{fontFamily:'var(--font-d)',fontSize:'clamp(50px,8.5vw,104px)',fontWeight:300,lineHeight:1.04,letterSpacing:'-.01em',marginBottom:6,color:'#EDE9E2'}}>
-            {t.h1a}<br/>{t.h1b}
-          </h1>
-          <h2 className="hl4" style={{fontFamily:'var(--font-d)',fontSize:'clamp(28px,4.8vw,58px)',fontWeight:300,fontStyle:'italic',color:'#C8A86E',lineHeight:1.1,marginBottom:26}}>
-            {t.h1c}
-          </h2>
-          <p className="hl5" style={{fontFamily:'var(--font-b)',fontSize:'clamp(14px,1.6vw,17px)',color:'rgba(237,233,226,.72)',fontWeight:300,lineHeight:1.8,letterSpacing:'.03em',maxWidth:520,margin:'0 auto 44px'}}>
-            {t.sub}
-          </p>
-          <div className="hl5" style={{display:'flex',gap:14,justifyContent:'center',flexWrap:'wrap'}}>
-            <button className="btn-p glow" onClick={()=>scrollToSectionSection('contact')} style={{background:'#C8A86E',color:'#0D1018'}}>{t.cta}</button>
-            <button className="btn-g" onClick={()=>scrollToSectionSection('about')} style={{borderColor:'rgba(237,233,226,.28)',color:'rgba(237,233,226,.72)'}}>{t.cta2}</button>
+        </section>
+
+        <section className="cards-section">
+          <div className="cards-grid">
+            {specs.map((s,i)=>(
+              <div key={s.id} className={`s-card rv d${i+1}`} style={{'--card-accent':s.accent}} onClick={()=>onSelect(s.id)}>
+                <div className="s-card-num">{s.num}</div>
+                <div className="s-card-tag">{s.tag}</div>
+                <div className="s-card-name">{s.name}</div>
+                <div className="s-card-ttl">{s.title}</div>
+                <div className="s-card-tl">"{s.tagline}"</div>
+                <div className="s-card-pills">{s.pills.map(p=><span key={p} className="s-card-pill">{p}</span>)}</div>
+                <button className="s-card-cta">{ui.explore} <IcoArrowR s={12}/></button>
+              </div>
+            ))}
           </div>
-        </div>
-        <button className="sdrop sdrop-btn" onClick={()=>scrollToSectionSection('about')} aria-label="Scroll down"
-          style={{position:'absolute',bottom:32,zIndex:3,display:'flex',flexDirection:'column',alignItems:'center',gap:6}}>
-          <div style={{width:1,height:52,background:'linear-gradient(to bottom, transparent, #C8A86E)',opacity:.55}}/>
-          <div style={{width:5,height:5,borderRadius:'50%',background:'#C8A86E',opacity:.6}}/>
-        </button>
-      </section>
+        </section>
+      </>
     );
   }
 
-  // ─────────────────────────────────────────────────────────────
-  // ABOUT
-  // ─────────────────────────────────────────────────────────────
-  function AboutSection({ lang }) {
-    const t = T[lang].about;
+  /* ─── Specialist Detail ─── */
+  function SpecDetail({ lang, specId, onBack }) {
+    const ui = UI[lang];
+    const s  = SPECS[lang].find(x=>x.id===specId);
+    useReveal(specId+lang);
+    if (!s) return null;
+
     return (
-      <section id="about" style={{background:'var(--about-bg)',color:'var(--about-text)'}}>
-        <div className="sp mw" style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(min(100%,460px),1fr))',gap:'clamp(48px,7vw,96px)',alignItems:'center'}}>
-          <div>
-            <div className="rv" style={{display:'flex',alignItems:'center',gap:14,marginBottom:28}}>
-              <div style={{width:40,height:1,background:'linear-gradient(90deg,var(--about-sage),transparent)',opacity:.7}}/>
-              <span className="eyebrow eyebrow-sage" style={{color:'var(--about-sage)'}}>{t.eyebrow}</span>
-            </div>
-            <h2 className="rv d1" style={{fontFamily:'var(--font-d)',fontSize:'clamp(28px,4.2vw,52px)',fontWeight:400,lineHeight:1.15,letterSpacing:'-.01em',color:'var(--about-text)',marginBottom:24}}>
-              {t.h2}
-            </h2>
-            <p className="rv d2" style={{fontSize:'.96rem',lineHeight:1.82,color:'var(--about-text2)',fontWeight:300,marginBottom:16}}>{t.p1}</p>
-            <p className="rv d3" style={{fontSize:'.96rem',lineHeight:1.82,color:'var(--about-text2)',fontWeight:300}}>{t.p2}</p>
-            <div className="rv d4" style={{display:'flex',gap:40,marginTop:44,flexWrap:'wrap'}}>
-              {t.stats.map((s,i)=>(
-                <div key={i}>
-                  <div style={{fontFamily:'var(--font-d)',fontSize:'clamp(30px,4.5vw,50px)',fontWeight:400,color:'var(--about-sage)',lineHeight:1}}>{s.num}</div>
-                  <div style={{fontSize:'.76rem',color:'var(--about-text2)',marginTop:6,letterSpacing:'.04em'}}>{s.label}</div>
-                </div>
+      <div>
+        <button className="sp-back" onClick={onBack}><IcoArrowL s={12}/> {ui.back}</button>
+
+        {/* Hero */}
+        <section className="sp-hero" style={{'--hero-glow':s.glow}}>
+          <div className="sp-hero-content">
+            <div className="eyebrow hl1" style={{color:s.accent,marginBottom:16}}>{s.tag} · Svarga International</div>
+            <h1 className="hl2" style={{fontFamily:'var(--font-d)',fontWeight:400,fontSize:'clamp(40px,6.5vw,82px)',lineHeight:1.06,color:'var(--text-1)',letterSpacing:'-.02em',marginBottom:16}}>
+              {s.name}
+            </h1>
+            <p className="hl3" style={{fontFamily:'var(--font-d)',fontSize:'clamp(15px,1.8vw,19px)',fontStyle:'italic',color:'var(--text-2)',lineHeight:1.65,maxWidth:640,marginBottom:26}}>
+              "{s.tagline}"
+            </p>
+            <div className="hl4" style={{display:'flex',flexWrap:'wrap',gap:8}}>
+              {s.pills.map(p=>(
+                <span key={p} style={{fontSize:'.60rem',letterSpacing:'.12em',textTransform:'uppercase',padding:'6px 14px',background:'rgba(255,255,255,.06)',border:`1px solid ${s.accent}44`,borderRadius:20,color:s.accent}}>{p}</span>
               ))}
             </div>
           </div>
-          <div className="rvr" style={{position:'relative'}}>
-            <img src="assets/gen2.png" alt="Spiritual practice"
-              style={{width:'100%',aspectRatio:'3/4',objectFit:'cover',objectPosition:'center top',borderRadius:4}}/>
-            <div style={{position:'absolute',top:-12,right:-12,width:60,height:60,border:'1px solid var(--about-sage)',borderLeft:'none',borderBottom:'none',opacity:.28}}/>
-            <div style={{position:'absolute',bottom:-12,left:-12,width:60,height:60,border:'1px solid var(--about-sage)',borderRight:'none',borderTop:'none',opacity:.28}}/>
-          </div>
-        </div>
-      </section>
-    );
-  }
+        </section>
 
-  // ─────────────────────────────────────────────────────────────
-  // PRACTICES
-  // ─────────────────────────────────────────────────────────────
-  function PracticesSection({ lang }) {
-    const t = T[lang].practices;
-    return (
-      <section id="practices" style={{background:'var(--bg)',position:'relative',overflow:'hidden'}}>
-        <div style={{position:'absolute',inset:0,backgroundImage:'url(assets/gen5.png)',backgroundSize:'cover',backgroundPosition:'center',opacity:.06,zIndex:0}}/>
-        <div className="sp mw" style={{position:'relative',zIndex:1}}>
-          <div className="mob-center rv" style={{display:'flex',flexDirection:'column',alignItems:'center',marginBottom:'clamp(48px,6vw,80px)',textAlign:'center'}}>
-            <div style={{display:'flex',alignItems:'center',gap:14,marginBottom:18}}>
-              <div className="gline"/><span className="eyebrow">{t.eyebrow}</span><div className="gline gline-r"/>
-            </div>
-            <h2 className="rv d1" style={{fontFamily:'var(--font-d)',fontSize:'clamp(28px,4.2vw,52px)',fontWeight:400,lineHeight:1.15,letterSpacing:'-.01em'}}>{t.h2}</h2>
-          </div>
-          <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(min(100%,230px),1fr))',gap:18}}>
-            {t.items.map((item,i)=>(
-              <button key={i} type="button" onClick={()=>scrollToSectionSection('contact')}
-                className={`pc glass rv d${Math.min(i+1,7)}`}
-                style={{padding:'32px 24px',display:'flex',flexDirection:'column',alignItems:'flex-start',gap:12,textAlign:'start',color:'inherit',font:'inherit'}}>
-                <div style={{width:32,height:32,color:'var(--gold)'}}>{PRACTICE_ICONS[i]}</div>
-                <h3 style={{fontFamily:'var(--font-d)',fontSize:'1.28rem',fontWeight:400}}>{item.title}</h3>
-                <p style={{fontSize:'.84rem',color:'var(--text-2)',lineHeight:1.78,fontWeight:300}}>{item.desc}</p>
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  // ─────────────────────────────────────────────────────────────
-  // PROGRAM
-  // ─────────────────────────────────────────────────────────────
-  function ProgramSection({ lang }) {
-    const t = T[lang].program;
-    return (
-      <section id="program" style={{background:'var(--surface)'}}>
-        <div className="sp mw" style={{maxWidth:1100}}>
-          <div style={{textAlign:'center',marginBottom:'clamp(48px,6vw,80px)'}}>
-            <div className="rv" style={{display:'flex',alignItems:'center',justifyContent:'center',gap:14,marginBottom:18}}>
-              <div className="gline"/><span className="eyebrow">{t.eyebrow}</span><div className="gline gline-r"/>
-            </div>
-            <h2 className="rv d1" style={{fontFamily:'var(--font-d)',fontSize:'clamp(28px,4.2vw,52px)',fontWeight:400,lineHeight:1.15,letterSpacing:'-.01em'}}>{t.h2}</h2>
-          </div>
-          <div style={{display:'flex',flexDirection:'column',gap:40}}>
-            {t.weeks.map((w,i)=>(
-              <button key={i} type="button" onClick={()=>scrollToSectionSection('contact')}
-                className={`prog-b rv d${i+1}`}
-                style={{paddingLeft:28,paddingBottom:4,background:'none',color:'inherit',font:'inherit',textAlign:'start',display:'block',width:'100%'}}>
-                <div style={{fontSize:'.66rem',color:'var(--gold-dim)',letterSpacing:'.18em',textTransform:'uppercase',marginBottom:8}}>{w.days}</div>
-                <div style={{display:'flex',alignItems:'baseline',gap:18,marginBottom:12,flexWrap:'wrap'}}>
-                  <span style={{fontFamily:'var(--font-d)',fontSize:'clamp(52px,7vw,84px)',fontWeight:300,lineHeight:.82,color:'rgba(200,168,110,.09)',letterSpacing:'-.02em',userSelect:'none'}}>{w.num}</span>
-                  <h3 style={{fontFamily:'var(--font-d)',fontSize:'clamp(20px,2.8vw,32px)',fontWeight:400}}>{w.title}</h3>
+        {/* About */}
+        <section className="sp2" style={{background:'var(--bg-alt)'}}>
+          <div className="mw">
+            <div className="detail-grid">
+              <div>
+                <div className="eyebrow rv" style={{color:s.accent,marginBottom:14}}>{s.about.eyebrow}</div>
+                <h2 className="rv d1" style={{fontFamily:'var(--font-d)',fontWeight:400,fontSize:'clamp(28px,4vw,46px)',lineHeight:1.12,color:'var(--text-1)',marginBottom:22,letterSpacing:'-.01em'}}>
+                  {s.about.h2}
+                </h2>
+                <p className="rv d2" style={{fontSize:'.91rem',color:'var(--text-2)',lineHeight:1.82,marginBottom:14,fontWeight:300}}>{s.about.bio}</p>
+                <p className="rv d3" style={{fontSize:'.86rem',color:'var(--text-3)',lineHeight:1.78,fontWeight:300,fontStyle:'italic'}}>{s.about.bio2}</p>
+              </div>
+              <div className="rv d2">
+                <div style={{borderRadius:8,overflow:'hidden',border:`1px solid ${s.accent}38`,aspectRatio:'4/3',position:'relative',marginBottom:24,
+                  background:`radial-gradient(ellipse at 30% 30%, ${s.accent}22, var(--surface) 70%)`}}>
+                  <div style={{position:'absolute',inset:0,display:'flex',alignItems:'center',justifyContent:'center',flexDirection:'column',gap:14}}>
+                    <div style={{width:96,height:96,borderRadius:'50%',background:`linear-gradient(135deg,${s.accent},${s.accent}88)`,display:'flex',alignItems:'center',justifyContent:'center',fontFamily:'var(--font-d)',fontSize:'2.6rem',fontWeight:400,color:'#0D0B08',boxShadow:`0 16px 40px ${s.accent}44`}}>{s.name[0]}</div>
+                    <div style={{fontSize:'.62rem',letterSpacing:'.18em',textTransform:'uppercase',color:'var(--text-3)'}}>{s.tag}</div>
+                  </div>
                 </div>
-                <p style={{fontSize:'.88rem',color:'var(--text-2)',lineHeight:1.8,fontWeight:300,maxWidth:600,marginBottom:18}}>{w.desc}</p>
-                <div style={{display:'flex',gap:9,flexWrap:'wrap'}}>
-                  {w.tags.map((tag,j)=>(
-                    <span key={j} style={{padding:'5px 14px',border:'1px solid var(--border-md)',borderRadius:2,fontSize:'.7rem',color:'var(--text-3)',letterSpacing:'.05em'}}>{tag}</span>
+                <div className="stat-row rv d3">
+                  {s.stats.map(st=>(
+                    <div key={st.l}>
+                      <span className="stat-num" style={{color:s.accent}}>{st.n}</span>
+                      <span className="stat-lbl">{st.l}</span>
+                    </div>
                   ))}
                 </div>
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  // ─────────────────────────────────────────────────────────────
-  // TEACHER
-  // ─────────────────────────────────────────────────────────────
-  function TeacherSection({ lang }) {
-    const t = T[lang].teacher;
-    return (
-      <section id="teacher" style={{background:'var(--bg)',overflow:'hidden'}}>
-        <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(min(100%,460px),1fr))',minHeight:580}}>
-          <div style={{position:'relative',minHeight:460,overflow:'hidden'}}>
-            <img src="assets/vipassana.png" alt="Moshe Om"
-              style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:'center top'}}/>
-            <div style={{position:'absolute',inset:0,background:'linear-gradient(to right, transparent 55%, var(--bg) 100%)'}}/>
-            <div style={{position:'absolute',inset:0,background:'linear-gradient(to top, var(--bg) 0%, transparent 30%)'}}/>
-          </div>
-          <div className="sp" style={{display:'flex',flexDirection:'column',justifyContent:'center'}}>
-            <div className="rv" style={{display:'flex',alignItems:'center',gap:14,marginBottom:24}}>
-              <div className="gline"/><span className="eyebrow">{t.eyebrow}</span>
+              </div>
             </div>
-            <h2 className="rv d1" style={{fontFamily:'var(--font-d)',fontSize:'clamp(38px,5vw,64px)',fontWeight:400,lineHeight:1.08,letterSpacing:'-.01em',marginBottom:6}}>{t.name}</h2>
-            <div className="rv d2" style={{fontFamily:'var(--font-d)',fontSize:'1.12rem',fontStyle:'italic',color:'var(--gold)',marginBottom:6}}>{t.title}</div>
-            <div className="rv d2" style={{fontSize:'.7rem',color:'var(--text-3)',letterSpacing:'.12em',marginBottom:28}}>{t.cert}</div>
-            <p className="rv d3" style={{fontSize:'.92rem',color:'var(--text-2)',lineHeight:1.82,fontWeight:300,marginBottom:14}}>{t.bio}</p>
-            <p className="rv d4" style={{fontSize:'.92rem',color:'var(--text-2)',lineHeight:1.82,fontWeight:300,marginBottom:36}}>{t.bio2}</p>
-            <div className="rv d5" style={{display:'flex',gap:32,flexWrap:'wrap'}}>
-              {t.stats.map((s,i)=>(
-                <div key={i}>
-                  <div style={{fontFamily:'var(--font-d)',fontSize:'clamp(24px,3.2vw,38px)',fontWeight:400,color:'var(--gold)',lineHeight:1}}>{s.num}</div>
-                  <div style={{fontSize:'.7rem',color:'var(--text-3)',marginTop:5,letterSpacing:'.08em'}}>{s.label}</div>
+          </div>
+        </section>
+
+        {/* Viktor's Framework */}
+        {s.framework && (
+          <section className="sp2">
+            <div className="mw">
+              <div style={{textAlign:'center',marginBottom:48}}>
+                <div className="eyebrow rv" style={{color:s.accent,marginBottom:14}}>{s.framework.eyebrow}</div>
+                <h2 className="rv d1" style={{fontFamily:'var(--font-d)',fontWeight:400,fontSize:'clamp(26px,3.5vw,42px)',color:'var(--text-1)',letterSpacing:'-.01em'}}>{s.framework.h2}</h2>
+              </div>
+              <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(220px,1fr))',gap:18}}>
+                {s.framework.pillars.map((p,i)=>(
+                  <div key={p.n} className={`prog-card rv d${i+1}`}>
+                    <div style={{fontSize:'.58rem',letterSpacing:'.16em',textTransform:'uppercase',color:s.accent,marginBottom:12}}>{p.n}</div>
+                    <div style={{fontFamily:'var(--font-d)',fontSize:'1.2rem',fontWeight:400,color:'var(--text-1)',marginBottom:12}}>{p.title}</div>
+                    <div style={{fontSize:'.83rem',color:'var(--text-2)',lineHeight:1.78,fontWeight:300}}>{p.desc}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Programs */}
+        <section className="sp2" style={{background:s.framework?'var(--bg-alt)':'var(--bg)'}}>
+          <div className="mw">
+            <div className="eyebrow rv" style={{color:s.accent,marginBottom:36}}>{ui.programs}</div>
+            <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))',gap:18}}>
+              {s.programs.map((p,i)=>(
+                <div key={p.num} className={`prog-card rv d${i+1}`}>
+                  <div className="prog-num" style={{color:s.accent}}>{p.num}</div>
+                  <div style={{fontFamily:'var(--font-d)',fontSize:'1.2rem',fontWeight:400,color:'var(--text-1)',marginBottom:10,lineHeight:1.3}}>{p.title}</div>
+                  <div style={{fontSize:'.84rem',color:'var(--text-2)',lineHeight:1.78,fontWeight:300,marginBottom:16}}>{p.desc}</div>
+                  <div style={{display:'flex',flexWrap:'wrap',gap:6}}>
+                    {p.tags.map(t=>(
+                      <span key={t} style={{fontSize:'.58rem',letterSpacing:'.09em',textTransform:'uppercase',padding:'4px 10px',background:'var(--gold-f)',border:'1px solid var(--border)',borderRadius:20,color:'var(--text-3)'}}>{t}</span>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
-            {/* Digital card link */}
-            <div className="rv d6" style={{marginTop:28}}>
-              <a href={SOCIAL.site} target="_blank" rel="noopener noreferrer"
-                style={{display:'inline-flex',alignItems:'center',gap:7,fontSize:'.72rem',color:'var(--gold)',letterSpacing:'.08em',textDecoration:'none',borderBottom:'1px solid rgba(200,168,110,.3)',paddingBottom:2,transition:'opacity .2s'}}
-                onMouseEnter={e=>e.currentTarget.style.opacity='.7'}
-                onMouseLeave={e=>e.currentTarget.style.opacity='1'}
-              >
-                svarga-om.com <IconExternalLink size={11}/>
-              </a>
+          </div>
+        </section>
+
+        {/* Testimonials */}
+        <section className="sp2" style={{background:s.framework?'var(--bg)':'var(--bg-alt)'}}>
+          <div className="mw">
+            <div className="eyebrow rv" style={{color:s.accent,marginBottom:36}}>{ui.testimonials}</div>
+            <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))',gap:16}}>
+              {s.testimonials.map((tm,i)=>(
+                <div key={tm.name} className={`tcard rv d${i+1}`}>
+                  <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-start'}}>
+                    <div><div className="tcard-name">{tm.name}</div><div className="tcard-city">{tm.city}</div></div>
+                    <div style={{fontFamily:'var(--font-d)',fontSize:'2.2rem',color:s.accent,lineHeight:1,opacity:.35}}>"</div>
+                  </div>
+                  <div className="tcard-text">{tm.text}</div>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        {/* CTA */}
+        <section className="cta-strip">
+          <div style={{position:'relative',zIndex:1}}>
+            <h2 className="rv" style={{fontFamily:'var(--font-d)',fontWeight:400,fontSize:'clamp(28px,5vw,54px)',color:'var(--text-1)',lineHeight:1.1,marginBottom:14,letterSpacing:'-.01em'}}>
+              {ui.cta.title}
+            </h2>
+            <p className="rv d1" style={{fontSize:'.89rem',color:'var(--text-2)',marginBottom:34,lineHeight:1.7,maxWidth:440,margin:'0 auto 34px'}}>
+              {ui.cta.sub}
+            </p>
+            <div className="rv d2" style={{display:'flex',gap:14,justifyContent:'center',flexWrap:'wrap'}}>
+              <a href={WHATSAPP} target="_blank" rel="noopener" className="btn-p">{ui.cta.wa}</a>
+              <a href={TELEGRAM} target="_blank" rel="noopener" className="btn-g"><IcoTG s={16}/> {ui.cta.tg}</a>
+            </div>
+          </div>
+        </section>
+      </div>
     );
   }
 
-  // ─────────────────────────────────────────────────────────────
-  // TESTIMONIALS
-  // ─────────────────────────────────────────────────────────────
-  function TestimonialsSection({ lang }) {
-    const t = T[lang].testimonials;
+  /* ─── Footer ─── */
+  function Footer({ lang }) {
+    const t = UI[lang].footer;
     return (
-      <section id="testimonials" style={{background:'var(--bg)',position:'relative',overflow:'hidden'}}>
-        <div style={{position:'absolute',inset:0,backgroundImage:'url(assets/retreat3.png)',backgroundSize:'cover',backgroundPosition:'center',opacity:.05,zIndex:0}}/>
-        <div className="sp mw" style={{position:'relative',zIndex:1}}>
-          <div style={{textAlign:'center',marginBottom:'clamp(48px,6vw,80px)'}}>
-            <div className="rv" style={{display:'flex',alignItems:'center',justifyContent:'center',gap:14,marginBottom:18}}>
-              <div className="gline"/><span className="eyebrow">{t.eyebrow}</span><div className="gline gline-r"/>
-            </div>
-            <h2 className="rv d1" style={{fontFamily:'var(--font-d)',fontSize:'clamp(28px,4.2vw,52px)',fontWeight:400,lineHeight:1.15,letterSpacing:'-.01em'}}>{t.h2}</h2>
-          </div>
-          <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(min(100%,290px),1fr))',gap:22}}>
-            {t.items.map((item,i)=>(
-              <div key={i} className={`tc glass rv d${i+1}`} style={{padding:'32px 28px'}}>
-                <div style={{display:'flex',gap:2,marginBottom:14}}>
-                  {[...Array(5)].map((_,j)=><span key={j} style={{color:'var(--gold)',fontSize:12}}>★</span>)}
-                </div>
-                <p style={{fontFamily:'var(--font-d)',fontSize:'1.08rem',fontWeight:400,fontStyle:'italic',lineHeight:1.7,color:'var(--text-1)',marginBottom:22}}>"{item.text}"</p>
-                <div style={{display:'flex',alignItems:'center',gap:10}}>
-                  <div style={{width:34,height:34,borderRadius:'50%',background:'var(--gold-faint)',border:'1px solid var(--border-md)',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,fontSize:'.88rem',color:'var(--gold)',fontFamily:'var(--font-d)'}}>
-                    {item.name[0]}
-                  </div>
-                  <div>
-                    <div style={{fontSize:'.84rem',fontWeight:500}}>{item.name}</div>
-                    <div style={{fontSize:'.7rem',color:'var(--text-3)',letterSpacing:'.06em'}}>{item.city}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  // ─────────────────────────────────────────────────────────────
-  // CTA
-  // ─────────────────────────────────────────────────────────────
-  function CTASection({ lang }) {
-    const t = T[lang].cta;
-    return (
-      <section id="cta" style={{position:'relative',padding:'clamp(100px,13vw,180px) clamp(24px,7.5vw,112px)',display:'flex',alignItems:'center',justifyContent:'center',overflow:'hidden'}}>
-        <div style={{position:'absolute',inset:0,backgroundImage:'url(assets/gen9.png)',backgroundSize:'cover',backgroundPosition:'center',zIndex:0}}/>
-        <div style={{position:'absolute',inset:0,zIndex:1,background:'radial-gradient(ellipse 85% 75% at 50% 55%, rgba(13,16,24,.50) 0%, rgba(13,16,24,.92) 100%), linear-gradient(to bottom, rgba(13,16,24,.75), rgba(13,16,24,.45) 50%, rgba(13,16,24,.75))'}}/>
-        <div style={{position:'relative',zIndex:2,textAlign:'center',maxWidth:740}}>
-          <div className="rv" style={{display:'flex',alignItems:'center',justifyContent:'center',gap:14,marginBottom:24}}>
-            <div className="gline"/><span className="eyebrow" style={{color:'#C8A86E'}}>{t.eyebrow}</span><div className="gline gline-r"/>
-          </div>
-          <h2 className="rv d1" style={{fontFamily:'var(--font-d)',fontSize:'clamp(38px,6vw,78px)',fontWeight:300,lineHeight:1.1,letterSpacing:'-.01em',marginBottom:20,color:'#EDE9E2'}}>
-            {t.h2a}<br/><em style={{fontStyle:'italic',color:'#C8A86E'}}>{t.h2b}</em>
-          </h2>
-          <p className="rv d2" style={{fontSize:'.9rem',color:'rgba(237,233,226,.65)',fontWeight:300,lineHeight:1.8,letterSpacing:'.025em',marginBottom:44}}>{t.sub}</p>
-          <div className="rv d3" style={{display:'flex',gap:14,justifyContent:'center',flexWrap:'wrap'}}>
-            <button className="btn-p glow" style={{background:'#C8A86E',color:'#0D1018'}} onClick={()=>scrollToSectionSection('contact')}>{t.btn}</button>
-            <button className="btn-g" style={{borderColor:'rgba(237,233,226,.28)',color:'rgba(237,233,226,.65)'}} onClick={()=>scrollToSectionSection('contact')}>{t.btn2}</button>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  // ─────────────────────────────────────────────────────────────
-  // CONTACT
-  // ─────────────────────────────────────────────────────────────
-  function ContactSection({ lang }) {
-    const t = T[lang].contact;
-    const ft = t.form;
-    const isRTL = lang === 'he';
-
-    const [form, setForm] = React.useState({ name:'', email:'', phone:'', message:'' });
-    const [honey, setHoney] = React.useState('');
-    const [errors, setErrors] = React.useState({});
-    const [status, setStatus] = React.useState('idle'); // idle | sending | ok | err
-    const [robot, setRobot] = React.useState(false);
-    const [mathAns, setMathAns] = React.useState('');
-    // Stable per-mount math challenge
-    const math = React.useMemo(() => {
-      const a = 2 + Math.floor(Math.random() * 7); // 2..8
-      const b = 2 + Math.floor(Math.random() * 7); // 2..8
-      return { a, b, sum: a + b };
-    }, []);
-
-    const validate = () => {
-      const e = {};
-      if (!form.name.trim() || form.name.trim().length < 2) e.name = true;
-      if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = true;
-      if (!form.message.trim() || form.message.trim().length < 10) e.message = true;
-      if (!robot) e.robot = true;
-      if (parseInt(mathAns, 10) !== math.sum) e.math = true;
-      return e;
-    };
-
-    const mailtoHref = React.useMemo(() => {
-      const subject = encodeURIComponent('New Lead — Svarga Marathon');
-      const body = encodeURIComponent(
-        `Name: ${form.name || '—'}\nEmail: ${form.email || '—'}\nPhone: ${form.phone || '—'}\nLanguage: ${lang}\n\nMessage:\n${form.message || '—'}`
-      );
-      return `mailto:${FORM_EMAIL}?subject=${subject}&body=${body}`;
-    }, [form, lang]);
-
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-      if (honey) return; // honeypot triggered — silently drop
-      const errs = validate();
-      if (Object.keys(errs).length) { setErrors(errs); return; }
-      setErrors({});
-      setStatus('sending');
-
-      const payload = {
-        access_key: WEB3FORMS_KEY,
-        subject: 'New Lead — Svarga Marathon',
-        from_name: 'Svarga Marathon Landing',
-        name: form.name,
-        email: form.email,
-        phone: form.phone || '—',
-        message: form.message,
-        language: lang,
-        botcheck: '',
-      };
-
-      try {
-        const res = await fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify(payload),
-        });
-        const data = await res.json().catch(() => ({}));
-        setStatus(res.ok && data && data.success === true ? 'ok' : 'err');
-      } catch {
-        setStatus('err');
-      }
-    };
-
-    const contactCards = [
-      { key:'whatsapp', href:WHATSAPP, icon:<IconWhatsApp size={24} color="var(--gold)"/>, bg:'rgba(37,211,102,.08)', border:'rgba(37,211,102,.22)' },
-      { key:'telegram', href:TELEGRAM, icon:<IconTelegram size={22} color="var(--gold)"/>, bg:'rgba(41,182,246,.08)', border:'rgba(41,182,246,.22)' },
-      { key:'email',    href:`mailto:${CONTACT_EMAIL}`, icon:(
-          <svg width={22} height={22} viewBox="0 0 24 24" fill="none" stroke="var(--gold)" strokeWidth="1.8" strokeLinecap="round">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-            <polyline points="22,6 12,13 2,6"/>
-          </svg>
-        ), bg:'var(--gold-faint)', border:'var(--border-gold)' },
-    ];
-
-    return (
-      <section id="contact" style={{background:'var(--surface-2)'}}>
-        <div className="sp mw" style={{maxWidth:1100}}>
-          <div style={{textAlign:'center',marginBottom:'clamp(48px,6vw,72px)'}}>
-            <div className="rv" style={{display:'flex',alignItems:'center',justifyContent:'center',gap:14,marginBottom:18}}>
-              <div className="gline"/><span className="eyebrow">{t.eyebrow}</span><div className="gline gline-r"/>
-            </div>
-            <h2 className="rv d1" style={{fontFamily:'var(--font-d)',fontSize:'clamp(28px,4.2vw,52px)',fontWeight:400,lineHeight:1.15,letterSpacing:'-.01em',marginBottom:14}}>{t.h2}</h2>
-            <p className="rv d2" style={{fontSize:'.92rem',color:'var(--text-2)',fontWeight:300,maxWidth:540,margin:'0 auto'}}>{t.sub}</p>
-          </div>
-
-          {/* Contact cards */}
-          <div className="rv d2" style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(min(100%,200px),1fr))',gap:16,marginBottom:56}}>
-            {contactCards.map(({key,href,icon,bg,border})=>(
-              <a key={key} href={href} target="_blank" rel="noopener noreferrer" className="ccard"
-                style={{background:bg,borderColor:border}}>
-                <div style={{width:40,height:40,borderRadius:'50%',background:'rgba(200,168,110,.10)',border:'1px solid var(--border)',display:'flex',alignItems:'center',justifyContent:'center'}}>
-                  {icon}
-                </div>
-                <div>
-                  <div style={{fontFamily:'var(--font-d)',fontSize:'1.2rem',fontWeight:400,marginBottom:3}}>{t.cards[key].title}</div>
-                  <div style={{fontSize:'.76rem',color:'var(--text-3)',direction:key==='whatsapp'&&isRTL?'ltr':'inherit'}}>{t.cards[key].sub}</div>
-                </div>
-                <div style={{fontSize:'.72rem',color:'var(--gold)',letterSpacing:'.06em',marginTop:4}}>
-                  {t.cards[key].action} →
-                </div>
-              </a>
-            ))}
-          </div>
-
-          {/* Lead form */}
-          <div className="rv d3" style={{maxWidth:640,margin:'0 auto'}}>
-            {status === 'ok' ? (
-              <div style={{textAlign:'center',padding:'48px 24px',border:'1px solid var(--border-md)',borderRadius:4,background:'var(--gold-faint)'}}>
-                <div style={{fontSize:'2rem',marginBottom:12}}>✓</div>
-                <p style={{fontFamily:'var(--font-d)',fontSize:'1.2rem',color:'var(--text-1)',marginBottom:20}}>{ft.ok}</p>
-                <button type="button" className="btn-g" onClick={()=>{setForm({name:'',email:'',phone:'',message:''});setRobot(false);setMathAns('');setErrors({});setStatus('idle');}}
-                  style={{fontSize:'.72rem'}}>
-                  {ft.submit}
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} noValidate style={{display:'flex',flexDirection:'column',gap:20}}>
-                {/* Honeypot — hidden from humans */}
-                <input type="text" name="_honey" value={honey} onChange={e=>setHoney(e.target.value)}
-                  style={{display:'none'}} tabIndex="-1" autoComplete="off"/>
-
-                <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(min(100%,240px),1fr))',gap:20}}>
-                  <div>
-                    <label htmlFor="f-name">{ft.name}</label>
-                    <input id="f-name" type="text" placeholder={ft.namePh}
-                      className={`field${errors.name?' field-error':''}`}
-                      value={form.name} onChange={e=>setForm({...form,name:e.target.value})}/>
-                    {errors.name && <div className="err-msg">↑ required</div>}
-                  </div>
-                  <div>
-                    <label htmlFor="f-email">{ft.email}</label>
-                    <input id="f-email" type="email" placeholder={ft.emailPh}
-                      className={`field${errors.email?' field-error':''}`}
-                      value={form.email} onChange={e=>setForm({...form,email:e.target.value})}/>
-                    {errors.email && <div className="err-msg">↑ valid email required</div>}
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="f-phone">{ft.phone}</label>
-                  <input id="f-phone" type="tel" placeholder={ft.phonePh}
-                    className="field" value={form.phone} onChange={e=>setForm({...form,phone:e.target.value})}/>
-                </div>
-
-                <div>
-                  <label htmlFor="f-msg" style={{display:'flex',justifyContent:'space-between',alignItems:'baseline'}}>
-                    <span>{ft.message}</span>
-                    <span style={{
-                      fontSize:'.66rem',letterSpacing:'.06em',fontWeight:400,
-                      color: form.message.length === 0 ? 'var(--text-3)'
-                           : form.message.length < 10 ? '#E07070'
-                           : form.message.length > 450 ? '#E07070'
-                           : 'var(--gold)',
-                    }}>
-                      {form.message.length} / 500
-                      {form.message.length > 0 && form.message.length < 10 ? ` · ${ft.minHint}` : ''}
-                    </span>
-                  </label>
-                  <textarea id="f-msg" placeholder={ft.messagePh} rows={5} maxLength={500}
-                    className={`field${errors.message?' field-error':''}`}
-                    value={form.message}
-                    onChange={e=>setForm({...form,message:e.target.value.slice(0,500)})}
-                    style={{resize:'vertical',minHeight:120}}/>
-                  {errors.message && <div className="err-msg">↑ {ft.minHint}</div>}
-                </div>
-
-                {/* Verification: math + not-a-robot */}
-                <div style={{padding:'18px 20px',border:'1px solid var(--border)',borderRadius:'var(--r)',background:'var(--gold-faint)',display:'flex',flexDirection:'column',gap:14}}>
-                  <label htmlFor="f-robot" style={{display:'flex',alignItems:'center',gap:10,cursor:'pointer',textTransform:'none',letterSpacing:0,fontSize:'.86rem',color:'var(--text-1)',fontWeight:400,marginBottom:0}}>
-                    <input id="f-robot" type="checkbox" checked={robot}
-                      onChange={e=>setRobot(e.target.checked)}
-                      style={{width:18,height:18,accentColor:'var(--gold)',cursor:'pointer',flexShrink:0}}/>
-                    <span>{ft.robot}</span>
-                  </label>
-                  {errors.robot && <div className="err-msg" style={{marginTop:-6}}>↑ {ft.robotErr}</div>}
-
-                  <div style={{display:'flex',alignItems:'center',gap:10,flexWrap:'wrap'}}>
-                    <span style={{fontSize:'.82rem',color:'var(--text-2)'}}>
-                      {ft.verify} <strong style={{color:'var(--gold)'}}>{math.a} + {math.b}</strong> {ft.verifyEq}
-                    </span>
-                    <input id="f-math" type="text" inputMode="numeric" placeholder={ft.verifyPh}
-                      className={`field${errors.math?' field-error':''}`}
-                      value={mathAns} onChange={e=>setMathAns(e.target.value.replace(/[^0-9-]/g,''))}
-                      style={{width:90,padding:'8px 12px',fontSize:'.86rem'}}
-                      autoComplete="off"/>
-                  </div>
-                  {errors.math && <div className="err-msg" style={{marginTop:-6}}>↑ {ft.verifyErr}</div>}
-                </div>
-
-                {status === 'err' && (
-                  <div style={{textAlign:'center',padding:'14px 18px',border:'1px solid rgba(224,112,112,.35)',borderRadius:'var(--r)',background:'rgba(224,112,112,.06)'}}>
-                    <p style={{fontSize:'.82rem',color:'#E07070',marginBottom:10}}>{ft.err}</p>
-                    <a href={mailtoHref}
-                      style={{color:'var(--gold)',fontSize:'.78rem',letterSpacing:'.04em',textDecoration:'underline'}}>
-                      {ft.mailFallback}
-                    </a>
-                  </div>
-                )}
-
-                <button type="submit" className="btn-p" disabled={status==='sending'}
-                  style={{alignSelf:'flex-start',opacity:status==='sending'?.65:1,cursor:status==='sending'?'not-allowed':'pointer'}}>
-                  {status==='sending' ? ft.sending : ft.submit}
-                </button>
-              </form>
-            )}
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  // ─────────────────────────────────────────────────────────────
-  // FOOTER
-  // ─────────────────────────────────────────────────────────────
-  function FooterSection({ lang }) {
-    const t = T[lang].footer;
-    const lt = T[lang].legal;
-    const navIds = ['about','practices','program','teacher','contact'];
-    const [legalDoc, setLegalDoc] = React.useState(null); // null | 'terms' | 'privacy' | 'accessibility'
-    const socials = [
-      { icon:<IconFacebook size={18}/>, href:SOCIAL.facebook, label:'Facebook' },
-      { icon:<IconInstagram size={18}/>, href:SOCIAL.instagram, label:'Instagram' },
-      { icon:<IconYoutube size={20}/>, href:SOCIAL.youtube, label:'YouTube' },
-      { icon:<IconTelegram size={17}/>, href:SOCIAL.telegram, label:'Telegram' },
-    ];
-
-    React.useEffect(() => {
-      if (!legalDoc) return;
-      const onKey = (e) => { if (e.key === 'Escape') setLegalDoc(null); };
-      document.addEventListener('keydown', onKey);
-      const prev = document.body.style.overflow;
-      document.body.style.overflow = 'hidden';
-      return () => { document.removeEventListener('keydown', onKey); document.body.style.overflow = prev; };
-    }, [legalDoc]);
-
-    return (
-      <footer style={{background:'var(--surface)',borderTop:'1px solid var(--border)'}}>
-        <div style={{padding:'48px clamp(24px,7.5vw,112px) 32px'}}>
-          <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(180px,1fr))',gap:'clamp(32px,5vw,64px)',marginBottom:40}}>
-            {/* Brand */}
-            <div>
-              <div style={{display:'flex',alignItems:'center',gap:10,marginBottom:16}}>
-                <img src="assets/LOGO.jpg" alt="Svarga" style={{width:32,height:32,borderRadius:'50%',objectFit:'cover',border:'1px solid var(--border-md)'}}/>
-                <div>
-                  <div style={{fontFamily:'var(--font-d)',fontSize:'1.02rem',fontWeight:400}}>Moshe Om</div>
-                  <div style={{fontSize:'.54rem',color:'var(--gold)',letterSpacing:'.20em',textTransform:'uppercase'}}>Svarga International</div>
-                </div>
-              </div>
-              <a href={SOCIAL.site} target="_blank" rel="noopener noreferrer"
-                style={{display:'inline-flex',alignItems:'center',gap:5,fontSize:'.72rem',color:'var(--text-3)',textDecoration:'none',letterSpacing:'.04em',transition:'color .2s'}}
-                onMouseEnter={e=>e.currentTarget.style.color='var(--gold)'}
-                onMouseLeave={e=>e.currentTarget.style.color='var(--text-3)'}
-              >svarga-om.com <IconExternalLink size={10}/></a>
-            </div>
-
-            {/* Nav links */}
-            <div>
-              <div style={{fontSize:'.64rem',color:'var(--text-3)',letterSpacing:'.18em',textTransform:'uppercase',marginBottom:14}}>Menu</div>
-              <div style={{display:'flex',flexDirection:'column',gap:10}}>
-                {t.links.map((l,i)=>(
-                  <button key={i} onClick={()=>scrollToSectionSection(navIds[i])} style={{
-                    background:'none',border:'none',cursor:'pointer',textAlign:'start',
-                    fontSize:'.78rem',color:'var(--text-2)',letterSpacing:'.04em',padding:0,
-                    transition:'color .2s',
-                  }}
-                    onMouseEnter={e=>e.currentTarget.style.color='var(--gold)'}
-                    onMouseLeave={e=>e.currentTarget.style.color='var(--text-2)'}
-                  >{l}</button>
-                ))}
-              </div>
-            </div>
-
-            {/* Social */}
-            <div>
-              <div style={{fontSize:'.64rem',color:'var(--text-3)',letterSpacing:'.18em',textTransform:'uppercase',marginBottom:14}}>{t.followUs}</div>
-              <div style={{display:'flex',gap:12,flexWrap:'wrap'}}>
-                {socials.map(({icon,href,label})=>(
-                  <a key={label} href={href} target="_blank" rel="noopener noreferrer" title={label}
-                    style={{
-                      width:38,height:38,borderRadius:4,background:'var(--gold-faint)',
-                      border:'1px solid var(--border)',display:'flex',alignItems:'center',justifyContent:'center',
-                      color:'var(--text-2)',textDecoration:'none',transition:'border-color .2s,color .2s,transform .2s',
-                    }}
-                    onMouseEnter={e=>{e.currentTarget.style.borderColor='var(--gold)';e.currentTarget.style.color='var(--gold)';e.currentTarget.style.transform='translateY(-2px)';}}
-                    onMouseLeave={e=>{e.currentTarget.style.borderColor='var(--border)';e.currentTarget.style.color='var(--text-2)';e.currentTarget.style.transform='none';}}
-                  >{icon}</a>
-                ))}
-              </div>
-              {/* Digital cards */}
-              <div style={{marginTop:20,display:'flex',flexDirection:'column',gap:8}}>
-                {[
-                  {href:SOCIAL.cardRu, flag:'🇷🇺', label:'Digital Card (RU)'},
-                  {href:SOCIAL.cardHe, flag:'🇮🇱', label:'Digital Card (HE)'},
-                ].map(({href,flag,label})=>(
-                  <a key={label} href={href} target="_blank" rel="noopener noreferrer"
-                    style={{display:'inline-flex',alignItems:'center',gap:6,fontSize:'.68rem',color:'var(--text-3)',textDecoration:'none',letterSpacing:'.04em',transition:'color .2s'}}
-                    onMouseEnter={e=>e.currentTarget.style.color='var(--gold)'}
-                    onMouseLeave={e=>e.currentTarget.style.color='var(--text-3)'}
-                  >
-                    <IconContactCard size={13}/>
-                    <span style={{fontSize:'.8rem',lineHeight:1}}>{flag}</span>
-                    {label}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Legal links row */}
-          <div style={{borderTop:'1px solid var(--border)',paddingTop:22,marginBottom:18,display:'flex',flexWrap:'wrap',gap:'12px 22px',alignItems:'center'}}>
-            <span style={{fontSize:'.6rem',color:'var(--text-3)',letterSpacing:'.18em',textTransform:'uppercase',opacity:.8}}>{t.legalHeader}:</span>
-            <button className="legal-link" onClick={()=>setLegalDoc('terms')}>{t.terms}</button>
-            <span style={{color:'var(--border-md)'}}>·</span>
-            <button className="legal-link" onClick={()=>setLegalDoc('privacy')}>{t.privacy}</button>
-            <span style={{color:'var(--border-md)'}}>·</span>
-            <button className="legal-link" onClick={()=>setLegalDoc('accessibility')}>{t.accessibility}</button>
-          </div>
-
-          {/* Bottom bar */}
-          <div style={{paddingTop:14,display:'flex',flexWrap:'wrap',gap:16,alignItems:'center',justifyContent:'space-between'}}>
-            <span style={{fontSize:'.68rem',color:'var(--text-3)',letterSpacing:'.04em'}}>{t.copy}</span>
-            <a href={WHATSAPP} target="_blank" rel="noopener noreferrer"
-              style={{display:'inline-flex',alignItems:'center',gap:6,fontSize:'.68rem',color:'var(--text-3)',textDecoration:'none',letterSpacing:'.04em',transition:'color .2s'}}
-              onMouseEnter={e=>e.currentTarget.style.color='#25D366'}
-              onMouseLeave={e=>e.currentTarget.style.color='var(--text-3)'}
-            >
-              <IconWhatsApp size={13} color="currentColor"/> +972 54 998 9627
-            </a>
-          </div>
-        </div>
-
-        {/* Legal modal */}
-        {legalDoc && lt && lt[legalDoc] && (
-          <div className="legal-overlay" onClick={()=>setLegalDoc(null)} role="dialog" aria-modal="true">
-            <div className="legal-card" onClick={e=>e.stopPropagation()}>
-              <h3>{lt[legalDoc].title}</h3>
-              <div className="body">{lt[legalDoc].body}</div>
-              <button className="legal-close" onClick={()=>setLegalDoc(null)}>{lt.close}</button>
-            </div>
-          </div>
-        )}
+      <footer className="footer-bar">
+        <span style={{fontSize:'.67rem',color:'var(--text-3)',letterSpacing:'.04em'}}>{t.copy}</span>
+        <div className="f-links">{t.links.map(l=><button key={l} className="f-link">{l}</button>)}</div>
       </footer>
     );
   }
 
-  // ─────────────────────────────────────────────────────────────
-  // WHATSAPP FLOAT
-  // ─────────────────────────────────────────────────────────────
-  function WhatsAppFloat() {
-    return (
-      <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="wa-float" title="WhatsApp">
-        <IconWhatsApp size={28}/>
-      </a>
-    );
-  }
-
-  // ─────────────────────────────────────────────────────────────
-  // APP
-  // ─────────────────────────────────────────────────────────────
+  /* ─── App ─── */
   function App() {
-    const [lang, setLang] = React.useState(() => {
-      try { return localStorage.getItem('lang') || 'en'; } catch { return 'en'; }
-    });
-    const [theme, setTheme] = React.useState(() => {
-      try { return localStorage.getItem('theme') || 'dark'; } catch { return 'dark'; }
-    });
+    const [lang,  setLang]  = React.useState('en');
+    const [theme, setTheme] = React.useState('dark');
+    const [view,  setView]  = React.useState('portal');
 
-    React.useEffect(() => {
-      document.documentElement.setAttribute('data-theme', theme);
-      try { localStorage.setItem('theme', theme); } catch {}
-    }, [theme]);
+    React.useEffect(() => { document.documentElement.setAttribute('data-theme', theme); }, [theme]);
+    const toggleTheme = () => setTheme(t => t==='dark'?'light':'dark');
 
-    React.useEffect(() => {
-      const isRTL = lang === 'he';
-      document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
-      document.documentElement.setAttribute('lang', lang);
-      // Update page title per language
-      const titles = { en:'Awaken · Transform — Moshe Om', ru:'Пробудись · Трансформируйся — Моше Ом', he:'התעורר · השתנה — משה אוסטרובסקי', de:'Erwache · Transformiere — Moshe Om' };
-      document.title = titles[lang] || titles.en;
-      try { localStorage.setItem('lang', lang); } catch {}
-    }, [lang]);
+    const handleLang = (l) => { setLang(l); document.documentElement.lang = l; };
 
-    useScrollReveal();
+    const openSpec = (id) => { setView(id); window.scrollTo({top:0,behavior:'instant'}); };
+    const goPortal = ()   => { setView('portal'); window.scrollTo({top:0,behavior:'instant'}); };
+
+    const isPortal = view === 'portal';
 
     return (
       <>
-        <NavBar lang={lang} setLang={setLang} theme={theme} setTheme={setTheme}/>
-        <HeroSection         lang={lang}/>
-        <AboutSection        lang={lang}/>
-        <PracticesSection    lang={lang}/>
-        <ProgramSection      lang={lang}/>
-        <TeacherSection      lang={lang}/>
-        <TestimonialsSection lang={lang}/>
-        <CTASection          lang={lang}/>
-        <ContactSection      lang={lang}/>
-        <FooterSection       lang={lang}/>
-        <WhatsAppFloat/>
+        <Nav lang={lang} setLang={handleLang} theme={theme} toggleTheme={toggleTheme} isPortal={isPortal} onBack={goPortal}/>
+        {isPortal
+          ? <Portal lang={lang} onSelect={openSpec}/>
+          : <SpecDetail lang={lang} specId={view} onBack={goPortal}/>
+        }
+        <Footer lang={lang}/>
+        <a href={WHATSAPP} target="_blank" rel="noopener" className="wa-float" aria-label="WhatsApp"><IcoWA s={26}/></a>
       </>
     );
   }
