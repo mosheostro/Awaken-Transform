@@ -3,149 +3,164 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="LifeForge AI — Coaching, Psychology & Esoteric Tools powered by AI. Personal Coach, Business Mastery, Astrology, Numerology.">
-  <title>LifeForge AI · Coaching, Psychology & Esoteric Tools</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%23C8A86E'/><text x='16' y='22' text-anchor='middle' font-family='Georgia' font-size='18' fill='%230D0B08'>L</text></svg>">
+  <meta name="description" content="LifeForge AI — Premium AI-powered personal development ecosystem. Coaching, Business, Astrology, Numerology, Svarga System.">
+  <title>LifeForge AI · Your AI-powered ecosystem for self-development</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23E8C880'/><stop offset='1' stop-color='%239A7E4A'/></linearGradient></defs><circle cx='16' cy='16' r='14' fill='url(%23g)'/><text x='16' y='22' text-anchor='middle' font-family='Georgia' font-size='17' fill='%230D0B08' font-weight='600'>L</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Frank+Ruhl+Libre:wght@400;500;700&family=Heebo:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Frank+Ruhl+Libre:wght@300;400;500;700&family=Heebo:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+    *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
     :root {
-      --bg:        #0D0B08;
-      --bg-alt:    #141108;
-      --surface:   #1B1710;
-      --surface-2: #232018;
-      --text-1:    #EDE9E2;
-      --text-2:    #A8A49C;
-      --text-3:    #6B6762;
-      --border:    rgba(237,233,226,.09);
-      --border-md: rgba(237,233,226,.17);
-      --gold:      #C8A86E;
-      --gold-h:    #DDBB7E;
+      --bg:        #0A0907;
+      --bg-alt:    #110E0A;
+      --surface:   #18140E;
+      --surface-2: #211C14;
+      --surface-3: rgba(232,221,196,.045);
+      --text-1:    #F0EBE0;
+      --text-2:    #AAA49A;
+      --text-3:    #6B6660;
+      --border:    rgba(240,235,224,.08);
+      --border-md: rgba(240,235,224,.16);
+      --gold:      #D4B27A;
+      --gold-h:    #E8C68E;
       --gold-dim:  #9A7E4A;
-      --gold-f:    rgba(200,168,110,.10);
-      --sage:      #6EA080;
-      --shadow:    rgba(0,0,0,.65);
-      --nav-bg:    rgba(13,11,8,.94);
-      --font-d: 'Cormorant Garamond', Georgia, serif;
-      --font-b: 'DM Sans', system-ui, sans-serif;
-      --r: 4px;
+      --gold-f:    rgba(212,178,122,.10);
+      --shadow:    rgba(0,0,0,.70);
+      --shadow-2:  rgba(0,0,0,.40);
+      --nav-bg:    rgba(10,9,7,.86);
+      --glass-bg:  rgba(24,20,14,.55);
+      --glass-br:  rgba(240,235,224,.10);
+      --font-d:'Cormorant Garamond',Georgia,serif;
+      --font-b:'DM Sans',system-ui,sans-serif;
+      --r:8px;
     }
     [data-theme="light"] {
-      --bg:        #FAF7F0;
-      --bg-alt:    #F2EFE7;
+      --bg:        #FAF7EF;
+      --bg-alt:    #F2EFE5;
       --surface:   #FFFFFF;
-      --surface-2: #EDE9E0;
-      --text-1:    #1C1810;
-      --text-2:    #5A5650;
-      --text-3:    #9A9590;
-      --border:    rgba(28,24,16,.09);
-      --border-md: rgba(28,24,16,.18);
+      --surface-2: #EDE9DE;
+      --surface-3: rgba(24,20,14,.03);
+      --text-1:    #1A160E;
+      --text-2:    #56524C;
+      --text-3:    #989188;
+      --border:    rgba(24,20,14,.08);
+      --border-md: rgba(24,20,14,.16);
       --gold:      #8B6520;
-      --gold-h:    #724F12;
+      --gold-h:    #6E4F12;
       --gold-dim:  #B08030;
-      --gold-f:    rgba(139,101,32,.09);
-      --sage:      #3A7556;
-      --shadow:    rgba(0,0,0,.10);
-      --nav-bg:    rgba(250,247,240,.96);
+      --gold-f:    rgba(139,101,32,.08);
+      --shadow:    rgba(24,20,14,.10);
+      --shadow-2:  rgba(24,20,14,.06);
+      --nav-bg:    rgba(250,247,239,.92);
+      --glass-bg:  rgba(255,255,255,.55);
+      --glass-br:  rgba(24,20,14,.10);
     }
-    /* Hebrew font swap */
-    [lang="he"] { --font-d: 'Frank Ruhl Libre', Georgia, serif; --font-b: 'Heebo', system-ui, sans-serif; }
+    [lang="he"] { --font-d:'Frank Ruhl Libre',Georgia,serif; --font-b:'Heebo',system-ui,sans-serif; }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior:smooth; }
     body {
-      font-family: var(--font-b);
-      background: var(--bg);
-      color: var(--text-1);
-      line-height: 1.65;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      transition: background .3s, color .3s;
+      font-family:var(--font-b); background:var(--bg); color:var(--text-1);
+      line-height:1.65; overflow-x:hidden; -webkit-font-smoothing:antialiased;
+      transition:background .35s,color .35s;
     }
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 2px; }
-    ::selection { background: rgba(200,168,110,.22); }
-    img { display: block; max-width: 100%; }
-    a { color: inherit; text-decoration: none; }
-    button { font-family: var(--font-b); }
+    ::-webkit-scrollbar { width:4px; }
+    ::-webkit-scrollbar-track { background:var(--bg); }
+    ::-webkit-scrollbar-thumb { background:var(--gold-dim); border-radius:2px; }
+    ::selection { background:rgba(212,178,122,.25); }
+    img { display:block; max-width:100%; }
+    a { color:inherit; text-decoration:none; }
+    button { font-family:var(--font-b); }
 
-    .sp  { padding: clamp(64px,9vw,120px) clamp(24px,7vw,100px); }
-    .sp2 { padding: clamp(44px,6vw,88px) clamp(24px,7vw,100px); }
-    .mw  { max-width: 1280px; margin: 0 auto; }
+    /* AMBIENT BACKGROUND ORBS */
+    .ambient-orbs { position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
+    .orb { position:absolute; border-radius:50%; filter:blur(80px); opacity:.35; transition:opacity .8s; }
+    .orb-1 { top:-10%; left:-5%; width:520px; height:520px; background:radial-gradient(circle,#D4B27A,transparent 70%); }
+    .orb-2 { bottom:-15%; right:-10%; width:600px; height:600px; background:radial-gradient(circle,#7E8EC8,transparent 70%); opacity:.18; }
+    .orb-3 { top:40%; right:20%; width:380px; height:380px; background:radial-gradient(circle,#6EA080,transparent 70%); opacity:.12; }
+    [data-theme="light"] .orb { opacity:.20; }
 
-    .rv  { opacity:0; transform:translateY(20px); transition:opacity .8s cubic-bezier(.2,0,.2,1),transform .8s cubic-bezier(.2,0,.2,1); }
+    /* LAYOUT */
+    .sp  { padding:clamp(60px,9vw,120px) clamp(22px,7vw,100px); position:relative; z-index:1; }
+    .sp2 { padding:clamp(42px,6vw,84px) clamp(22px,7vw,100px); position:relative; z-index:1; }
+    .mw  { max-width:1280px; margin:0 auto; }
+
+    /* REVEAL */
+    .rv { opacity:0; transform:translateY(20px); transition:opacity .85s cubic-bezier(.2,0,.2,1),transform .85s cubic-bezier(.2,0,.2,1); }
     .rv.in { opacity:1; transform:none; }
-    .d1{transition-delay:.10s}.d2{transition-delay:.22s}.d3{transition-delay:.34s}
-    .d4{transition-delay:.46s}.d5{transition-delay:.58s}.d6{transition-delay:.70s}
+    .d1{transition-delay:.08s}.d2{transition-delay:.18s}.d3{transition-delay:.28s}
+    .d4{transition-delay:.38s}.d5{transition-delay:.48s}.d6{transition-delay:.58s}
 
-    .eyebrow {
-      font-family:var(--font-b); font-size:.64rem; font-weight:500;
-      letter-spacing:.22em; text-transform:uppercase; color:var(--gold);
-    }
-    [lang="he"] .eyebrow { letter-spacing:.08em; }
+    /* TYPOGRAPHY */
+    .eyebrow { font-family:var(--font-b); font-size:.62rem; font-weight:500; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); }
+    [lang="he"] .eyebrow { letter-spacing:.06em; }
 
+    /* BUTTONS */
     .btn-p {
       display:inline-flex; align-items:center; gap:8px;
-      padding:13px 34px; background:var(--gold); color:#0D0B08;
-      font-size:.76rem; font-weight:500; letter-spacing:.13em; text-transform:uppercase;
-      border:none; border-radius:var(--r); cursor:pointer;
+      padding:14px 34px; background:var(--gold); color:#0A0907;
+      font-size:.74rem; font-weight:500; letter-spacing:.13em; text-transform:uppercase;
+      border:none; border-radius:6px; cursor:pointer;
       transition:background .3s,transform .25s,box-shadow .3s;
     }
-    .btn-p:hover { background:var(--gold-h); transform:translateY(-2px); box-shadow:0 14px 40px rgba(200,168,110,.28); }
+    .btn-p:hover { background:var(--gold-h); transform:translateY(-2px); box-shadow:0 14px 40px rgba(212,178,122,.32); }
     .btn-g {
       display:inline-flex; align-items:center; gap:8px;
-      padding:12px 32px; background:transparent; color:var(--text-2);
-      font-size:.76rem; font-weight:400; letter-spacing:.09em; text-transform:uppercase;
-      border:1px solid var(--border-md); border-radius:var(--r); cursor:pointer;
-      transition:border-color .3s,color .3s;
+      padding:13px 32px; background:transparent; color:var(--text-2);
+      font-size:.74rem; font-weight:400; letter-spacing:.09em; text-transform:uppercase;
+      border:1px solid var(--border-md); border-radius:6px; cursor:pointer;
+      transition:border-color .3s,color .3s,background .3s;
     }
-    .btn-g:hover { border-color:var(--gold); color:var(--gold); }
+    .btn-g:hover { border-color:var(--gold); color:var(--gold); background:var(--gold-f); }
 
     /* NAV */
     .nav-wrap {
       position:fixed; top:0; left:0; right:0; z-index:100;
       display:flex; align-items:center; justify-content:space-between;
-      padding:0 clamp(20px,5.5vw,72px); height:68px;
+      padding:0 clamp(20px,5.5vw,68px); height:68px;
       background:transparent;
       transition:background .4s,border-color .4s,backdrop-filter .4s;
     }
     .nav-wrap.scrolled {
       background:var(--nav-bg);
-      backdrop-filter:blur(22px); -webkit-backdrop-filter:blur(22px);
+      backdrop-filter:blur(24px) saturate(140%);
+      -webkit-backdrop-filter:blur(24px) saturate(140%);
       border-bottom:1px solid var(--border);
     }
-    .nav-logo { display:flex; align-items:center; gap:10px; cursor:pointer; background:none; border:none; }
-    .nav-logo-mark { width:34px; height:34px; border-radius:50%; background:linear-gradient(135deg,var(--gold),var(--gold-dim)); display:flex; align-items:center; justify-content:center; font-family:var(--font-d); font-size:1.05rem; color:#0D0B08; font-weight:600; flex-shrink:0; }
-    .nav-logo-name { font-family:var(--font-d); font-size:1rem; font-weight:400; color:var(--text-1); letter-spacing:.03em; display:block; line-height:1.1; }
-    .nav-logo-sub  { font-size:.56rem; color:var(--gold); letter-spacing:.20em; text-transform:uppercase; display:block; line-height:1.1; }
-    .nav-right { display:flex; align-items:center; gap:10px; }
+    .nav-logo { display:flex; align-items:center; gap:11px; cursor:pointer; background:none; border:none; }
+    .nav-logo-mark { width:36px; height:36px; border-radius:50%;
+      background:linear-gradient(135deg,var(--gold) 0%,var(--gold-dim) 100%);
+      display:flex; align-items:center; justify-content:center;
+      font-family:var(--font-d); font-size:1.1rem; color:#0A0907; font-weight:600;
+      flex-shrink:0; box-shadow:0 4px 14px rgba(212,178,122,.25); }
+    .nav-logo-name { font-family:var(--font-d); font-size:1.06rem; font-weight:500; color:var(--text-1); letter-spacing:.02em; display:block; line-height:1.05; }
+    .nav-logo-sub  { font-size:.55rem; color:var(--gold); letter-spacing:.22em; text-transform:uppercase; display:block; line-height:1.1; margin-top:1px; }
+    .nav-right { display:flex; align-items:center; gap:8px; }
 
     .ctrl-btn {
-      background:none; border:1px solid var(--border-md); border-radius:var(--r);
-      padding:6px 12px; cursor:pointer;
-      font-size:.66rem; font-weight:500; letter-spacing:.10em; color:var(--text-3);
-      transition:border-color .2s,color .2s; white-space:nowrap;
-      display:flex; align-items:center; gap:5px;
+      background:var(--surface-3); border:1px solid var(--border-md); border-radius:6px;
+      padding:7px 13px; cursor:pointer;
+      font-size:.64rem; font-weight:500; letter-spacing:.11em; color:var(--text-2);
+      transition:border-color .2s,color .2s,background .2s; white-space:nowrap;
+      display:flex; align-items:center; gap:6px;
     }
-    .ctrl-btn:hover { border-color:var(--gold); color:var(--gold); }
+    .ctrl-btn:hover { border-color:var(--gold); color:var(--gold); background:var(--gold-f); }
 
     .lang-wrap { position:relative; }
     .lang-drop {
-      position:absolute; top:calc(100% + 7px); right:0;
-      background:var(--surface); border:1px solid var(--border-md);
-      border-radius:var(--r); min-width:120px; overflow:hidden;
-      box-shadow:0 14px 40px var(--shadow);
+      position:absolute; top:calc(100% + 8px); right:0;
+      background:var(--glass-bg); border:1px solid var(--glass-br);
+      backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+      border-radius:8px; min-width:130px; overflow:hidden;
+      box-shadow:0 16px 50px var(--shadow);
       opacity:0; pointer-events:none; transform:translateY(-4px);
-      transition:opacity .2s,transform .2s;
+      transition:opacity .25s,transform .25s;
     }
     [dir="rtl"] .lang-drop { right:auto; left:0; }
     .lang-drop.open { opacity:1; pointer-events:all; transform:none; }
     .lang-opt {
-      display:block; width:100%; padding:9px 14px; background:none; border:none;
-      text-align:left; cursor:pointer; font-size:.73rem; color:var(--text-2);
+      display:block; width:100%; padding:10px 16px; background:none; border:none;
+      text-align:left; cursor:pointer; font-size:.74rem; color:var(--text-2);
       transition:background .15s,color .15s;
     }
     [dir="rtl"] .lang-opt { text-align:right; }
@@ -154,157 +169,191 @@
 
     .mob-drawer {
       position:fixed; inset:0; z-index:200;
-      background:rgba(13,11,8,.97); backdrop-filter:blur(20px);
+      background:rgba(10,9,7,.97); backdrop-filter:blur(24px);
       display:flex; flex-direction:column; padding:80px 36px 48px;
       opacity:0; pointer-events:none; transition:opacity .3s;
     }
-    [data-theme="light"] .mob-drawer { background:rgba(250,247,240,.97); }
+    [data-theme="light"] .mob-drawer { background:rgba(250,247,239,.97); }
     .mob-drawer.open { opacity:1; pointer-events:all; }
 
-    /* HERO */
-    @keyframes hfade { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:none} }
-    .hl1{animation:hfade 1s cubic-bezier(.2,0,.2,1) .25s both}
-    .hl2{animation:hfade 1s cubic-bezier(.2,0,.2,1) .45s both}
-    .hl3{animation:hfade 1s cubic-bezier(.2,0,.2,1) .65s both}
-    .hl4{animation:hfade 1s cubic-bezier(.2,0,.2,1) .85s both}
+    /* HERO ANIMATIONS */
+    @keyframes hfade { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:none} }
+    .hl1{animation:hfade 1s cubic-bezier(.2,0,.2,1) .20s both}
+    .hl2{animation:hfade 1s cubic-bezier(.2,0,.2,1) .40s both}
+    .hl3{animation:hfade 1s cubic-bezier(.2,0,.2,1) .60s both}
+    .hl4{animation:hfade 1s cubic-bezier(.2,0,.2,1) .80s both}
 
     .portal-hero {
-      min-height:60vh; display:flex; align-items:center; justify-content:center;
+      min-height:64vh; display:flex; align-items:center; justify-content:center;
       text-align:center; position:relative; overflow:hidden;
-      padding:clamp(110px,15vw,170px) clamp(24px,6vw,80px) clamp(48px,7vw,90px);
-    }
-    .portal-hero::before {
-      content:''; position:absolute; inset:0; z-index:0;
-      background:radial-gradient(ellipse 80% 60% at 50% 40%, rgba(200,168,110,.10) 0%, transparent 70%);
+      padding:clamp(110px,15vw,170px) clamp(22px,6vw,80px) clamp(48px,7vw,90px);
     }
     .portal-hero-content { position:relative; z-index:1; max-width:780px; }
-
-    /* CATEGORY SECTIONS */
-    .cat-wrap { padding:0 clamp(24px,7vw,100px); }
-    .cat-section { max-width:1280px; margin:0 auto; padding-bottom:clamp(60px,8vw,110px); }
-    .cat-header { display:flex; align-items:center; gap:18px; margin-bottom:30px; }
-    .cat-num { font-family:var(--font-d); font-size:1.6rem; color:var(--gold); font-weight:300; line-height:1; }
-    .cat-line { flex:1; height:1px; background:var(--border-md); }
-    .cat-title { font-family:var(--font-d); font-size:clamp(20px,2.5vw,28px); font-weight:400; color:var(--text-1); letter-spacing:.01em; }
-    .cat-sub { font-size:.74rem; color:var(--text-3); letter-spacing:.05em; max-width:560px; margin-bottom:36px; line-height:1.7; }
-
-    .cards-grid {
-      display:grid; grid-template-columns:repeat(2,1fr); gap:20px;
+    .hero-tag-pill {
+      display:inline-flex; align-items:center; gap:8px;
+      padding:7px 16px; background:var(--glass-bg); border:1px solid var(--glass-br);
+      backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+      border-radius:30px; font-size:.66rem; letter-spacing:.16em; text-transform:uppercase;
+      color:var(--text-2); margin-bottom:22px;
     }
+    .hero-tag-dot { width:6px; height:6px; border-radius:50%; background:var(--gold); box-shadow:0 0 12px var(--gold); }
+
+    /* CATEGORY */
+    .cat-wrap { padding:0 clamp(22px,7vw,100px); position:relative; z-index:1; }
+    .cat-section { max-width:1280px; margin:0 auto; padding-bottom:clamp(56px,7vw,100px); }
+    .cat-header { display:flex; align-items:center; gap:20px; margin-bottom:14px; }
+    .cat-num { font-family:var(--font-d); font-size:1.4rem; color:var(--gold); font-weight:300; line-height:1; }
+    .cat-line { flex:1; height:1px; background:linear-gradient(to right,var(--border-md),transparent); }
+    [dir="rtl"] .cat-line { background:linear-gradient(to left,var(--border-md),transparent); }
+    .cat-title { font-family:var(--font-d); font-size:clamp(20px,2.4vw,28px); font-weight:400; color:var(--text-1); letter-spacing:.01em; }
+    .cat-sub { font-size:.78rem; color:var(--text-3); letter-spacing:.04em; max-width:580px; margin-bottom:32px; line-height:1.7; }
+
+    /* CARDS GRID */
+    .cards-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
+    .cards-grid.single { grid-template-columns:1fr; max-width:640px; }
     @media(max-width:840px){ .cards-grid { grid-template-columns:1fr; } }
 
     .s-card {
       position:relative; overflow:hidden;
-      background:var(--surface); border:1px solid var(--border);
-      border-radius:8px; padding:38px 32px 32px;
-      cursor:pointer; transition:transform .35s,border-color .35s,box-shadow .35s;
+      background:var(--glass-bg);
+      backdrop-filter:blur(20px) saturate(140%);
+      -webkit-backdrop-filter:blur(20px) saturate(140%);
+      border:1px solid var(--glass-br);
+      border-radius:14px; padding:36px 32px 28px;
+      cursor:pointer; transition:transform .4s cubic-bezier(.2,0,.2,1),border-color .35s,box-shadow .4s;
       display:flex; flex-direction:column;
     }
     .s-card::before {
-      content:''; position:absolute; top:0; left:0; right:0; height:3px;
-      background:var(--card-accent, var(--gold)); opacity:.78; transition:opacity .35s;
+      content:''; position:absolute; top:0; left:0; right:0; height:2px;
+      background:linear-gradient(90deg,transparent,var(--card-accent,var(--gold)),transparent);
+      opacity:.7; transition:opacity .35s;
     }
-    .s-card:hover { transform:translateY(-7px); border-color:var(--border-md); box-shadow:0 24px 64px var(--shadow); }
+    .s-card::after {
+      content:''; position:absolute; inset:0;
+      background:radial-gradient(ellipse 60% 100% at 50% 0%, var(--card-accent,var(--gold)) , transparent 70%);
+      opacity:.04; transition:opacity .35s; pointer-events:none;
+    }
+    .s-card:hover { transform:translateY(-6px); border-color:var(--border-md); box-shadow:0 24px 64px var(--shadow); }
     .s-card:hover::before { opacity:1; }
+    .s-card:hover::after  { opacity:.10; }
 
-    .s-card-art {
-      position:absolute; top:18px; right:22px;
-      width:62px; height:62px; opacity:.85; pointer-events:none;
-      color:var(--card-accent,var(--gold));
-    }
+    .s-card-art { position:absolute; top:18px; right:22px; width:64px; height:64px; opacity:.85; pointer-events:none; color:var(--card-accent,var(--gold)); }
     [dir="rtl"] .s-card-art { right:auto; left:22px; }
-    .s-card-tag  { font-size:.60rem; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:var(--card-accent,var(--gold)); margin-bottom:14px; }
-    .s-card-name { font-family:var(--font-d); font-size:clamp(24px,3vw,32px); font-weight:400; color:var(--text-1); line-height:1.1; margin-bottom:5px; padding-right:60px; }
-    [dir="rtl"] .s-card-name { padding-right:0; padding-left:60px; }
-    .s-card-ttl  { font-size:.78rem; color:var(--text-2); font-weight:400; letter-spacing:.03em; margin-bottom:18px; }
-    .s-card-tl   { font-family:var(--font-d); font-size:1.02rem; font-style:italic; color:var(--text-2); line-height:1.6; margin-bottom:20px; flex:1; }
-    .s-card-pills{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:24px; }
-    .s-card-pill { font-size:.58rem; letter-spacing:.10em; text-transform:uppercase; padding:5px 11px; background:var(--gold-f); color:var(--text-2); border-radius:20px; border:1px solid var(--border); white-space:nowrap; }
-    .s-card-cta  {
-      display:inline-flex; align-items:center; gap:8px;
-      font-size:.72rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase;
+    .s-card-tag { font-size:.58rem; font-weight:500; letter-spacing:.20em; text-transform:uppercase; color:var(--card-accent,var(--gold)); margin-bottom:14px; }
+    .s-card-name { font-family:var(--font-d); font-size:clamp(24px,3vw,32px); font-weight:400; color:var(--text-1); line-height:1.1; margin-bottom:6px; padding-right:64px; }
+    [dir="rtl"] .s-card-name { padding-right:0; padding-left:64px; }
+    .s-card-ttl { font-size:.78rem; color:var(--text-2); font-weight:400; letter-spacing:.02em; margin-bottom:18px; line-height:1.4; }
+    .s-card-tl { font-family:var(--font-d); font-size:1.02rem; font-style:italic; color:var(--text-2); line-height:1.6; margin-bottom:20px; flex:1; }
+    .s-card-pills { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:22px; }
+    .s-card-pill { font-size:.56rem; letter-spacing:.10em; text-transform:uppercase; padding:5px 11px; background:var(--gold-f); color:var(--text-2); border-radius:20px; border:1px solid var(--border); white-space:nowrap; }
+    .s-card-cta { display:inline-flex; align-items:center; gap:8px;
+      font-size:.70rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase;
       color:var(--card-accent,var(--gold)); background:none; border:none; cursor:pointer; padding:0;
-      transition:gap .2s;
-    }
+      transition:gap .2s; }
     .s-card-cta:hover { gap:13px; }
 
-    /* SPECIALIST DETAIL */
+    /* DETAIL VIEW */
     .sp-back {
       position:fixed; top:18px; left:clamp(18px,4vw,56px); z-index:400;
       display:flex; align-items:center; gap:7px;
-      background:var(--surface); border:1px solid var(--border-md);
-      border-radius:20px; padding:8px 16px; cursor:pointer;
-      font-size:.70rem; font-weight:500; letter-spacing:.09em; text-transform:uppercase;
+      background:var(--glass-bg); border:1px solid var(--glass-br);
+      backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+      border-radius:24px; padding:9px 18px; cursor:pointer;
+      font-size:.68rem; font-weight:500; letter-spacing:.09em; text-transform:uppercase;
       color:var(--text-2); transition:border-color .2s,color .2s; white-space:nowrap;
     }
     [dir="rtl"] .sp-back { left:auto; right:clamp(18px,4vw,56px); }
     .sp-back:hover { border-color:var(--gold); color:var(--gold); }
 
     .sp-hero {
-      min-height:48vh; display:flex; align-items:flex-end;
-      padding:clamp(110px,14vw,160px) clamp(24px,7vw,100px) clamp(44px,6vw,72px);
+      min-height:50vh; display:flex; align-items:flex-end;
+      padding:clamp(110px,14vw,160px) clamp(22px,7vw,100px) clamp(44px,6vw,72px);
       position:relative; overflow:hidden;
     }
     .sp-hero::before {
       content:''; position:absolute; inset:0;
-      background:radial-gradient(ellipse 90% 70% at 15% 80%, var(--hero-glow,rgba(200,168,110,.13)) 0%, transparent 60%);
+      background:radial-gradient(ellipse 90% 80% at 15% 80%, var(--hero-glow,rgba(212,178,122,.16)) 0%, transparent 60%);
     }
-    [dir="rtl"] .sp-hero::before {
-      background:radial-gradient(ellipse 90% 70% at 85% 80%, var(--hero-glow,rgba(200,168,110,.13)) 0%, transparent 60%);
-    }
+    [dir="rtl"] .sp-hero::before { background:radial-gradient(ellipse 90% 80% at 85% 80%, var(--hero-glow,rgba(212,178,122,.16)) 0%, transparent 60%); }
     .sp-hero-content { position:relative; z-index:1; max-width:820px; }
-    .sp-hero-art { position:absolute; top:50%; right:clamp(40px,8vw,140px); transform:translateY(-50%); width:clamp(140px,20vw,260px); height:auto; opacity:.55; pointer-events:none; z-index:0; }
+    .sp-hero-art { position:absolute; top:50%; right:clamp(40px,8vw,140px); transform:translateY(-50%); width:clamp(140px,22vw,280px); height:auto; opacity:.55; pointer-events:none; z-index:0; }
     [dir="rtl"] .sp-hero-art { right:auto; left:clamp(40px,8vw,140px); }
     @media(max-width:768px){ .sp-hero-art { display:none; } }
 
     .detail-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(32px,5vw,72px); align-items:start; }
     @media(max-width:768px){ .detail-grid { grid-template-columns:1fr; } }
 
-    .prog-card {
-      padding:30px 26px; border-radius:8px; border:1px solid var(--border);
-      background:var(--surface); transition:border-color .3s,transform .3s;
+    .glass-card {
+      padding:28px 26px; border-radius:12px;
+      background:var(--glass-bg); border:1px solid var(--glass-br);
+      backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
+      transition:border-color .3s,transform .3s,box-shadow .3s;
     }
-    .prog-card:hover { border-color:var(--border-md); transform:translateY(-3px); }
+    .glass-card:hover { border-color:var(--border-md); transform:translateY(-3px); box-shadow:0 16px 44px var(--shadow); }
     .prog-num { font-family:var(--font-d); font-size:2rem; font-weight:300; line-height:1; margin-bottom:14px; }
 
     .stat-row { display:flex; gap:clamp(22px,4vw,52px); flex-wrap:wrap; }
     .stat-num { font-family:var(--font-d); font-size:clamp(28px,3.5vw,38px); font-weight:400; line-height:1; display:block; }
     .stat-lbl { font-size:.66rem; color:var(--text-3); letter-spacing:.12em; text-transform:uppercase; display:block; margin-top:3px; }
 
-    .tcard {
-      padding:28px; border-radius:8px; border:1px solid var(--border);
-      background:var(--gold-f); margin-bottom:16px;
-    }
+    .tcard { padding:24px; border-radius:10px; background:var(--gold-f); border:1px solid var(--border); margin-bottom:14px; }
     .tcard:last-child { margin-bottom:0; }
-    .tcard-name { font-size:.76rem; font-weight:500; color:var(--text-1); }
-    .tcard-city { font-size:.64rem; color:var(--text-3); letter-spacing:.08em; }
-    .tcard-text { font-family:var(--font-d); font-size:1.02rem; font-style:italic; color:var(--text-2); line-height:1.68; margin-top:14px; }
+    .tcard-name { font-size:.74rem; font-weight:500; color:var(--text-1); }
+    .tcard-city { font-size:.62rem; color:var(--text-3); letter-spacing:.08em; }
+    .tcard-text { font-family:var(--font-d); font-size:1.02rem; font-style:italic; color:var(--text-2); line-height:1.65; margin-top:12px; }
 
     .cta-strip {
-      text-align:center; padding:clamp(64px,9vw,110px) clamp(24px,7vw,100px);
+      text-align:center; padding:clamp(64px,9vw,110px) clamp(22px,7vw,100px);
       background:var(--bg-alt); position:relative; overflow:hidden;
     }
-    .cta-strip::before {
-      content:''; position:absolute; inset:0;
-      background:radial-gradient(ellipse 60% 80% at 50% 100%, rgba(200,168,110,.10),transparent);
-    }
+    .cta-strip::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 60% 80% at 50% 100%, rgba(212,178,122,.10), transparent); }
 
-    .footer-bar {
-      padding:clamp(36px,5vw,60px) clamp(24px,7vw,100px) clamp(28px,4vw,44px);
-      border-top:1px solid var(--border);
-      display:flex; flex-direction:column; gap:14px; align-items:center; text-align:center;
+    /* PYTHAGORAS WIDGET */
+    .pyth-widget { padding:32px 28px; border-radius:14px; background:var(--glass-bg); border:1px solid var(--glass-br);
+      backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); }
+    .pyth-input { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:24px; align-items:center; }
+    .pyth-input input { flex:1; min-width:180px; padding:13px 16px; background:var(--surface-3); color:var(--text-1);
+      border:1px solid var(--border-md); border-radius:6px;
+      font-family:var(--font-b); font-size:.92rem; outline:none; transition:border-color .2s,box-shadow .2s; }
+    .pyth-input input:focus { border-color:var(--gold); box-shadow:0 0 0 3px rgba(212,178,122,.15); }
+    .pyth-input input::placeholder { color:var(--text-3); }
+    .pyth-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:18px; max-width:340px; }
+    .pyth-cell { aspect-ratio:1; border-radius:8px; background:var(--surface-3); border:1px solid var(--border);
+      display:flex; align-items:center; justify-content:center; flex-direction:column;
+      transition:border-color .2s,transform .2s,background .2s; cursor:default;
+      position:relative;
     }
-    .f-credit { font-size:.74rem; color:var(--text-2); letter-spacing:.04em; }
+    .pyth-cell:hover { border-color:var(--gold); transform:scale(1.04); }
+    .pyth-cell-num { position:absolute; top:6px; left:8px; font-size:.62rem; color:var(--text-3); font-family:var(--font-d); }
+    .pyth-cell-val { font-family:var(--font-d); font-size:clamp(20px,3vw,28px); color:var(--text-1); font-weight:400; line-height:1; }
+    .pyth-cell.has { background:var(--gold-f); border-color:rgba(212,178,122,.35); }
+    .pyth-cell.has .pyth-cell-val { color:var(--gold); }
+    .pyth-cell.strong { background:rgba(212,178,122,.18); border-color:var(--gold); box-shadow:0 4px 18px rgba(212,178,122,.20); }
+    .pyth-numbers { display:flex; gap:14px; flex-wrap:wrap; font-size:.78rem; color:var(--text-2); margin-top:18px; }
+    .pyth-numbers strong { color:var(--gold); font-family:var(--font-d); font-size:1.1rem; margin-right:4px; }
+    .pyth-meaning { padding:14px 16px; background:var(--surface-3); border:1px solid var(--border); border-radius:8px;
+      font-size:.82rem; color:var(--text-2); line-height:1.7; margin-top:18px; font-weight:300; }
+    .pyth-err { color:#E58F70; font-size:.76rem; margin-top:8px; }
+
+    /* FOOTER */
+    .footer-bar {
+      padding:clamp(36px,5vw,60px) clamp(22px,7vw,100px) clamp(28px,4vw,44px);
+      border-top:1px solid var(--border);
+      display:flex; flex-direction:column; gap:10px; align-items:center; text-align:center;
+      position:relative; z-index:1;
+    }
+    .f-credit { font-size:.74rem; color:var(--text-2); letter-spacing:.03em; }
     .f-credit a { color:var(--gold); border-bottom:1px solid transparent; transition:border-color .2s; }
     .f-credit a:hover { border-bottom-color:var(--gold); }
-    .f-copy { font-size:.65rem; color:var(--text-3); letter-spacing:.04em; }
+    .f-copy { font-size:.62rem; color:var(--text-3); letter-spacing:.04em; }
 
+    /* WHATSAPP FLOAT */
     .wa-float {
       position:fixed; bottom:26px; right:26px; z-index:150;
       width:54px; height:54px; border-radius:50%;
       background:#25D366; border:none; cursor:pointer;
       display:flex; align-items:center; justify-content:center;
-      box-shadow:0 8px 28px rgba(37,211,102,.35);
+      box-shadow:0 8px 28px rgba(37,211,102,.36);
       transition:transform .25s,box-shadow .25s; text-decoration:none;
     }
     .wa-float:hover { transform:scale(1.08) translateY(-2px); }
@@ -318,6 +367,11 @@
   </style>
 </head>
 <body>
+  <div class="ambient-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
   <div id="root"></div>
 
   <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
@@ -325,547 +379,698 @@
   <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 
   <script type="text/babel">
-  const WHATSAPP = 'https://wa.me/972549989627';
-  const TELEGRAM = 'https://t.me/riverapeople';
-  const AUTHOR_URL = 'https://georgiirivera.ai';
+  const WHATSAPP='https://wa.me/972549989627';
+  const TELEGRAM='https://t.me/riverapeople';
+  const AUTHOR_URL='https://georgiirivera.ai';
 
-  /* ─── UI translations ─── */
+  // ─── UI TRANSLATIONS (5 languages: EN, RU, ES, IT, HE) ───
   const UI = {
     en: { back:'All Tools', themeD:'Dark', themeL:'Light',
-      portal:{ eyebrow:'LifeForge AI · Powered Coaching & Insight Tools',
-        h1a:'Forge a life', h1b:'on your own terms.',
-        sub:'Four AI-powered companions for personal growth — built by Georgii Rivera. Coaching and psychology lead the work. Astrology and numerology serve as supporting mirrors for reflection.',
-        hint:'Choose your tool' },
-      cat:{ primary:'Coaching & Psychology', primarySub:'The core of the work — clear thinking, structured action, real change.',
-            secondary:'Esoteric & Supporting Tools', secondarySub:'Mirrors for reflection, not predictions of fate. Use them to surface the questions, not to outsource the answers.' },
+      portal:{ tag:'AI Development Ecosystem · v2',
+        h1a:'Forge your life', h1b:'with AI clarity.',
+        sub:'Five AI-powered systems for self-development — coaching, business mastery, astrology, numerology, and integral practice. Choose where to begin.',
+        hint:'Choose your system' },
+      cat:{ primary:'Coaching & Psychology', primarySub:'The core of the work — clear thinking, structured action, real change. Two AI systems for the inner and outer arc of self-development.',
+            secondary:'Esoteric & Reflection Tools', secondarySub:'Mirrors for self-reflection, not predictions of fate. Use them to surface the questions — not to outsource the answers.',
+            integral:'Integral Practice', integralSub:'Body, breath, mind, awareness — woven into one living practice.' },
       cta:{ title:'Get started', sub:'Reach out directly — usual response time under 24 hours.', wa:'Write on WhatsApp', tg:'Open Telegram' },
-      explore:'Explore →', programs:'Programs · Rhythms', testimonials:'How users use it', framework:'How it works',
+      explore:'Explore →', programs:'Programs · Rhythms', testimonials:'Voices & Quotes', framework:'How it works',
+      tryit:'Try it now', pyth:{ title:'Try the Pythagoras Square live', sub:'Enter your date of birth — get your matrix and core numbers instantly.', input:'DD.MM.YYYY', btn:'Calculate', err:'Invalid date. Use DD.MM.YYYY format.', workNum:'Working №', secNum:'Second №', thrNum:'Third №', forNum:'Fourth №', meanings:['Character · willpower','Energy · vitality','Curiosity · intellect','Health · stamina','Logic · intuition','Earthiness · labor','Talent · luck','Duty · responsibility','Memory · analytical mind'] },
       footer:{ credit:'Built by', author:'Georgii Rivera', copy:'© 2026 LifeForge AI · All rights reserved.' },
     },
     ru: { back:'Все инструменты', themeD:'Тёмная', themeL:'Светлая',
-      portal:{ eyebrow:'LifeForge AI · ИИ-инструменты для коучинга и осознания',
-        h1a:'Выкуйте жизнь', h1b:'на своих условиях.',
-        sub:'Четыре ИИ-проводника для личностного роста — от Георгия Ривера. Коучинг и психология — основа работы. Астрология и нумерология — вспомогательные зеркала для саморефлексии.',
-        hint:'Выберите инструмент' },
-      cat:{ primary:'Коучинг и Психология', primarySub:'Ядро работы — ясное мышление, структурное действие, реальные изменения.',
-            secondary:'Эзотерика и вспомогательные инструменты', secondarySub:'Зеркала для рефлексии, а не предсказания судьбы. Используйте их, чтобы поднять вопросы — не для того, чтобы получить готовые ответы.' },
-      cta:{ title:'Начните', sub:'Свяжитесь напрямую — обычно отвечаем в течение 24 часов.', wa:'Написать в WhatsApp', tg:'Открыть Telegram' },
-      explore:'Подробнее →', programs:'Форматы · Ритмы', testimonials:'Как этим пользуются', framework:'Как это работает',
+      portal:{ tag:'ИИ-экосистема развития · v2',
+        h1a:'Выкуй свою жизнь', h1b:'с ясностью ИИ.',
+        sub:'Пять ИИ-систем для саморазвития — коучинг, бизнес-мастерство, астрология, нумерология и интегральная практика. Выбери, с чего начать.',
+        hint:'Выберите систему' },
+      cat:{ primary:'Коучинг и Психология', primarySub:'Ядро работы — ясное мышление, структурное действие, реальные изменения. Две ИИ-системы для внутренней и внешней дуги саморазвития.',
+            secondary:'Эзотерика и инструменты рефлексии', secondarySub:'Зеркала для саморефлексии, а не предсказания судьбы. Используйте их, чтобы поднять вопросы — не получить готовые ответы.',
+            integral:'Интегральная практика', integralSub:'Тело, дыхание, разум, осознанность — сплетённые в единую живую практику.' },
+      cta:{ title:'Начните', sub:'Свяжитесь напрямую — отвечаем в течение 24 часов.', wa:'Написать в WhatsApp', tg:'Открыть Telegram' },
+      explore:'Подробнее →', programs:'Программы · Ритмы', testimonials:'Голоса · Цитаты', framework:'Как это работает',
+      tryit:'Попробовать сейчас', pyth:{ title:'Попробуйте квадрат Пифагора вживую', sub:'Введите дату рождения — получите свою матрицу и ключевые числа мгновенно.', input:'ДД.ММ.ГГГГ', btn:'Рассчитать', err:'Неверная дата. Используйте формат ДД.ММ.ГГГГ.', workNum:'Рабочее №', secNum:'Второе №', thrNum:'Третье №', forNum:'Четвёртое №', meanings:['Характер · воля','Энергия · витальность','Любознательность · интеллект','Здоровье · выносливость','Логика · интуиция','Заземлённость · труд','Талант · удача','Долг · ответственность','Память · аналитический ум'] },
       footer:{ credit:'Создатель системы:', author:'Георгий Ривера', copy:'© 2026 LifeForge AI · Все права защищены.' },
     },
-    de: { back:'Alle Tools', themeD:'Dunkel', themeL:'Hell',
-      portal:{ eyebrow:'LifeForge AI · KI-Tools für Coaching und Erkenntnis',
-        h1a:'Schmiede ein Leben', h1b:'nach deinen Regeln.',
-        sub:'Vier KI-Begleiter für persönliches Wachstum — entwickelt von Georgii Rivera. Coaching und Psychologie führen die Arbeit. Astrologie und Numerologie dienen als unterstützende Spiegel zur Reflexion.',
-        hint:'Wähle dein Tool' },
-      cat:{ primary:'Coaching & Psychologie', primarySub:'Der Kern der Arbeit — klares Denken, strukturiertes Handeln, echte Veränderung.',
-            secondary:'Esoterische & unterstützende Tools', secondarySub:'Spiegel zur Reflexion, keine Schicksalsvorhersagen. Nutze sie, um die Fragen aufzudecken — nicht, um Antworten auszulagern.' },
-      cta:{ title:'Loslegen', sub:'Schreib uns direkt — Antwort meist innerhalb von 24 Stunden.', wa:'WhatsApp schreiben', tg:'Telegram öffnen' },
-      explore:'Entdecken →', programs:'Programme · Rhythmen', testimonials:'Wie es genutzt wird', framework:'So funktioniert es',
-      footer:{ credit:'Entwickelt von', author:'Georgii Rivera', copy:'© 2026 LifeForge AI · Alle Rechte vorbehalten.' },
+    es: { back:'Todas las herramientas', themeD:'Oscuro', themeL:'Claro',
+      portal:{ tag:'Ecosistema de desarrollo IA · v2',
+        h1a:'Forja tu vida', h1b:'con claridad IA.',
+        sub:'Cinco sistemas con IA para el autodesarrollo — coaching, maestría empresarial, astrología, numerología y práctica integral. Elige por dónde empezar.',
+        hint:'Elige tu sistema' },
+      cat:{ primary:'Coaching y Psicología', primarySub:'El núcleo del trabajo — pensamiento claro, acción estructurada, cambio real.',
+            secondary:'Esotérico y herramientas de reflexión', secondarySub:'Espejos para la auto-reflexión, no predicciones del destino.',
+            integral:'Práctica integral', integralSub:'Cuerpo, respiración, mente, conciencia — entretejidos en una práctica viva.' },
+      cta:{ title:'Empezar', sub:'Contáctanos directamente — respuesta en menos de 24 horas.', wa:'Escribir por WhatsApp', tg:'Abrir Telegram' },
+      explore:'Explorar →', programs:'Programas · Ritmos', testimonials:'Voces · Citas', framework:'Cómo funciona',
+      tryit:'Pruébalo ahora', pyth:{ title:'Prueba el cuadrado de Pitágoras en vivo', sub:'Introduce tu fecha de nacimiento — obtén tu matriz y números clave al instante.', input:'DD.MM.AAAA', btn:'Calcular', err:'Fecha inválida. Usa el formato DD.MM.AAAA.', workNum:'№ Trabajo', secNum:'№ Segundo', thrNum:'№ Tercero', forNum:'№ Cuarto', meanings:['Carácter · voluntad','Energía · vitalidad','Curiosidad · intelecto','Salud · resistencia','Lógica · intuición','Tierra · trabajo','Talento · suerte','Deber · responsabilidad','Memoria · mente analítica'] },
+      footer:{ credit:'Creado por', author:'Georgii Rivera', copy:'© 2026 LifeForge AI · Todos los derechos reservados.' },
+    },
+    it: { back:'Tutti gli strumenti', themeD:'Scuro', themeL:'Chiaro',
+      portal:{ tag:'Ecosistema di sviluppo IA · v2',
+        h1a:'Forgia la tua vita', h1b:'con chiarezza IA.',
+        sub:'Cinque sistemi basati su IA per lo sviluppo personale — coaching, maestria aziendale, astrologia, numerologia e pratica integrale. Scegli da dove iniziare.',
+        hint:'Scegli il tuo sistema' },
+      cat:{ primary:'Coaching e Psicologia', primarySub:'Il nucleo del lavoro — pensiero chiaro, azione strutturata, cambiamento reale.',
+            secondary:'Esoterismo e strumenti di riflessione', secondarySub:'Specchi per l\'auto-riflessione, non previsioni del destino.',
+            integral:'Pratica integrale', integralSub:'Corpo, respiro, mente, consapevolezza — intrecciati in una pratica viva.' },
+      cta:{ title:'Inizia', sub:'Contattaci direttamente — risposta entro 24 ore.', wa:'Scrivici su WhatsApp', tg:'Apri Telegram' },
+      explore:'Esplora →', programs:'Programmi · Ritmi', testimonials:'Voci · Citazioni', framework:'Come funziona',
+      tryit:'Provalo ora', pyth:{ title:'Prova il quadrato di Pitagora dal vivo', sub:'Inserisci la tua data di nascita — ottieni la tua matrice e i numeri chiave istantaneamente.', input:'GG.MM.AAAA', btn:'Calcola', err:'Data non valida. Usa il formato GG.MM.AAAA.', workNum:'N° Lavoro', secNum:'N° Secondo', thrNum:'N° Terzo', forNum:'N° Quarto', meanings:['Carattere · volontà','Energia · vitalità','Curiosità · intelletto','Salute · resistenza','Logica · intuito','Concretezza · lavoro','Talento · fortuna','Dovere · responsabilità','Memoria · mente analitica'] },
+      footer:{ credit:'Creato da', author:'Georgii Rivera', copy:'© 2026 LifeForge AI · Tutti i diritti riservati.' },
     },
     he: { back:'כל הכלים', themeD:'כהה', themeL:'בהיר',
-      portal:{ eyebrow:'LifeForge AI · כלי AI לאימון ותובנה',
-        h1a:'עצב חיים', h1b:'בתנאים שלך.',
-        sub:'ארבעה מלווי AI לצמיחה אישית — נבנו על ידי גאורגי ריוורה. אימון ופסיכולוגיה מובילים את העבודה. אסטרולוגיה ונומרולוגיה משמשים מראות תומכות להתבוננות עצמית.',
-        hint:'בחר את הכלי שלך' },
+      portal:{ tag:'אקוסיסטם פיתוח AI · v2',
+        h1a:'צור את חייך', h1b:'בבהירות AI.',
+        sub:'חמש מערכות מבוססות AI לפיתוח אישי — אימון, מאסטרי עסקי, אסטרולוגיה, נומרולוגיה ופרקטיקה אינטגרלית. בחר מאיפה להתחיל.',
+        hint:'בחר את המערכת שלך' },
       cat:{ primary:'אימון ופסיכולוגיה', primarySub:'ליבת העבודה — חשיבה צלולה, פעולה מובנית, שינוי אמיתי.',
-            secondary:'כלים אזוטריים ותומכים', secondarySub:'מראות להתבוננות, לא ניבויי גורל. השתמשו בהם כדי להעלות שאלות — לא להעביר את האחריות לתשובות.' },
-      cta:{ title:'התחלה', sub:'פנו אלינו ישירות — תגובה תוך 24 שעות.', wa:'שלחו ב-WhatsApp', tg:'פתיחת Telegram' },
-      explore:'גלה ←', programs:'תוכניות · קצבים', testimonials:'איך משתמשים בזה', framework:'איך זה עובד',
+            secondary:'אזוטריה וכלי רפלקציה', secondarySub:'מראות להתבוננות עצמית, לא ניבויי גורל.',
+            integral:'פרקטיקה אינטגרלית', integralSub:'גוף, נשימה, מוח, מודעות — שזורים לכדי פרקטיקה חיה אחת.' },
+      cta:{ title:'התחל', sub:'פנה אלינו ישירות — תגובה תוך 24 שעות.', wa:'כתוב ב-WhatsApp', tg:'פתח Telegram' },
+      explore:'גלה ←', programs:'תוכניות · קצבים', testimonials:'קולות · ציטוטים', framework:'איך זה עובד',
+      tryit:'נסה עכשיו', pyth:{ title:'נסה את ריבוע פיתגורס בשידור חי', sub:'הזן את תאריך הלידה — קבל את המטריצה והמספרים המרכזיים מיידית.', input:'יום.חודש.שנה', btn:'חשב', err:'תאריך לא חוקי. השתמש בפורמט יום.חודש.שנה.', workNum:'№ עבודה', secNum:'№ שני', thrNum:'№ שלישי', forNum:'№ רביעי', meanings:['אופי · רצון','אנרגיה · חיוניות','סקרנות · שכל','בריאות · סיבולת','היגיון · אינטואיציה','קרקעיות · עבודה','כישרון · מזל','חובה · אחריות','זיכרון · חשיבה אנליטית'] },
       footer:{ credit:'נבנה על ידי', author:'גאורגי ריוורה', copy:'© 2026 LifeForge AI · כל הזכויות שמורות.' },
     },
   };
 
-  /* ─── SVG Illustrations (one per specialist) ─── */
-  const ArtCoach = ({size=62,c='currentColor'}) => (
+  // ─── SVG ART ───
+  const ArtCoach = ({size=64,c='currentColor'}) => (
     <svg width={size} height={size} viewBox="0 0 64 64" fill="none" stroke={c} strokeWidth="1.2" strokeLinecap="round">
-      <circle cx="32" cy="32" r="26" opacity=".25"/>
-      <circle cx="32" cy="32" r="18" opacity=".5"/>
-      <circle cx="32" cy="32" r="10" opacity=".8"/>
-      <circle cx="32" cy="32" r="2" fill={c} stroke="none"/>
-      <path d="M8 32 Q16 24 24 32 T40 32 T56 32" opacity=".4"/>
+      <circle cx="32" cy="32" r="26" opacity=".22"/>
+      <circle cx="32" cy="32" r="18" opacity=".42"/>
+      <circle cx="32" cy="32" r="10" opacity=".7"/>
+      <circle cx="32" cy="32" r="2.2" fill={c} stroke="none"/>
+      <path d="M8 32 Q16 24 24 32 T40 32 T56 32" opacity=".35"/>
     </svg>
   );
-  const ArtBiz = ({size=62,c='currentColor'}) => (
+  const ArtBiz = ({size=64,c='currentColor'}) => (
     <svg width={size} height={size} viewBox="0 0 64 64" fill="none" stroke={c} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M32 8 L52 50 L12 50 Z" opacity=".25"/>
-      <path d="M32 18 L46 46 L18 46 Z" opacity=".55"/>
-      <path d="M32 28 L40 42 L24 42 Z" opacity=".9"/>
+      <path d="M32 8 L52 50 L12 50 Z" opacity=".22"/>
+      <path d="M32 18 L46 46 L18 46 Z" opacity=".45"/>
+      <path d="M32 28 L40 42 L24 42 Z" opacity=".85"/>
+      <polyline points="28,6 32,2 36,6" opacity=".65"/>
       <line x1="32" y1="6" x2="32" y2="2" opacity=".7"/>
-      <polyline points="28,6 32,2 36,6" opacity=".7"/>
     </svg>
   );
-  const ArtAstro = ({size=62,c='currentColor'}) => (
+  const ArtAstro = ({size=64,c='currentColor'}) => (
     <svg width={size} height={size} viewBox="0 0 64 64" fill="none" stroke={c} strokeWidth="1.1" strokeLinecap="round">
-      <circle cx="32" cy="32" r="24" opacity=".35"/>
-      <circle cx="32" cy="32" r="16" opacity=".25"/>
-      <line x1="32" y1="8" x2="32" y2="56" opacity=".35"/>
-      <line x1="8" y1="32" x2="56" y2="32" opacity=".35"/>
-      <line x1="15" y1="15" x2="49" y2="49" opacity=".25"/>
-      <line x1="49" y1="15" x2="15" y2="49" opacity=".25"/>
+      <circle cx="32" cy="32" r="24" opacity=".32"/>
+      <circle cx="32" cy="32" r="16" opacity=".22"/>
+      <line x1="32" y1="8" x2="32" y2="56" opacity=".32"/>
+      <line x1="8" y1="32" x2="56" y2="32" opacity=".32"/>
+      <line x1="15" y1="15" x2="49" y2="49" opacity=".22"/>
+      <line x1="49" y1="15" x2="15" y2="49" opacity=".22"/>
       <circle cx="48" cy="20" r="1.6" fill={c} stroke="none"/>
       <circle cx="20" cy="44" r="1.4" fill={c} stroke="none"/>
       <circle cx="44" cy="46" r="1.2" fill={c} stroke="none"/>
       <circle cx="18" cy="22" r="1.4" fill={c} stroke="none"/>
-      <circle cx="32" cy="32" r="2.2" fill={c} stroke="none"/>
+      <circle cx="32" cy="32" r="2.4" fill={c} stroke="none"/>
     </svg>
   );
-  const ArtNumer = ({size=62,c='currentColor'}) => (
+  const ArtNumer = ({size=64,c='currentColor'}) => (
     <svg width={size} height={size} viewBox="0 0 64 64" fill="none" stroke={c} strokeWidth="1.2" strokeLinecap="round">
       <rect x="10" y="10" width="44" height="44" rx="2" opacity=".4"/>
-      <line x1="24.6" y1="10" x2="24.6" y2="54" opacity=".4"/>
-      <line x1="39.4" y1="10" x2="39.4" y2="54" opacity=".4"/>
-      <line x1="10" y1="24.6" x2="54" y2="24.6" opacity=".4"/>
-      <line x1="10" y1="39.4" x2="54" y2="39.4" opacity=".4"/>
-      <text x="17.3" y="20" textAnchor="middle" fill={c} stroke="none" fontFamily="Georgia" fontSize="8" opacity=".85">1</text>
-      <text x="32"   y="20" textAnchor="middle" fill={c} stroke="none" fontFamily="Georgia" fontSize="8" opacity=".85">4</text>
-      <text x="46.7" y="20" textAnchor="middle" fill={c} stroke="none" fontFamily="Georgia" fontSize="8" opacity=".85">7</text>
-      <text x="17.3" y="34.6" textAnchor="middle" fill={c} stroke="none" fontFamily="Georgia" fontSize="8" opacity=".85">2</text>
-      <text x="32"   y="34.6" textAnchor="middle" fill={c} stroke="none" fontFamily="Georgia" fontSize="8" opacity=".85">5</text>
-      <text x="46.7" y="34.6" textAnchor="middle" fill={c} stroke="none" fontFamily="Georgia" fontSize="8" opacity=".85">8</text>
-      <text x="17.3" y="49.2" textAnchor="middle" fill={c} stroke="none" fontFamily="Georgia" fontSize="8" opacity=".85">3</text>
-      <text x="32"   y="49.2" textAnchor="middle" fill={c} stroke="none" fontFamily="Georgia" fontSize="8" opacity=".85">6</text>
-      <text x="46.7" y="49.2" textAnchor="middle" fill={c} stroke="none" fontFamily="Georgia" fontSize="8" opacity=".85">9</text>
+      <line x1="24.6" y1="10" x2="24.6" y2="54" opacity=".35"/>
+      <line x1="39.4" y1="10" x2="39.4" y2="54" opacity=".35"/>
+      <line x1="10" y1="24.6" x2="54" y2="24.6" opacity=".35"/>
+      <line x1="10" y1="39.4" x2="54" y2="39.4" opacity=".35"/>
+      {[['17.3','20','1'],['32','20','4'],['46.7','20','7'],['17.3','34.6','2'],['32','34.6','5'],['46.7','34.6','8'],['17.3','49.2','3'],['32','49.2','6'],['46.7','49.2','9']].map(([x,y,n])=>(
+        <text key={n} x={x} y={y} textAnchor="middle" fill={c} stroke="none" fontFamily="Georgia" fontSize="8" opacity=".85">{n}</text>
+      ))}
     </svg>
   );
-  const ART = { coach: ArtCoach, biz: ArtBiz, astro: ArtAstro, numer: ArtNumer };
+  const ArtSvarga = ({size=64,c='currentColor'}) => (
+    <svg width={size} height={size} viewBox="0 0 64 64" fill="none" stroke={c} strokeWidth="1.1" strokeLinecap="round">
+      <circle cx="32" cy="32" r="24" opacity=".35"/>
+      {/* flower of life pattern */}
+      <circle cx="32" cy="22" r="10" opacity=".35"/>
+      <circle cx="32" cy="42" r="10" opacity=".35"/>
+      <circle cx="23.34" cy="27" r="10" opacity=".35"/>
+      <circle cx="40.66" cy="27" r="10" opacity=".35"/>
+      <circle cx="23.34" cy="37" r="10" opacity=".35"/>
+      <circle cx="40.66" cy="37" r="10" opacity=".35"/>
+      <circle cx="32" cy="32" r="3" fill={c} stroke="none"/>
+    </svg>
+  );
+  const ART = { coach:ArtCoach, biz:ArtBiz, astro:ArtAstro, numer:ArtNumer, svarga:ArtSvarga };
 
-  /* ─── Specialist data (per language) ─── */
-  const SPECS = {
-    en: [
-      // PRIMARY — coaching & psychology
-      { id:'coach', cat:'primary', art:'coach',
-        accent:'#C8A86E', glow:'rgba(200,168,110,.14)',
-        tag:'Personal AI Coach',
-        name:'AI-Coach',
-        title:'A long-term coach that knows you, not a one-off chatbot.',
-        tagline:'Not an assistant. Not a consultant. A coach. Helps you think clearly, see blind spots, make strong decisions through awareness — not advice.',
+  // ─── SPECIALISTS (EN base; abridged for other langs) ───
+  // Five tools: coach, biz, astro, numer, svarga
+  const COMMON = {
+    coach:  { id:'coach',  cat:'primary',   art:'coach',  accent:'#D4B27A', glow:'rgba(212,178,122,.16)' },
+    biz:    { id:'biz',    cat:'primary',   art:'biz',    accent:'#C8946E', glow:'rgba(200,148,110,.16)' },
+    astro:  { id:'astro',  cat:'secondary', art:'astro',  accent:'#7E8EC8', glow:'rgba(126,142,200,.16)' },
+    numer:  { id:'numer',  cat:'secondary', art:'numer',  accent:'#6EA080', glow:'rgba(110,160,128,.16)' },
+    svarga: { id:'svarga', cat:'integral',  art:'svarga', accent:'#B07ECC', glow:'rgba(176,126,204,.16)' },
+  };
+
+  // Per-language content — EN/RU full; ES/IT/HE abridged but complete enough
+  const CONTENT = {
+    en: {
+      coach: { tag:'Personal AI Coach', name:'AI-Coach', title:'Long-term AI coach with ICF, GROW, Wheel of Balance, Co-Active — and four daily rhythms.',
+        tagline:'Not an assistant. Not a consultant. A coach. Helps you think clearly, see blind spots, and make strong decisions through awareness — not advice.',
         pills:['ICF','GROW','Wheel of Balance','Co-Active','4 Rhythms'],
-        about:{ eyebrow:'WHAT IT IS', h2:'Three layers, four methodologies, four rhythms',
-          bio:'A complete personal coaching system designed for Claude Projects, NotebookLM, or Custom GPT. Three layers: (1) Context — who you are, your goals, values, projects. (2) Methodologies — ICF, GROW, Wheel of Balance, Co-Active, applied to the right type of question. (3) Rhythms — four session formats: Morning, Evening, Weekly, Monthly, each with its own scenario and final artifact.',
-          bio2:'Core principle: the coach does not give answers. It helps you find your own through awareness. No false motivation, no flattery, no esoteric handwaving. Direct, with care. The kind of mirror that surfaces what you already know but cannot yet hear.' },
+        about:{ eyebrow:'WHAT IT IS', h2:'Three layers · Four methodologies · Four rhythms',
+          bio:'A complete personal coaching system designed for Claude Projects, NotebookLM, or Custom GPT. Three layers: Context (who you are, goals, values, projects) · Methodologies (ICF, GROW, Wheel, Co-Active applied to the right question type) · Rhythms (Morning · Evening · Weekly · Monthly, each with its own scenario and final artifact).',
+          bio2:'Core principle: the coach does not give answers. It helps you find your own through awareness. No false motivation, no flattery, no esoteric handwaving. Direct, with care — the kind of mirror that surfaces what you already know but cannot yet hear.' },
         stats:[{n:'4',l:'methodologies'},{n:'4',l:'rhythms'},{n:'9',l:'modules'}],
         programs:[
-          {num:'01',title:'Morning Review (5–7 min)',desc:'Day focus and the first concrete step. Quick alignment of attention before the day pulls you in.',tags:['Daily','Focus','First Step']},
-          {num:'02',title:'Evening Retro (10 min)',desc:'What worked, what didn\'t, one insight per day. Five minutes of honest reflection beats hours of vague thinking.',tags:['Daily','Reflection','Insight']},
-          {num:'03',title:'Weekly Review (30 min)',desc:'Full week summary plus next-week plan through GROW. The session that keeps the whole system from collapsing.',tags:['Weekly','GROW','Plan']},
-          {num:'04',title:'Monthly Audit (60–90 min)',desc:'Deep life audit. Wheel of Balance plus Co-Active values check plus pattern recognition. The session that compounds month over month.',tags:['Monthly','Wheel','Co-Active']},
-        ],
+          {num:'01',title:'Morning Review · 5–7 min',desc:'Day focus and the first concrete step. Quick alignment of attention before the day pulls you in.',tags:['Daily','Focus','First Step']},
+          {num:'02',title:'Evening Retro · 10 min',desc:'What worked, what didn\'t, one insight per day. Five minutes of honest reflection beats hours of vague thinking.',tags:['Daily','Reflection','Insight']},
+          {num:'03',title:'Weekly Review · 30 min',desc:'Full week summary plus next-week plan through GROW. The session that keeps the whole system from collapsing.',tags:['Weekly','GROW','Plan']},
+          {num:'04',title:'Monthly Audit · 60–90 min',desc:'Wheel of Balance + Co-Active values check + pattern recognition. The session that compounds month over month.',tags:['Monthly','Wheel','Co-Active']}],
         framework:{ eyebrow:'METHODOLOGIES', h2:'The right tool for the right question',
           pillars:[
-            {n:'ICF',title:'Awareness through questions',desc:'Open questions, active listening, no advice. For when you have the answer but cannot yet hear it. The cleanest of the four.'},
-            {n:'GROW',title:'Goal · Reality · Options · Will',desc:'When you have a concrete task that needs a decision. Structured walk-through from clarity to commitment.'},
-            {n:'WHEEL',title:'Wheel of Balance',desc:'Audit of all life domains. For when something is off across multiple areas and you need the whole picture.'},
-            {n:'CO-ACT',title:'Values and meaning',desc:'For the big questions. Identity, purpose, what actually matters. The deepest of the four.'},
-          ],
-        },
+            {n:'ICF',title:'Awareness through questions',desc:'Open questions, active listening, no advice. For when you have the answer but cannot yet hear it.'},
+            {n:'GROW',title:'Goal · Reality · Options · Will',desc:'Concrete task that needs a decision. Structured walk-through from clarity to commitment.'},
+            {n:'WHEEL',title:'Wheel of Balance',desc:'Audit all life domains. When something is off across multiple areas and you need the whole picture.'},
+            {n:'CO·A',title:'Values and meaning',desc:'For the big questions. Identity, purpose, what actually matters. The deepest of the four.'}] },
         testimonials:[
-          {name:'Default starting point',city:'For first-time users',text:'Just type "С чем сегодня?" / "What\'s in focus today?" — the system will pick the right methodology for your question.'},
-          {name:'Hardest moments',city:'When you\'re stuck',text:'"Что-то не так, но не понимаю что" → activates ICF clarification flow. "Внутри пусто, ради чего всё это" → activates Co-Active values work.'},
-          {name:'Long-term result',city:'After 1–3 months',text:'The coach starts noticing your repeated patterns and recurring themes. Becomes a deep mirror — not by magic, but by accumulated data about your cycles.'},
-        ],
+          {name:'Default starting point',city:'For first-time users',text:'Just type "What\'s in focus today?" — the system will pick the right methodology for your question.'},
+          {name:'Hard moments',city:'When you\'re stuck',text:'"Something is off but I don\'t know what" → activates ICF clarification. "Inside is empty, what\'s it all for" → activates Co-Active values work.'},
+          {name:'Long-term result',city:'After 1–3 months',text:'The coach starts noticing your repeated patterns and recurring themes. Becomes a deep mirror — not by magic, but by accumulated data about your cycles.'}],
       },
-      { id:'viktor', cat:'primary', art:'biz',
-        accent:'#C8946E', glow:'rgba(200,148,110,.14)',
-        tag:'Business & Peak Performance',
-        name:'Viktor Stern',
-        title:'Business Mastery & Peak Performance Coach (AI persona)',
-        tagline:'Your business is a mirror of your being. Transform the inner — and the outer follows. Synthesis of Tony Robbins, Robin Sharma, and Brendon Burchard.',
-        pills:['Business Strategy','Peak State','Leadership','Identity Work'],
+      biz: { tag:'Business & Peak Performance', name:'Viktor Stern', title:'Business mastery & peak-performance AI coach. Synthesis of Robbins, Sharma, and Burchard.',
+        tagline:'Your business is a mirror of your being. Transform the inner — and the outer follows.',
+        pills:['Strategy','Peak State','Leadership','Identity','High Performance'],
         about:{ eyebrow:'WHAT IT IS', h2:'Three giants synthesized into one executable system',
-          bio:'A peak-performance AI coach distilled from the world\'s foremost performance teachers: Tony Robbins (peak state architecture, priming, RPM, "motion creates emotion"), Robin Sharma (5 AM Club, 4 Interior Empires, elite daily rituals), and Brendon Burchard (High Performance Habits — Clarity, Energy, Necessity, Productivity, Influence, Courage).',
+          bio:'A peak-performance AI coach distilled from the world\'s foremost performance teachers: Tony Robbins (peak state architecture, priming, RPM — "motion creates emotion"), Robin Sharma (5 AM Club, 4 Interior Empires, elite daily rituals), Brendon Burchard (High Performance Habits — Clarity, Energy, Necessity, Productivity, Influence, Courage).',
           bio2:'Designed for entrepreneurs, executives, and high-performers who want a daily operating system, not a motivational pep talk. Focuses on the four layers — State, Strategy, Systems, Identity — and refuses to skip any of them.' },
         stats:[{n:'3',l:'master frameworks'},{n:'4',l:'pyramid layers'},{n:'90',l:'day journey'}],
         programs:[
-          {num:'01',title:'90-Day Business Breakthrough',desc:'Identity shift, strategic clarity, systems build-out, and daily performance habits. The flagship journey for those ready to operate at a new level.',tags:['Strategy','Identity','Daily Habits']},
+          {num:'01',title:'90-Day Business Breakthrough',desc:'Identity shift, strategic clarity, systems build-out, daily performance habits. The flagship journey for operating at a new level.',tags:['Strategy','Identity','Daily Habits']},
           {num:'02',title:'Morning Power Protocol',desc:'The non-negotiable foundation. Physiology, priming, daily clarity ritual. 30 minutes that decide the other 23 hours.',tags:['Daily','Physiology','Priming']},
-          {num:'03',title:'Peak State Executive Retreat',desc:'3-day immersive for senior leaders. Physiology work, clarity sessions, strategic planning, deep identity work in a focused environment.',tags:['Retreat','Leadership','Deep Work']},
-        ],
+          {num:'03',title:'Peak State Executive Retreat',desc:'3-day immersive for senior leaders. Physiology work, clarity sessions, strategic planning, deep identity work.',tags:['Retreat','Leadership','Deep Work']}],
         framework:{ eyebrow:'THE PERFORMANCE PYRAMID', h2:'State → Strategy → Systems → Identity',
           pillars:[
-            {n:'01',title:'Peak State',desc:'Results begin with physiology and emotional state. Morning Power Protocol and priming rituals ensure you operate from peak — not default. "Motion creates emotion." — Tony Robbins'},
-            {n:'02',title:'Strategic Clarity',desc:'Where focus goes, energy flows. The CAP Framework (Clarity · Action · Power) aligns daily actions with highest-leverage goals. Inspired by Robin Sharma\'s 4 Interior Empires.'},
-            {n:'03',title:'Elite Systems',desc:'High performers build systems, not willpower. Delegation frameworks, leverage matrices, and performance dashboards run the business — so the business doesn\'t run you.'},
-            {n:'04',title:'Identity Evolution',desc:'"Who do I need to become?" is the most important business question. Identity work drawn from Brendon Burchard\'s High Performance Habits ensures your inner OS matches the business you\'re building.'},
-          ],
-        },
+            {n:'01',title:'Peak State',desc:'Results begin with physiology and emotional state. Morning Power Protocol and priming rituals — operate from peak, not default. "Motion creates emotion." — Tony Robbins'},
+            {n:'02',title:'Strategic Clarity',desc:'Where focus goes, energy flows. CAP Framework (Clarity · Action · Power) aligns daily actions with highest-leverage goals. Inspired by Robin Sharma\'s 4 Interior Empires.'},
+            {n:'03',title:'Elite Systems',desc:'High performers build systems, not willpower. Delegation frameworks, leverage matrices, performance dashboards run the business — so the business doesn\'t run you.'},
+            {n:'04',title:'Identity Evolution',desc:'"Who do I need to become?" is the most important business question. Identity work drawn from Brendon Burchard\'s High Performance Habits.'}] },
         testimonials:[
           {name:'On state',city:'Tony Robbins',text:'"The quality of your life is the quality of your emotions. Master your state — master your life."'},
           {name:'On rituals',city:'Robin Sharma',text:'"The secret of success is found in your daily routine. Win the morning — win the day."'},
-          {name:'On performance',city:'Brendon Burchard',text:'"High performers don\'t just think positive. They create certainty through clarity and habit."'},
-        ],
+          {name:'On performance',city:'Brendon Burchard',text:'"High performers don\'t just think positive. They create certainty through clarity and habit."'}],
       },
-      // SECONDARY — esoteric & supporting tools
-      { id:'astro', cat:'secondary', art:'astro',
-        accent:'#7E8EC8', glow:'rgba(126,142,200,.14)',
-        tag:'Natal Chart · AI Reading',
-        name:'AI-Astrologer',
-        title:'Deep natal chart analysis through AI — a structured reflection tool.',
-        tagline:'Use as a mirror for reflection, not a prediction of fate. The most valuable part is the questions your own mind raises while reading.',
-        pills:['Natal Chart','10 Sections','Deep Analysis','Cross-AI Verification'],
-        about:{ eyebrow:'WHAT IT IS', h2:'10-section structured natal chart analysis',
-          bio:'A precision prompt that turns DeepSeek, ChatGPT, Claude, or Gemini into a personal astrology analyst. Upload detailed natal chart data (planets, houses, aspects, nodes) as PDF, paste the prompt, and receive a 10-section deep reading: Purpose, Talents, Spiritual Path, Financial Potential, Financial Limits, Life\'s Work, Growth Zones, Genius Zone, Scale of Influence, and Synthesis.',
-          bio2:'Position: this is a reflection instrument, not a prediction tool. Read the reading. Notice what lands. Notice what feels forced. Notice the thoughts that arise in you while reading — those are the actual value.' },
-        stats:[{n:'10',l:'analysis sections'},{n:'3+',l:'AI models supported'},{n:'5',l:'minutes per reading'}],
+      astro: { tag:'Natal Chart · AI Analyst', name:'AI-Astrologer', title:'Professional AI astrology analyst — interactive, multilingual, one question at a time.',
+        tagline:'Use as a mirror for self-reflection, not fate prediction. The questions your own mind raises while reading are the real material.',
+        pills:['Natal Chart','Transits','Synastry','11 Analysis Modes','Multilingual'],
+        about:{ eyebrow:'WHAT IT IS', h2:'Western · Psychological · Karmic · Archetypal · Integral',
+          bio:'A precision system prompt that turns DeepSeek, ChatGPT, Claude, or Gemini into a professional astrologer-analyst. Works interactively: asks one question at a time, validates birth data with historical timezone awareness, separates astronomy (UTC, LST, ASC, MC, houses, planets, aspects) from interpretation (psychological, karmic, archetypal). Supports 11 analysis types including natal, solar return, transits, synastry, career, financial, vocational, spiritual path, child chart, crisis period, and full integrated analysis.',
+          bio2:'Position: a reflection instrument, not a prediction tool. Never predicts death, tragedies, or absolute outcomes. Shows tendencies, potentials, growth zones, and transformation points. Three depth levels: Brief · Standard · Deep (full professional analysis with dispositor chains, dominants, stelliums, minor aspects, karmic indicators).' },
+        stats:[{n:'11',l:'analysis modes'},{n:'3',l:'depth levels'},{n:'5+',l:'AI models supported'}],
         programs:[
-          {num:'01',title:'Deep Natal Reading',desc:'The full 10-section AI analysis. Purpose, talents, spiritual path, money in and money out, life\'s work, growth zones, genius zone, scale of influence, synthesis.',tags:['10 Sections','PDF Input','Free with DeepSeek']},
-          {num:'02',title:'Multi-AI Cross-Reading',desc:'Run the same prompt through 2–3 AI models, then have a third compare them. Where they agree is signal. Where they diverge is the most interesting territory.',tags:['Multi-AI','Comparison','Deeper Signal']},
-          {num:'03',title:'Targeted Theme Analysis',desc:'Focus the analysis on one zone: career, money, relationships, or genius zone. Useful when you already know what you\'re searching for.',tags:['Focused','One Theme','Quick Iteration']},
-        ],
+          {num:'01',title:'Natal Chart Reading',desc:'Core personality, life purpose, talents, relationships, career, finances. Western + psychological + archetypal lens.',tags:['Foundation','One-time','High depth']},
+          {num:'02',title:'Solar Return / Transits',desc:'Annual themes (solar return chart) or current sky activations (transits). Strategic timing for big decisions.',tags:['Annual','Forecasting','Strategic']},
+          {num:'03',title:'Synastry / Compatibility',desc:'Two charts compared. Communication patterns, emotional resonance, growth edges, karmic dynamics.',tags:['Relationship','Two charts','Deep work']},
+          {num:'04',title:'Vocational / Career',desc:'Life work direction through MC, 10th house, dominants, Saturn placements. Strategic career mapping.',tags:['Career','MC focus','Practical']}],
         testimonials:[
           {name:'On usage',city:'Author\'s note',text:'"Use this as a mirror, not as data about your fate. Notice where it lands, where it feels stretched. The questions it raises in you are the real material."'},
-          {name:'Free path',city:'DeepSeek + DeepThink',text:'The full reading works free of charge in DeepSeek with DeepThink enabled. Also works in ChatGPT, Claude, Gemini.'},
-          {name:'Power move',city:'Cross-AI verification',text:'Run the same prompt in 2–3 AIs, then ask a third to compare results. Differences reveal where AIs interpret distinctly — adding depth.'},
-        ],
+          {name:'Free path',city:'DeepSeek + DeepThink',text:'Works free in DeepSeek with DeepThink enabled. Also works in ChatGPT, Claude, Gemini.'},
+          {name:'Power move',city:'Multi-AI verification',text:'Run the same prompt in 2–3 AIs, then have a third compare results. Differences reveal where AIs interpret distinctly — that\'s where the gold is.'}],
       },
-      { id:'numer', cat:'secondary', art:'numer',
-        accent:'#6EA080', glow:'rgba(110,160,128,.14)',
-        tag:'Pythagoras Square · AI Reading',
-        name:'AI-Numerologist',
-        title:'Pythagoras Square (psychomatrix) analysis through AI, with triple math verification.',
-        tagline:'Just a date of birth. Five structured steps. The most reliable AI numerology tool — built around triple self-check of the arithmetic.',
-        pills:['Pythagoras Square','5 Analysis Steps','Triple-Verified Math','Only Birthdate'],
-        about:{ eyebrow:'WHAT IT IS', h2:'Classical Pythagoras Square, executed by AI with math safety',
-          bio:'Turns DeepSeek, ChatGPT, Claude, or Gemini into a numerology analyst working in the classical Pythagoras Square tradition (A.F. Alexandrov\'s Russian school). Five-step analysis: detailed matrix interpretation, purpose, money in business and life, five core life domains, and five hypotheses for life\'s work.',
-          bio2:'Unique feature: triple self-check of the arithmetic. AI models commonly make math errors counting digits and distributing them into matrix cells — the prompt forces three independent recalculations and a final cross-check, dramatically improving accuracy. Verify the matrix result against an independent online Pythagoras calculator before reading the analysis.' },
-        stats:[{n:'5',l:'analysis steps'},{n:'3×',l:'math verification'},{n:'1',l:'piece of data needed'}],
+      numer: { tag:'Pythagoras Square · NUMERA', name:'AI-Numerologist', title:'NUMERA — interactive AI numerology analyst, Pythagoras Square with triple math verification.',
+        tagline:'Every conclusion explained through numbers. No mysticism. No fatalism. A structured personality model from your date of birth.',
+        pills:['Pythagoras Square','Triple Math Check','10 Analysis Types','3 Depth Levels','Live Calculator Below'],
+        about:{ eyebrow:'WHAT IT IS', h2:'A structured personality system — not a fortune-telling oracle',
+          bio:'NUMERA turns DeepSeek, ChatGPT, Claude, or Gemini into a numerology analyst in the classical Pythagoras Square tradition (A.F. Alexandrov\'s Russian school). Interactive flow: language → analysis type (10 modes from basic profile to full system) → depth level (Short · Standard · Deep) → data collection (name + DD.MM.YYYY) → calculation → analysis → progressive deepening.',
+          bio2:'Unique feature: triple self-check of the arithmetic. AI models commonly make math errors counting digits. NUMERA forces three independent recalculations and a final cross-check, dramatically improving accuracy. Every conclusion is explained through numbers with thesis → numerical justification → practical implication.' },
+        stats:[{n:'10',l:'analysis types'},{n:'3×',l:'math verification'},{n:'1',l:'piece of data needed'}],
         programs:[
-          {num:'01',title:'Full Personality Reading',desc:'All five steps: detailed matrix breakdown by all nine cells, purpose, money in business vs. life, five life domains, five hypotheses for life\'s work.',tags:['Full Reading','5 Steps','30 Min']},
-          {num:'02',title:'5 Life\'s Work Hypotheses',desc:'Focused output: just the five hypotheses for your life direction, each grounded in specific numbers from your matrix. For when you need career direction signal.',tags:['Career Focus','5 Directions','Matrix-grounded']},
-          {num:'03',title:'Multi-AI Cross-Reading',desc:'Run the same calculation through 2–3 AI models, then have a third compare results. Catches calculation errors and surfaces interpretation differences.',tags:['Multi-AI','Math Safety','Comparison']},
-        ],
+          {num:'01',title:'Basic Personality Profile',desc:'Core character structure, thinking style, energy system, communication patterns — derived strictly from your matrix.',tags:['Foundation','15 min','Essentials']},
+          {num:'02',title:'Money & Financial Model',desc:'Numerical drivers of earning behavior, blocking patterns, what strengthens financial performance.',tags:['Money','Behavior','Strategy']},
+          {num:'03',title:'Relationships',desc:'Connection patterns, what you give and need, conflict dynamics — through the matrix lens.',tags:['Relationships','Patterns','Dynamics']},
+          {num:'04',title:'Karmic Patterns · Life Cycles',desc:'Recurring scripts, evolutionary tendencies, life-cycle mapping. Deep mode only.',tags:['Karmic','Cycles','Deep mode']}],
+        framework:{ eyebrow:'INTERACTIVE FLOW', h2:'Language → Type → Depth → Calculation → Analysis → Deepening',
+          pillars:[
+            {n:'01',title:'Step-by-step',desc:'One question per message. Never overloads. Builds the model conversationally rather than dumping a static report.'},
+            {n:'02',title:'Triple math check',desc:'Calculation done three times independently before any analysis. Cross-verified. The single biggest accuracy gain for AI numerology.'},
+            {n:'03',title:'Progressive depth',desc:'Choose Short, Standard, or Deep at entry. Can deepen further after initial pass without restarting — layers add on the same matrix.'},
+            {n:'04',title:'No mysticism',desc:'Every conclusion traced to numbers. No fatalism, no vague spiritual claims. Logical cause-effect throughout.'}] },
         testimonials:[
-          {name:'Key safety check',city:'Always do this',text:'After the AI shows the matrix calculation, verify against an independent online Pythagoras calculator. If numbers match — read the analysis. If not — re-run or use another AI.'},
-          {name:'Why triple-check',city:'Math reality',text:'AI models routinely make arithmetic errors when counting digits and placing them in matrix cells. The triple self-check is not paranoia — it\'s the difference between a useful and a misleading reading.'},
-          {name:'How to use it',city:'Reflection, not fate',text:'Read the analysis. Notice what lands. Notice what feels stretched. The thoughts that arise in you while reading are the real material — not the matrix itself.'},
-        ],
+          {name:'Safety check',city:'Always do this',text:'After the AI shows the matrix calculation, verify against an independent online Pythagoras calculator. Numbers match — read the analysis. If not — re-run or use another AI.'},
+          {name:'Why triple-check',city:'Math reality',text:'AI models routinely make arithmetic errors when counting digits and placing them in matrix cells. Triple self-check is the difference between a useful and a misleading reading.'},
+          {name:'How to use it',city:'Reflection, not fate',text:'Read the analysis. Notice what lands. Notice what feels stretched. The thoughts that arise in you are the real material — not the matrix itself.'}],
       },
-    ],
-    ru: [
-      { id:'coach', cat:'primary', art:'coach',
-        accent:'#C8A86E', glow:'rgba(200,168,110,.14)',
-        tag:'Личный ИИ-коуч',
-        name:'ИИ-Коуч',
-        title:'Долгосрочный коуч, который знает вас — не разовый чат-бот.',
+      svarga: { tag:'Integral Practice · Svarga System', name:'Svarga System', title:'Integral inner development — body, breath, mind, awareness woven into one living practice.',
+        tagline:'Where ancient Eastern traditions meet modern psychology and somatic work. Twenty years of teaching, distilled into a daily living system.',
+        pills:['Meditation','Breathwork','Qigong','Energy Work','Daily Practice','Retreats'],
+        about:{ eyebrow:'WHAT IT IS', h2:'Twenty years of integral practice, codified into one system',
+          bio:'The Svarga System is the integral inner-development synthesis created by Moshe Om over 20+ years across three continents. Combines Eastern traditions (Lin Tzi Qigong, Iron Shirt, Pranayama, Vipassana), modern transpersonal psychology, somatic body work, and energy practices. Not a religion or a doctrine — a living practice integrating four dimensions: body, breath, mind, and consciousness.',
+          bio2:'Designed for modern life — not the cave, not the ashram. Practices are short, practical, and integrate into normal days. The 21-day marathon is the entry; retreats deepen; mentorship anchors. The system grows with you.' },
+        stats:[{n:'20+',l:'years of practice'},{n:'3,000+',l:'participants'},{n:'30+',l:'countries'}],
+        programs:[
+          {num:'01',title:'21-Day Transformation Marathon',desc:'Daily integral practices — body, breath, mind, consciousness. Live group calls, recordings, and community support throughout.',tags:['21 Days','Daily','Community']},
+          {num:'02',title:'Retreat Series',desc:'Immersive multi-day retreats in sacred locations. Deep somatic and energy work in nature, in small groups.',tags:['In-person','Multi-day','Small groups']},
+          {num:'03',title:'Private Mentorship',desc:'Personalized 1:1 guidance through a tailored 3-month journey. For those ready for deep, lasting transformation.',tags:['1:1','Custom','Weekly']}],
+        framework:{ eyebrow:'FOUR DIMENSIONS', h2:'Body · Breath · Mind · Consciousness',
+          pillars:[
+            {n:'01',title:'Body',desc:'Qigong forms, somatic awareness, Iron Shirt grounding. The body remembers what the mind forgets — practice meets it where it lives.'},
+            {n:'02',title:'Breath',desc:'Pranayama, breathwork, conscious breathing. The fastest lever between body and mind. Daily practice; immediate effect.'},
+            {n:'03',title:'Mind',desc:'Vipassana, modern psychology integration, working with limiting patterns. Awareness of the patterns is the first step out of them.'},
+            {n:'04',title:'Consciousness',desc:'Direct meditation practice. Integral spiritual development without dogma — what is, prior to thought.'}] },
+        testimonials:[
+          {name:'Anna M.',city:'Moscow',text:'"In 21 days I traveled a path that usually takes years. Moshe is an incredible guide — his presence alone creates transformation."'},
+          {name:'Dmitry K.',city:'St. Petersburg',text:'"Breathing and meditation practices became a daily ritual. Clarity and strength I hadn\'t felt in years — it simply works."'},
+          {name:'Elena V.',city:'Kyiv',text:'"The community alone is worth it. The feeling of not being alone on your path. Endless gratitude to Moshe and the whole team."'}],
+      },
+    },
+    // RU full
+    ru: {
+      coach: { tag:'Личный ИИ-коуч', name:'ИИ-Коуч', title:'Долгосрочный ИИ-коуч с ICF, GROW, Колесом баланса, Co-Active — и четырьмя ежедневными ритмами.',
         tagline:'Не помощник. Не консультант. Коуч. Помогает думать яснее, видеть слепые зоны и принимать сильные решения через осознание — не через подсказки.',
         pills:['ICF','GROW','Колесо баланса','Co-Active','4 ритма'],
-        about:{ eyebrow:'ЧТО ЭТО', h2:'Три слоя, четыре методики, четыре ритма',
-          bio:'Полноценная персональная система коучинга для Claude Projects, NotebookLM или Custom GPT. Три слоя: (1) Контекст — кто вы, ваши цели, ценности, проекты. (2) Методики — ICF, GROW, Колесо баланса, Co-Active, применяемые под нужный тип запроса. (3) Ритмы — четыре формата сессий: Утро, Вечер, Неделя, Месяц, каждый со своим сценарием и финальным артефактом.',
-          bio2:'Главный принцип: коуч не даёт ответов. Он помогает найти свои через осознание. Без наигранной мотивации, без лести, без эзотерических обобщений. Прямой, с заботой. Зеркало, которое возвращает то, что вы уже знаете, но пока не можете услышать.' },
+        about:{ eyebrow:'ЧТО ЭТО', h2:'Три слоя · Четыре методики · Четыре ритма',
+          bio:'Полная персональная система коучинга для Claude Projects, NotebookLM или Custom GPT. Три слоя: Контекст (кто вы, цели, ценности, проекты) · Методики (ICF, GROW, Колесо, Co-Active под нужный тип запроса) · Ритмы (Утро · Вечер · Неделя · Месяц, каждый со своим сценарием и финальным артефактом).',
+          bio2:'Главный принцип: коуч не даёт ответов. Он помогает найти свои через осознание. Без наигранной мотивации, без лести, без эзотерических обобщений. Прямой, с заботой — зеркало, которое возвращает то, что вы уже знаете, но пока не можете услышать.' },
         stats:[{n:'4',l:'методики'},{n:'4',l:'ритма'},{n:'9',l:'модулей'}],
         programs:[
-          {num:'01',title:'Утренний разбор (5–7 мин)',desc:'Фокус дня и первый конкретный шаг. Быстрая настройка внимания до того, как день затянул в события.',tags:['Ежедневно','Фокус','Первый шаг']},
-          {num:'02',title:'Вечернее ретро (10 мин)',desc:'Что сработало, что нет, один инсайт за день. Пять минут честной рефлексии сильнее часов размытых размышлений.',tags:['Ежедневно','Рефлексия','Инсайт']},
-          {num:'03',title:'Еженедельный обзор (30 мин)',desc:'Итог недели плюс план следующей через GROW. Сессия, без которой вся система разваливается.',tags:['Еженедельно','GROW','План']},
-          {num:'04',title:'Месячный итог (60–90 мин)',desc:'Глубокий аудит жизни. Колесо баланса плюс проверка ценностей через Co-Active плюс распознавание паттернов. Сессия, эффект которой накапливается от месяца к месяцу.',tags:['Ежемесячно','Колесо','Co-Active']},
-        ],
+          {num:'01',title:'Утренний разбор · 5–7 мин',desc:'Фокус дня и первый конкретный шаг. Быстрая настройка внимания до того, как день затянул в события.',tags:['Ежедневно','Фокус','Первый шаг']},
+          {num:'02',title:'Вечернее ретро · 10 мин',desc:'Что сработало, что нет, один инсайт за день. Пять минут честной рефлексии сильнее часов размытых мыслей.',tags:['Ежедневно','Рефлексия','Инсайт']},
+          {num:'03',title:'Еженедельный обзор · 30 мин',desc:'Итог недели плюс план следующей через GROW. Сессия, без которой вся система разваливается.',tags:['Еженедельно','GROW','План']},
+          {num:'04',title:'Месячный итог · 60–90 мин',desc:'Колесо баланса + проверка ценностей через Co-Active + распознавание паттернов. Эффект накапливается от месяца к месяцу.',tags:['Ежемесячно','Колесо','Co-Active']}],
         framework:{ eyebrow:'МЕТОДИКИ', h2:'Правильный инструмент под правильный запрос',
           pillars:[
-            {n:'ICF',title:'Осознание через вопросы',desc:'Открытые вопросы, активное слушание, никаких советов. Когда ответ уже есть, но вы пока не можете его услышать. Самая "чистая" из четырёх.'},
-            {n:'GROW',title:'Цель · Реальность · Варианты · Воля',desc:'Когда есть конкретная задача, требующая решения. Структурный путь от ясности к обязательству.'},
+            {n:'ICF',title:'Осознание через вопросы',desc:'Открытые вопросы, активное слушание, без советов. Когда ответ уже есть, но вы пока не можете его услышать.'},
+            {n:'GROW',title:'Цель · Реальность · Варианты · Воля',desc:'Конкретная задача, требующая решения. Структурный путь от ясности к обязательству.'},
             {n:'WHEEL',title:'Колесо баланса',desc:'Аудит всех сфер жизни. Когда сразу в нескольких областях что-то не так и нужна общая картина.'},
-            {n:'CO-ACT',title:'Ценности и смысл',desc:'Для больших вопросов. Идентичность, предназначение, что на самом деле важно. Самая глубокая из четырёх.'},
-          ],
-        },
+            {n:'CO·A',title:'Ценности и смысл',desc:'Для больших вопросов. Идентичность, предназначение, что на самом деле важно. Самая глубокая из четырёх.'}] },
         testimonials:[
-          {name:'Стартовая точка',city:'Для первого захода',text:'Просто напишите "С чем сегодня?" — система сама подберёт подходящую методику под запрос.'},
-          {name:'Самые трудные моменты',city:'Когда застряли',text:'"Что-то не так, но не понимаю что" → активирует ICF на прояснение. "Внутри пусто, ради чего всё это" → активирует Co-Active работу с ценностями.'},
-          {name:'Долгосрочный результат',city:'Через 1–3 месяца',text:'Коуч начинает замечать ваши повторяющиеся паттерны и темы, к которым вы возвращаетесь. Становится глубоким зеркалом — не благодаря "магии", а потому что накопились данные о ваших циклах.'},
-        ],
+          {name:'Стартовая точка',city:'Для первого захода',text:'Просто напишите «С чем сегодня?» — система сама подберёт подходящую методику под запрос.'},
+          {name:'Трудные моменты',city:'Когда застряли',text:'«Что-то не так, но не понимаю что» → активирует ICF на прояснение. «Внутри пусто, ради чего всё это» → активирует Co-Active работу с ценностями.'},
+          {name:'Долгосрочный результат',city:'Через 1–3 месяца',text:'Коуч начинает замечать ваши повторяющиеся паттерны и темы. Становится глубоким зеркалом — не благодаря «магии», а потому что накопились данные о ваших циклах.'}],
       },
-      { id:'viktor', cat:'primary', art:'biz',
-        accent:'#C8946E', glow:'rgba(200,148,110,.14)',
-        tag:'Бизнес и пиковая эффективность',
-        name:'Виктор Штерн',
-        title:'Коуч по бизнес-мастерству и пиковой производительности (AI-персона)',
-        tagline:'Ваш бизнес — зеркало вашего существа. Трансформируйте внутреннее — внешнее последует. Синтез Тони Роббинса, Робина Шармы и Брендона Бёрчарда.',
-        pills:['Бизнес-стратегия','Пиковое состояние','Лидерство','Работа с идентичностью'],
+      biz: { tag:'Бизнес и пиковая эффективность', name:'Виктор Штерн', title:'Бизнес-мастерство и пиковая эффективность — ИИ-коуч. Синтез Роббинса, Шармы и Бёрчарда.',
+        tagline:'Ваш бизнес — зеркало вашего существа. Трансформируйте внутреннее — внешнее последует.',
+        pills:['Стратегия','Пиковое состояние','Лидерство','Идентичность','Высокая эффективность'],
         about:{ eyebrow:'ЧТО ЭТО', h2:'Три гиганта, синтезированные в одну исполняемую систему',
-          bio:'ИИ-коуч по пиковой эффективности, дистиллированный из работ ведущих мировых тренеров: Тони Роббинс (архитектура пикового состояния, прайминг, RPM, "движение создаёт эмоцию"), Робин Шарма (Клуб 5 утра, 4 Внутренние империи, элитные ежедневные ритуалы), Брендон Бёрчард (Привычки высокоэффективных людей — Ясность, Энергия, Необходимость, Продуктивность, Влияние, Смелость).',
-          bio2:'Создан для предпринимателей, руководителей и людей высоких достижений, которым нужна ежедневная операционная система, а не мотивационная речь. Фокус на четырёх слоях: Состояние, Стратегия, Системы, Идентичность — и отказ пропускать любой из них.' },
+          bio:'ИИ-коуч по пиковой эффективности, дистиллированный из работ ведущих мировых тренеров: Тони Роббинс (архитектура пикового состояния, прайминг, RPM — «движение создаёт эмоцию»), Робин Шарма (Клуб 5 утра, 4 Внутренние империи, элитные ежедневные ритуалы), Брендон Бёрчард (Привычки высокоэффективных людей — Ясность, Энергия, Необходимость, Продуктивность, Влияние, Смелость).',
+          bio2:'Для предпринимателей, руководителей и людей высоких достижений, которым нужна ежедневная операционная система, а не мотивационная речь. Фокус на четырёх слоях: Состояние, Стратегия, Системы, Идентичность — и отказ пропускать любой из них.' },
         stats:[{n:'3',l:'мастер-фреймворка'},{n:'4',l:'слоя пирамиды'},{n:'90',l:'дней пути'}],
         programs:[
-          {num:'01',title:'90-дневный прорыв в бизнесе',desc:'Трансформация идентичности, стратегическая ясность, построение систем и ежедневные привычки производительности. Флагманский путь для тех, кто готов работать на новом уровне.',tags:['Стратегия','Идентичность','Привычки']},
+          {num:'01',title:'90-дневный прорыв в бизнесе',desc:'Трансформация идентичности, стратегическая ясность, построение систем, ежедневные привычки. Флагман.',tags:['Стратегия','Идентичность','Привычки']},
           {num:'02',title:'Утренний протокол мощи',desc:'Необходимый фундамент. Физиология, прайминг, ежедневный ритуал ясности. 30 минут, которые определяют остальные 23 часа.',tags:['Ежедневно','Физиология','Прайминг']},
-          {num:'03',title:'Ретрит пикового состояния',desc:'3-дневное очное погружение для топ-менеджеров. Работа с физиологией, сессии ясности, стратегическое планирование, глубокая работа с идентичностью.',tags:['Ретрит','Лидерство','Глубокая работа']},
-        ],
+          {num:'03',title:'Ретрит пикового состояния',desc:'3-дневное очное погружение для топ-менеджеров. Физиология, ясность, стратегия, работа с идентичностью.',tags:['Ретрит','Лидерство','Глубокая работа']}],
         framework:{ eyebrow:'ПИРАМИДА ПРОИЗВОДИТЕЛЬНОСТИ', h2:'Состояние → Стратегия → Системы → Идентичность',
           pillars:[
-            {n:'01',title:'Пиковое состояние',desc:'Результаты начинаются с физиологии и эмоционального состояния. Утренний протокол мощи и практики прайминга обеспечивают работу из пика, а не по умолчанию. «Движение создаёт эмоцию.» — Тони Роббинс'},
-            {n:'02',title:'Стратегическая ясность',desc:'Куда идёт фокус — туда идёт энергия. CAP-фреймворк (Clarity · Action · Power) согласует ежедневные действия с наиболее рычажными целями. Вдохновлено 4 Внутренними империями Робина Шармы.'},
-            {n:'03',title:'Элитные системы',desc:'Высокоэффективные люди строят системы, а не полагаются на силу воли. Фреймворки делегирования, матрицы рычагов и дашборды производительности управляют вашим бизнесом — а не наоборот.'},
-            {n:'04',title:'Эволюция идентичности',desc:'«Кем мне нужно стать?» — самый важный вопрос в бизнесе. Работа с идентичностью на основе Привычек высокоэффективных людей Брендона Бёрчарда.'},
-          ],
-        },
+            {n:'01',title:'Пиковое состояние',desc:'Результаты начинаются с физиологии и эмоций. Утренний протокол мощи — работа из пика, а не по умолчанию. «Движение создаёт эмоцию.» — Тони Роббинс'},
+            {n:'02',title:'Стратегическая ясность',desc:'Куда идёт фокус — туда идёт энергия. CAP-фреймворк (Clarity · Action · Power) согласует действия с целями. Вдохновлено 4 Империями Шармы.'},
+            {n:'03',title:'Элитные системы',desc:'Высокоэффективные люди строят системы, а не силу воли. Делегирование, рычаги, дашборды — управляют вашим бизнесом, а не наоборот.'},
+            {n:'04',title:'Эволюция идентичности',desc:'«Кем мне нужно стать?» — самый важный вопрос. Работа с идентичностью на основе Привычек Бёрчарда.'}] },
         testimonials:[
           {name:'О состоянии',city:'Тони Роббинс',text:'«Качество вашей жизни — это качество ваших эмоций. Овладейте состоянием — овладеете жизнью.»'},
-          {name:'О ритуалах',city:'Робин Шарма',text:'«Секрет успеха находится в вашей ежедневной рутине. Выиграйте утро — выиграете день.»'},
-          {name:'О производительности',city:'Брендон Бёрчард',text:'«Высокоэффективные люди не просто мыслят позитивно. Они создают определённость через ясность и привычки.»'},
-        ],
+          {name:'О ритуалах',city:'Робин Шарма',text:'«Секрет успеха — в вашей ежедневной рутине. Выиграйте утро — выиграете день.»'},
+          {name:'О производительности',city:'Брендон Бёрчард',text:'«Высокоэффективные люди не просто мыслят позитивно. Они создают определённость через ясность и привычки.»'}],
       },
-      { id:'astro', cat:'secondary', art:'astro',
-        accent:'#7E8EC8', glow:'rgba(126,142,200,.14)',
-        tag:'Натальная карта · ИИ-разбор',
-        name:'ИИ-Астролог',
-        title:'Глубокий разбор натальной карты через ИИ — структурированный инструмент рефлексии.',
-        tagline:'Используйте как зеркало для рефлексии, а не как предсказание судьбы. Самое ценное — мысли, которые рождаются у вас в процессе чтения.',
-        pills:['Натальная карта','10 разделов','Глубокий анализ','Кросс-ИИ проверка'],
-        about:{ eyebrow:'ЧТО ЭТО', h2:'10-разделный структурированный разбор натальной карты',
-          bio:'Точно настроенный промпт, превращающий DeepSeek, ChatGPT, Claude или Gemini в персонального астролога-аналитика. Загружаете детальные данные натальной карты (планеты, дома, аспекты, узлы) в PDF, копируете промпт — и получаете разбор по 10 разделам: Предназначение, Таланты, Духовный путь, Финансовый потенциал, Финансовые ограничения, Дело жизни, Зоны роста, Зона гениальности, Масштаб влияния, Обобщённый вывод.',
-          bio2:'Позиция: это инструмент рефлексии, а не предсказания. Прочитайте разбор. Заметьте, что попадает в яблочко. Заметьте, что кажется натянутым. Заметьте мысли, которые рождаются у вас в процессе — именно они реальная ценность.' },
-        stats:[{n:'10',l:'разделов анализа'},{n:'3+',l:'ИИ-моделей поддерживается'},{n:'5',l:'минут на разбор'}],
+      astro: { tag:'Натальная карта · ИИ-аналитик', name:'ИИ-Астролог', title:'Профессиональный ИИ астролог-аналитик — интерактивный, многоязычный, один вопрос за раз.',
+        tagline:'Используйте как зеркало для саморефлексии, а не предсказание судьбы. Вопросы, которые поднимает ваш ум при чтении — настоящий материал.',
+        pills:['Натальная карта','Транзиты','Синастрия','11 режимов','Многоязычность'],
+        about:{ eyebrow:'ЧТО ЭТО', h2:'Западный · Психологический · Кармический · Архетипический · Интегральный',
+          bio:'Точно настроенный промпт, превращающий DeepSeek, ChatGPT, Claude или Gemini в профессионального астролога-аналитика. Работает интерактивно: задаёт один вопрос за раз, валидирует данные рождения с учётом исторических тайм-зон, отделяет астрономию (UTC, LST, ASC, MC, дома, планеты, аспекты) от интерпретации (психологической, кармической, архетипической). Поддерживает 11 типов анализа: натальная, соляр, транзиты, синастрия, карьерный, финансовый, предназначение, духовный путь, детская карта, кризисный период, комплексный.',
+          bio2:'Позиция: инструмент рефлексии, а не предсказания. Никогда не предсказывает смерть, трагедии, абсолютные исходы. Показывает тенденции, потенциалы, зоны роста, точки трансформации. Три уровня глубины: Краткий · Стандартный · Глубинный (профессиональный анализ с диспозиторными цепочками, доминантами, стеллиумами, минорными аспектами, кармическими показателями).' },
+        stats:[{n:'11',l:'режимов анализа'},{n:'3',l:'уровня глубины'},{n:'5+',l:'ИИ-моделей'}],
         programs:[
-          {num:'01',title:'Полный разбор натальной карты',desc:'Полный 10-разделный анализ через ИИ. Предназначение, таланты, духовный путь, деньги "в дом" и "из дома", дело жизни, зоны роста, зона гениальности, масштаб влияния, обобщённый вывод.',tags:['10 разделов','PDF ввод','Бесплатно в DeepSeek']},
-          {num:'02',title:'Кросс-ИИ разбор',desc:'Прогон одного и того же промпта через 2–3 ИИ-модели, затем третья сравнивает результаты. Где они совпадают — сигнал. Где расходятся — самая интересная территория.',tags:['Несколько ИИ','Сравнение','Глубокий сигнал']},
-          {num:'03',title:'Целевой тематический разбор',desc:'Сфокусировать анализ на одной зоне: карьера, деньги, отношения или зона гениальности. Полезно, когда вы уже знаете, что ищете.',tags:['Фокус','Одна тема','Быстрая итерация']},
-        ],
+          {num:'01',title:'Разбор натальной карты',desc:'Ядро личности, предназначение, таланты, отношения, карьера, финансы. Западный + психологический + архетипический подход.',tags:['База','Разовый','Высокая глубина']},
+          {num:'02',title:'Соляр / Транзиты',desc:'Темы года (соляр) или текущие активации (транзиты). Стратегический тайминг для больших решений.',tags:['Год','Прогноз','Стратегия']},
+          {num:'03',title:'Синастрия / Совместимость',desc:'Сравнение двух карт. Паттерны коммуникации, эмоциональный резонанс, зоны роста, кармика.',tags:['Отношения','Две карты','Глубоко']},
+          {num:'04',title:'Карьера · Предназначение',desc:'Направление дела жизни через MC, 10-й дом, доминанты, положение Сатурна. Стратегическая карьерная карта.',tags:['Карьера','MC','Практично']}],
         testimonials:[
-          {name:'Об использовании',city:'Замечание автора',text:'«Используйте как зеркало, не как данные о вашей судьбе. Замечайте, что отзывается, что вызывает сопротивление. Вопросы, которые он поднимает в вас — настоящий материал.»'},
-          {name:'Бесплатный путь',city:'DeepSeek + DeepThink',text:'Полный разбор работает бесплатно в DeepSeek с включённой функцией DeepThink. Также работает в ChatGPT, Claude, Gemini.'},
-          {name:'Сильный приём',city:'Кросс-ИИ проверка',text:'Запустите один и тот же промпт в 2–3 ИИ, затем попросите третий сравнить результаты. Расхождения покажут, где разные ИИ интерпретируют по-разному — это даёт дополнительную глубину.'},
-        ],
+          {name:'Об использовании',city:'Замечание автора',text:'«Используйте как зеркало, не как данные о вашей судьбе. Замечайте, что отзывается, что вызывает сопротивление. Вопросы, которые поднимает в вас — настоящий материал.»'},
+          {name:'Бесплатный путь',city:'DeepSeek + DeepThink',text:'Работает бесплатно в DeepSeek с DeepThink. Также в ChatGPT, Claude, Gemini.'},
+          {name:'Сильный приём',city:'Кросс-ИИ проверка',text:'Запустите один и тот же промпт в 2–3 ИИ, попросите третий сравнить. Расхождения покажут, где разные ИИ интерпретируют по-разному — там и золото.'}],
       },
-      { id:'numer', cat:'secondary', art:'numer',
-        accent:'#6EA080', glow:'rgba(110,160,128,.14)',
-        tag:'Квадрат Пифагора · ИИ-разбор',
-        name:'ИИ-Нумеролог',
-        title:'Разбор квадрата Пифагора (психоматрицы) через ИИ с тройной самопроверкой расчёта.',
-        tagline:'Только дата рождения. Пять структурированных шагов. Самый надёжный ИИ-инструмент по нумерологии — построен на тройной проверке арифметики.',
-        pills:['Квадрат Пифагора','5 шагов анализа','Тройная проверка','Только дата рождения'],
-        about:{ eyebrow:'ЧТО ЭТО', h2:'Классический квадрат Пифагора, исполненный ИИ — с математической защитой',
-          bio:'Превращает DeepSeek, ChatGPT, Claude или Gemini в аналитика-нумеролога, работающего в классической традиции квадрата Пифагора (русская школа А.Ф. Александрова). Пятишаговый анализ: подробная интерпретация матрицы, предназначение, деньги в бизнесе и быту, пять ключевых сфер жизни, пять гипотез дела жизни.',
-          bio2:'Уникальная особенность: тройная самопроверка арифметики. ИИ-модели часто допускают ошибки в подсчёте цифр и распределении их по ячейкам матрицы — промпт принудительно выполняет три независимых пересчёта и финальную сверку, что резко повышает точность. Перед чтением сверьте результат матрицы с независимым онлайн-калькулятором квадрата Пифагора.' },
-        stats:[{n:'5',l:'шагов анализа'},{n:'3×',l:'проверка расчёта'},{n:'1',l:'нужный параметр'}],
+      numer: { tag:'Квадрат Пифагора · NUMERA', name:'ИИ-Нумеролог', title:'NUMERA — интерактивный ИИ-аналитик нумерологии, квадрат Пифагора с тройной самопроверкой.',
+        tagline:'Каждый вывод объяснён через числа. Без мистики. Без фатализма. Структурированная модель личности из вашей даты рождения.',
+        pills:['Квадрат Пифагора','Тройная проверка','10 типов анализа','3 уровня глубины','Калькулятор ниже'],
+        about:{ eyebrow:'ЧТО ЭТО', h2:'Структурированная система личности — не оракул',
+          bio:'NUMERA превращает DeepSeek, ChatGPT, Claude или Gemini в нумеролога-аналитика в классической традиции квадрата Пифагора (русская школа А.Ф. Александрова). Интерактивный поток: язык → тип анализа (10 режимов от базового до полного) → уровень глубины (Краткий · Стандартный · Глубинный) → сбор данных (имя + ДД.ММ.ГГГГ) → расчёт → анализ → прогрессивное углубление.',
+          bio2:'Уникальная особенность: тройная самопроверка арифметики. ИИ-модели часто ошибаются при подсчёте цифр. NUMERA выполняет три независимых пересчёта и финальную сверку. Каждый вывод объяснён через числа: тезис → числовое обоснование → практический вывод.' },
+        stats:[{n:'10',l:'типов анализа'},{n:'3×',l:'проверка расчёта'},{n:'1',l:'нужный параметр'}],
         programs:[
-          {num:'01',title:'Полная расшифровка личности',desc:'Все пять шагов: детальный разбор матрицы по всем девяти ячейкам, предназначение, деньги в бизнесе и быту, пять областей жизни, пять гипотез дела жизни.',tags:['Полный разбор','5 шагов','30 мин']},
-          {num:'02',title:'5 гипотез дела жизни',desc:'Сфокусированный вывод: только пять гипотез направления жизни, каждая обоснована конкретными числами из вашей матрицы. Когда нужен карьерный вектор.',tags:['Карьерный фокус','5 направлений','На основе матрицы']},
-          {num:'03',title:'Кросс-ИИ разбор',desc:'Прогон одного расчёта через 2–3 ИИ-модели, затем третья сравнивает результаты. Ловит ошибки расчёта и показывает различия интерпретаций.',tags:['Несколько ИИ','Защита от ошибок','Сравнение']},
-        ],
-        testimonials:[
-          {name:'Ключевая проверка',city:'Делайте всегда',text:'После того как ИИ покажет расчёт матрицы, сверьте с независимым онлайн-калькулятором квадрата Пифагора. Совпадает — читайте анализ. Нет — пересчитайте или возьмите расшифровку другого ИИ.'},
-          {name:'Зачем тройная проверка',city:'Реальность',text:'ИИ-модели регулярно делают арифметические ошибки при подсчёте цифр и размещении их в ячейках. Тройная самопроверка — не паранойя, это разница между полезным и вводящим в заблуждение разбором.'},
-          {name:'Как использовать',city:'Рефлексия, не судьба',text:'Прочитайте разбор. Заметьте, что попадает в яблочко. Что кажется натянутым. Мысли, которые рождаются у вас в процессе чтения — настоящий материал. Не сама матрица.'},
-        ],
-      },
-    ],
-    de: [
-      { id:'coach', cat:'primary', art:'coach',
-        accent:'#C8A86E', glow:'rgba(200,168,110,.14)',
-        tag:'Persönlicher KI-Coach',
-        name:'KI-Coach',
-        title:'Ein Langzeit-Coach, der dich kennt — kein einmaliger Chatbot.',
-        tagline:'Kein Assistent. Kein Berater. Ein Coach. Hilft dir klarer zu denken, blinde Flecken zu sehen, starke Entscheidungen durch Bewusstsein zu treffen — nicht durch Ratschläge.',
-        pills:['ICF','GROW','Balance-Rad','Co-Active','4 Rhythmen'],
-        about:{ eyebrow:'WAS ES IST', h2:'Drei Schichten, vier Methoden, vier Rhythmen',
-          bio:'Ein vollständiges persönliches Coaching-System für Claude Projects, NotebookLM oder Custom GPT. Drei Schichten: (1) Kontext — wer du bist, deine Ziele, Werte, Projekte. (2) Methoden — ICF, GROW, Balance-Rad, Co-Active, angewendet auf die richtige Art von Anfrage. (3) Rhythmen — vier Session-Formate: Morgen, Abend, Woche, Monat, jedes mit eigenem Szenario und finalem Artefakt.',
-          bio2:'Kernprinzip: Der Coach gibt keine Antworten. Er hilft dir, deine eigenen durch Bewusstsein zu finden. Keine aufgesetzte Motivation, keine Schmeichelei, keine esoterischen Allgemeinplätze. Direkt, mit Sorgfalt.' },
-        stats:[{n:'4',l:'Methoden'},{n:'4',l:'Rhythmen'},{n:'9',l:'Module'}],
-        programs:[
-          {num:'01',title:'Morgen-Review (5–7 Min)',desc:'Tagesfokus und der erste konkrete Schritt. Schnelle Ausrichtung der Aufmerksamkeit, bevor der Tag dich mitreißt.',tags:['Täglich','Fokus','Erster Schritt']},
-          {num:'02',title:'Abend-Retro (10 Min)',desc:'Was funktioniert hat, was nicht, ein Erkenntnis pro Tag. Fünf Minuten ehrliche Reflexion schlagen Stunden vager Gedanken.',tags:['Täglich','Reflexion','Erkenntnis']},
-          {num:'03',title:'Wochen-Review (30 Min)',desc:'Wochenrückblick plus Wochenplan über GROW. Die Session, ohne die das ganze System zerfällt.',tags:['Wöchentlich','GROW','Plan']},
-          {num:'04',title:'Monats-Audit (60–90 Min)',desc:'Tiefer Lebens-Audit. Balance-Rad plus Co-Active-Werteprüfung plus Mustererkennung. Die Session, deren Wirkung sich Monat für Monat addiert.',tags:['Monatlich','Rad','Co-Active']},
-        ],
-        framework:{ eyebrow:'METHODEN', h2:'Das richtige Werkzeug für die richtige Frage',
+          {num:'01',title:'Базовый профиль личности',desc:'Структура характера, стиль мышления, энергетика, паттерны коммуникации — строго из вашей матрицы.',tags:['База','15 мин','Суть']},
+          {num:'02',title:'Деньги · Финансовая модель',desc:'Числовые драйверы заработка, блокирующие паттерны, что усиливает финансовый успех.',tags:['Деньги','Поведение','Стратегия']},
+          {num:'03',title:'Отношения',desc:'Паттерны связи, что даёте и в чём нуждаетесь, динамика конфликтов — через призму матрицы.',tags:['Отношения','Паттерны','Динамика']},
+          {num:'04',title:'Карма · Жизненные циклы',desc:'Повторяющиеся сценарии, эволюционные тенденции, карта жизненных циклов. Только в глубинном режиме.',tags:['Карма','Циклы','Глубинно']}],
+        framework:{ eyebrow:'ИНТЕРАКТИВНЫЙ ПОТОК', h2:'Язык → Тип → Глубина → Расчёт → Анализ → Углубление',
           pillars:[
-            {n:'ICF',title:'Bewusstsein durch Fragen',desc:'Offene Fragen, aktives Zuhören, keine Ratschläge. Wenn die Antwort schon da ist, aber noch nicht gehört werden kann.'},
-            {n:'GROW',title:'Ziel · Realität · Optionen · Wille',desc:'Wenn eine konkrete Aufgabe eine Entscheidung braucht. Strukturierter Weg von Klarheit zu Verpflichtung.'},
-            {n:'RAD',title:'Balance-Rad',desc:'Audit aller Lebensbereiche. Wenn in mehreren Bereichen etwas nicht stimmt und das Gesamtbild gebraucht wird.'},
-            {n:'CO-ACT',title:'Werte und Sinn',desc:'Für die großen Fragen. Identität, Sinn, was wirklich zählt. Die tiefste der vier Methoden.'},
-          ],
-        },
+            {n:'01',title:'Шаг за шагом',desc:'Один вопрос за сообщение. Не перегружает. Строит модель в диалоге, а не выдаёт статичный отчёт.'},
+            {n:'02',title:'Тройная проверка',desc:'Расчёт выполняется трижды независимо до любого анализа. Сверяется. Главный прирост точности для ИИ-нумерологии.'},
+            {n:'03',title:'Прогрессивная глубина',desc:'Выбираете Краткий, Стандартный или Глубинный на входе. Можно углубляться дальше без рестарта — слои на той же матрице.'},
+            {n:'04',title:'Без мистики',desc:'Каждый вывод привязан к числам. Никакого фатализма, никаких размытых духовных утверждений. Логика причин и следствий.'}] },
         testimonials:[
-          {name:'Standard-Startpunkt',city:'Beim ersten Mal',text:'Schreib einfach „Was ist heute im Fokus?" — das System wählt selbst die passende Methode.'},
-          {name:'Schwierigste Momente',city:'Wenn du feststeckst',text:'„Etwas stimmt nicht, aber ich weiß nicht was" → aktiviert ICF zur Klärung. „Innen leer, wofür das alles" → aktiviert Co-Active-Wertearbeit.'},
-          {name:'Langzeit-Ergebnis',city:'Nach 1–3 Monaten',text:'Der Coach beginnt deine wiederkehrenden Muster zu erkennen. Wird zu einem tiefen Spiegel — nicht durch Magie, sondern durch gesammelte Daten über deine Zyklen.'},
-        ],
+          {name:'Ключевая проверка',city:'Делайте всегда',text:'После того как ИИ покажет расчёт матрицы, сверьте с независимым онлайн-калькулятором квадрата Пифагора. Совпадает — читайте анализ. Нет — пересчитайте или возьмите другой ИИ.'},
+          {name:'Зачем тройная проверка',city:'Реальность',text:'ИИ-модели регулярно ошибаются при подсчёте цифр и размещении в ячейках. Тройная проверка — разница между полезным и вводящим в заблуждение разбором.'},
+          {name:'Как использовать',city:'Рефлексия, не судьба',text:'Прочитайте разбор. Заметьте, что попадает в яблочко. Что кажется натянутым. Мысли, рождающиеся в процессе чтения — настоящий материал.'}],
       },
-      { id:'viktor', cat:'primary', art:'biz',
-        accent:'#C8946E', glow:'rgba(200,148,110,.14)',
-        tag:'Business & Spitzenleistung',
-        name:'Viktor Stern',
-        title:'Business-Mastery & Peak-Performance-Coach (KI-Persona)',
-        tagline:'Dein Unternehmen ist ein Spiegel deines Seins. Transformiere das Innere — das Äußere folgt. Synthese aus Tony Robbins, Robin Sharma und Brendon Burchard.',
-        pills:['Business-Strategie','Spitzenzustand','Führung','Identitätsarbeit'],
-        about:{ eyebrow:'WAS ES IST', h2:'Drei Größen, synthetisiert zu einem ausführbaren System',
-          bio:'Ein Peak-Performance-KI-Coach, destilliert aus den Werken der weltweit führenden Performance-Lehrer: Tony Robbins (Peak-State-Architektur, Priming, RPM), Robin Sharma (5-Uhr-Club, 4 Innere Imperien, Elite-Tagesrituale), Brendon Burchard (High-Performance-Habits — Klarheit, Energie, Notwendigkeit, Produktivität, Einfluss, Mut).',
-          bio2:'Entwickelt für Unternehmer, Führungskräfte und High-Performer, die ein tägliches Betriebssystem wollen, keine Motivationsrede. Fokus auf den vier Schichten: Zustand, Strategie, Systeme, Identität.' },
-        stats:[{n:'3',l:'Master-Frameworks'},{n:'4',l:'Pyramiden-Ebenen'},{n:'90',l:'Tage-Reise'}],
+      svarga: { tag:'Интегральная практика · Svarga', name:'Система Svarga', title:'Интегральное внутреннее развитие — тело, дыхание, разум, осознанность в одной живой практике.',
+        tagline:'Где древние восточные традиции встречают современную психологию и работу с телом. Двадцать лет преподавания, сжатые в ежедневную систему.',
+        pills:['Медитация','Дыхание','Цигун','Энергетика','Ежедневная практика','Ретриты'],
+        about:{ eyebrow:'ЧТО ЭТО', h2:'Двадцать лет интегральной практики, кодифицированные в одну систему',
+          bio:'Система Svarga — синтез интегрального внутреннего развития, созданный Моше Ом за 20+ лет на трёх континентах. Объединяет восточные традиции (Линь Цзи Цигун, Железная Рубашка, Пранаяма, Випассана), современную трансперсональную психологию, соматическую работу с телом и энергетические практики. Не религия и не доктрина — живая практика, интегрирующая четыре измерения: тело, дыхание, разум, сознание.',
+          bio2:'Создана для современной жизни — не для пещеры, не для ашрама. Практики короткие, прикладные, встраиваются в обычные дни. 21-дневный марафон — вход; ретриты — углубление; наставничество — закрепление. Система растёт вместе с вами.' },
+        stats:[{n:'20+',l:'лет практики'},{n:'3 000+',l:'участников'},{n:'30+',l:'стран'}],
         programs:[
-          {num:'01',title:'90-Tage-Business-Durchbruch',desc:'Identitätswandel, strategische Klarheit, Systemaufbau und tägliche Performance-Gewohnheiten. Die Flaggschiff-Reise.',tags:['Strategie','Identität','Tägliche Gewohnheiten']},
-          {num:'02',title:'Morgen-Power-Protokoll',desc:'Das nicht verhandelbare Fundament. Physiologie, Priming, tägliches Klarheits-Ritual. 30 Minuten, die die anderen 23 Stunden entscheiden.',tags:['Täglich','Physiologie','Priming']},
-          {num:'03',title:'Peak-State-Executive-Retreat',desc:'3-tägige Immersion für Senior-Leader. Physiologie-Arbeit, Klärungssessions, strategische Planung, tiefe Identitätsarbeit.',tags:['Retreat','Führung','Tiefe Arbeit']},
-        ],
-        framework:{ eyebrow:'DIE PERFORMANCE-PYRAMIDE', h2:'Zustand → Strategie → Systeme → Identität',
+          {num:'01',title:'21-дневный марафон трансформации',desc:'Ежедневные интегральные практики — тело, дыхание, разум, сознание. Живые групповые звонки, записи, поддержка сообщества.',tags:['21 день','Ежедневно','Сообщество']},
+          {num:'02',title:'Серия ретритов',desc:'Многодневные погружения в сакральных местах. Глубокая соматическая и энергетическая работа в природе, малыми группами.',tags:['Очно','Несколько дней','Малые группы']},
+          {num:'03',title:'Личное наставничество',desc:'Персональное сопровождение 1:1 через трёхмесячный путь, выстроенный под вас. Для тех, кто готов к глубоким переменам.',tags:['1:1','Индивидуально','Еженедельно']}],
+        framework:{ eyebrow:'ЧЕТЫРЕ ИЗМЕРЕНИЯ', h2:'Тело · Дыхание · Разум · Сознание',
           pillars:[
-            {n:'01',title:'Spitzenzustand',desc:'Ergebnisse beginnen mit Physiologie und emotionalem Zustand. Das Morgen-Power-Protokoll sorgt dafür, dass du aus dem Spitzenzustand agierst. „Bewegung erzeugt Emotion." — Tony Robbins'},
-            {n:'02',title:'Strategische Klarheit',desc:'Wohin die Aufmerksamkeit geht, fließt die Energie. Das CAP-Framework (Clarity · Action · Power) richtet tägliche Handlungen an deinen wichtigsten Zielen aus.'},
-            {n:'03',title:'Elite-Systeme',desc:'Spitzenleister bauen Systeme, keine Willenskraft. Delegations-Frameworks und Performance-Dashboards führen dein Unternehmen — damit es nicht dich führt.'},
-            {n:'04',title:'Identitätsentwicklung',desc:'„Wer muss ich werden?" ist die wichtigste Geschäftsfrage. Identitätsarbeit aus Brendon Burchards High-Performance-Habits.'},
-          ],
-        },
+            {n:'01',title:'Тело',desc:'Формы цигун, соматическая осознанность, заземление Железной Рубашки. Тело помнит то, что разум забывает — практика встречает его там, где оно живёт.'},
+            {n:'02',title:'Дыхание',desc:'Пранаяма, дыхательные практики, осознанное дыхание. Быстрейший рычаг между телом и разумом. Ежедневно; эффект сразу.'},
+            {n:'03',title:'Разум',desc:'Випассана, интеграция современной психологии, работа с ограничивающими паттернами. Осознание паттернов — первый шаг из них.'},
+            {n:'04',title:'Сознание',desc:'Прямая медитативная практика. Интегральное духовное развитие без догм — то, что есть до мысли.'}] },
         testimonials:[
-          {name:'Über Zustand',city:'Tony Robbins',text:'„Die Qualität deines Lebens ist die Qualität deiner Emotionen. Meistere deinen Zustand — meistere dein Leben."'},
-          {name:'Über Rituale',city:'Robin Sharma',text:'„Das Geheimnis des Erfolgs liegt in deiner täglichen Routine. Gewinne den Morgen — gewinne den Tag."'},
-          {name:'Über Leistung',city:'Brendon Burchard',text:'„High Performer denken nicht nur positiv. Sie erzeugen Gewissheit durch Klarheit und Gewohnheit."'},
-        ],
+          {name:'Анна М.',city:'Москва',text:'«За 21 день я прошла путь, который обычно занимает годы. Моше — невероятный проводник. Его присутствие само создаёт трансформацию.»'},
+          {name:'Дмитрий К.',city:'Санкт-Петербург',text:'«Практики дыхания и медитации стали ежедневным ритуалом. Ясность и сила, которых не было много лет — это просто работает.»'},
+          {name:'Елена В.',city:'Киев',text:'«Одно только сообщество того стоит. Ощущение, что ты не один в своём пути. Безграничная благодарность Моше и всей команде.»'}],
       },
-      { id:'astro', cat:'secondary', art:'astro',
-        accent:'#7E8EC8', glow:'rgba(126,142,200,.14)',
-        tag:'Geburtshoroskop · KI-Lesung',
-        name:'KI-Astrologe',
-        title:'Tiefe Geburtshoroskop-Analyse durch KI — ein strukturiertes Reflexions-Tool.',
-        tagline:'Nutze es als Spiegel zur Reflexion, nicht als Schicksalsvorhersage. Das Wertvollste sind die Fragen, die dein eigener Geist beim Lesen aufwirft.',
-        pills:['Natalchart','10 Abschnitte','Tiefenanalyse','Cross-KI-Verifikation'],
-        about:{ eyebrow:'WAS ES IST', h2:'10-teilige strukturierte Geburtshoroskop-Analyse',
-          bio:'Ein präzise abgestimmter Prompt, der DeepSeek, ChatGPT, Claude oder Gemini in einen persönlichen Astrologie-Analysten verwandelt. Lade detaillierte Natalchart-Daten (Planeten, Häuser, Aspekte, Knoten) als PDF hoch, kopiere den Prompt — und erhalte eine 10-teilige Tiefenlesung.',
-          bio2:'Position: ein Reflexionsinstrument, kein Vorhersagewerkzeug. Lies die Lesung. Bemerke, was trifft. Bemerke, was sich erzwungen anfühlt. Die Gedanken, die in dir entstehen, sind der eigentliche Wert.' },
-        stats:[{n:'10',l:'Analyse-Abschnitte'},{n:'3+',l:'KI-Modelle'},{n:'5',l:'Minuten pro Lesung'}],
+    },
+    // ES — abridged
+    es: {
+      coach: { tag:'Coach Personal IA', name:'IA-Coach', title:'Coach IA a largo plazo con ICF, GROW, Rueda del Equilibrio y Co-Active — más cuatro ritmos diarios.',
+        tagline:'No es un asistente. No es un consultor. Un coach. Te ayuda a pensar con claridad, ver puntos ciegos y tomar decisiones fuertes a través de la conciencia — no del consejo.',
+        pills:['ICF','GROW','Rueda del Equilibrio','Co-Active','4 Ritmos'],
+        about:{ eyebrow:'QUÉ ES', h2:'Tres capas · Cuatro metodologías · Cuatro ritmos',
+          bio:'Sistema completo de coaching personal diseñado para Claude Projects, NotebookLM o Custom GPT. Tres capas: Contexto, Metodologías y Ritmos.',
+          bio2:'Principio central: el coach no da respuestas. Te ayuda a encontrar las tuyas a través de la conciencia. Directo, con cuidado.' },
+        stats:[{n:'4',l:'metodologías'},{n:'4',l:'ritmos'},{n:'9',l:'módulos'}],
         programs:[
-          {num:'01',title:'Tiefe Natal-Lesung',desc:'Die volle 10-teilige KI-Analyse: Bestimmung, Talente, spiritueller Weg, finanzielles Potenzial, Lebenswerk, Wachstumszonen, Genie-Zone, Einflussbereich.',tags:['10 Abschnitte','PDF-Eingabe','Kostenlos mit DeepSeek']},
-          {num:'02',title:'Multi-KI-Cross-Lesung',desc:'Den gleichen Prompt durch 2–3 KI-Modelle laufen lassen, eine dritte vergleicht die Ergebnisse. Wo sie übereinstimmen — Signal. Wo sie abweichen — interessantes Terrain.',tags:['Multi-KI','Vergleich','Tieferes Signal']},
-          {num:'03',title:'Zielgerichtete Themen-Analyse',desc:'Fokus auf eine Zone: Karriere, Geld, Beziehungen oder Genie-Zone. Nützlich, wenn du schon weißt, wonach du suchst.',tags:['Fokussiert','Ein Thema','Schnelle Iteration']},
-        ],
+          {num:'01',title:'Revisión Matinal · 5–7 min',desc:'Enfoque del día y primer paso concreto.',tags:['Diario','Enfoque']},
+          {num:'02',title:'Retro Vespertina · 10 min',desc:'Qué funcionó, qué no, una idea por día.',tags:['Diario','Reflexión']},
+          {num:'03',title:'Revisión Semanal · 30 min',desc:'Resumen y plan a través de GROW.',tags:['Semanal','GROW']},
+          {num:'04',title:'Auditoría Mensual · 60–90 min',desc:'Rueda + Co-Active + patrones.',tags:['Mensual','Profundo']}],
+        framework:{ eyebrow:'METODOLOGÍAS', h2:'La herramienta correcta para la pregunta correcta',
+          pillars:[{n:'ICF',title:'Conciencia mediante preguntas',desc:'Preguntas abiertas, escucha activa, sin consejos.'},
+                   {n:'GROW',title:'Meta · Realidad · Opciones · Voluntad',desc:'Tarea concreta que necesita decisión.'},
+                   {n:'WHEEL',title:'Rueda del Equilibrio',desc:'Auditoría de todas las áreas de vida.'},
+                   {n:'CO·A',title:'Valores y significado',desc:'Para las grandes preguntas — identidad, propósito.'}] },
         testimonials:[
-          {name:'Zur Nutzung',city:'Autorenhinweis',text:'„Nutze es als Spiegel, nicht als Schicksalsdaten. Bemerke, wo es trifft, wo es gestreckt wirkt. Die Fragen, die es in dir aufwirft, sind das eigentliche Material."'},
-          {name:'Kostenfreier Weg',city:'DeepSeek + DeepThink',text:'Die volle Lesung funktioniert kostenlos in DeepSeek mit aktiviertem DeepThink. Auch in ChatGPT, Claude, Gemini verfügbar.'},
-          {name:'Kraftvoller Trick',city:'Cross-KI-Verifikation',text:'Lasse den gleichen Prompt in 2–3 KIs laufen, dann bitte eine dritte um den Vergleich. Die Unterschiede zeigen, wo verschiedene KIs unterschiedlich interpretieren.'},
-        ],
+          {name:'Punto de partida',city:'Para usuarios nuevos',text:'Solo escribe "¿Qué hay en foco hoy?" — el sistema elegirá la metodología.'},
+          {name:'Momentos difíciles',city:'Cuando estás atascado',text:'"Algo no va bien pero no sé qué" → activa ICF para clarificar.'},
+          {name:'Resultado a largo plazo',city:'Después de 1–3 meses',text:'El coach empieza a notar tus patrones recurrentes.'}],
       },
-      { id:'numer', cat:'secondary', art:'numer',
-        accent:'#6EA080', glow:'rgba(110,160,128,.14)',
-        tag:'Pythagoras-Quadrat · KI-Lesung',
-        name:'KI-Numerologe',
-        title:'Pythagoras-Quadrat (Psychomatrix) durch KI, mit dreifacher Mathematik-Selbstprüfung.',
-        tagline:'Nur das Geburtsdatum. Fünf strukturierte Schritte. Das verlässlichste KI-Numerologie-Tool — gebaut um die dreifache Selbstprüfung der Arithmetik.',
-        pills:['Pythagoras-Quadrat','5 Analyse-Schritte','3× verifizierte Mathematik','Nur Geburtsdatum'],
-        about:{ eyebrow:'WAS ES IST', h2:'Klassisches Pythagoras-Quadrat, KI-ausgeführt — mit Mathematik-Absicherung',
-          bio:'Verwandelt DeepSeek, ChatGPT, Claude oder Gemini in einen Numerologie-Analysten in der klassischen Pythagoras-Quadrat-Tradition (russische Schule von A.F. Alexandrov). Fünfstufige Analyse: detaillierte Matrix-Interpretation, Bestimmung, Geld im Business und Alltag, fünf Kern-Lebensbereiche, fünf Hypothesen für das Lebenswerk.',
-          bio2:'Besonderheit: dreifache Selbstprüfung der Arithmetik. KI-Modelle machen häufig Rechenfehler beim Zählen von Ziffern. Der Prompt erzwingt drei unabhängige Neuberechnungen und eine finale Quervalidierung. Verifiziere das Matrix-Ergebnis vor dem Lesen mit einem unabhängigen Online-Rechner.' },
-        stats:[{n:'5',l:'Analyse-Schritte'},{n:'3×',l:'Mathematik-Prüfung'},{n:'1',l:'benötigtes Datum'}],
+      biz: { tag:'Negocios y Alto Rendimiento', name:'Viktor Stern', title:'Coach IA de maestría empresarial y alto rendimiento. Síntesis de Robbins, Sharma y Burchard.',
+        tagline:'Tu negocio es un espejo de tu ser. Transforma lo interno — y lo externo seguirá.',
+        pills:['Estrategia','Estado Pico','Liderazgo','Identidad'],
+        about:{ eyebrow:'QUÉ ES', h2:'Tres gigantes sintetizados en un sistema ejecutable',
+          bio:'Coach IA de alto rendimiento destilado de Tony Robbins (arquitectura del estado pico), Robin Sharma (Club de las 5 AM, 4 Imperios Interiores) y Brendon Burchard (Hábitos de Alto Rendimiento).',
+          bio2:'Diseñado para emprendedores y ejecutivos que quieren un sistema operativo diario, no un discurso motivacional. Cuatro capas: Estado, Estrategia, Sistemas, Identidad.' },
+        stats:[{n:'3',l:'frameworks maestros'},{n:'4',l:'capas'},{n:'90',l:'días'}],
         programs:[
-          {num:'01',title:'Vollständige Persönlichkeits-Lesung',desc:'Alle fünf Schritte: detaillierte Matrix-Aufschlüsselung über alle neun Zellen, Bestimmung, Geld in Business und Alltag, fünf Lebensbereiche, fünf Hypothesen für das Lebenswerk.',tags:['Voll-Lesung','5 Schritte','30 Min']},
-          {num:'02',title:'5 Hypothesen für das Lebenswerk',desc:'Fokussierter Output: nur die fünf Hypothesen für deine Lebensrichtung, jede mit konkreten Zahlen aus deiner Matrix begründet.',tags:['Karriere-Fokus','5 Richtungen','Matrix-fundiert']},
-          {num:'03',title:'Multi-KI-Cross-Lesung',desc:'Die gleiche Berechnung durch 2–3 KI-Modelle laufen lassen, eine dritte vergleicht die Ergebnisse. Fängt Rechenfehler ab und zeigt Interpretations-Unterschiede.',tags:['Multi-KI','Mathematik-Sicherheit','Vergleich']},
-        ],
+          {num:'01',title:'Avance de Negocio en 90 Días',desc:'Cambio de identidad, claridad estratégica, sistemas, hábitos diarios.',tags:['Estrategia','Identidad']},
+          {num:'02',title:'Protocolo de Poder Matinal',desc:'Fisiología, priming, ritual diario de claridad. 30 minutos que deciden el resto del día.',tags:['Diario','Fisiología']},
+          {num:'03',title:'Retiro Ejecutivo de Estado Pico',desc:'Inmersión de 3 días para líderes senior.',tags:['Retiro','Liderazgo']}],
+        framework:{ eyebrow:'LA PIRÁMIDE DEL RENDIMIENTO', h2:'Estado → Estrategia → Sistemas → Identidad',
+          pillars:[{n:'01',title:'Estado Pico',desc:'Los resultados empiezan con la fisiología. "El movimiento crea la emoción." — Tony Robbins'},
+                   {n:'02',title:'Claridad Estratégica',desc:'Framework CAP — alinea acciones con metas de máximo apalancamiento.'},
+                   {n:'03',title:'Sistemas de Elite',desc:'Construye sistemas, no fuerza de voluntad.'},
+                   {n:'04',title:'Evolución de Identidad',desc:'"¿Quién necesito llegar a ser?" — la pregunta empresarial más importante.'}] },
         testimonials:[
-          {name:'Wichtige Sicherheitsprüfung',city:'Immer tun',text:'Nachdem die KI die Matrix-Berechnung zeigt, verifiziere sie gegen einen unabhängigen Online-Pythagoras-Rechner. Stimmen die Zahlen — lies die Analyse. Wenn nicht — neu rechnen lassen.'},
-          {name:'Warum dreifache Prüfung',city:'Mathematik-Realität',text:'KI-Modelle machen routinemäßig arithmetische Fehler beim Zählen von Ziffern und ihrer Platzierung in Matrix-Zellen. Die dreifache Selbstprüfung ist der Unterschied zwischen einer nützlichen und einer irreführenden Lesung.'},
-          {name:'Wie nutzen',city:'Reflexion, kein Schicksal',text:'Lies die Analyse. Bemerke, was trifft. Was sich gestreckt anfühlt. Die Gedanken, die in dir entstehen, sind das eigentliche Material — nicht die Matrix selbst.'},
-        ],
+          {name:'Sobre el estado',city:'Tony Robbins',text:'"La calidad de tu vida es la calidad de tus emociones."'},
+          {name:'Sobre los rituales',city:'Robin Sharma',text:'"Gana la mañana — gana el día."'},
+          {name:'Sobre el rendimiento',city:'Brendon Burchard',text:'"Los altos performers crean certeza a través de claridad y hábito."'}],
       },
-    ],
-    he: [
-      { id:'coach', cat:'primary', art:'coach',
-        accent:'#C8A86E', glow:'rgba(200,168,110,.14)',
-        tag:'מאמן AI אישי',
-        name:'מאמן-AI',
-        title:'מאמן ארוך טווח שמכיר אותך — לא צ׳אט-בוט חד-פעמי.',
-        tagline:'לא עוזר. לא יועץ. מאמן. עוזר לחשוב בבהירות, לראות נקודות עיוורות, ולקבל החלטות חזקות דרך מודעות — לא דרך עצות.',
+      astro: { tag:'Carta Natal · Analista IA', name:'IA-Astrólogo', title:'Analista IA profesional de astrología — interactivo, multilingüe, una pregunta a la vez.',
+        tagline:'Úsalo como espejo para la auto-reflexión, no como predicción del destino.',
+        pills:['Carta Natal','Tránsitos','Sinastría','11 Modos'],
+        about:{ eyebrow:'QUÉ ES', h2:'Occidental · Psicológico · Kármico · Arquetípico · Integral',
+          bio:'Sistema-prompt que convierte DeepSeek, ChatGPT, Claude o Gemini en un astrólogo-analista profesional. Trabaja interactivamente con conciencia de zonas horarias históricas, separando astronomía de interpretación.',
+          bio2:'Posición: instrumento de reflexión, no de predicción. Nunca predice muerte ni tragedias. Muestra tendencias, potenciales, zonas de crecimiento.' },
+        stats:[{n:'11',l:'modos'},{n:'3',l:'niveles'},{n:'5+',l:'modelos IA'}],
+        programs:[
+          {num:'01',title:'Lectura de Carta Natal',desc:'Núcleo de personalidad, propósito, talentos, relaciones, carrera, finanzas.',tags:['Base']},
+          {num:'02',title:'Retorno Solar / Tránsitos',desc:'Temas anuales o activaciones actuales.',tags:['Anual']},
+          {num:'03',title:'Sinastría / Compatibilidad',desc:'Comparación de dos cartas.',tags:['Relación']},
+          {num:'04',title:'Vocacional / Carrera',desc:'Dirección de la obra de vida a través del MC y casa 10.',tags:['Carrera']}],
+        testimonials:[
+          {name:'Sobre el uso',city:'Nota del autor',text:'"Úsalo como un espejo, no como datos sobre tu destino."'},
+          {name:'Camino gratuito',city:'DeepSeek + DeepThink',text:'Funciona gratis en DeepSeek con DeepThink activado.'},
+          {name:'Movimiento potente',city:'Verificación multi-IA',text:'Ejecuta el mismo prompt en 2–3 IAs y luego pide a una tercera comparar.'}],
+      },
+      numer: { tag:'Cuadrado de Pitágoras · NUMERA', name:'IA-Numerólogo', title:'NUMERA — analista IA interactivo de numerología, cuadrado de Pitágoras con triple verificación matemática.',
+        tagline:'Cada conclusión explicada mediante números. Sin misticismo. Sin fatalismo.',
+        pills:['Cuadrado de Pitágoras','Triple verificación','10 tipos de análisis','Calculadora abajo'],
+        about:{ eyebrow:'QUÉ ES', h2:'Un modelo estructurado de personalidad — no un oráculo',
+          bio:'NUMERA convierte DeepSeek, ChatGPT, Claude o Gemini en un analista de numerología en la tradición clásica del cuadrado de Pitágoras (escuela rusa de A.F. Alexandrov). Flujo interactivo: idioma → tipo de análisis → nivel → datos → cálculo → análisis → profundización.',
+          bio2:'Característica única: triple auto-verificación de la aritmética. Los modelos de IA comúnmente cometen errores matemáticos. NUMERA fuerza tres recálculos independientes.' },
+        stats:[{n:'10',l:'tipos'},{n:'3×',l:'verificación'},{n:'1',l:'dato necesario'}],
+        programs:[
+          {num:'01',title:'Perfil Básico de Personalidad',desc:'Estructura del carácter, estilo de pensamiento, energía.',tags:['Base']},
+          {num:'02',title:'Dinero · Modelo Financiero',desc:'Impulsores numéricos del comportamiento de ingresos.',tags:['Dinero']},
+          {num:'03',title:'Relaciones',desc:'Patrones de conexión.',tags:['Relaciones']},
+          {num:'04',title:'Patrones Kármicos · Ciclos',desc:'Guiones recurrentes. Solo modo Profundo.',tags:['Kármico']}],
+        framework:{ eyebrow:'FLUJO INTERACTIVO', h2:'Idioma → Tipo → Profundidad → Cálculo → Análisis',
+          pillars:[{n:'01',title:'Paso a paso',desc:'Una pregunta por mensaje.'},
+                   {n:'02',title:'Triple verificación',desc:'Cálculo ejecutado tres veces independientemente.'},
+                   {n:'03',title:'Profundidad progresiva',desc:'Corto, Estándar o Profundo.'},
+                   {n:'04',title:'Sin misticismo',desc:'Cada conclusión rastreable a números.'}] },
+        testimonials:[
+          {name:'Verificación de seguridad',city:'Hazlo siempre',text:'Verifica el cálculo contra una calculadora online independiente.'},
+          {name:'Por qué triple',city:'Realidad matemática',text:'Los modelos IA cometen errores rutinariamente al contar dígitos.'},
+          {name:'Cómo usarlo',city:'Reflexión, no destino',text:'Los pensamientos que surgen al leer son el material real.'}],
+      },
+      svarga: { tag:'Práctica Integral · Sistema Svarga', name:'Sistema Svarga', title:'Desarrollo interno integral — cuerpo, respiración, mente, conciencia tejidos en una práctica viva.',
+        tagline:'Donde las tradiciones orientales antiguas se encuentran con la psicología moderna y el trabajo somático.',
+        pills:['Meditación','Respiración','Qigong','Energía','Práctica Diaria','Retiros'],
+        about:{ eyebrow:'QUÉ ES', h2:'Veinte años de práctica integral codificados en un sistema',
+          bio:'El Sistema Svarga es la síntesis integral creada por Moshe Om durante más de 20 años en tres continentes. Combina tradiciones orientales (Lin Tzi Qigong, Pranayama, Vipassana), psicología transpersonal moderna y trabajo somático.',
+          bio2:'Diseñado para la vida moderna — no la cueva. Prácticas cortas, prácticas, integrables en días normales.' },
+        stats:[{n:'20+',l:'años'},{n:'3 000+',l:'participantes'},{n:'30+',l:'países'}],
+        programs:[
+          {num:'01',title:'Maratón de Transformación de 21 Días',desc:'Prácticas integrales diarias — cuerpo, respiración, mente, conciencia.',tags:['21 días','Diario']},
+          {num:'02',title:'Serie de Retiros',desc:'Inmersiones multi-día en lugares sagrados.',tags:['Presencial']},
+          {num:'03',title:'Mentoría Privada',desc:'Acompañamiento personalizado 1:1.',tags:['1:1','Personalizado']}],
+        framework:{ eyebrow:'CUATRO DIMENSIONES', h2:'Cuerpo · Respiración · Mente · Conciencia',
+          pillars:[{n:'01',title:'Cuerpo',desc:'Formas de Qigong, conciencia somática.'},
+                   {n:'02',title:'Respiración',desc:'Pranayama, respiración consciente.'},
+                   {n:'03',title:'Mente',desc:'Vipassana, integración con psicología moderna.'},
+                   {n:'04',title:'Conciencia',desc:'Práctica meditativa directa.'}] },
+        testimonials:[
+          {name:'Anna M.',city:'Moscú',text:'"En 21 días recorrí un camino que usualmente toma años."'},
+          {name:'Dmitry K.',city:'San Petersburgo',text:'"Las prácticas de respiración y meditación se volvieron un ritual diario."'},
+          {name:'Elena V.',city:'Kyiv',text:'"La comunidad por sí sola vale la pena."'}],
+      },
+    },
+    // IT — abridged
+    it: {
+      coach: { tag:'Coach IA Personale', name:'IA-Coach', title:'Coach IA a lungo termine con ICF, GROW, Ruota dell\'Equilibrio e Co-Active — più quattro ritmi quotidiani.',
+        tagline:'Non un assistente. Non un consulente. Un coach. Ti aiuta a pensare chiaramente attraverso la consapevolezza — non i consigli.',
+        pills:['ICF','GROW','Ruota dell\'Equilibrio','Co-Active','4 Ritmi'],
+        about:{ eyebrow:'COSA È', h2:'Tre strati · Quattro metodologie · Quattro ritmi',
+          bio:'Sistema completo di coaching personale per Claude Projects, NotebookLM o Custom GPT.',
+          bio2:'Principio centrale: il coach non dà risposte. Ti aiuta a trovare le tue attraverso la consapevolezza.' },
+        stats:[{n:'4',l:'metodologie'},{n:'4',l:'ritmi'},{n:'9',l:'moduli'}],
+        programs:[
+          {num:'01',title:'Revisione Mattutina · 5–7 min',desc:'Focus della giornata e primo passo concreto.',tags:['Quotidiano']},
+          {num:'02',title:'Retro Serale · 10 min',desc:'Cosa ha funzionato, una intuizione al giorno.',tags:['Quotidiano']},
+          {num:'03',title:'Revisione Settimanale · 30 min',desc:'Sintesi e piano tramite GROW.',tags:['Settimanale']},
+          {num:'04',title:'Audit Mensile · 60–90 min',desc:'Ruota + Co-Active + pattern.',tags:['Mensile']}],
+        framework:{ eyebrow:'METODOLOGIE', h2:'Lo strumento giusto per la domanda giusta',
+          pillars:[{n:'ICF',title:'Consapevolezza tramite domande',desc:'Domande aperte, ascolto attivo.'},
+                   {n:'GROW',title:'Obiettivo · Realtà · Opzioni · Volontà',desc:'Compito concreto.'},
+                   {n:'WHEEL',title:'Ruota dell\'Equilibrio',desc:'Audit di tutte le aree.'},
+                   {n:'CO·A',title:'Valori e significato',desc:'Identità, scopo.'}] },
+        testimonials:[
+          {name:'Punto di partenza',city:'Per nuovi utenti',text:'Scrivi "Cos\'è in focus oggi?" — il sistema sceglierà la metodologia.'},
+          {name:'Momenti difficili',city:'Quando sei bloccato',text:'"Qualcosa non va ma non so cosa" → attiva ICF.'},
+          {name:'Risultato a lungo termine',city:'Dopo 1–3 mesi',text:'Il coach inizia a notare i tuoi pattern ricorrenti.'}],
+      },
+      biz: { tag:'Business e Alta Performance', name:'Viktor Stern', title:'Coach IA di maestria aziendale e alta performance. Sintesi di Robbins, Sharma e Burchard.',
+        tagline:'Il tuo business è uno specchio del tuo essere. Trasforma l\'interiore — l\'esteriore seguirà.',
+        pills:['Strategia','Stato di Picco','Leadership','Identità'],
+        about:{ eyebrow:'COSA È', h2:'Tre giganti sintetizzati in un sistema eseguibile',
+          bio:'Coach IA distillato da Tony Robbins, Robin Sharma e Brendon Burchard.',
+          bio2:'Progettato per imprenditori e dirigenti che vogliono un sistema operativo quotidiano.' },
+        stats:[{n:'3',l:'framework'},{n:'4',l:'strati'},{n:'90',l:'giorni'}],
+        programs:[
+          {num:'01',title:'Svolta di Business in 90 Giorni',desc:'Cambio di identità, chiarezza strategica.',tags:['Strategia']},
+          {num:'02',title:'Protocollo di Potere Mattutino',desc:'Fisiologia, priming.',tags:['Quotidiano']},
+          {num:'03',title:'Ritiro Esecutivo di Stato di Picco',desc:'Immersione di 3 giorni.',tags:['Ritiro']}],
+        framework:{ eyebrow:'LA PIRAMIDE DELLA PERFORMANCE', h2:'Stato → Strategia → Sistemi → Identità',
+          pillars:[{n:'01',title:'Stato di Picco',desc:'"Il movimento crea emozione." — Tony Robbins'},
+                   {n:'02',title:'Chiarezza Strategica',desc:'Framework CAP.'},
+                   {n:'03',title:'Sistemi d\'Elite',desc:'Costruisci sistemi.'},
+                   {n:'04',title:'Evoluzione dell\'Identità',desc:'"Chi devo diventare?"'}] },
+        testimonials:[
+          {name:'Sullo stato',city:'Tony Robbins',text:'"La qualità della tua vita è la qualità delle tue emozioni."'},
+          {name:'Sui rituali',city:'Robin Sharma',text:'"Vinci il mattino — vinci la giornata."'},
+          {name:'Sulla performance',city:'Brendon Burchard',text:'"Gli alti performer creano certezza tramite chiarezza."'}],
+      },
+      astro: { tag:'Carta Natale · Analista IA', name:'IA-Astrologo', title:'Analista IA professionale di astrologia — interattivo, multilingue.',
+        tagline:'Usalo come specchio per l\'auto-riflessione, non come previsione del destino.',
+        pills:['Carta Natale','Transiti','Sinastria','11 Modalità'],
+        about:{ eyebrow:'COSA È', h2:'Occidentale · Psicologico · Karmico · Archetipico · Integrale',
+          bio:'Sistema-prompt che trasforma DeepSeek, ChatGPT, Claude o Gemini in un astrologo-analista professionale.',
+          bio2:'Posizione: strumento di riflessione, non di previsione.' },
+        stats:[{n:'11',l:'modalità'},{n:'3',l:'livelli'},{n:'5+',l:'modelli IA'}],
+        programs:[
+          {num:'01',title:'Lettura della Carta Natale',desc:'Nucleo della personalità, scopo, talenti.',tags:['Base']},
+          {num:'02',title:'Rivoluzione Solare / Transiti',desc:'Temi annuali o attivazioni attuali.',tags:['Annuale']},
+          {num:'03',title:'Sinastria / Compatibilità',desc:'Confronto tra due carte.',tags:['Relazione']},
+          {num:'04',title:'Vocazionale / Carriera',desc:'Direzione dell\'opera di vita.',tags:['Carriera']}],
+        testimonials:[
+          {name:'Sull\'uso',city:'Nota dell\'autore',text:'"Usalo come uno specchio, non come dati sul destino."'},
+          {name:'Percorso gratuito',city:'DeepSeek + DeepThink',text:'Funziona gratuitamente in DeepSeek con DeepThink.'},
+          {name:'Mossa potente',city:'Verifica multi-IA',text:'Esegui lo stesso prompt in 2–3 IA, poi confronta.'}],
+      },
+      numer: { tag:'Quadrato di Pitagora · NUMERA', name:'IA-Numerologo', title:'NUMERA — analista IA interattivo di numerologia, quadrato di Pitagora con tripla verifica matematica.',
+        tagline:'Ogni conclusione spiegata attraverso i numeri. Nessun misticismo.',
+        pills:['Quadrato di Pitagora','Tripla verifica','10 tipi','Calcolatore sotto'],
+        about:{ eyebrow:'COSA È', h2:'Un modello strutturato di personalità — non un oracolo',
+          bio:'NUMERA trasforma DeepSeek, ChatGPT, Claude o Gemini in un analista numerologo nella tradizione classica del quadrato di Pitagora.',
+          bio2:'Caratteristica unica: tripla auto-verifica dell\'aritmetica. Tre ricalcoli indipendenti.' },
+        stats:[{n:'10',l:'tipi'},{n:'3×',l:'verifica'},{n:'1',l:'dato necessario'}],
+        programs:[
+          {num:'01',title:'Profilo Base di Personalità',desc:'Struttura del carattere, stile di pensiero.',tags:['Base']},
+          {num:'02',title:'Denaro · Modello Finanziario',desc:'Driver numerici del comportamento di guadagno.',tags:['Denaro']},
+          {num:'03',title:'Relazioni',desc:'Pattern di connessione.',tags:['Relazioni']},
+          {num:'04',title:'Pattern Karmici · Cicli',desc:'Script ricorrenti. Solo modalità Profonda.',tags:['Karmico']}],
+        framework:{ eyebrow:'FLUSSO INTERATTIVO', h2:'Lingua → Tipo → Profondità → Calcolo → Analisi',
+          pillars:[{n:'01',title:'Passo dopo passo',desc:'Una domanda per messaggio.'},
+                   {n:'02',title:'Tripla verifica',desc:'Calcolo eseguito tre volte indipendentemente.'},
+                   {n:'03',title:'Profondità progressiva',desc:'Breve, Standard o Profondo.'},
+                   {n:'04',title:'Senza misticismo',desc:'Ogni conclusione tracciabile ai numeri.'}] },
+        testimonials:[
+          {name:'Verifica di sicurezza',city:'Fai sempre',text:'Verifica il calcolo contro un calcolatore online indipendente.'},
+          {name:'Perché tripla',city:'Realtà matematica',text:'I modelli IA commettono errori abitualmente.'},
+          {name:'Come usarlo',city:'Riflessione, non destino',text:'I pensieri che sorgono leggendo sono il materiale reale.'}],
+      },
+      svarga: { tag:'Pratica Integrale · Sistema Svarga', name:'Sistema Svarga', title:'Sviluppo interiore integrale — corpo, respiro, mente, consapevolezza intrecciati in una pratica viva.',
+        tagline:'Dove le antiche tradizioni orientali incontrano la psicologia moderna e il lavoro somatico.',
+        pills:['Meditazione','Respiro','Qigong','Energia','Pratica Quotidiana','Ritiri'],
+        about:{ eyebrow:'COSA È', h2:'Vent\'anni di pratica integrale codificati in un sistema',
+          bio:'Il Sistema Svarga è la sintesi integrale creata da Moshe Om in oltre 20 anni su tre continenti.',
+          bio2:'Progettato per la vita moderna — non la grotta. Pratiche brevi e pratiche.' },
+        stats:[{n:'20+',l:'anni'},{n:'3 000+',l:'partecipanti'},{n:'30+',l:'paesi'}],
+        programs:[
+          {num:'01',title:'Maratona di Trasformazione di 21 Giorni',desc:'Pratiche integrali quotidiane.',tags:['21 giorni']},
+          {num:'02',title:'Serie di Ritiri',desc:'Immersioni multi-giorno.',tags:['Presenza']},
+          {num:'03',title:'Mentoring Privato',desc:'Accompagnamento 1:1.',tags:['1:1']}],
+        framework:{ eyebrow:'QUATTRO DIMENSIONI', h2:'Corpo · Respiro · Mente · Coscienza',
+          pillars:[{n:'01',title:'Corpo',desc:'Forme di Qigong.'},
+                   {n:'02',title:'Respiro',desc:'Pranayama.'},
+                   {n:'03',title:'Mente',desc:'Vipassana.'},
+                   {n:'04',title:'Coscienza',desc:'Pratica meditativa diretta.'}] },
+        testimonials:[
+          {name:'Anna M.',city:'Mosca',text:'"In 21 giorni ho percorso un cammino che di solito richiede anni."'},
+          {name:'Dmitry K.',city:'San Pietroburgo',text:'"Le pratiche sono diventate un rituale quotidiano."'},
+          {name:'Elena V.',city:'Kiev',text:'"Solo la comunità ne vale la pena."'}],
+      },
+    },
+    // HE — abridged
+    he: {
+      coach: { tag:'מאמן AI אישי', name:'מאמן-AI', title:'מאמן AI ארוך-טווח עם ICF, GROW, גלגל איזון ו-Co-Active — וארבעה קצבים יומיים.',
+        tagline:'לא עוזר. לא יועץ. מאמן. עוזר לחשוב בבהירות דרך מודעות — לא דרך עצות.',
         pills:['ICF','GROW','גלגל איזון','Co-Active','4 קצבים'],
-        about:{ eyebrow:'מה זה', h2:'שלוש שכבות, ארבע מתודות, ארבעה קצבים',
-          bio:'מערכת אימון אישית מלאה ל-Claude Projects, NotebookLM או Custom GPT. שלוש שכבות: (1) הקשר — מי אתה, היעדים, הערכים, הפרויקטים שלך. (2) מתודות — ICF, GROW, גלגל איזון, Co-Active, מותאמות לסוג הפנייה. (3) קצבים — ארבעה פורמטים: בוקר, ערב, שבוע, חודש, כל אחד עם תסריט וארטיפקט סופי.',
-          bio2:'עיקרון מרכזי: המאמן לא נותן תשובות. הוא עוזר לך למצוא את שלך דרך מודעות. ללא מוטיבציה מזויפת, ללא חנופה, ללא הכללות אזוטריות. ישיר, עם דאגה.' },
+        about:{ eyebrow:'מה זה', h2:'שלוש שכבות · ארבע מתודות · ארבעה קצבים',
+          bio:'מערכת אימון אישית מלאה ל-Claude Projects, NotebookLM או Custom GPT.',
+          bio2:'עיקרון מרכזי: המאמן לא נותן תשובות. הוא עוזר לך למצוא את שלך דרך מודעות.' },
         stats:[{n:'4',l:'מתודות'},{n:'4',l:'קצבים'},{n:'9',l:'מודולים'}],
         programs:[
-          {num:'01',title:'סקירת בוקר (5–7 דק׳)',desc:'מיקוד היום והצעד הקונקרטי הראשון. כיוון מהיר של הקשב לפני שהיום סוחף אותך.',tags:['יומי','מיקוד','צעד ראשון']},
-          {num:'02',title:'רטרו ערב (10 דק׳)',desc:'מה עבד, מה לא, תובנה אחת ליום. חמש דקות של רפלקציה כנה חזקות משעות של חשיבה מעורפלת.',tags:['יומי','רפלקציה','תובנה']},
-          {num:'03',title:'סקירה שבועית (30 דק׳)',desc:'סיכום השבוע ועוד תכנון השבוע הבא דרך GROW. הסשן שבלעדיו כל המערכת מתפרקת.',tags:['שבועי','GROW','תכנית']},
-          {num:'04',title:'אודיט חודשי (60–90 דק׳)',desc:'אודיט עומק של החיים. גלגל איזון ובדיקת ערכים דרך Co-Active וזיהוי דפוסים. הסשן שאפקטו מצטבר חודש אחר חודש.',tags:['חודשי','גלגל','Co-Active']},
-        ],
+          {num:'01',title:'סקירת בוקר · 5–7 דק׳',desc:'מיקוד היום והצעד הראשון.',tags:['יומי']},
+          {num:'02',title:'רטרו ערב · 10 דק׳',desc:'מה עבד, תובנה אחת ליום.',tags:['יומי']},
+          {num:'03',title:'סקירה שבועית · 30 דק׳',desc:'סיכום ותכנון דרך GROW.',tags:['שבועי']},
+          {num:'04',title:'אודיט חודשי · 60–90 דק׳',desc:'גלגל + Co-Active + דפוסים.',tags:['חודשי']}],
         framework:{ eyebrow:'מתודות', h2:'הכלי הנכון לשאלה הנכונה',
-          pillars:[
-            {n:'ICF',title:'מודעות דרך שאלות',desc:'שאלות פתוחות, האזנה פעילה, ללא עצות. כשיש לך כבר את התשובה אבל עוד לא יכול לשמוע אותה.'},
-            {n:'GROW',title:'מטרה · מציאות · אפשרויות · רצון',desc:'כשיש משימה קונקרטית שדורשת החלטה. מסע מובנה מבהירות למחויבות.'},
-            {n:'WHEEL',title:'גלגל איזון',desc:'אודיט של כל תחומי החיים. כשמשהו לא במקום במספר תחומים והתמונה הכוללת נחוצה.'},
-            {n:'CO-ACT',title:'ערכים ומשמעות',desc:'לשאלות הגדולות. זהות, ייעוד, מה באמת חשוב. העמוקה מבין הארבע.'},
-          ],
-        },
+          pillars:[{n:'ICF',title:'מודעות דרך שאלות',desc:'שאלות פתוחות, ללא עצות.'},
+                   {n:'GROW',title:'מטרה · מציאות · אפשרויות · רצון',desc:'משימה קונקרטית.'},
+                   {n:'WHEEL',title:'גלגל איזון',desc:'אודיט של כל התחומים.'},
+                   {n:'CO·A',title:'ערכים ומשמעות',desc:'זהות, ייעוד.'}] },
         testimonials:[
-          {name:'נקודת ההתחלה',city:'למשתמשים חדשים',text:'פשוט תכתוב „מה במוקד היום?" — המערכת תבחר בעצמה את המתודה הנכונה.'},
-          {name:'הרגעים הקשים ביותר',city:'כשאתה תקוע',text:'„משהו לא במקום אבל אני לא יודע מה" → מפעיל ICF לבהירות. „ריק בפנים, בשביל מה הכל" → מפעיל עבודת Co-Active עם ערכים.'},
-          {name:'תוצאה ארוכת טווח',city:'אחרי 1–3 חודשים',text:'המאמן מתחיל להבחין בדפוסים החוזרים שלך ובנושאים שאתה חוזר אליהם. הופך למראה עמוקה — לא בקסם, אלא בזכות נתונים שהצטברו על המעגלים שלך.'},
-        ],
+          {name:'נקודת ההתחלה',city:'למשתמשים חדשים',text:'פשוט תכתוב „מה במוקד היום?" — המערכת תבחר.'},
+          {name:'רגעים קשים',city:'כשאתה תקוע',text:'„משהו לא במקום" → מפעיל ICF.'},
+          {name:'תוצאה ארוכת טווח',city:'אחרי 1–3 חודשים',text:'המאמן מתחיל להבחין בדפוסים החוזרים שלך.'}],
       },
-      { id:'viktor', cat:'primary', art:'biz',
-        accent:'#C8946E', glow:'rgba(200,148,110,.14)',
-        tag:'עסקים וביצועי שיא',
-        name:'ויקטור שטרן',
-        title:'מאמן עסקי ופיק פרפורמנס (פרסונת AI)',
-        tagline:'העסק שלך הוא מראה של ההוויה שלך. שנה את הפנימי — והחיצוני יבוא. סינתזה של טוני רובינס, רובין שארמה וברנדון בורצ׳רד.',
-        pills:['אסטרטגיה עסקית','שיא ביצועים','מנהיגות','עבודת זהות'],
-        about:{ eyebrow:'מה זה', h2:'שלושה ענקים מסונתזים למערכת אחת בת-ביצוע',
-          bio:'מאמן AI לביצועי שיא, זוקק מעבודותיהם של מורי הביצועים המובילים בעולם: טוני רובינס (ארכיטקטורת שיא, פריימינג, RPM), רובין שארמה (מועדון 5 בבוקר, 4 אימפריות פנימיות), ברנדון בורצ׳רד (הרגלי ביצועים גבוהים — בהירות, אנרגיה, נחיצות, פרודוקטיביות, השפעה, אומץ).',
-          bio2:'נבנה ליזמים, מנהלים ובעלי ביצועים גבוהים שרוצים מערכת הפעלה יומית, לא נאום מוטיבציוני. מיקוד בארבע השכבות: מצב, אסטרטגיה, מערכות, זהות.' },
-        stats:[{n:'3',l:'פריימוורקס'},{n:'4',l:'שכבות פירמידה'},{n:'90',l:'יום מסע'}],
+      biz: { tag:'עסקים וביצועי שיא', name:'ויקטור שטרן', title:'מאמן AI לעסקים ופיק פרפורמנס. סינתזה של רובינס, שארמה ובורצ׳רד.',
+        tagline:'העסק שלך הוא מראה של ההוויה שלך.',
+        pills:['אסטרטגיה','מצב שיא','מנהיגות','זהות'],
+        about:{ eyebrow:'מה זה', h2:'שלושה ענקים מסונתזים',
+          bio:'מאמן AI שנזקק מטוני רובינס, רובין שארמה וברנדון בורצ׳רד.',
+          bio2:'נבנה ליזמים ומנהלים.' },
+        stats:[{n:'3',l:'פריימוורקס'},{n:'4',l:'שכבות'},{n:'90',l:'יום'}],
         programs:[
-          {num:'01',title:'פריצת דרך עסקית ב-90 יום',desc:'שינוי זהות, בהירות אסטרטגית, בניית מערכות והרגלי ביצועים יומיים. מסע הדגל למי שמוכן לפעול ברמה חדשה.',tags:['אסטרטגיה','זהות','הרגלים יומיים']},
-          {num:'02',title:'פרוטוקול עוצמת בוקר',desc:'היסוד הבלתי משתנה. פיזיולוגיה, פריימינג, טקס בהירות יומי. 30 דקות שמכריעות את 23 השעות הנותרות.',tags:['יומי','פיזיולוגיה','פריימינג']},
-          {num:'03',title:'ריטריט מצב שיא למנהלים בכירים',desc:'שלושה ימי עבודה אינטנסיבית למנהיגים בכירים. עבודת פיזיולוגיה, סשני בהירות, תכנון אסטרטגי, עבודת זהות עמוקה.',tags:['ריטריט','מנהיגות','עבודה עמוקה']},
-        ],
+          {num:'01',title:'פריצת דרך עסקית ב-90 יום',desc:'שינוי זהות, בהירות אסטרטגית.',tags:['אסטרטגיה']},
+          {num:'02',title:'פרוטוקול עוצמת בוקר',desc:'פיזיולוגיה, פריימינג.',tags:['יומי']},
+          {num:'03',title:'ריטריט מצב שיא',desc:'שלושה ימי עבודה.',tags:['ריטריט']}],
         framework:{ eyebrow:'פירמידת הביצועים', h2:'מצב ← אסטרטגיה ← מערכות ← זהות',
-          pillars:[
-            {n:'01',title:'מצב שיא',desc:'התוצאות מתחילות בפיזיולוגיה ובמצב הרגשי. פרוטוקול עוצמת בוקר וטקסי פריימינג מבטיחים שאתה פועל מהשיא — לא ממצב ברירת מחדל. „תנועה יוצרת רגש." — טוני רובינס'},
-            {n:'02',title:'בהירות אסטרטגית',desc:'לאן המיקוד הולך — האנרגיה זורמת. פריימוורק CAP (Clarity · Action · Power) מיישר פעולות יומיות עם המטרות החשובות ביותר.'},
-            {n:'03',title:'מערכות עלית',desc:'בעלי ביצועים גבוהים בונים מערכות, לא כוח רצון. פריימוורקס של האצלה ומטריצות מנוף מנהלים את העסק — כדי שהוא לא ינהל אותך.'},
-            {n:'04',title:'התפתחות זהות',desc:'„מי אני צריך להפוך להיות?" היא השאלה העסקית החשובה ביותר. עבודת זהות מבוססת על הרגלי הביצועים הגבוהים של ברנדון בורצ׳רד.'},
-          ],
-        },
+          pillars:[{n:'01',title:'מצב שיא',desc:'„תנועה יוצרת רגש." — טוני רובינס'},
+                   {n:'02',title:'בהירות אסטרטגית',desc:'פריימוורק CAP.'},
+                   {n:'03',title:'מערכות עלית',desc:'בנה מערכות.'},
+                   {n:'04',title:'התפתחות זהות',desc:'„מי אני צריך להפוך?"'}] },
         testimonials:[
-          {name:'על מצב',city:'טוני רובינס',text:'„איכות חייך היא איכות הרגשות שלך. שלוט במצב — שלוט בחיים."'},
-          {name:'על טקסים',city:'רובין שארמה',text:'„סוד ההצלחה נמצא בשגרה היומית שלך. נצח את הבוקר — נצח את היום."'},
-          {name:'על ביצועים',city:'ברנדון בורצ׳רד',text:'„בעלי ביצועים גבוהים לא רק חושבים חיובי. הם יוצרים ודאות דרך בהירות והרגלים."'},
-        ],
+          {name:'על מצב',city:'טוני רובינס',text:'„איכות חייך היא איכות הרגשות שלך."'},
+          {name:'על טקסים',city:'רובין שארמה',text:'„נצח את הבוקר — נצח את היום."'},
+          {name:'על ביצועים',city:'ברנדון בורצ׳רד',text:'„בעלי ביצועים גבוהים יוצרים ודאות."'}],
       },
-      { id:'astro', cat:'secondary', art:'astro',
-        accent:'#7E8EC8', glow:'rgba(126,142,200,.14)',
-        tag:'מפה אסטרולוגית · קריאת AI',
-        name:'אסטרולוג-AI',
-        title:'ניתוח עומק של מפה נטאלית דרך AI — כלי רפלקציה מובנה.',
-        tagline:'השתמש כמראה להתבוננות עצמית, לא כניבוי גורל. הערך הגדול הוא במחשבות שעולות בך בזמן הקריאה.',
-        pills:['מפה נטאלית','10 סעיפים','ניתוח עומק','אימות צולב בין AI'],
-        about:{ eyebrow:'מה זה', h2:'ניתוח מפה נטאלית מובנה ב-10 סעיפים',
-          bio:'פרומפט מכוונן בדיוק שהופך את DeepSeek, ChatGPT, Claude או Gemini לאסטרולוג-אנליסט אישי. העלה נתוני מפה נטאלית מפורטים (כוכבים, בתים, היבטים, צמתים) כ-PDF, העתק את הפרומפט — וקבל קריאה ב-10 סעיפים.',
-          bio2:'עמדה: זה כלי רפלקציה, לא ניבוי. קרא. שים לב למה שמתחבר. למה שמרגיש מתוח. שים לב למחשבות שעולות בך — הן הערך האמיתי.' },
-        stats:[{n:'10',l:'סעיפי ניתוח'},{n:'3+',l:'מודלי AI'},{n:'5',l:'דקות לקריאה'}],
+      astro: { tag:'מפה נטאלית · אנליסט AI', name:'אסטרולוג-AI', title:'אנליסט AI מקצועי לאסטרולוגיה — אינטראקטיבי, רב-לשוני.',
+        tagline:'השתמש כמראה להתבוננות עצמית, לא לניבוי גורל.',
+        pills:['מפה נטאלית','טרנזיטים','סינסטריה','11 מצבים'],
+        about:{ eyebrow:'מה זה', h2:'מערבי · פסיכולוגי · קארמי · ארכיטיפי · אינטגרלי',
+          bio:'פרומפט-מערכת שהופך AI לאסטרולוג-אנליסט מקצועי.',
+          bio2:'עמדה: כלי רפלקציה, לא ניבוי.' },
+        stats:[{n:'11',l:'מצבים'},{n:'3',l:'רמות'},{n:'5+',l:'דגמי AI'}],
         programs:[
-          {num:'01',title:'קריאה עמוקה של המפה',desc:'ניתוח AI מלא ב-10 סעיפים: ייעוד, כשרונות, מסלול רוחני, פוטנציאל פיננסי, מלאכת החיים, אזורי צמיחה, אזור הגאוניות, היקף ההשפעה, סינתזה.',tags:['10 סעיפים','קלט PDF','חינם ב-DeepSeek']},
-          {num:'02',title:'קריאה צולבת בין AI',desc:'הרצת אותו פרומפט דרך 2–3 מודלי AI, ואז שלישי משווה. איפה הם מסכימים — סיגנל. איפה הם נחלקים — הטריטוריה הכי מעניינת.',tags:['ריבוי AI','השוואה','סיגנל עמוק']},
-          {num:'03',title:'ניתוח נושא ממוקד',desc:'מיקוד הניתוח על אזור אחד: קריירה, כסף, יחסים או אזור הגאוניות. מועיל כשאתה כבר יודע מה אתה מחפש.',tags:['ממוקד','נושא אחד','איטרציה מהירה']},
-        ],
+          {num:'01',title:'קריאת מפה נטאלית',desc:'גרעין אישיות, ייעוד, כישרונות.',tags:['בסיס']},
+          {num:'02',title:'שיבת שמש / טרנזיטים',desc:'נושאי שנה או הפעלות נוכחיות.',tags:['שנתי']},
+          {num:'03',title:'סינסטריה / תאימות',desc:'השוואת שתי מפות.',tags:['קשרים']},
+          {num:'04',title:'קריירה · ייעוד',desc:'כיוון מלאכת החיים.',tags:['קריירה']}],
         testimonials:[
-          {name:'על השימוש',city:'הערת המחבר',text:'„השתמש כמראה, לא כנתונים על הגורל שלך. שים לב איפה זה מתחבר, איפה זה מרגיש מתוח. השאלות שזה מעלה בך הן החומר האמיתי."'},
-          {name:'מסלול חינמי',city:'DeepSeek + DeepThink',text:'הקריאה המלאה עובדת חינם ב-DeepSeek עם DeepThink מופעל. גם ב-ChatGPT, Claude ו-Gemini.'},
-          {name:'מהלך חזק',city:'אימות בין AI',text:'הרץ את אותו פרומפט ב-2–3 AI, ואז בקש משלישי להשוות. ההבדלים מראים איפה AI שונים מפרשים שונה — וזה נותן עומק נוסף.'},
-        ],
+          {name:'על השימוש',city:'הערת המחבר',text:'„השתמש כמראה, לא כנתונים על הגורל."'},
+          {name:'מסלול חינמי',city:'DeepSeek + DeepThink',text:'עובד חינם ב-DeepSeek.'},
+          {name:'מהלך חזק',city:'אימות בין AI',text:'הרץ ב-2–3 AI ובקש מהשלישי להשוות.'}],
       },
-      { id:'numer', cat:'secondary', art:'numer',
-        accent:'#6EA080', glow:'rgba(110,160,128,.14)',
-        tag:'ריבוע פיתגורס · קריאת AI',
-        name:'נומרולוג-AI',
-        title:'ריבוע פיתגורס (פסיכומטריקס) דרך AI, עם בדיקה עצמית משולשת של החישוב.',
-        tagline:'רק תאריך לידה. חמישה שלבים מובנים. כלי הנומרולוגיה הכי אמין מבוסס-AI — נבנה סביב בדיקה עצמית משולשת של החשבון.',
-        pills:['ריבוע פיתגורס','5 שלבי ניתוח','מתמטיקה מאומתת 3×','רק תאריך לידה'],
-        about:{ eyebrow:'מה זה', h2:'ריבוע פיתגורס קלאסי, מבוצע על ידי AI — עם בטיחות מתמטית',
-          bio:'הופך את DeepSeek, ChatGPT, Claude או Gemini לאנליסט-נומרולוג בשיטת ריבוע פיתגורס הקלאסית (אסכולת א.פ. אלכסנדרוב הרוסית). ניתוח בחמישה שלבים: פירוש מטריצה מפורט, ייעוד, כסף בעסקים ובחיים, חמישה תחומי חיים מרכזיים, וחמש השערות למלאכת חיים.',
-          bio2:'ייחוד: בדיקה עצמית משולשת של החשבון. מודלי AI נוטים לטעויות חשבוניות בספירת ספרות וחלוקתן לתאי המטריצה — הפרומפט מאלץ שלושה חישובים עצמאיים ובדיקה צולבת סופית. אמת את תוצאת המטריצה מול מחשבון ריבוע פיתגורס מקוון עצמאי לפני קריאת הניתוח.' },
-        stats:[{n:'5',l:'שלבי ניתוח'},{n:'3×',l:'אימות מתמטי'},{n:'1',l:'נתון נדרש'}],
+      numer: { tag:'ריבוע פיתגורס · NUMERA', name:'נומרולוג-AI', title:'NUMERA — אנליסט AI אינטראקטיבי לנומרולוגיה, ריבוע פיתגורס עם בדיקה משולשת.',
+        tagline:'כל מסקנה מוסברת דרך מספרים. ללא מיסטיקה.',
+        pills:['ריבוע פיתגורס','בדיקה משולשת','10 סוגי ניתוח','מחשבון למטה'],
+        about:{ eyebrow:'מה זה', h2:'מודל אישיות מובנה — לא אורקל',
+          bio:'NUMERA הופך את DeepSeek, ChatGPT, Claude או Gemini לאנליסט נומרולוג בשיטת ריבוע פיתגורס.',
+          bio2:'ייחוד: בדיקה משולשת של החשבון. שלושה חישובים עצמאיים.' },
+        stats:[{n:'10',l:'סוגים'},{n:'3×',l:'אימות'},{n:'1',l:'נתון נדרש'}],
         programs:[
-          {num:'01',title:'קריאת אישיות מלאה',desc:'כל חמשת השלבים: פירוט מטריצה על כל 9 התאים, ייעוד, כסף בעסקים מול חיים, חמישה תחומי חיים, חמש השערות למלאכת חיים.',tags:['קריאה מלאה','5 שלבים','30 דק׳']},
-          {num:'02',title:'5 השערות למלאכת חיים',desc:'פלט ממוקד: רק חמש ההשערות לכיוון החיים שלך, כל אחת מבוססת על מספרים ספציפיים מהמטריצה שלך.',tags:['מיקוד קריירה','5 כיוונים','מבוסס מטריצה']},
-          {num:'03',title:'קריאה צולבת בין AI',desc:'הרצת אותו חישוב דרך 2–3 מודלי AI, אז שלישי משווה. תופס שגיאות חישוב ומעלה הבדלי פרשנות.',tags:['ריבוי AI','בטיחות מתמטית','השוואה']},
-        ],
+          {num:'01',title:'פרופיל אישיות בסיסי',desc:'מבנה האופי, סגנון החשיבה.',tags:['בסיס']},
+          {num:'02',title:'כסף · מודל פיננסי',desc:'מניעים נומריים של התנהגות הכנסה.',tags:['כסף']},
+          {num:'03',title:'יחסים',desc:'דפוסי חיבור.',tags:['יחסים']},
+          {num:'04',title:'דפוסים קארמיים · מחזורים',desc:'תסריטים חוזרים. מצב עומק בלבד.',tags:['קארמה']}],
+        framework:{ eyebrow:'זרימה אינטראקטיבית', h2:'שפה → סוג → עומק → חישוב → ניתוח',
+          pillars:[{n:'01',title:'צעד אחר צעד',desc:'שאלה אחת בכל הודעה.'},
+                   {n:'02',title:'בדיקה משולשת',desc:'חישוב שלוש פעמים באופן עצמאי.'},
+                   {n:'03',title:'עומק מתקדם',desc:'קצר, סטנדרטי או עמוק.'},
+                   {n:'04',title:'ללא מיסטיקה',desc:'כל מסקנה מתחקה למספרים.'}] },
         testimonials:[
-          {name:'בדיקת בטיחות מרכזית',city:'תמיד תעשה',text:'אחרי שה-AI מציג את חישוב המטריצה, אמת מול מחשבון פיתגורס מקוון עצמאי. המספרים תואמים — קרא את הניתוח. לא — חשב מחדש או השתמש ב-AI אחר.'},
-          {name:'למה בדיקה משולשת',city:'מציאות מתמטית',text:'מודלי AI עושים באופן שגרתי טעויות חשבוניות בספירת ספרות ובמיקומן בתאי מטריצה. הבדיקה המשולשת היא ההבדל בין קריאה שימושית לקריאה מטעה.'},
-          {name:'איך להשתמש',city:'רפלקציה, לא גורל',text:'קרא את הניתוח. שים לב למה שמתחבר. למה שמרגיש מתוח. המחשבות שעולות בך הן החומר האמיתי — לא המטריצה עצמה.'},
-        ],
+          {name:'בדיקת בטיחות',city:'תמיד תעשה',text:'אמת את החישוב מול מחשבון מקוון עצמאי.'},
+          {name:'למה משולשת',city:'מציאות מתמטית',text:'מודלי AI עושים טעויות חשבוניות שגרתיות.'},
+          {name:'איך להשתמש',city:'רפלקציה, לא גורל',text:'המחשבות שעולות בקריאה הן החומר האמיתי.'}],
       },
-    ],
+      svarga: { tag:'פרקטיקה אינטגרלית · מערכת Svarga', name:'מערכת Svarga', title:'התפתחות פנימית אינטגרלית — גוף, נשימה, מוח, מודעות שזורים לפרקטיקה חיה אחת.',
+        tagline:'איפה שמסורות מזרחיות עתיקות פוגשות פסיכולוגיה מודרנית ועבודה סומטית.',
+        pills:['מדיטציה','נשימה','צ׳יגונג','אנרגיה','פרקטיקה יומית','ריטריטים'],
+        about:{ eyebrow:'מה זה', h2:'עשרים שנות פרקטיקה אינטגרלית קודיפיות במערכת אחת',
+          bio:'מערכת Svarga היא סינתזה אינטגרלית שנוצרה על ידי משה אום במשך 20+ שנים בשלוש יבשות.',
+          bio2:'נבנתה לחיים מודרניים — לא למערה. פרקטיקות קצרות ומעשיות.' },
+        stats:[{n:'20+',l:'שנים'},{n:'3,000+',l:'משתתפים'},{n:'30+',l:'מדינות'}],
+        programs:[
+          {num:'01',title:'מרתון טרנספורמציה של 21 ימים',desc:'פרקטיקות אינטגרליות יומיות.',tags:['21 ימים']},
+          {num:'02',title:'סדרת ריטריטים',desc:'התעמקות רב-יומית במקומות קדושים.',tags:['פנים']},
+          {num:'03',title:'מנטורינג פרטי',desc:'ליווי אישי 1:1.',tags:['1:1']}],
+        framework:{ eyebrow:'ארבעה ממדים', h2:'גוף · נשימה · מוח · תודעה',
+          pillars:[{n:'01',title:'גוף',desc:'צורות צ׳יגונג, מודעות סומטית.'},
+                   {n:'02',title:'נשימה',desc:'פראניאמה.'},
+                   {n:'03',title:'מוח',desc:'ויפסנה, אינטגרציה עם פסיכולוגיה מודרנית.'},
+                   {n:'04',title:'תודעה',desc:'תרגול מדיטטיבי ישיר.'}] },
+        testimonials:[
+          {name:'אנה מ.',city:'מוסקבה',text:'„ב-21 יום עברתי מסע שלרוב לוקח שנים."'},
+          {name:'דמיטרי ק.',city:'סנט פטרבורג',text:'„פרקטיקות הנשימה והמדיטציה הפכו לטקס יומי."'},
+          {name:'אלנה ו.',city:'קייב',text:'„קהילה לבדה שווה את זה."'}],
+      },
+    },
   };
 
-  /* ─── Icons ─── */
+  // Build SPECS array from COMMON + CONTENT
+  const SPECS = {};
+  for (const lang of ['en','ru','es','it','he']) {
+    SPECS[lang] = ['coach','biz','astro','numer','svarga'].map(id => ({ ...COMMON[id], ...CONTENT[lang][id] }));
+  }
+
+  // ─── ICONS ───
   const IcoArrowR = ({s=14}) => <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>;
   const IcoArrowL = ({s=14}) => <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>;
   const IcoSun = () => <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>;
@@ -873,7 +1078,7 @@
   const IcoWA = ({s=26}) => <svg width={s} height={s} viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>;
   const IcoTG = ({s=18}) => <svg width={s} height={s} viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.94z"/></svg>;
 
-  /* ─── Hook ─── */
+  // ─── REVEAL HOOK ───
   function useReveal(dep) {
     React.useEffect(() => {
       const obs = new IntersectionObserver(
@@ -887,7 +1092,106 @@
     }, [dep]);
   }
 
-  /* ─── Nav ─── */
+  // ─── PYTHAGORAS CALCULATOR ───
+  function calcPythagoras(dateStr) {
+    // Parse DD.MM.YYYY
+    const m = dateStr.trim().match(/^(\d{1,2})[.\-/](\d{1,2})[.\-/](\d{4})$/);
+    if (!m) return null;
+    const day = +m[1], month = +m[2], year = +m[3];
+    if (day < 1 || day > 31 || month < 1 || month > 12 || year < 1900 || year > 2100) return null;
+    const d = new Date(year, month - 1, day);
+    if (d.getDate() !== day || d.getMonth() !== month - 1) return null;
+
+    const digits = (m[1].padStart(2,'0') + m[2].padStart(2,'0') + m[3]).split('').map(Number);
+    const sumDigits = n => String(n).split('').map(Number).reduce((a,b)=>a+b,0);
+
+    const working = digits.reduce((a,b)=>a+b, 0);
+    const second  = sumDigits(working);
+    const firstDayDigit = +m[1].padStart(2,'0')[0]; // first digit of day
+    const third   = day - 2 * firstDayDigit;
+    const fourth  = sumDigits(Math.abs(third));
+
+    // Collect all non-zero digits for matrix
+    const allDigits = [
+      ...digits,
+      ...String(working).split('').map(Number),
+      ...String(second).split('').map(Number),
+      ...String(Math.abs(third)).split('').map(Number),
+      ...String(fourth).split('').map(Number),
+    ].filter(n => n > 0);
+
+    const counts = [0,1,2,3,4,5,6,7,8,9].map(n => allDigits.filter(d => d === n).length);
+    const matrix = [1,2,3,4,5,6,7,8,9].map(n => counts[n]);
+
+    return { working, second, third, fourth, matrix };
+  }
+
+  function PythagorasWidget({ lang, accent }) {
+    const ui = UI[lang].pyth;
+    const [val, setVal] = React.useState('');
+    const [res, setRes] = React.useState(null);
+    const [err, setErr] = React.useState('');
+
+    const handle = () => {
+      const r = calcPythagoras(val);
+      if (!r) { setErr(ui.err); setRes(null); }
+      else { setErr(''); setRes(r); }
+    };
+
+    // Order for visual 3×3 grid: cols=1,4,7 / 2,5,8 / 3,6,9 (per A.F. Alexandrov layout)
+    const gridOrder = [1,4,7,2,5,8,3,6,9];
+
+    return (
+      <div className="pyth-widget">
+        <div style={{marginBottom:18}}>
+          <div className="eyebrow" style={{color:accent,marginBottom:8}}>{UI[lang].tryit}</div>
+          <h3 style={{fontFamily:'var(--font-d)',fontSize:'clamp(20px,2.5vw,28px)',fontWeight:400,color:'var(--text-1)',marginBottom:6,letterSpacing:'-.01em'}}>{ui.title}</h3>
+          <p style={{fontSize:'.85rem',color:'var(--text-2)',lineHeight:1.65}}>{ui.sub}</p>
+        </div>
+        <div className="pyth-input">
+          <input value={val} onChange={e=>setVal(e.target.value)} placeholder={ui.input} onKeyDown={e=>{if(e.key==='Enter')handle();}}/>
+          <button className="btn-p" onClick={handle} style={{padding:'13px 28px'}}>{ui.btn}</button>
+        </div>
+        {err && <div className="pyth-err">{err}</div>}
+        {res && (
+          <div style={{display:'grid',gridTemplateColumns:'auto 1fr',gap:'clamp(24px,4vw,40px)',marginTop:20,alignItems:'start'}}>
+            <div>
+              <div className="pyth-grid">
+                {gridOrder.map((n,i) => {
+                  const count = res.matrix[n-1];
+                  const cls = `pyth-cell${count>0?' has':''}${count>=3?' strong':''}`;
+                  return (
+                    <div key={n} className={cls} title={UI[lang].pyth.meanings[n-1]}>
+                      <span className="pyth-cell-num">{n}</span>
+                      <span className="pyth-cell-val">{count>0 ? String(n).repeat(count) : '–'}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            <div>
+              <div className="pyth-numbers">
+                <span><strong>{res.working}</strong> {ui.workNum}</span>
+                <span><strong>{res.second}</strong> {ui.secNum}</span>
+                <span><strong>{res.third}</strong> {ui.thrNum}</span>
+                <span><strong>{res.fourth}</strong> {ui.forNum}</span>
+              </div>
+              <div className="pyth-meaning">
+                {res.matrix.map((c,i) => c>0 ? (
+                  <div key={i} style={{marginBottom:6}}>
+                    <strong style={{color:accent,fontFamily:'var(--font-d)',fontSize:'.95rem'}}>{i+1}: </strong>
+                    <span style={{color:'var(--text-2)'}}>{c}× — {ui.meanings[i]}</span>
+                  </div>
+                ) : null)}
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  // ─── NAV ───
   function Nav({ lang, setLang, theme, toggleTheme, isPortal, onBack }) {
     const ui = UI[lang];
     const [scrolled, setScrolled] = React.useState(false);
@@ -907,7 +1211,7 @@
       return () => document.removeEventListener('click', close);
     }, [langOpen]);
 
-    const LANGS = [{c:'en',l:'English'},{c:'ru',l:'Русский'},{c:'de',l:'Deutsch'},{c:'he',l:'עברית'}];
+    const LANGS = [{c:'en',l:'English'},{c:'ru',l:'Русский'},{c:'es',l:'Español'},{c:'it',l:'Italiano'},{c:'he',l:'עברית'}];
 
     return (
       <>
@@ -936,7 +1240,7 @@
               {theme==='dark'?ui.themeL:ui.themeD}
             </button>
             {!isPortal && (
-              <button className="btn-g" style={{padding:'8px 18px',fontSize:'.69rem'}} onClick={onBack}>
+              <button className="btn-g" style={{padding:'8px 18px',fontSize:'.67rem'}} onClick={onBack}>
                 <IcoArrowL s={12}/> {ui.back}
               </button>
             )}
@@ -977,11 +1281,11 @@
     );
   }
 
-  /* ─── Card ─── */
+  // ─── CARD ───
   function Card({ s, ui, onSelect, idx }) {
     const Art = ART[s.art];
     return (
-      <div className={`s-card rv d${idx+1}`} style={{'--card-accent':s.accent}} onClick={()=>onSelect(s.id)}>
+      <div className={`s-card rv d${(idx%4)+1}`} style={{'--card-accent':s.accent}} onClick={()=>onSelect(s.id)}>
         <div className="s-card-art"><Art c={s.accent}/></div>
         <div className="s-card-tag">{s.tag}</div>
         <div className="s-card-name">{s.name}</div>
@@ -993,27 +1297,28 @@
     );
   }
 
-  /* ─── Portal ─── */
+  // ─── PORTAL ───
   function Portal({ lang, onSelect }) {
-    const ui   = UI[lang];
+    const ui    = UI[lang];
     const specs = SPECS[lang];
-    const primary = specs.filter(s=>s.cat==='primary');
+    const primary   = specs.filter(s=>s.cat==='primary');
     const secondary = specs.filter(s=>s.cat==='secondary');
+    const integral  = specs.filter(s=>s.cat==='integral');
     useReveal(lang);
 
     return (
       <>
         <section className="portal-hero">
           <div className="portal-hero-content">
-            <div className="eyebrow hl1" style={{marginBottom:20}}>{ui.portal.eyebrow}</div>
-            <h1 className="hl2" style={{fontFamily:'var(--font-d)',fontWeight:400,fontSize:'clamp(40px,6.5vw,82px)',lineHeight:1.08,color:'var(--text-1)',letterSpacing:'-.02em',marginBottom:22}}>
+            <div className="hero-tag-pill hl1"><span className="hero-tag-dot"></span>{ui.portal.tag}</div>
+            <h1 className="hl2" style={{fontFamily:'var(--font-d)',fontWeight:400,fontSize:'clamp(40px,6.6vw,84px)',lineHeight:1.06,color:'var(--text-1)',letterSpacing:'-.02em',marginBottom:22}}>
               {ui.portal.h1a}<br/>
               <em style={{color:'var(--gold)',fontStyle:'italic'}}>{ui.portal.h1b}</em>
             </h1>
-            <p className="hl3" style={{fontFamily:'var(--font-d)',fontSize:'clamp(16px,2vw,20px)',color:'var(--text-2)',lineHeight:1.7,maxWidth:620,margin:'0 auto 30px'}}>
+            <p className="hl3" style={{fontFamily:'var(--font-d)',fontSize:'clamp(16px,2vw,20px)',color:'var(--text-2)',lineHeight:1.7,maxWidth:640,margin:'0 auto 30px'}}>
               {ui.portal.sub}
             </p>
-            <div className="hl4" style={{display:'flex',alignItems:'center',justifyContent:'center',gap:10,color:'var(--text-3)',fontSize:'.66rem',letterSpacing:'.18em',textTransform:'uppercase'}}>
+            <div className="hl4" style={{display:'flex',alignItems:'center',justifyContent:'center',gap:10,color:'var(--text-3)',fontSize:'.64rem',letterSpacing:'.18em',textTransform:'uppercase'}}>
               <span style={{width:20,height:1,background:'var(--border-md)'}}/>
               {ui.portal.hint}
               <span style={{width:20,height:1,background:'var(--border-md)'}}/>
@@ -1022,7 +1327,6 @@
         </section>
 
         <div className="cat-wrap">
-          {/* PRIMARY: Coaching & Psychology */}
           <section className="cat-section">
             <div className="cat-header rv">
               <span className="cat-num">I</span>
@@ -1035,16 +1339,27 @@
             </div>
           </section>
 
-          {/* SECONDARY: Esoteric */}
           <section className="cat-section">
             <div className="cat-header rv">
               <span className="cat-num">II</span>
               <span className="cat-title">{ui.cat.secondary}</span>
               <span className="cat-line"/>
             </div>
-            <p className="cat-sub rv d1">{ui.cat.secondary_sub || ui.cat.secondarySub}</p>
+            <p className="cat-sub rv d1">{ui.cat.secondarySub}</p>
             <div className="cards-grid">
               {secondary.map((s,i)=><Card key={s.id} s={s} ui={ui} onSelect={onSelect} idx={i}/>)}
+            </div>
+          </section>
+
+          <section className="cat-section">
+            <div className="cat-header rv">
+              <span className="cat-num">III</span>
+              <span className="cat-title">{ui.cat.integral}</span>
+              <span className="cat-line"/>
+            </div>
+            <p className="cat-sub rv d1">{ui.cat.integralSub}</p>
+            <div className="cards-grid single">
+              {integral.map((s,i)=><Card key={s.id} s={s} ui={ui} onSelect={onSelect} idx={i}/>)}
             </div>
           </section>
         </div>
@@ -1052,7 +1367,7 @@
     );
   }
 
-  /* ─── Specialist Detail ─── */
+  // ─── DETAIL ───
   function SpecDetail({ lang, specId, onBack }) {
     const ui = UI[lang];
     const s  = SPECS[lang].find(x=>x.id===specId);
@@ -1064,12 +1379,11 @@
       <div>
         <button className="sp-back" onClick={onBack}><IcoArrowL s={12}/> {ui.back}</button>
 
-        {/* Hero */}
         <section className="sp-hero" style={{'--hero-glow':s.glow}}>
-          <div className="sp-hero-art mob-only-hide"><Art size={260} c={s.accent}/></div>
+          <div className="sp-hero-art mob-only-hide"><Art size={280} c={s.accent}/></div>
           <div className="sp-hero-content">
             <div className="eyebrow hl1" style={{color:s.accent,marginBottom:16}}>{s.tag} · LifeForge AI</div>
-            <h1 className="hl2" style={{fontFamily:'var(--font-d)',fontWeight:400,fontSize:'clamp(38px,6vw,76px)',lineHeight:1.07,color:'var(--text-1)',letterSpacing:'-.02em',marginBottom:14}}>
+            <h1 className="hl2" style={{fontFamily:'var(--font-d)',fontWeight:400,fontSize:'clamp(38px,6vw,78px)',lineHeight:1.06,color:'var(--text-1)',letterSpacing:'-.02em',marginBottom:14}}>
               {s.name}
             </h1>
             <p className="hl3" style={{fontFamily:'var(--font-d)',fontSize:'clamp(15px,1.6vw,18px)',color:'var(--text-2)',lineHeight:1.55,maxWidth:640,marginBottom:14}}>
@@ -1086,7 +1400,6 @@
           </div>
         </section>
 
-        {/* About */}
         <section className="sp2" style={{background:'var(--bg-alt)'}}>
           <div className="mw">
             <div className="detail-grid">
@@ -1099,10 +1412,10 @@
                 <p className="rv d3" style={{fontSize:'.86rem',color:'var(--text-3)',lineHeight:1.78,fontWeight:300,fontStyle:'italic'}}>{s.about.bio2}</p>
               </div>
               <div className="rv d2">
-                <div style={{borderRadius:8,overflow:'hidden',border:`1px solid ${s.accent}38`,aspectRatio:'4/3',position:'relative',marginBottom:24,
+                <div style={{borderRadius:12,overflow:'hidden',border:`1px solid ${s.accent}38`,aspectRatio:'4/3',position:'relative',marginBottom:24,
                   background:`radial-gradient(ellipse at 30% 30%, ${s.accent}25, var(--surface) 75%)`}}>
                   <div style={{position:'absolute',inset:0,display:'flex',alignItems:'center',justifyContent:'center'}}>
-                    <Art size={180} c={s.accent}/>
+                    <Art size={200} c={s.accent}/>
                   </div>
                 </div>
                 <div className="stat-row">
@@ -1118,17 +1431,16 @@
           </div>
         </section>
 
-        {/* Framework (if exists) */}
         {s.framework && (
           <section className="sp2">
             <div className="mw">
               <div style={{textAlign:'center',marginBottom:44}}>
                 <div className="eyebrow rv" style={{color:s.accent,marginBottom:14}}>{s.framework.eyebrow}</div>
-                <h2 className="rv d1" style={{fontFamily:'var(--font-d)',fontWeight:400,fontSize:'clamp(24px,3.4vw,38px)',color:'var(--text-1)',letterSpacing:'-.01em'}}>{s.framework.h2}</h2>
+                <h2 className="rv d1" style={{fontFamily:'var(--font-d)',fontWeight:400,fontSize:'clamp(24px,3.4vw,40px)',color:'var(--text-1)',letterSpacing:'-.01em'}}>{s.framework.h2}</h2>
               </div>
-              <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(220px,1fr))',gap:18}}>
+              <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(220px,1fr))',gap:16}}>
                 {s.framework.pillars.map((p,i)=>(
-                  <div key={p.n+i} className={`prog-card rv d${i+1}`}>
+                  <div key={p.n+i} className={`glass-card rv d${i+1}`}>
                     <div style={{fontSize:'.58rem',letterSpacing:'.16em',textTransform:'uppercase',color:s.accent,marginBottom:12}}>{p.n}</div>
                     <div style={{fontFamily:'var(--font-d)',fontSize:'1.18rem',fontWeight:400,color:'var(--text-1)',marginBottom:12}}>{p.title}</div>
                     <div style={{fontSize:'.83rem',color:'var(--text-2)',lineHeight:1.78,fontWeight:300}}>{p.desc}</div>
@@ -1139,13 +1451,23 @@
           </section>
         )}
 
-        {/* Programs */}
-        <section className="sp2" style={{background:s.framework?'var(--bg-alt)':'var(--bg)'}}>
+        {/* Live Pythagoras Widget — only for numerologist */}
+        {s.id === 'numer' && (
+          <section className="sp2" style={{background:s.framework?'var(--bg-alt)':'var(--bg)'}}>
+            <div className="mw" style={{maxWidth:860}}>
+              <div className="rv">
+                <PythagorasWidget lang={lang} accent={s.accent}/>
+              </div>
+            </div>
+          </section>
+        )}
+
+        <section className="sp2" style={{background:(s.framework && s.id !== 'numer') ? 'var(--bg-alt)' : 'var(--bg)'}}>
           <div className="mw">
             <div className="eyebrow rv" style={{color:s.accent,marginBottom:32}}>{ui.programs}</div>
-            <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))',gap:18}}>
+            <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))',gap:16}}>
               {s.programs.map((p,i)=>(
-                <div key={p.num} className={`prog-card rv d${i+1}`}>
+                <div key={p.num} className={`glass-card rv d${i+1}`}>
                   <div className="prog-num" style={{color:s.accent}}>{p.num}</div>
                   <div style={{fontFamily:'var(--font-d)',fontSize:'1.18rem',fontWeight:400,color:'var(--text-1)',marginBottom:10,lineHeight:1.3}}>{p.title}</div>
                   <div style={{fontSize:'.84rem',color:'var(--text-2)',lineHeight:1.78,fontWeight:300,marginBottom:16}}>{p.desc}</div>
@@ -1160,8 +1482,7 @@
           </div>
         </section>
 
-        {/* Testimonials / Quotes */}
-        <section className="sp2" style={{background:s.framework?'var(--bg)':'var(--bg-alt)'}}>
+        <section className="sp2" style={{background:'var(--bg-alt)'}}>
           <div className="mw">
             <div className="eyebrow rv" style={{color:s.accent,marginBottom:32}}>{ui.testimonials}</div>
             <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))',gap:16}}>
@@ -1178,10 +1499,9 @@
           </div>
         </section>
 
-        {/* CTA */}
         <section className="cta-strip">
           <div style={{position:'relative',zIndex:1}}>
-            <h2 className="rv" style={{fontFamily:'var(--font-d)',fontWeight:400,fontSize:'clamp(28px,5vw,52px)',color:'var(--text-1)',lineHeight:1.1,marginBottom:14,letterSpacing:'-.01em'}}>
+            <h2 className="rv" style={{fontFamily:'var(--font-d)',fontWeight:400,fontSize:'clamp(28px,5vw,54px)',color:'var(--text-1)',lineHeight:1.1,marginBottom:14,letterSpacing:'-.01em'}}>
               {ui.cta.title}
             </h2>
             <p className="rv d1" style={{fontSize:'.88rem',color:'var(--text-2)',marginBottom:32,lineHeight:1.7,maxWidth:460,margin:'0 auto 32px'}}>
@@ -1197,7 +1517,6 @@
     );
   }
 
-  /* ─── Footer ─── */
   function Footer({ lang }) {
     const t = UI[lang].footer;
     return (
@@ -1208,16 +1527,12 @@
     );
   }
 
-  /* ─── App ─── */
   function App() {
     const [lang,  setLang]  = React.useState('en');
     const [theme, setTheme] = React.useState('dark');
     const [view,  setView]  = React.useState('portal');
 
-    React.useEffect(() => {
-      document.documentElement.setAttribute('data-theme', theme);
-    }, [theme]);
-
+    React.useEffect(() => { document.documentElement.setAttribute('data-theme', theme); }, [theme]);
     React.useEffect(() => {
       document.documentElement.setAttribute('lang', lang);
       document.documentElement.setAttribute('dir', lang === 'he' ? 'rtl' : 'ltr');
