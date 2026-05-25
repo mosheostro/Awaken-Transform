@@ -3,1561 +3,999 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="LifeForge AI — Premium AI-powered personal development ecosystem. Coaching, Business, Astrology, Numerology, Svarga System.">
-  <title>LifeForge AI · Your AI-powered ecosystem for self-development</title>
+  <meta name="description" content="LifeForge AI — Premium AI-powered personal development ecosystem.">
+  <title>LifeForge AI · Human Potential System</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23E8C880'/><stop offset='1' stop-color='%239A7E4A'/></linearGradient></defs><circle cx='16' cy='16' r='14' fill='url(%23g)'/><text x='16' y='22' text-anchor='middle' font-family='Georgia' font-size='17' fill='%230D0B08' font-weight='600'>L</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Frank+Ruhl+Libre:wght@300;400;500;700&family=Heebo:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
-    :root {
-      --bg:        #0A0907;
-      --bg-alt:    #110E0A;
-      --surface:   #18140E;
-      --surface-2: #211C14;
-      --surface-3: rgba(232,221,196,.045);
-      --text-1:    #F0EBE0;
-      --text-2:    #AAA49A;
-      --text-3:    #6B6660;
-      --border:    rgba(240,235,224,.08);
-      --border-md: rgba(240,235,224,.16);
-      --gold:      #D4B27A;
-      --gold-h:    #E8C68E;
-      --gold-dim:  #9A7E4A;
-      --gold-f:    rgba(212,178,122,.10);
-      --shadow:    rgba(0,0,0,.70);
-      --shadow-2:  rgba(0,0,0,.40);
-      --nav-bg:    rgba(10,9,7,.86);
-      --glass-bg:  rgba(24,20,14,.55);
-      --glass-br:  rgba(240,235,224,.10);
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#0A0907;--bg-alt:#110E0A;--surface:#18140E;--surface-2:#211C14;
+      --text-1:#F0EBE0;--text-2:#AAA49A;--text-3:#6B6660;
+      --border:rgba(240,235,224,.08);--border-md:rgba(240,235,224,.16);
+      --gold:#D4B27A;--gold-h:#E8C68E;--gold-dim:#9A7E4A;--gold-f:rgba(212,178,122,.10);
+      --indigo:#7E8EC8;--sage:#6EA080;--purple:#B07ECC;--amber:#C8946E;--platinum:#C8D4E0;
+      --shadow:rgba(0,0,0,.70);--nav-bg:rgba(10,9,7,.88);
+      --glass-bg:rgba(24,20,14,.52);--glass-br:rgba(240,235,224,.10);
       --font-d:'Cormorant Garamond',Georgia,serif;
       --font-b:'DM Sans',system-ui,sans-serif;
-      --r:8px;
+      --r:12px;--r2:20px;
     }
-    [data-theme="light"] {
-      --bg:        #FAF7EF;
-      --bg-alt:    #F2EFE5;
-      --surface:   #FFFFFF;
-      --surface-2: #EDE9DE;
-      --surface-3: rgba(24,20,14,.03);
-      --text-1:    #1A160E;
-      --text-2:    #56524C;
-      --text-3:    #989188;
-      --border:    rgba(24,20,14,.08);
-      --border-md: rgba(24,20,14,.16);
-      --gold:      #8B6520;
-      --gold-h:    #6E4F12;
-      --gold-dim:  #B08030;
-      --gold-f:    rgba(139,101,32,.08);
-      --shadow:    rgba(24,20,14,.10);
-      --shadow-2:  rgba(24,20,14,.06);
-      --nav-bg:    rgba(250,247,239,.92);
-      --glass-bg:  rgba(255,255,255,.55);
-      --glass-br:  rgba(24,20,14,.10);
+    [data-theme="light"]{
+      --bg:#FAF7EF;--bg-alt:#F2EFE5;--surface:#FFFFFF;--surface-2:#EDE9DE;
+      --text-1:#1A160E;--text-2:#56524C;--text-3:#989188;
+      --border:rgba(24,20,14,.08);--border-md:rgba(24,20,14,.16);
+      --gold:#8B6520;--gold-h:#6E4F12;--gold-dim:#B08030;--gold-f:rgba(139,101,32,.08);
+      --indigo:#5068B8;--sage:#3E7058;--purple:#8050AC;--amber:#A06040;--platinum:#5878A0;
+      --shadow:rgba(24,20,14,.10);--nav-bg:rgba(250,247,239,.92);
+      --glass-bg:rgba(255,255,255,.60);--glass-br:rgba(24,20,14,.10);
     }
-    [lang="he"] { --font-d:'Frank Ruhl Libre',Georgia,serif; --font-b:'Heebo',system-ui,sans-serif; }
+    [lang="he"]{--font-d:'Frank Ruhl Libre',Georgia,serif;--font-b:'Heebo',system-ui,sans-serif}
 
-    html { scroll-behavior:smooth; }
-    body {
-      font-family:var(--font-b); background:var(--bg); color:var(--text-1);
-      line-height:1.65; overflow-x:hidden; -webkit-font-smoothing:antialiased;
-      transition:background .35s,color .35s;
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-b);background:var(--bg);color:var(--text-1);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased;transition:background .4s,color .4s}
+    ::-webkit-scrollbar{width:3px}
+    ::-webkit-scrollbar-track{background:var(--bg)}
+    ::-webkit-scrollbar-thumb{background:var(--gold-dim);border-radius:2px}
+    ::selection{background:rgba(212,178,122,.22)}
+    a{color:inherit;text-decoration:none}
+    button{font-family:var(--font-b)}
+    img{display:block;max-width:100%}
+
+    /* ── PARTICLE CANVAS ── */
+    #particle-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.55}
+    [data-theme="light"] #particle-canvas{opacity:.22}
+
+    /* ── AMBIENT ORBS ── */
+    .orbs{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+    .orb{position:absolute;border-radius:50%;filter:blur(100px);transition:opacity 1s}
+    .o1{top:-8%;left:-6%;width:600px;height:600px;background:radial-gradient(circle,rgba(212,178,122,.28),transparent 68%)}
+    .o2{bottom:-18%;right:-8%;width:700px;height:700px;background:radial-gradient(circle,rgba(126,142,200,.18),transparent 68%)}
+    .o3{top:38%;right:22%;width:420px;height:420px;background:radial-gradient(circle,rgba(110,160,128,.14),transparent 68%)}
+    .o4{top:60%;left:30%;width:350px;height:350px;background:radial-gradient(circle,rgba(176,126,204,.10),transparent 68%)}
+    [data-theme="light"] .orb{opacity:.45}
+
+    /* ── LAYOUT ── */
+    .sp{padding:clamp(64px,10vw,128px) clamp(22px,7vw,100px);position:relative;z-index:1}
+    .sp2{padding:clamp(48px,7vw,96px) clamp(22px,7vw,100px);position:relative;z-index:1}
+    .mw{max-width:1320px;margin:0 auto}
+
+    /* ── REVEAL ── */
+    .rv{opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.2,0,.2,1),transform .9s cubic-bezier(.2,0,.2,1)}
+    .rv.in{opacity:1;transform:none}
+    .rvl{opacity:0;transform:translateX(-22px);transition:opacity .9s cubic-bezier(.2,0,.2,1),transform .9s cubic-bezier(.2,0,.2,1)}
+    .rvl.in{opacity:1;transform:none}
+    .rvr{opacity:0;transform:translateX(22px);transition:opacity .9s cubic-bezier(.2,0,.2,1),transform .9s cubic-bezier(.2,0,.2,1)}
+    .rvr.in{opacity:1;transform:none}
+    .d1{transition-delay:.07s}.d2{transition-delay:.16s}.d3{transition-delay:.25s}
+    .d4{transition-delay:.34s}.d5{transition-delay:.44s}.d6{transition-delay:.54s}
+    .d7{transition-delay:.64s}.d8{transition-delay:.74s}.d9{transition-delay:.84s}.d10{transition-delay:.94s}
+
+    /* ── TYPOGRAPHY ── */
+    .eyebrow{font-family:var(--font-b);font-size:.60rem;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:var(--gold)}
+    [lang="he"] .eyebrow{letter-spacing:.04em}
+    .tag{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;background:var(--gold-f);border:1px solid rgba(212,178,122,.18);border-radius:99px;font-size:.60rem;font-weight:500;letter-spacing:.20em;text-transform:uppercase;color:var(--gold)}
+
+    /* ── BUTTONS ── */
+    .btn-p{display:inline-flex;align-items:center;gap:8px;padding:13px 32px;background:var(--gold);color:#0A0907;font-family:var(--font-b);font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;border:none;border-radius:var(--r);cursor:pointer;text-decoration:none;transition:background .3s,transform .25s,box-shadow .3s}
+    .btn-p:hover{background:var(--gold-h);transform:translateY(-2px);box-shadow:0 16px 48px rgba(212,178,122,.28)}
+    [data-theme="light"] .btn-p{color:#FAF7EF}
+    .btn-g{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:transparent;color:var(--text-2);font-family:var(--font-b);font-size:.72rem;font-weight:400;letter-spacing:.10em;text-transform:uppercase;border:1px solid var(--border-md);border-radius:var(--r);cursor:pointer;text-decoration:none;transition:border-color .3s,color .3s,background .3s}
+    .btn-g:hover{border-color:var(--gold);color:var(--gold);background:var(--gold-f)}
+    .btn-accent{display:inline-flex;align-items:center;gap:7px;padding:11px 22px;background:transparent;color:inherit;font-family:var(--font-b);font-size:.70rem;font-weight:500;letter-spacing:.10em;text-transform:uppercase;border:1px solid currentColor;border-radius:var(--r);cursor:pointer;text-decoration:none;transition:all .3s;opacity:.82}
+    .btn-accent:hover{opacity:1;transform:translateY(-1px);box-shadow:0 8px 28px rgba(0,0,0,.22)}
+
+    /* ── NAV ── */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 clamp(22px,7vw,100px);height:64px;display:flex;align-items:center;justify-content:space-between;transition:background .4s,box-shadow .4s,border-color .4s}
+    nav.scrolled{background:var(--nav-bg);backdrop-filter:blur(28px) saturate(160%);-webkit-backdrop-filter:blur(28px) saturate(160%);box-shadow:0 1px 0 var(--border),0 8px 32px var(--shadow)}
+    .nav-logo{display:flex;align-items:center;gap:10px;cursor:pointer}
+    .nav-logo-mark{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,var(--gold),var(--gold-dim));display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-size:18px;font-weight:600;color:#0A0907;flex-shrink:0;box-shadow:0 4px 14px rgba(212,178,122,.28)}
+    .nav-logo-text{font-family:var(--font-d);font-size:1.18rem;font-weight:500;letter-spacing:.02em}
+    .nav-logo-sub{font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text-3);font-family:var(--font-b)}
+    .nav-links{display:flex;align-items:center;gap:8px}
+    .nav-link{padding:7px 14px;font-size:.70rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-2);border-radius:6px;cursor:pointer;transition:color .25s,background .25s;white-space:nowrap}
+    .nav-link:hover{color:var(--text-1);background:rgba(240,235,224,.06)}
+    .nav-controls{display:flex;align-items:center;gap:6px}
+    .nav-lang{padding:6px 10px;font-size:.62rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);background:none;border:1px solid var(--border);border-radius:6px;cursor:pointer;transition:all .25s}
+    .nav-lang.active,.nav-lang:hover{color:var(--gold);border-color:rgba(212,178,122,.28);background:var(--gold-f)}
+    .nav-theme{width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:none;border:1px solid var(--border);border-radius:8px;cursor:pointer;color:var(--text-2);font-size:15px;transition:all .25s}
+    .nav-theme:hover{color:var(--gold);border-color:rgba(212,178,122,.28);background:var(--gold-f)}
+    .hamburger{display:none;width:36px;height:36px;align-items:center;justify-content:center;background:none;border:1px solid var(--border);border-radius:8px;cursor:pointer;color:var(--text-2);font-size:16px;transition:all .25s}
+
+    /* ── HERO ── */
+    .hero{min-height:100svh;display:flex;align-items:center;padding:80px clamp(22px,7vw,100px) clamp(64px,10vw,120px);position:relative;z-index:1}
+    .hero-inner{max-width:1320px;margin:0 auto;width:100%}
+    .hero-tag{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;background:var(--gold-f);border:1px solid rgba(212,178,122,.20);border-radius:99px;margin-bottom:32px}
+    .hero-tag-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse-dot 2.4s ease-in-out infinite}
+    @keyframes pulse-dot{0%,100%{box-shadow:0 0 0 0 rgba(212,178,122,.5)}50%{box-shadow:0 0 0 6px rgba(212,178,122,0)}}
+    .hero-h{font-family:var(--font-d);font-size:clamp(3.2rem,8vw,7.5rem);font-weight:300;line-height:1.05;letter-spacing:-.01em;margin-bottom:28px}
+    .hero-h em{font-style:italic;color:var(--gold)}
+    .hero-sub{font-size:clamp(.95rem,1.8vw,1.18rem);color:var(--text-2);max-width:540px;line-height:1.72;margin-bottom:44px}
+    .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:64px}
+    .hero-stats{display:flex;flex-wrap:wrap;gap:clamp(28px,4vw,56px)}
+    .hero-stat-val{font-family:var(--font-d);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:400;color:var(--gold);line-height:1}
+    .hero-stat-lab{font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-3);margin-top:4px}
+    @keyframes hero-in{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+    .h1{animation:hero-in .9s cubic-bezier(.2,0,.2,1) .2s both}
+    .h2{animation:hero-in .9s cubic-bezier(.2,0,.2,1) .38s both}
+    .h3{animation:hero-in .9s cubic-bezier(.2,0,.2,1) .54s both}
+    .h4{animation:hero-in .9s cubic-bezier(.2,0,.2,1) .68s both}
+    .h5{animation:hero-in .9s cubic-bezier(.2,0,.2,1) .80s both}
+    .h6{animation:hero-in .9s cubic-bezier(.2,0,.2,1) .92s both}
+    .scroll-hint{display:flex;align-items:center;gap:10px;color:var(--text-3);font-size:.62rem;letter-spacing:.20em;text-transform:uppercase;margin-top:48px}
+    .scroll-arrow{width:18px;height:18px;border-right:1px solid var(--text-3);border-bottom:1px solid var(--text-3);transform:rotate(45deg);animation:s-drop 2.2s ease-in-out infinite}
+    @keyframes s-drop{0%,100%{transform:rotate(45deg) translate(0,0);opacity:.4}50%{transform:rotate(45deg) translate(3px,3px);opacity:.9}}
+
+    /* ── SECTION HEADER ── */
+    .sec-head{margin-bottom:clamp(40px,6vw,72px);text-align:center}
+    .sec-h{font-family:var(--font-d);font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:300;line-height:1.12;margin-top:12px}
+    .sec-h em{font-style:italic;color:var(--gold)}
+    .sec-sub{font-size:clamp(.88rem,1.4vw,.98rem);color:var(--text-2);max-width:560px;margin:14px auto 0;line-height:1.7}
+    .divider{width:48px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:20px auto 0;opacity:.6}
+
+    /* ── TOOLS GRID ── */
+    .tools-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto;gap:20px}
+    .tools-central{grid-column:1/-1}
+
+    /* ── GLASS CARD ── */
+    .glass{background:var(--glass-bg);backdrop-filter:blur(22px) saturate(140%);-webkit-backdrop-filter:blur(22px) saturate(140%);border:1px solid var(--glass-br);border-radius:var(--r2);position:relative;overflow:hidden}
+
+    /* ── TOOL CARD ── */
+    .tool-card{padding:clamp(24px,3vw,36px);cursor:pointer;transition:transform .35s cubic-bezier(.2,0,.2,1),border-color .35s,box-shadow .35s;position:relative;overflow:hidden;min-height:280px;display:flex;flex-direction:column;justify-content:space-between}
+    .tool-card::before{content:'';position:absolute;inset:0;background:var(--card-glow,transparent);opacity:0;transition:opacity .35s;border-radius:inherit}
+    .tool-card:hover{transform:translateY(-6px);box-shadow:0 24px 64px rgba(0,0,0,.28)}
+    .tool-card:hover::before{opacity:1}
+    .tool-card-shine{position:absolute;inset:0;border-radius:inherit;background:linear-gradient(135deg,rgba(255,255,255,.06) 0%,transparent 50%);pointer-events:none}
+    .tool-art{width:72px;height:72px;margin-bottom:24px;flex-shrink:0}
+    .tool-cat{font-size:.56rem;letter-spacing:.26em;text-transform:uppercase;color:var(--text-3);margin-bottom:8px}
+    .tool-name{font-family:var(--font-d);font-size:clamp(1.5rem,2.5vw,1.9rem);font-weight:400;line-height:1.15;margin-bottom:10px}
+    .tool-desc{font-size:.83rem;color:var(--text-2);line-height:1.65;flex:1}
+    .tool-cta{display:flex;align-items:center;gap:8px;font-size:.68rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;margin-top:22px;opacity:.75;transition:opacity .25s,gap .25s}
+    .tool-card:hover .tool-cta{opacity:1;gap:12px}
+    .tool-cta svg{transition:transform .3s}
+    .tool-card:hover .tool-cta svg{transform:translateX(3px)}
+    .tool-badge{position:absolute;top:20px;right:20px;padding:4px 10px;border-radius:99px;font-size:.52rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;border:1px solid currentColor;opacity:.7}
+
+    /* ── CENTRAL CARD ── */
+    .central-card{padding:clamp(40px,5vw,64px);cursor:pointer;transition:transform .35s,box-shadow .35s;position:relative;overflow:hidden;min-height:260px}
+    .central-card:hover{transform:translateY(-4px);box-shadow:0 32px 80px rgba(0,0,0,.32)}
+    .central-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px);align-items:center}
+    .central-art{width:160px;height:160px;margin:0 auto}
+    .central-badge{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;background:rgba(200,212,224,.10);border:1px solid rgba(200,212,224,.20);border-radius:99px;margin-bottom:20px}
+    .central-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--platinum);animation:platinum-pulse 3s ease-in-out infinite}
+    @keyframes platinum-pulse{0%,100%{opacity:.6;box-shadow:0 0 0 0 rgba(200,212,224,.5)}50%{opacity:1;box-shadow:0 0 0 8px rgba(200,212,224,0)}}
+    .central-h{font-family:var(--font-d);font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.1;margin-bottom:16px}
+    .central-h em{font-style:italic;color:var(--platinum)}
+    .central-features{display:flex;flex-direction:column;gap:10px;margin:20px 0 28px}
+    .central-feat{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--text-2)}
+    .central-feat-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
+    .central-glow{position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(200,212,224,.07),transparent 65%);pointer-events:none}
+    .central-grid-lines{position:absolute;inset:0;opacity:.04;background-image:linear-gradient(rgba(200,212,224,.8) 1px,transparent 1px),linear-gradient(90deg,rgba(200,212,224,.8) 1px,transparent 1px);background-size:40px 40px}
+
+    /* ── SPECIALISTS SECTION ── */
+    .spec-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+    .spec-card{padding:28px 24px;cursor:pointer;transition:transform .35s,box-shadow .35s,border-color .35s}
+    .spec-card:hover{transform:translateY(-5px);box-shadow:0 20px 56px rgba(0,0,0,.25)}
+    .spec-avatar{width:64px;height:64px;border-radius:50%;margin-bottom:18px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-size:1.6rem;font-weight:400;overflow:hidden}
+    .spec-name{font-family:var(--font-d);font-size:1.25rem;font-weight:400;margin-bottom:4px}
+    .spec-role{font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-3);margin-bottom:12px}
+    .spec-phil{font-size:.82rem;color:var(--text-2);line-height:1.62;margin-bottom:18px;font-style:italic}
+    .spec-cta{display:inline-flex;align-items:center;gap:7px;font-size:.66rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding:8px 16px;border-radius:8px;border:1px solid currentColor;cursor:pointer;background:none;transition:all .3s}
+    .spec-cta:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,0,0,.20)}
+    .spec-style-tag{font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;padding:3px 9px;border-radius:99px;border:1px solid currentColor;opacity:.6;display:inline-block;margin-top:8px}
+
+    /* ── TOOL DETAIL PAGE ── */
+    .detail-page{min-height:100svh;padding:100px clamp(22px,7vw,100px) clamp(64px,10vw,120px);position:relative;z-index:1}
+    .detail-back{display:inline-flex;align-items:center;gap:8px;font-size:.70rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);cursor:pointer;margin-bottom:48px;transition:color .25s,gap .25s}
+    .detail-back:hover{color:var(--text-2);gap:12px}
+    .detail-header{margin-bottom:56px}
+    .detail-h{font-family:var(--font-d);font-size:clamp(2.8rem,6vw,5.5rem);font-weight:300;line-height:1.06;margin:16px 0 20px}
+    .detail-sub{font-size:clamp(.95rem,1.6vw,1.08rem);color:var(--text-2);max-width:600px;line-height:1.75}
+    .detail-body{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px);align-items:start;margin-bottom:56px}
+    .detail-features{display:flex;flex-direction:column;gap:20px}
+    .detail-feat{display:flex;gap:16px}
+    .detail-feat-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:17px}
+    .detail-feat-title{font-family:var(--font-d);font-size:1.05rem;font-weight:400;margin-bottom:4px}
+    .detail-feat-desc{font-size:.83rem;color:var(--text-2);line-height:1.65}
+
+    /* ── PYTHAGORAS CALCULATOR ── */
+    .calc-wrap{padding:32px;border-radius:var(--r2);border:1px solid var(--border)}
+    .calc-input-row{display:flex;gap:12px;margin:20px 0}
+    .calc-input{flex:1;padding:13px 16px;background:var(--surface-2,rgba(255,255,255,.04));border:1px solid var(--border-md);border-radius:10px;color:var(--text-1);font-family:var(--font-b);font-size:.88rem;outline:none;transition:border-color .25s}
+    .calc-input:focus{border-color:var(--gold)}
+    .calc-submit{padding:13px 24px;background:var(--gold);color:#0A0907;border:none;border-radius:10px;font-family:var(--font-b);font-size:.75rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .25s,transform .2s}
+    .calc-submit:hover{background:var(--gold-h);transform:translateY(-1px)}
+    [data-theme="light"] .calc-submit{color:#FAF7EF}
+    .pytha-grid{display:grid;grid-template-columns:repeat(3,60px);gap:8px;margin:24px auto;justify-content:center}
+    .pytha-cell{width:60px;height:60px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-size:1.4rem;font-weight:400;border:1px solid var(--border)}
+    .pytha-cell.has{border-color:rgba(212,178,122,.4);background:rgba(212,178,122,.08);color:var(--gold)}
+    .pytha-cell.hot{border-color:rgba(212,178,122,.7);background:rgba(212,178,122,.16);color:var(--gold-h);box-shadow:0 0 16px rgba(212,178,122,.18)}
+    .pytha-cell.empty{color:var(--text-3);opacity:.4}
+    .working-nums{display:flex;justify-content:center;gap:20px;margin:20px 0}
+    .wnum{text-align:center}
+    .wnum-val{font-family:var(--font-d);font-size:1.8rem;font-weight:400;color:var(--gold)}
+    .wnum-lab{font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-3);margin-top:2px}
+    .calc-error{color:#E07070;font-size:.82rem;margin-top:8px}
+    .calc-note{font-size:.78rem;color:var(--text-3);margin-top:16px;line-height:1.6}
+
+    /* ── FOOTER ── */
+    footer{padding:clamp(48px,7vw,88px) clamp(22px,7vw,100px) 40px;position:relative;z-index:1;border-top:1px solid var(--border)}
+    .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:clamp(32px,5vw,64px);margin-bottom:clamp(40px,6vw,72px)}
+    .footer-brand-h{font-family:var(--font-d);font-size:1.4rem;font-weight:400;margin:14px 0 10px}
+    .footer-brand-sub{font-size:.82rem;color:var(--text-3);line-height:1.65;max-width:260px}
+    .footer-col-h{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text-3);margin-bottom:16px}
+    .footer-links{display:flex;flex-direction:column;gap:8px}
+    .footer-link{font-size:.83rem;color:var(--text-2);cursor:pointer;transition:color .25s}
+    .footer-link:hover{color:var(--gold)}
+    .footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:32px;border-top:1px solid var(--border)}
+    .footer-copy{font-size:.72rem;color:var(--text-3)}
+    .footer-author{font-size:.70rem;color:var(--text-3)}
+    .footer-author a{color:var(--gold);transition:opacity .25s}
+    .footer-author a:hover{opacity:.75}
+    .footer-soc{display:flex;gap:8px}
+    .footer-soc-btn{width:34px;height:34px;border-radius:8px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-3);font-size:14px;cursor:pointer;transition:all .25s}
+    .footer-soc-btn:hover{border-color:var(--gold);color:var(--gold);background:var(--gold-f)}
+
+    /* ── MOBILE ── */
+    @media(max-width:900px){
+      .tools-grid{grid-template-columns:1fr}
+      .tools-central{grid-column:auto}
+      .central-inner{grid-template-columns:1fr}
+      .detail-body{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr 1fr}
+      .spec-grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
     }
-    ::-webkit-scrollbar { width:4px; }
-    ::-webkit-scrollbar-track { background:var(--bg); }
-    ::-webkit-scrollbar-thumb { background:var(--gold-dim); border-radius:2px; }
-    ::selection { background:rgba(212,178,122,.25); }
-    img { display:block; max-width:100%; }
-    a { color:inherit; text-decoration:none; }
-    button { font-family:var(--font-b); }
-
-    /* AMBIENT BACKGROUND ORBS */
-    .ambient-orbs { position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
-    .orb { position:absolute; border-radius:50%; filter:blur(80px); opacity:.35; transition:opacity .8s; }
-    .orb-1 { top:-10%; left:-5%; width:520px; height:520px; background:radial-gradient(circle,#D4B27A,transparent 70%); }
-    .orb-2 { bottom:-15%; right:-10%; width:600px; height:600px; background:radial-gradient(circle,#7E8EC8,transparent 70%); opacity:.18; }
-    .orb-3 { top:40%; right:20%; width:380px; height:380px; background:radial-gradient(circle,#6EA080,transparent 70%); opacity:.12; }
-    [data-theme="light"] .orb { opacity:.20; }
-
-    /* LAYOUT */
-    .sp  { padding:clamp(60px,9vw,120px) clamp(22px,7vw,100px); position:relative; z-index:1; }
-    .sp2 { padding:clamp(42px,6vw,84px) clamp(22px,7vw,100px); position:relative; z-index:1; }
-    .mw  { max-width:1280px; margin:0 auto; }
-
-    /* REVEAL */
-    .rv { opacity:0; transform:translateY(20px); transition:opacity .85s cubic-bezier(.2,0,.2,1),transform .85s cubic-bezier(.2,0,.2,1); }
-    .rv.in { opacity:1; transform:none; }
-    .d1{transition-delay:.08s}.d2{transition-delay:.18s}.d3{transition-delay:.28s}
-    .d4{transition-delay:.38s}.d5{transition-delay:.48s}.d6{transition-delay:.58s}
-
-    /* TYPOGRAPHY */
-    .eyebrow { font-family:var(--font-b); font-size:.62rem; font-weight:500; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); }
-    [lang="he"] .eyebrow { letter-spacing:.06em; }
-
-    /* BUTTONS */
-    .btn-p {
-      display:inline-flex; align-items:center; gap:8px;
-      padding:14px 34px; background:var(--gold); color:#0A0907;
-      font-size:.74rem; font-weight:500; letter-spacing:.13em; text-transform:uppercase;
-      border:none; border-radius:6px; cursor:pointer;
-      transition:background .3s,transform .25s,box-shadow .3s;
+    @media(max-width:640px){
+      .nav-links{display:none}
+      .hamburger{display:flex}
+      .footer-grid{grid-template-columns:1fr}
+      .hero-stats{gap:24px}
+      .working-nums{flex-wrap:wrap;gap:12px}
     }
-    .btn-p:hover { background:var(--gold-h); transform:translateY(-2px); box-shadow:0 14px 40px rgba(212,178,122,.32); }
-    .btn-g {
-      display:inline-flex; align-items:center; gap:8px;
-      padding:13px 32px; background:transparent; color:var(--text-2);
-      font-size:.74rem; font-weight:400; letter-spacing:.09em; text-transform:uppercase;
-      border:1px solid var(--border-md); border-radius:6px; cursor:pointer;
-      transition:border-color .3s,color .3s,background .3s;
+    @media(max-width:480px){
+      .tools-grid{grid-template-columns:1fr}
+      .central-art{width:110px;height:110px}
+      .spec-grid{grid-template-columns:1fr}
     }
-    .btn-g:hover { border-color:var(--gold); color:var(--gold); background:var(--gold-f); }
 
-    /* NAV */
-    .nav-wrap {
-      position:fixed; top:0; left:0; right:0; z-index:100;
-      display:flex; align-items:center; justify-content:space-between;
-      padding:0 clamp(20px,5.5vw,68px); height:68px;
-      background:transparent;
-      transition:background .4s,border-color .4s,backdrop-filter .4s;
-    }
-    .nav-wrap.scrolled {
-      background:var(--nav-bg);
-      backdrop-filter:blur(24px) saturate(140%);
-      -webkit-backdrop-filter:blur(24px) saturate(140%);
-      border-bottom:1px solid var(--border);
-    }
-    .nav-logo { display:flex; align-items:center; gap:11px; cursor:pointer; background:none; border:none; }
-    .nav-logo-mark { width:36px; height:36px; border-radius:50%;
-      background:linear-gradient(135deg,var(--gold) 0%,var(--gold-dim) 100%);
-      display:flex; align-items:center; justify-content:center;
-      font-family:var(--font-d); font-size:1.1rem; color:#0A0907; font-weight:600;
-      flex-shrink:0; box-shadow:0 4px 14px rgba(212,178,122,.25); }
-    .nav-logo-name { font-family:var(--font-d); font-size:1.06rem; font-weight:500; color:var(--text-1); letter-spacing:.02em; display:block; line-height:1.05; }
-    .nav-logo-sub  { font-size:.55rem; color:var(--gold); letter-spacing:.22em; text-transform:uppercase; display:block; line-height:1.1; margin-top:1px; }
-    .nav-right { display:flex; align-items:center; gap:8px; }
-
-    .ctrl-btn {
-      background:var(--surface-3); border:1px solid var(--border-md); border-radius:6px;
-      padding:7px 13px; cursor:pointer;
-      font-size:.64rem; font-weight:500; letter-spacing:.11em; color:var(--text-2);
-      transition:border-color .2s,color .2s,background .2s; white-space:nowrap;
-      display:flex; align-items:center; gap:6px;
-    }
-    .ctrl-btn:hover { border-color:var(--gold); color:var(--gold); background:var(--gold-f); }
-
-    .lang-wrap { position:relative; }
-    .lang-drop {
-      position:absolute; top:calc(100% + 8px); right:0;
-      background:var(--glass-bg); border:1px solid var(--glass-br);
-      backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
-      border-radius:8px; min-width:130px; overflow:hidden;
-      box-shadow:0 16px 50px var(--shadow);
-      opacity:0; pointer-events:none; transform:translateY(-4px);
-      transition:opacity .25s,transform .25s;
-    }
-    [dir="rtl"] .lang-drop { right:auto; left:0; }
-    .lang-drop.open { opacity:1; pointer-events:all; transform:none; }
-    .lang-opt {
-      display:block; width:100%; padding:10px 16px; background:none; border:none;
-      text-align:left; cursor:pointer; font-size:.74rem; color:var(--text-2);
-      transition:background .15s,color .15s;
-    }
-    [dir="rtl"] .lang-opt { text-align:right; }
-    .lang-opt:hover { background:var(--gold-f); color:var(--gold); }
-    .lang-opt.active { color:var(--gold); font-weight:500; }
-
-    .mob-drawer {
-      position:fixed; inset:0; z-index:200;
-      background:rgba(10,9,7,.97); backdrop-filter:blur(24px);
-      display:flex; flex-direction:column; padding:80px 36px 48px;
-      opacity:0; pointer-events:none; transition:opacity .3s;
-    }
-    [data-theme="light"] .mob-drawer { background:rgba(250,247,239,.97); }
-    .mob-drawer.open { opacity:1; pointer-events:all; }
-
-    /* HERO ANIMATIONS */
-    @keyframes hfade { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:none} }
-    .hl1{animation:hfade 1s cubic-bezier(.2,0,.2,1) .20s both}
-    .hl2{animation:hfade 1s cubic-bezier(.2,0,.2,1) .40s both}
-    .hl3{animation:hfade 1s cubic-bezier(.2,0,.2,1) .60s both}
-    .hl4{animation:hfade 1s cubic-bezier(.2,0,.2,1) .80s both}
-
-    .portal-hero {
-      min-height:64vh; display:flex; align-items:center; justify-content:center;
-      text-align:center; position:relative; overflow:hidden;
-      padding:clamp(110px,15vw,170px) clamp(22px,6vw,80px) clamp(48px,7vw,90px);
-    }
-    .portal-hero-content { position:relative; z-index:1; max-width:780px; }
-    .hero-tag-pill {
-      display:inline-flex; align-items:center; gap:8px;
-      padding:7px 16px; background:var(--glass-bg); border:1px solid var(--glass-br);
-      backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
-      border-radius:30px; font-size:.66rem; letter-spacing:.16em; text-transform:uppercase;
-      color:var(--text-2); margin-bottom:22px;
-    }
-    .hero-tag-dot { width:6px; height:6px; border-radius:50%; background:var(--gold); box-shadow:0 0 12px var(--gold); }
-
-    /* CATEGORY */
-    .cat-wrap { padding:0 clamp(22px,7vw,100px); position:relative; z-index:1; }
-    .cat-section { max-width:1280px; margin:0 auto; padding-bottom:clamp(56px,7vw,100px); }
-    .cat-header { display:flex; align-items:center; gap:20px; margin-bottom:14px; }
-    .cat-num { font-family:var(--font-d); font-size:1.4rem; color:var(--gold); font-weight:300; line-height:1; }
-    .cat-line { flex:1; height:1px; background:linear-gradient(to right,var(--border-md),transparent); }
-    [dir="rtl"] .cat-line { background:linear-gradient(to left,var(--border-md),transparent); }
-    .cat-title { font-family:var(--font-d); font-size:clamp(20px,2.4vw,28px); font-weight:400; color:var(--text-1); letter-spacing:.01em; }
-    .cat-sub { font-size:.78rem; color:var(--text-3); letter-spacing:.04em; max-width:580px; margin-bottom:32px; line-height:1.7; }
-
-    /* CARDS GRID */
-    .cards-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
-    .cards-grid.single { grid-template-columns:1fr; max-width:640px; }
-    @media(max-width:840px){ .cards-grid { grid-template-columns:1fr; } }
-
-    .s-card {
-      position:relative; overflow:hidden;
-      background:var(--glass-bg);
-      backdrop-filter:blur(20px) saturate(140%);
-      -webkit-backdrop-filter:blur(20px) saturate(140%);
-      border:1px solid var(--glass-br);
-      border-radius:14px; padding:36px 32px 28px;
-      cursor:pointer; transition:transform .4s cubic-bezier(.2,0,.2,1),border-color .35s,box-shadow .4s;
-      display:flex; flex-direction:column;
-    }
-    .s-card::before {
-      content:''; position:absolute; top:0; left:0; right:0; height:2px;
-      background:linear-gradient(90deg,transparent,var(--card-accent,var(--gold)),transparent);
-      opacity:.7; transition:opacity .35s;
-    }
-    .s-card::after {
-      content:''; position:absolute; inset:0;
-      background:radial-gradient(ellipse 60% 100% at 50% 0%, var(--card-accent,var(--gold)) , transparent 70%);
-      opacity:.04; transition:opacity .35s; pointer-events:none;
-    }
-    .s-card:hover { transform:translateY(-6px); border-color:var(--border-md); box-shadow:0 24px 64px var(--shadow); }
-    .s-card:hover::before { opacity:1; }
-    .s-card:hover::after  { opacity:.10; }
-
-    .s-card-art { position:absolute; top:18px; right:22px; width:64px; height:64px; opacity:.85; pointer-events:none; color:var(--card-accent,var(--gold)); }
-    [dir="rtl"] .s-card-art { right:auto; left:22px; }
-    .s-card-tag { font-size:.58rem; font-weight:500; letter-spacing:.20em; text-transform:uppercase; color:var(--card-accent,var(--gold)); margin-bottom:14px; }
-    .s-card-name { font-family:var(--font-d); font-size:clamp(24px,3vw,32px); font-weight:400; color:var(--text-1); line-height:1.1; margin-bottom:6px; padding-right:64px; }
-    [dir="rtl"] .s-card-name { padding-right:0; padding-left:64px; }
-    .s-card-ttl { font-size:.78rem; color:var(--text-2); font-weight:400; letter-spacing:.02em; margin-bottom:18px; line-height:1.4; }
-    .s-card-tl { font-family:var(--font-d); font-size:1.02rem; font-style:italic; color:var(--text-2); line-height:1.6; margin-bottom:20px; flex:1; }
-    .s-card-pills { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:22px; }
-    .s-card-pill { font-size:.56rem; letter-spacing:.10em; text-transform:uppercase; padding:5px 11px; background:var(--gold-f); color:var(--text-2); border-radius:20px; border:1px solid var(--border); white-space:nowrap; }
-    .s-card-cta { display:inline-flex; align-items:center; gap:8px;
-      font-size:.70rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase;
-      color:var(--card-accent,var(--gold)); background:none; border:none; cursor:pointer; padding:0;
-      transition:gap .2s; }
-    .s-card-cta:hover { gap:13px; }
-
-    /* DETAIL VIEW */
-    .sp-back {
-      position:fixed; top:18px; left:clamp(18px,4vw,56px); z-index:400;
-      display:flex; align-items:center; gap:7px;
-      background:var(--glass-bg); border:1px solid var(--glass-br);
-      backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
-      border-radius:24px; padding:9px 18px; cursor:pointer;
-      font-size:.68rem; font-weight:500; letter-spacing:.09em; text-transform:uppercase;
-      color:var(--text-2); transition:border-color .2s,color .2s; white-space:nowrap;
-    }
-    [dir="rtl"] .sp-back { left:auto; right:clamp(18px,4vw,56px); }
-    .sp-back:hover { border-color:var(--gold); color:var(--gold); }
-
-    .sp-hero {
-      min-height:50vh; display:flex; align-items:flex-end;
-      padding:clamp(110px,14vw,160px) clamp(22px,7vw,100px) clamp(44px,6vw,72px);
-      position:relative; overflow:hidden;
-    }
-    .sp-hero::before {
-      content:''; position:absolute; inset:0;
-      background:radial-gradient(ellipse 90% 80% at 15% 80%, var(--hero-glow,rgba(212,178,122,.16)) 0%, transparent 60%);
-    }
-    [dir="rtl"] .sp-hero::before { background:radial-gradient(ellipse 90% 80% at 85% 80%, var(--hero-glow,rgba(212,178,122,.16)) 0%, transparent 60%); }
-    .sp-hero-content { position:relative; z-index:1; max-width:820px; }
-    .sp-hero-art { position:absolute; top:50%; right:clamp(40px,8vw,140px); transform:translateY(-50%); width:clamp(140px,22vw,280px); height:auto; opacity:.55; pointer-events:none; z-index:0; }
-    [dir="rtl"] .sp-hero-art { right:auto; left:clamp(40px,8vw,140px); }
-    @media(max-width:768px){ .sp-hero-art { display:none; } }
-
-    .detail-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(32px,5vw,72px); align-items:start; }
-    @media(max-width:768px){ .detail-grid { grid-template-columns:1fr; } }
-
-    .glass-card {
-      padding:28px 26px; border-radius:12px;
-      background:var(--glass-bg); border:1px solid var(--glass-br);
-      backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
-      transition:border-color .3s,transform .3s,box-shadow .3s;
-    }
-    .glass-card:hover { border-color:var(--border-md); transform:translateY(-3px); box-shadow:0 16px 44px var(--shadow); }
-    .prog-num { font-family:var(--font-d); font-size:2rem; font-weight:300; line-height:1; margin-bottom:14px; }
-
-    .stat-row { display:flex; gap:clamp(22px,4vw,52px); flex-wrap:wrap; }
-    .stat-num { font-family:var(--font-d); font-size:clamp(28px,3.5vw,38px); font-weight:400; line-height:1; display:block; }
-    .stat-lbl { font-size:.66rem; color:var(--text-3); letter-spacing:.12em; text-transform:uppercase; display:block; margin-top:3px; }
-
-    .tcard { padding:24px; border-radius:10px; background:var(--gold-f); border:1px solid var(--border); margin-bottom:14px; }
-    .tcard:last-child { margin-bottom:0; }
-    .tcard-name { font-size:.74rem; font-weight:500; color:var(--text-1); }
-    .tcard-city { font-size:.62rem; color:var(--text-3); letter-spacing:.08em; }
-    .tcard-text { font-family:var(--font-d); font-size:1.02rem; font-style:italic; color:var(--text-2); line-height:1.65; margin-top:12px; }
-
-    .cta-strip {
-      text-align:center; padding:clamp(64px,9vw,110px) clamp(22px,7vw,100px);
-      background:var(--bg-alt); position:relative; overflow:hidden;
-    }
-    .cta-strip::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 60% 80% at 50% 100%, rgba(212,178,122,.10), transparent); }
-
-    /* PYTHAGORAS WIDGET */
-    .pyth-widget { padding:32px 28px; border-radius:14px; background:var(--glass-bg); border:1px solid var(--glass-br);
-      backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); }
-    .pyth-input { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:24px; align-items:center; }
-    .pyth-input input { flex:1; min-width:180px; padding:13px 16px; background:var(--surface-3); color:var(--text-1);
-      border:1px solid var(--border-md); border-radius:6px;
-      font-family:var(--font-b); font-size:.92rem; outline:none; transition:border-color .2s,box-shadow .2s; }
-    .pyth-input input:focus { border-color:var(--gold); box-shadow:0 0 0 3px rgba(212,178,122,.15); }
-    .pyth-input input::placeholder { color:var(--text-3); }
-    .pyth-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:18px; max-width:340px; }
-    .pyth-cell { aspect-ratio:1; border-radius:8px; background:var(--surface-3); border:1px solid var(--border);
-      display:flex; align-items:center; justify-content:center; flex-direction:column;
-      transition:border-color .2s,transform .2s,background .2s; cursor:default;
-      position:relative;
-    }
-    .pyth-cell:hover { border-color:var(--gold); transform:scale(1.04); }
-    .pyth-cell-num { position:absolute; top:6px; left:8px; font-size:.62rem; color:var(--text-3); font-family:var(--font-d); }
-    .pyth-cell-val { font-family:var(--font-d); font-size:clamp(20px,3vw,28px); color:var(--text-1); font-weight:400; line-height:1; }
-    .pyth-cell.has { background:var(--gold-f); border-color:rgba(212,178,122,.35); }
-    .pyth-cell.has .pyth-cell-val { color:var(--gold); }
-    .pyth-cell.strong { background:rgba(212,178,122,.18); border-color:var(--gold); box-shadow:0 4px 18px rgba(212,178,122,.20); }
-    .pyth-numbers { display:flex; gap:14px; flex-wrap:wrap; font-size:.78rem; color:var(--text-2); margin-top:18px; }
-    .pyth-numbers strong { color:var(--gold); font-family:var(--font-d); font-size:1.1rem; margin-right:4px; }
-    .pyth-meaning { padding:14px 16px; background:var(--surface-3); border:1px solid var(--border); border-radius:8px;
-      font-size:.82rem; color:var(--text-2); line-height:1.7; margin-top:18px; font-weight:300; }
-    .pyth-err { color:#E58F70; font-size:.76rem; margin-top:8px; }
-
-    /* FOOTER */
-    .footer-bar {
-      padding:clamp(36px,5vw,60px) clamp(22px,7vw,100px) clamp(28px,4vw,44px);
-      border-top:1px solid var(--border);
-      display:flex; flex-direction:column; gap:10px; align-items:center; text-align:center;
-      position:relative; z-index:1;
-    }
-    .f-credit { font-size:.74rem; color:var(--text-2); letter-spacing:.03em; }
-    .f-credit a { color:var(--gold); border-bottom:1px solid transparent; transition:border-color .2s; }
-    .f-credit a:hover { border-bottom-color:var(--gold); }
-    .f-copy { font-size:.62rem; color:var(--text-3); letter-spacing:.04em; }
-
-    /* WHATSAPP FLOAT */
-    .wa-float {
-      position:fixed; bottom:26px; right:26px; z-index:150;
-      width:54px; height:54px; border-radius:50%;
-      background:#25D366; border:none; cursor:pointer;
-      display:flex; align-items:center; justify-content:center;
-      box-shadow:0 8px 28px rgba(37,211,102,.36);
-      transition:transform .25s,box-shadow .25s; text-decoration:none;
-    }
-    .wa-float:hover { transform:scale(1.08) translateY(-2px); }
-    [dir="rtl"] .wa-float { right:auto; left:26px; }
-
-    @media(max-width:768px){
-      .dsk{ display:none!important; }
-      .mob-only-hide{ display:none!important; }
-    }
-    @media(min-width:769px){ .mob-only{ display:none!important; } }
+    /* ── MISC ── */
+    @keyframes spin-slow{to{transform:rotate(360deg)}}
+    @keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
   </style>
 </head>
 <body>
-  <div class="ambient-orbs">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-  </div>
+  <canvas id="particle-canvas"></canvas>
+  <div class="orbs"><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div><div class="orb o4"></div></div>
   <div id="root"></div>
 
   <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 
+  <script>
+    /* ── PARTICLE / CONSTELLATION BACKGROUND ── */
+    (function(){
+      const canvas = document.getElementById('particle-canvas');
+      const ctx = canvas.getContext('2d');
+      let W,H,pts=[];
+      const N=88, CONN=120, SPEED=.28;
+      function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;init()}
+      function init(){
+        pts=[];
+        for(let i=0;i<N;i++) pts.push({
+          x:Math.random()*W, y:Math.random()*H,
+          vx:(Math.random()-.5)*SPEED, vy:(Math.random()-.5)*SPEED,
+          r:Math.random()*1.4+.4
+        });
+      }
+      function isDark(){return document.documentElement.getAttribute('data-theme')!=='light'}
+      function draw(){
+        ctx.clearRect(0,0,W,H);
+        const dark=isDark();
+        const pc=dark?'rgba(212,178,122,':'rgba(139,101,32,';
+        const lc=dark?'rgba(212,178,122,':'rgba(139,101,32,';
+        pts.forEach(p=>{
+          p.x+=p.vx; p.y+=p.vy;
+          if(p.x<0||p.x>W)p.vx*=-1;
+          if(p.y<0||p.y>H)p.vy*=-1;
+        });
+        for(let i=0;i<N;i++){
+          for(let j=i+1;j<N;j++){
+            const dx=pts[i].x-pts[j].x, dy=pts[i].y-pts[j].y;
+            const d=Math.sqrt(dx*dx+dy*dy);
+            if(d<CONN){
+              ctx.beginPath();
+              ctx.moveTo(pts[i].x,pts[i].y);
+              ctx.lineTo(pts[j].x,pts[j].y);
+              ctx.strokeStyle=lc+(1-d/CONN)*.22+')';
+              ctx.lineWidth=.6;
+              ctx.stroke();
+            }
+          }
+        }
+        pts.forEach(p=>{
+          ctx.beginPath();
+          ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+          ctx.fillStyle=pc+'.55)';
+          ctx.fill();
+        });
+        requestAnimationFrame(draw);
+      }
+      window.addEventListener('resize',resize);
+      resize();
+      draw();
+    })();
+  </script>
+
   <script type="text/babel">
-  const WHATSAPP='https://wa.me/972549989627';
-  const TELEGRAM='https://t.me/riverapeople';
-  const AUTHOR_URL='https://georgiirivera.ai';
+    const {useState,useEffect,useRef,useCallback}=React;
 
-  // ─── UI TRANSLATIONS (5 languages: EN, RU, ES, IT, HE) ───
-  const UI = {
-    en: { back:'All Tools', themeD:'Dark', themeL:'Light',
-      portal:{ tag:'AI Development Ecosystem · v2',
-        h1a:'Forge your life', h1b:'with AI clarity.',
-        sub:'Five AI-powered systems for self-development — coaching, business mastery, astrology, numerology, and integral practice. Choose where to begin.',
-        hint:'Choose your system' },
-      cat:{ primary:'Coaching & Psychology', primarySub:'The core of the work — clear thinking, structured action, real change. Two AI systems for the inner and outer arc of self-development.',
-            secondary:'Esoteric & Reflection Tools', secondarySub:'Mirrors for self-reflection, not predictions of fate. Use them to surface the questions — not to outsource the answers.',
-            integral:'Integral Practice', integralSub:'Body, breath, mind, awareness — woven into one living practice.' },
-      cta:{ title:'Get started', sub:'Reach out directly — usual response time under 24 hours.', wa:'Write on WhatsApp', tg:'Open Telegram' },
-      explore:'Explore →', programs:'Programs · Rhythms', testimonials:'Voices & Quotes', framework:'How it works',
-      tryit:'Try it now', pyth:{ title:'Try the Pythagoras Square live', sub:'Enter your date of birth — get your matrix and core numbers instantly.', input:'DD.MM.YYYY', btn:'Calculate', err:'Invalid date. Use DD.MM.YYYY format.', workNum:'Working №', secNum:'Second №', thrNum:'Third №', forNum:'Fourth №', meanings:['Character · willpower','Energy · vitality','Curiosity · intellect','Health · stamina','Logic · intuition','Earthiness · labor','Talent · luck','Duty · responsibility','Memory · analytical mind'] },
-      footer:{ credit:'Built by', author:'Georgii Rivera', copy:'© 2026 LifeForge AI · All rights reserved.' },
-    },
-    ru: { back:'Все инструменты', themeD:'Тёмная', themeL:'Светлая',
-      portal:{ tag:'ИИ-экосистема развития · v2',
-        h1a:'Выкуй свою жизнь', h1b:'с ясностью ИИ.',
-        sub:'Пять ИИ-систем для саморазвития — коучинг, бизнес-мастерство, астрология, нумерология и интегральная практика. Выбери, с чего начать.',
-        hint:'Выберите систему' },
-      cat:{ primary:'Коучинг и Психология', primarySub:'Ядро работы — ясное мышление, структурное действие, реальные изменения. Две ИИ-системы для внутренней и внешней дуги саморазвития.',
-            secondary:'Эзотерика и инструменты рефлексии', secondarySub:'Зеркала для саморефлексии, а не предсказания судьбы. Используйте их, чтобы поднять вопросы — не получить готовые ответы.',
-            integral:'Интегральная практика', integralSub:'Тело, дыхание, разум, осознанность — сплетённые в единую живую практику.' },
-      cta:{ title:'Начните', sub:'Свяжитесь напрямую — отвечаем в течение 24 часов.', wa:'Написать в WhatsApp', tg:'Открыть Telegram' },
-      explore:'Подробнее →', programs:'Программы · Ритмы', testimonials:'Голоса · Цитаты', framework:'Как это работает',
-      tryit:'Попробовать сейчас', pyth:{ title:'Попробуйте квадрат Пифагора вживую', sub:'Введите дату рождения — получите свою матрицу и ключевые числа мгновенно.', input:'ДД.ММ.ГГГГ', btn:'Рассчитать', err:'Неверная дата. Используйте формат ДД.ММ.ГГГГ.', workNum:'Рабочее №', secNum:'Второе №', thrNum:'Третье №', forNum:'Четвёртое №', meanings:['Характер · воля','Энергия · витальность','Любознательность · интеллект','Здоровье · выносливость','Логика · интуиция','Заземлённость · труд','Талант · удача','Долг · ответственность','Память · аналитический ум'] },
-      footer:{ credit:'Создатель системы:', author:'Георгий Ривера', copy:'© 2026 LifeForge AI · Все права защищены.' },
-    },
-    es: { back:'Todas las herramientas', themeD:'Oscuro', themeL:'Claro',
-      portal:{ tag:'Ecosistema de desarrollo IA · v2',
-        h1a:'Forja tu vida', h1b:'con claridad IA.',
-        sub:'Cinco sistemas con IA para el autodesarrollo — coaching, maestría empresarial, astrología, numerología y práctica integral. Elige por dónde empezar.',
-        hint:'Elige tu sistema' },
-      cat:{ primary:'Coaching y Psicología', primarySub:'El núcleo del trabajo — pensamiento claro, acción estructurada, cambio real.',
-            secondary:'Esotérico y herramientas de reflexión', secondarySub:'Espejos para la auto-reflexión, no predicciones del destino.',
-            integral:'Práctica integral', integralSub:'Cuerpo, respiración, mente, conciencia — entretejidos en una práctica viva.' },
-      cta:{ title:'Empezar', sub:'Contáctanos directamente — respuesta en menos de 24 horas.', wa:'Escribir por WhatsApp', tg:'Abrir Telegram' },
-      explore:'Explorar →', programs:'Programas · Ritmos', testimonials:'Voces · Citas', framework:'Cómo funciona',
-      tryit:'Pruébalo ahora', pyth:{ title:'Prueba el cuadrado de Pitágoras en vivo', sub:'Introduce tu fecha de nacimiento — obtén tu matriz y números clave al instante.', input:'DD.MM.AAAA', btn:'Calcular', err:'Fecha inválida. Usa el formato DD.MM.AAAA.', workNum:'№ Trabajo', secNum:'№ Segundo', thrNum:'№ Tercero', forNum:'№ Cuarto', meanings:['Carácter · voluntad','Energía · vitalidad','Curiosidad · intelecto','Salud · resistencia','Lógica · intuición','Tierra · trabajo','Talento · suerte','Deber · responsabilidad','Memoria · mente analítica'] },
-      footer:{ credit:'Creado por', author:'Georgii Rivera', copy:'© 2026 LifeForge AI · Todos los derechos reservados.' },
-    },
-    it: { back:'Tutti gli strumenti', themeD:'Scuro', themeL:'Chiaro',
-      portal:{ tag:'Ecosistema di sviluppo IA · v2',
-        h1a:'Forgia la tua vita', h1b:'con chiarezza IA.',
-        sub:'Cinque sistemi basati su IA per lo sviluppo personale — coaching, maestria aziendale, astrologia, numerologia e pratica integrale. Scegli da dove iniziare.',
-        hint:'Scegli il tuo sistema' },
-      cat:{ primary:'Coaching e Psicologia', primarySub:'Il nucleo del lavoro — pensiero chiaro, azione strutturata, cambiamento reale.',
-            secondary:'Esoterismo e strumenti di riflessione', secondarySub:'Specchi per l\'auto-riflessione, non previsioni del destino.',
-            integral:'Pratica integrale', integralSub:'Corpo, respiro, mente, consapevolezza — intrecciati in una pratica viva.' },
-      cta:{ title:'Inizia', sub:'Contattaci direttamente — risposta entro 24 ore.', wa:'Scrivici su WhatsApp', tg:'Apri Telegram' },
-      explore:'Esplora →', programs:'Programmi · Ritmi', testimonials:'Voci · Citazioni', framework:'Come funziona',
-      tryit:'Provalo ora', pyth:{ title:'Prova il quadrato di Pitagora dal vivo', sub:'Inserisci la tua data di nascita — ottieni la tua matrice e i numeri chiave istantaneamente.', input:'GG.MM.AAAA', btn:'Calcola', err:'Data non valida. Usa il formato GG.MM.AAAA.', workNum:'N° Lavoro', secNum:'N° Secondo', thrNum:'N° Terzo', forNum:'N° Quarto', meanings:['Carattere · volontà','Energia · vitalità','Curiosità · intelletto','Salute · resistenza','Logica · intuito','Concretezza · lavoro','Talento · fortuna','Dovere · responsabilità','Memoria · mente analitica'] },
-      footer:{ credit:'Creato da', author:'Georgii Rivera', copy:'© 2026 LifeForge AI · Tutti i diritti riservati.' },
-    },
-    he: { back:'כל הכלים', themeD:'כהה', themeL:'בהיר',
-      portal:{ tag:'אקוסיסטם פיתוח AI · v2',
-        h1a:'צור את חייך', h1b:'בבהירות AI.',
-        sub:'חמש מערכות מבוססות AI לפיתוח אישי — אימון, מאסטרי עסקי, אסטרולוגיה, נומרולוגיה ופרקטיקה אינטגרלית. בחר מאיפה להתחיל.',
-        hint:'בחר את המערכת שלך' },
-      cat:{ primary:'אימון ופסיכולוגיה', primarySub:'ליבת העבודה — חשיבה צלולה, פעולה מובנית, שינוי אמיתי.',
-            secondary:'אזוטריה וכלי רפלקציה', secondarySub:'מראות להתבוננות עצמית, לא ניבויי גורל.',
-            integral:'פרקטיקה אינטגרלית', integralSub:'גוף, נשימה, מוח, מודעות — שזורים לכדי פרקטיקה חיה אחת.' },
-      cta:{ title:'התחל', sub:'פנה אלינו ישירות — תגובה תוך 24 שעות.', wa:'כתוב ב-WhatsApp', tg:'פתח Telegram' },
-      explore:'גלה ←', programs:'תוכניות · קצבים', testimonials:'קולות · ציטוטים', framework:'איך זה עובד',
-      tryit:'נסה עכשיו', pyth:{ title:'נסה את ריבוע פיתגורס בשידור חי', sub:'הזן את תאריך הלידה — קבל את המטריצה והמספרים המרכזיים מיידית.', input:'יום.חודש.שנה', btn:'חשב', err:'תאריך לא חוקי. השתמש בפורמט יום.חודש.שנה.', workNum:'№ עבודה', secNum:'№ שני', thrNum:'№ שלישי', forNum:'№ רביעי', meanings:['אופי · רצון','אנרגיה · חיוניות','סקרנות · שכל','בריאות · סיבולת','היגיון · אינטואיציה','קרקעיות · עבודה','כישרון · מזל','חובה · אחריות','זיכרון · חשיבה אנליטית'] },
-      footer:{ credit:'נבנה על ידי', author:'גאורגי ריוורה', copy:'© 2026 LifeForge AI · כל הזכויות שמורות.' },
-    },
-  };
+    /* ── PYTHAGORAS ── */
+    function sumD(n){let s=Math.abs(n).toString().split('').reduce((a,b)=>a+(+b),0);return s>9?sumD(s):s}
+    function calcPytha(ds){
+      const m=ds.trim().match(/^(\d{1,2})[.\-/](\d{1,2})[.\-/](\d{4})$/);
+      if(!m)return null;
+      const day=+m[1],month=+m[2],year=+m[3];
+      if(day<1||day>31||month<1||month>12)return null;
+      const digs=(m[1].padStart(2,'0')+m[2].padStart(2,'0')+m[3]).split('').map(Number);
+      const w1=digs.reduce((a,b)=>a+b,0);
+      const w2=sumD(w1);
+      const fd=+m[1].padStart(2,'0')[0];
+      const w3=day-2*fd;
+      const w4=sumD(Math.abs(w3));
+      const all=[...digs,w1,w2,w3,w4];
+      const cnt={};for(let i=1;i<=9;i++)cnt[i]=0;
+      all.forEach(n=>{Math.abs(n).toString().split('').forEach(c=>{const d=+c;if(d>=1&&d<=9)cnt[d]++;})});
+      const pos=[[7,8,9],[4,5,6],[1,2,3]];
+      const matrix=pos.map(row=>row.map(n=>({n,c:cnt[n]})));
+      return{w1,w2,w3,w4,cnt,matrix,digs};
+    }
 
-  // ─── SVG ART ───
-  const ArtCoach = ({size=64,c='currentColor'}) => (
-    <svg width={size} height={size} viewBox="0 0 64 64" fill="none" stroke={c} strokeWidth="1.2" strokeLinecap="round">
-      <circle cx="32" cy="32" r="26" opacity=".22"/>
-      <circle cx="32" cy="32" r="18" opacity=".42"/>
-      <circle cx="32" cy="32" r="10" opacity=".7"/>
-      <circle cx="32" cy="32" r="2.2" fill={c} stroke="none"/>
-      <path d="M8 32 Q16 24 24 32 T40 32 T56 32" opacity=".35"/>
-    </svg>
-  );
-  const ArtBiz = ({size=64,c='currentColor'}) => (
-    <svg width={size} height={size} viewBox="0 0 64 64" fill="none" stroke={c} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M32 8 L52 50 L12 50 Z" opacity=".22"/>
-      <path d="M32 18 L46 46 L18 46 Z" opacity=".45"/>
-      <path d="M32 28 L40 42 L24 42 Z" opacity=".85"/>
-      <polyline points="28,6 32,2 36,6" opacity=".65"/>
-      <line x1="32" y1="6" x2="32" y2="2" opacity=".7"/>
-    </svg>
-  );
-  const ArtAstro = ({size=64,c='currentColor'}) => (
-    <svg width={size} height={size} viewBox="0 0 64 64" fill="none" stroke={c} strokeWidth="1.1" strokeLinecap="round">
-      <circle cx="32" cy="32" r="24" opacity=".32"/>
-      <circle cx="32" cy="32" r="16" opacity=".22"/>
-      <line x1="32" y1="8" x2="32" y2="56" opacity=".32"/>
-      <line x1="8" y1="32" x2="56" y2="32" opacity=".32"/>
-      <line x1="15" y1="15" x2="49" y2="49" opacity=".22"/>
-      <line x1="49" y1="15" x2="15" y2="49" opacity=".22"/>
-      <circle cx="48" cy="20" r="1.6" fill={c} stroke="none"/>
-      <circle cx="20" cy="44" r="1.4" fill={c} stroke="none"/>
-      <circle cx="44" cy="46" r="1.2" fill={c} stroke="none"/>
-      <circle cx="18" cy="22" r="1.4" fill={c} stroke="none"/>
-      <circle cx="32" cy="32" r="2.4" fill={c} stroke="none"/>
-    </svg>
-  );
-  const ArtNumer = ({size=64,c='currentColor'}) => (
-    <svg width={size} height={size} viewBox="0 0 64 64" fill="none" stroke={c} strokeWidth="1.2" strokeLinecap="round">
-      <rect x="10" y="10" width="44" height="44" rx="2" opacity=".4"/>
-      <line x1="24.6" y1="10" x2="24.6" y2="54" opacity=".35"/>
-      <line x1="39.4" y1="10" x2="39.4" y2="54" opacity=".35"/>
-      <line x1="10" y1="24.6" x2="54" y2="24.6" opacity=".35"/>
-      <line x1="10" y1="39.4" x2="54" y2="39.4" opacity=".35"/>
-      {[['17.3','20','1'],['32','20','4'],['46.7','20','7'],['17.3','34.6','2'],['32','34.6','5'],['46.7','34.6','8'],['17.3','49.2','3'],['32','49.2','6'],['46.7','49.2','9']].map(([x,y,n])=>(
-        <text key={n} x={x} y={y} textAnchor="middle" fill={c} stroke="none" fontFamily="Georgia" fontSize="8" opacity=".85">{n}</text>
-      ))}
-    </svg>
-  );
-  const ArtSvarga = ({size=64,c='currentColor'}) => (
-    <svg width={size} height={size} viewBox="0 0 64 64" fill="none" stroke={c} strokeWidth="1.1" strokeLinecap="round">
-      <circle cx="32" cy="32" r="24" opacity=".35"/>
-      {/* flower of life pattern */}
-      <circle cx="32" cy="22" r="10" opacity=".35"/>
-      <circle cx="32" cy="42" r="10" opacity=".35"/>
-      <circle cx="23.34" cy="27" r="10" opacity=".35"/>
-      <circle cx="40.66" cy="27" r="10" opacity=".35"/>
-      <circle cx="23.34" cy="37" r="10" opacity=".35"/>
-      <circle cx="40.66" cy="37" r="10" opacity=".35"/>
-      <circle cx="32" cy="32" r="3" fill={c} stroke="none"/>
-    </svg>
-  );
-  const ART = { coach:ArtCoach, biz:ArtBiz, astro:ArtAstro, numer:ArtNumer, svarga:ArtSvarga };
+    /* ── HOOKS ── */
+    function useReveal(){
+      useEffect(()=>{
+        const obs=new IntersectionObserver(entries=>{
+          entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')});
+        },{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+        document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>obs.observe(el));
+        return()=>obs.disconnect();
+      });
+    }
 
-  // ─── SPECIALISTS (EN base; abridged for other langs) ───
-  // Five tools: coach, biz, astro, numer, svarga
-  const COMMON = {
-    coach:  { id:'coach',  cat:'primary',   art:'coach',  accent:'#D4B27A', glow:'rgba(212,178,122,.16)' },
-    biz:    { id:'biz',    cat:'primary',   art:'biz',    accent:'#C8946E', glow:'rgba(200,148,110,.16)' },
-    astro:  { id:'astro',  cat:'secondary', art:'astro',  accent:'#7E8EC8', glow:'rgba(126,142,200,.16)' },
-    numer:  { id:'numer',  cat:'secondary', art:'numer',  accent:'#6EA080', glow:'rgba(110,160,128,.16)' },
-    svarga: { id:'svarga', cat:'integral',  art:'svarga', accent:'#B07ECC', glow:'rgba(176,126,204,.16)' },
-  };
-
-  // Per-language content — EN/RU full; ES/IT/HE abridged but complete enough
-  const CONTENT = {
-    en: {
-      coach: { tag:'Personal AI Coach', name:'AI-Coach', title:'Long-term AI coach with ICF, GROW, Wheel of Balance, Co-Active — and four daily rhythms.',
-        tagline:'Not an assistant. Not a consultant. A coach. Helps you think clearly, see blind spots, and make strong decisions through awareness — not advice.',
-        pills:['ICF','GROW','Wheel of Balance','Co-Active','4 Rhythms'],
-        about:{ eyebrow:'WHAT IT IS', h2:'Three layers · Four methodologies · Four rhythms',
-          bio:'A complete personal coaching system designed for Claude Projects, NotebookLM, or Custom GPT. Three layers: Context (who you are, goals, values, projects) · Methodologies (ICF, GROW, Wheel, Co-Active applied to the right question type) · Rhythms (Morning · Evening · Weekly · Monthly, each with its own scenario and final artifact).',
-          bio2:'Core principle: the coach does not give answers. It helps you find your own through awareness. No false motivation, no flattery, no esoteric handwaving. Direct, with care — the kind of mirror that surfaces what you already know but cannot yet hear.' },
-        stats:[{n:'4',l:'methodologies'},{n:'4',l:'rhythms'},{n:'9',l:'modules'}],
-        programs:[
-          {num:'01',title:'Morning Review · 5–7 min',desc:'Day focus and the first concrete step. Quick alignment of attention before the day pulls you in.',tags:['Daily','Focus','First Step']},
-          {num:'02',title:'Evening Retro · 10 min',desc:'What worked, what didn\'t, one insight per day. Five minutes of honest reflection beats hours of vague thinking.',tags:['Daily','Reflection','Insight']},
-          {num:'03',title:'Weekly Review · 30 min',desc:'Full week summary plus next-week plan through GROW. The session that keeps the whole system from collapsing.',tags:['Weekly','GROW','Plan']},
-          {num:'04',title:'Monthly Audit · 60–90 min',desc:'Wheel of Balance + Co-Active values check + pattern recognition. The session that compounds month over month.',tags:['Monthly','Wheel','Co-Active']}],
-        framework:{ eyebrow:'METHODOLOGIES', h2:'The right tool for the right question',
-          pillars:[
-            {n:'ICF',title:'Awareness through questions',desc:'Open questions, active listening, no advice. For when you have the answer but cannot yet hear it.'},
-            {n:'GROW',title:'Goal · Reality · Options · Will',desc:'Concrete task that needs a decision. Structured walk-through from clarity to commitment.'},
-            {n:'WHEEL',title:'Wheel of Balance',desc:'Audit all life domains. When something is off across multiple areas and you need the whole picture.'},
-            {n:'CO·A',title:'Values and meaning',desc:'For the big questions. Identity, purpose, what actually matters. The deepest of the four.'}] },
-        testimonials:[
-          {name:'Default starting point',city:'For first-time users',text:'Just type "What\'s in focus today?" — the system will pick the right methodology for your question.'},
-          {name:'Hard moments',city:'When you\'re stuck',text:'"Something is off but I don\'t know what" → activates ICF clarification. "Inside is empty, what\'s it all for" → activates Co-Active values work.'},
-          {name:'Long-term result',city:'After 1–3 months',text:'The coach starts noticing your repeated patterns and recurring themes. Becomes a deep mirror — not by magic, but by accumulated data about your cycles.'}],
+    /* ── CONTENT DATA ── */
+    const T={
+      en:{
+        nav:{specialists:'Specialists',tools:'Tools',about:'About',cta:'Get Started'},
+        hero:{
+          tag:'AI-Powered Personal Development',
+          h1:'Unlock Your',h2:'Human',h3:'Potential',
+          sub:'Six intelligent AI systems that work together to guide your transformation — coaching, strategy, astrology, numerology, and integral practice.',
+          cta1:'Explore the System',cta2:'Meet the Specialists',
+          s1:'10',sl1:'AI Specialists',s2:'5',sl2:'Languages',s3:'6',sl3:'Systems',s4:'∞',sl4:'Possibilities'
+        },
+        tools:{
+          label:'Intelligent Systems',
+          h:'Your Transformation',em:' Toolkit',
+          sub:'Each system is a specialized AI companion — choose your path.'
+        },
+        specialists:{
+          label:'Our Team',
+          h:'Meet Your',em:' AI Specialists',
+          sub:'10 distinct AI personalities, each mastering a unique domain of human development.'
+        },
+        footer:{
+          col1:'Explore',col2:'Specialists',col3:'Platform',
+          copy:'© 2025 LifeForge AI. All rights reserved.',
+          author:'Created by'
+        }
       },
-      biz: { tag:'Business & Peak Performance', name:'Viktor Stern', title:'Business mastery & peak-performance AI coach. Synthesis of Robbins, Sharma, and Burchard.',
-        tagline:'Your business is a mirror of your being. Transform the inner — and the outer follows.',
-        pills:['Strategy','Peak State','Leadership','Identity','High Performance'],
-        about:{ eyebrow:'WHAT IT IS', h2:'Three giants synthesized into one executable system',
-          bio:'A peak-performance AI coach distilled from the world\'s foremost performance teachers: Tony Robbins (peak state architecture, priming, RPM — "motion creates emotion"), Robin Sharma (5 AM Club, 4 Interior Empires, elite daily rituals), Brendon Burchard (High Performance Habits — Clarity, Energy, Necessity, Productivity, Influence, Courage).',
-          bio2:'Designed for entrepreneurs, executives, and high-performers who want a daily operating system, not a motivational pep talk. Focuses on the four layers — State, Strategy, Systems, Identity — and refuses to skip any of them.' },
-        stats:[{n:'3',l:'master frameworks'},{n:'4',l:'pyramid layers'},{n:'90',l:'day journey'}],
-        programs:[
-          {num:'01',title:'90-Day Business Breakthrough',desc:'Identity shift, strategic clarity, systems build-out, daily performance habits. The flagship journey for operating at a new level.',tags:['Strategy','Identity','Daily Habits']},
-          {num:'02',title:'Morning Power Protocol',desc:'The non-negotiable foundation. Physiology, priming, daily clarity ritual. 30 minutes that decide the other 23 hours.',tags:['Daily','Physiology','Priming']},
-          {num:'03',title:'Peak State Executive Retreat',desc:'3-day immersive for senior leaders. Physiology work, clarity sessions, strategic planning, deep identity work.',tags:['Retreat','Leadership','Deep Work']}],
-        framework:{ eyebrow:'THE PERFORMANCE PYRAMID', h2:'State → Strategy → Systems → Identity',
-          pillars:[
-            {n:'01',title:'Peak State',desc:'Results begin with physiology and emotional state. Morning Power Protocol and priming rituals — operate from peak, not default. "Motion creates emotion." — Tony Robbins'},
-            {n:'02',title:'Strategic Clarity',desc:'Where focus goes, energy flows. CAP Framework (Clarity · Action · Power) aligns daily actions with highest-leverage goals. Inspired by Robin Sharma\'s 4 Interior Empires.'},
-            {n:'03',title:'Elite Systems',desc:'High performers build systems, not willpower. Delegation frameworks, leverage matrices, performance dashboards run the business — so the business doesn\'t run you.'},
-            {n:'04',title:'Identity Evolution',desc:'"Who do I need to become?" is the most important business question. Identity work drawn from Brendon Burchard\'s High Performance Habits.'}] },
-        testimonials:[
-          {name:'On state',city:'Tony Robbins',text:'"The quality of your life is the quality of your emotions. Master your state — master your life."'},
-          {name:'On rituals',city:'Robin Sharma',text:'"The secret of success is found in your daily routine. Win the morning — win the day."'},
-          {name:'On performance',city:'Brendon Burchard',text:'"High performers don\'t just think positive. They create certainty through clarity and habit."'}],
+      ru:{
+        nav:{specialists:'Специалисты',tools:'Инструменты',about:'О нас',cta:'Начать'},
+        hero:{
+          tag:'ИИ-платформа личностного роста',
+          h1:'Раскрой свой',h2:'Человеческий',h3:'Потенциал',
+          sub:'Шесть интеллектуальных ИИ-систем для вашей трансформации — коучинг, стратегия, астрология, нумерология и интегральная практика.',
+          cta1:'Исследовать систему',cta2:'Познакомиться со специалистами',
+          s1:'10',sl1:'ИИ-специалистов',s2:'5',sl2:'Языков',s3:'6',sl3:'Систем',s4:'∞',sl4:'Возможностей'
+        },
+        tools:{
+          label:'Интеллектуальные системы',
+          h:'Ваш инструментарий',em:' трансформации',
+          sub:'Каждая система — специализированный ИИ-компаньон на вашем пути.'
+        },
+        specialists:{
+          label:'Наша команда',
+          h:'Познакомьтесь с',em:' ИИ-специалистами',
+          sub:'10 уникальных ИИ-личностей, каждая — мастер своей области развития.'
+        },
+        footer:{
+          col1:'Исследовать',col2:'Специалисты',col3:'Платформа',
+          copy:'© 2025 LifeForge AI. Все права защищены.',
+          author:'Создано'
+        }
       },
-      astro: { tag:'Natal Chart · AI Analyst', name:'AI-Astrologer', title:'Professional AI astrology analyst — interactive, multilingual, one question at a time.',
-        tagline:'Use as a mirror for self-reflection, not fate prediction. The questions your own mind raises while reading are the real material.',
-        pills:['Natal Chart','Transits','Synastry','11 Analysis Modes','Multilingual'],
-        about:{ eyebrow:'WHAT IT IS', h2:'Western · Psychological · Karmic · Archetypal · Integral',
-          bio:'A precision system prompt that turns DeepSeek, ChatGPT, Claude, or Gemini into a professional astrologer-analyst. Works interactively: asks one question at a time, validates birth data with historical timezone awareness, separates astronomy (UTC, LST, ASC, MC, houses, planets, aspects) from interpretation (psychological, karmic, archetypal). Supports 11 analysis types including natal, solar return, transits, synastry, career, financial, vocational, spiritual path, child chart, crisis period, and full integrated analysis.',
-          bio2:'Position: a reflection instrument, not a prediction tool. Never predicts death, tragedies, or absolute outcomes. Shows tendencies, potentials, growth zones, and transformation points. Three depth levels: Brief · Standard · Deep (full professional analysis with dispositor chains, dominants, stelliums, minor aspects, karmic indicators).' },
-        stats:[{n:'11',l:'analysis modes'},{n:'3',l:'depth levels'},{n:'5+',l:'AI models supported'}],
-        programs:[
-          {num:'01',title:'Natal Chart Reading',desc:'Core personality, life purpose, talents, relationships, career, finances. Western + psychological + archetypal lens.',tags:['Foundation','One-time','High depth']},
-          {num:'02',title:'Solar Return / Transits',desc:'Annual themes (solar return chart) or current sky activations (transits). Strategic timing for big decisions.',tags:['Annual','Forecasting','Strategic']},
-          {num:'03',title:'Synastry / Compatibility',desc:'Two charts compared. Communication patterns, emotional resonance, growth edges, karmic dynamics.',tags:['Relationship','Two charts','Deep work']},
-          {num:'04',title:'Vocational / Career',desc:'Life work direction through MC, 10th house, dominants, Saturn placements. Strategic career mapping.',tags:['Career','MC focus','Practical']}],
-        testimonials:[
-          {name:'On usage',city:'Author\'s note',text:'"Use this as a mirror, not as data about your fate. Notice where it lands, where it feels stretched. The questions it raises in you are the real material."'},
-          {name:'Free path',city:'DeepSeek + DeepThink',text:'Works free in DeepSeek with DeepThink enabled. Also works in ChatGPT, Claude, Gemini.'},
-          {name:'Power move',city:'Multi-AI verification',text:'Run the same prompt in 2–3 AIs, then have a third compare results. Differences reveal where AIs interpret distinctly — that\'s where the gold is.'}],
+      es:{
+        nav:{specialists:'Especialistas',tools:'Herramientas',about:'Acerca',cta:'Comenzar'},
+        hero:{
+          tag:'Desarrollo Personal con IA',
+          h1:'Desbloquea tu',h2:'Potencial',h3:'Humano',
+          sub:'Seis sistemas de IA que guían tu transformación — coaching, estrategia, astrología, numerología y práctica integral.',
+          cta1:'Explorar el sistema',cta2:'Conocer especialistas',
+          s1:'10',sl1:'Especialistas IA',s2:'5',sl2:'Idiomas',s3:'6',sl3:'Sistemas',s4:'∞',sl4:'Posibilidades'
+        },
+        tools:{label:'Sistemas inteligentes',h:'Tu kit de',em:' transformación',sub:'Cada sistema es un compañero IA especializado.'},
+        specialists:{label:'Nuestro equipo',h:'Conoce a tus',em:' especialistas',sub:'10 personalidades IA únicas, cada una maestra en su dominio.'},
+        footer:{col1:'Explorar',col2:'Especialistas',col3:'Plataforma',copy:'© 2025 LifeForge AI.',author:'Creado por'}
       },
-      numer: { tag:'Pythagoras Square · NUMERA', name:'AI-Numerologist', title:'NUMERA — interactive AI numerology analyst, Pythagoras Square with triple math verification.',
-        tagline:'Every conclusion explained through numbers. No mysticism. No fatalism. A structured personality model from your date of birth.',
-        pills:['Pythagoras Square','Triple Math Check','10 Analysis Types','3 Depth Levels','Live Calculator Below'],
-        about:{ eyebrow:'WHAT IT IS', h2:'A structured personality system — not a fortune-telling oracle',
-          bio:'NUMERA turns DeepSeek, ChatGPT, Claude, or Gemini into a numerology analyst in the classical Pythagoras Square tradition (A.F. Alexandrov\'s Russian school). Interactive flow: language → analysis type (10 modes from basic profile to full system) → depth level (Short · Standard · Deep) → data collection (name + DD.MM.YYYY) → calculation → analysis → progressive deepening.',
-          bio2:'Unique feature: triple self-check of the arithmetic. AI models commonly make math errors counting digits. NUMERA forces three independent recalculations and a final cross-check, dramatically improving accuracy. Every conclusion is explained through numbers with thesis → numerical justification → practical implication.' },
-        stats:[{n:'10',l:'analysis types'},{n:'3×',l:'math verification'},{n:'1',l:'piece of data needed'}],
-        programs:[
-          {num:'01',title:'Basic Personality Profile',desc:'Core character structure, thinking style, energy system, communication patterns — derived strictly from your matrix.',tags:['Foundation','15 min','Essentials']},
-          {num:'02',title:'Money & Financial Model',desc:'Numerical drivers of earning behavior, blocking patterns, what strengthens financial performance.',tags:['Money','Behavior','Strategy']},
-          {num:'03',title:'Relationships',desc:'Connection patterns, what you give and need, conflict dynamics — through the matrix lens.',tags:['Relationships','Patterns','Dynamics']},
-          {num:'04',title:'Karmic Patterns · Life Cycles',desc:'Recurring scripts, evolutionary tendencies, life-cycle mapping. Deep mode only.',tags:['Karmic','Cycles','Deep mode']}],
-        framework:{ eyebrow:'INTERACTIVE FLOW', h2:'Language → Type → Depth → Calculation → Analysis → Deepening',
-          pillars:[
-            {n:'01',title:'Step-by-step',desc:'One question per message. Never overloads. Builds the model conversationally rather than dumping a static report.'},
-            {n:'02',title:'Triple math check',desc:'Calculation done three times independently before any analysis. Cross-verified. The single biggest accuracy gain for AI numerology.'},
-            {n:'03',title:'Progressive depth',desc:'Choose Short, Standard, or Deep at entry. Can deepen further after initial pass without restarting — layers add on the same matrix.'},
-            {n:'04',title:'No mysticism',desc:'Every conclusion traced to numbers. No fatalism, no vague spiritual claims. Logical cause-effect throughout.'}] },
-        testimonials:[
-          {name:'Safety check',city:'Always do this',text:'After the AI shows the matrix calculation, verify against an independent online Pythagoras calculator. Numbers match — read the analysis. If not — re-run or use another AI.'},
-          {name:'Why triple-check',city:'Math reality',text:'AI models routinely make arithmetic errors when counting digits and placing them in matrix cells. Triple self-check is the difference between a useful and a misleading reading.'},
-          {name:'How to use it',city:'Reflection, not fate',text:'Read the analysis. Notice what lands. Notice what feels stretched. The thoughts that arise in you are the real material — not the matrix itself.'}],
+      it:{
+        nav:{specialists:'Specialisti',tools:'Strumenti',about:'Chi siamo',cta:'Inizia'},
+        hero:{
+          tag:'Sviluppo Personale con IA',
+          h1:'Sblocca il tuo',h2:'Potenziale',h3:'Umano',
+          sub:'Sei sistemi di IA per guidare la tua trasformazione — coaching, strategia, astrologia, numerologia e pratica integrale.',
+          cta1:'Esplora il sistema',cta2:'Incontra gli specialisti',
+          s1:'10',sl1:'Specialisti IA',s2:'5',sl2:'Lingue',s3:'6',sl3:'Sistemi',s4:'∞',sl4:'Possibilità'
+        },
+        tools:{label:'Sistemi intelligenti',h:'Il tuo kit di',em:' trasformazione',sub:'Ogni sistema è un compagno IA specializzato.'},
+        specialists:{label:'Il nostro team',h:'Incontra i tuoi',em:' specialisti',sub:'10 personalità IA uniche, ognuna esperta nel suo dominio.'},
+        footer:{col1:'Esplora',col2:'Specialisti',col3:'Piattaforma',copy:'© 2025 LifeForge AI.',author:'Creato da'}
       },
-      svarga: { tag:'Integral Practice · Svarga System', name:'Svarga System', title:'Integral inner development — body, breath, mind, awareness woven into one living practice.',
-        tagline:'Where ancient Eastern traditions meet modern psychology and somatic work. Twenty years of teaching, distilled into a daily living system.',
-        pills:['Meditation','Breathwork','Qigong','Energy Work','Daily Practice','Retreats'],
-        about:{ eyebrow:'WHAT IT IS', h2:'Twenty years of integral practice, codified into one system',
-          bio:'The Svarga System is the integral inner-development synthesis created by Moshe Om over 20+ years across three continents. Combines Eastern traditions (Lin Tzi Qigong, Iron Shirt, Pranayama, Vipassana), modern transpersonal psychology, somatic body work, and energy practices. Not a religion or a doctrine — a living practice integrating four dimensions: body, breath, mind, and consciousness.',
-          bio2:'Designed for modern life — not the cave, not the ashram. Practices are short, practical, and integrate into normal days. The 21-day marathon is the entry; retreats deepen; mentorship anchors. The system grows with you.' },
-        stats:[{n:'20+',l:'years of practice'},{n:'3,000+',l:'participants'},{n:'30+',l:'countries'}],
-        programs:[
-          {num:'01',title:'21-Day Transformation Marathon',desc:'Daily integral practices — body, breath, mind, consciousness. Live group calls, recordings, and community support throughout.',tags:['21 Days','Daily','Community']},
-          {num:'02',title:'Retreat Series',desc:'Immersive multi-day retreats in sacred locations. Deep somatic and energy work in nature, in small groups.',tags:['In-person','Multi-day','Small groups']},
-          {num:'03',title:'Private Mentorship',desc:'Personalized 1:1 guidance through a tailored 3-month journey. For those ready for deep, lasting transformation.',tags:['1:1','Custom','Weekly']}],
-        framework:{ eyebrow:'FOUR DIMENSIONS', h2:'Body · Breath · Mind · Consciousness',
-          pillars:[
-            {n:'01',title:'Body',desc:'Qigong forms, somatic awareness, Iron Shirt grounding. The body remembers what the mind forgets — practice meets it where it lives.'},
-            {n:'02',title:'Breath',desc:'Pranayama, breathwork, conscious breathing. The fastest lever between body and mind. Daily practice; immediate effect.'},
-            {n:'03',title:'Mind',desc:'Vipassana, modern psychology integration, working with limiting patterns. Awareness of the patterns is the first step out of them.'},
-            {n:'04',title:'Consciousness',desc:'Direct meditation practice. Integral spiritual development without dogma — what is, prior to thought.'}] },
-        testimonials:[
-          {name:'Anna M.',city:'Moscow',text:'"In 21 days I traveled a path that usually takes years. Moshe is an incredible guide — his presence alone creates transformation."'},
-          {name:'Dmitry K.',city:'St. Petersburg',text:'"Breathing and meditation practices became a daily ritual. Clarity and strength I hadn\'t felt in years — it simply works."'},
-          {name:'Elena V.',city:'Kyiv',text:'"The community alone is worth it. The feeling of not being alone on your path. Endless gratitude to Moshe and the whole team."'}],
-      },
-    },
-    // RU full
-    ru: {
-      coach: { tag:'Личный ИИ-коуч', name:'ИИ-Коуч', title:'Долгосрочный ИИ-коуч с ICF, GROW, Колесом баланса, Co-Active — и четырьмя ежедневными ритмами.',
-        tagline:'Не помощник. Не консультант. Коуч. Помогает думать яснее, видеть слепые зоны и принимать сильные решения через осознание — не через подсказки.',
-        pills:['ICF','GROW','Колесо баланса','Co-Active','4 ритма'],
-        about:{ eyebrow:'ЧТО ЭТО', h2:'Три слоя · Четыре методики · Четыре ритма',
-          bio:'Полная персональная система коучинга для Claude Projects, NotebookLM или Custom GPT. Три слоя: Контекст (кто вы, цели, ценности, проекты) · Методики (ICF, GROW, Колесо, Co-Active под нужный тип запроса) · Ритмы (Утро · Вечер · Неделя · Месяц, каждый со своим сценарием и финальным артефактом).',
-          bio2:'Главный принцип: коуч не даёт ответов. Он помогает найти свои через осознание. Без наигранной мотивации, без лести, без эзотерических обобщений. Прямой, с заботой — зеркало, которое возвращает то, что вы уже знаете, но пока не можете услышать.' },
-        stats:[{n:'4',l:'методики'},{n:'4',l:'ритма'},{n:'9',l:'модулей'}],
-        programs:[
-          {num:'01',title:'Утренний разбор · 5–7 мин',desc:'Фокус дня и первый конкретный шаг. Быстрая настройка внимания до того, как день затянул в события.',tags:['Ежедневно','Фокус','Первый шаг']},
-          {num:'02',title:'Вечернее ретро · 10 мин',desc:'Что сработало, что нет, один инсайт за день. Пять минут честной рефлексии сильнее часов размытых мыслей.',tags:['Ежедневно','Рефлексия','Инсайт']},
-          {num:'03',title:'Еженедельный обзор · 30 мин',desc:'Итог недели плюс план следующей через GROW. Сессия, без которой вся система разваливается.',tags:['Еженедельно','GROW','План']},
-          {num:'04',title:'Месячный итог · 60–90 мин',desc:'Колесо баланса + проверка ценностей через Co-Active + распознавание паттернов. Эффект накапливается от месяца к месяцу.',tags:['Ежемесячно','Колесо','Co-Active']}],
-        framework:{ eyebrow:'МЕТОДИКИ', h2:'Правильный инструмент под правильный запрос',
-          pillars:[
-            {n:'ICF',title:'Осознание через вопросы',desc:'Открытые вопросы, активное слушание, без советов. Когда ответ уже есть, но вы пока не можете его услышать.'},
-            {n:'GROW',title:'Цель · Реальность · Варианты · Воля',desc:'Конкретная задача, требующая решения. Структурный путь от ясности к обязательству.'},
-            {n:'WHEEL',title:'Колесо баланса',desc:'Аудит всех сфер жизни. Когда сразу в нескольких областях что-то не так и нужна общая картина.'},
-            {n:'CO·A',title:'Ценности и смысл',desc:'Для больших вопросов. Идентичность, предназначение, что на самом деле важно. Самая глубокая из четырёх.'}] },
-        testimonials:[
-          {name:'Стартовая точка',city:'Для первого захода',text:'Просто напишите «С чем сегодня?» — система сама подберёт подходящую методику под запрос.'},
-          {name:'Трудные моменты',city:'Когда застряли',text:'«Что-то не так, но не понимаю что» → активирует ICF на прояснение. «Внутри пусто, ради чего всё это» → активирует Co-Active работу с ценностями.'},
-          {name:'Долгосрочный результат',city:'Через 1–3 месяца',text:'Коуч начинает замечать ваши повторяющиеся паттерны и темы. Становится глубоким зеркалом — не благодаря «магии», а потому что накопились данные о ваших циклах.'}],
-      },
-      biz: { tag:'Бизнес и пиковая эффективность', name:'Виктор Штерн', title:'Бизнес-мастерство и пиковая эффективность — ИИ-коуч. Синтез Роббинса, Шармы и Бёрчарда.',
-        tagline:'Ваш бизнес — зеркало вашего существа. Трансформируйте внутреннее — внешнее последует.',
-        pills:['Стратегия','Пиковое состояние','Лидерство','Идентичность','Высокая эффективность'],
-        about:{ eyebrow:'ЧТО ЭТО', h2:'Три гиганта, синтезированные в одну исполняемую систему',
-          bio:'ИИ-коуч по пиковой эффективности, дистиллированный из работ ведущих мировых тренеров: Тони Роббинс (архитектура пикового состояния, прайминг, RPM — «движение создаёт эмоцию»), Робин Шарма (Клуб 5 утра, 4 Внутренние империи, элитные ежедневные ритуалы), Брендон Бёрчард (Привычки высокоэффективных людей — Ясность, Энергия, Необходимость, Продуктивность, Влияние, Смелость).',
-          bio2:'Для предпринимателей, руководителей и людей высоких достижений, которым нужна ежедневная операционная система, а не мотивационная речь. Фокус на четырёх слоях: Состояние, Стратегия, Системы, Идентичность — и отказ пропускать любой из них.' },
-        stats:[{n:'3',l:'мастер-фреймворка'},{n:'4',l:'слоя пирамиды'},{n:'90',l:'дней пути'}],
-        programs:[
-          {num:'01',title:'90-дневный прорыв в бизнесе',desc:'Трансформация идентичности, стратегическая ясность, построение систем, ежедневные привычки. Флагман.',tags:['Стратегия','Идентичность','Привычки']},
-          {num:'02',title:'Утренний протокол мощи',desc:'Необходимый фундамент. Физиология, прайминг, ежедневный ритуал ясности. 30 минут, которые определяют остальные 23 часа.',tags:['Ежедневно','Физиология','Прайминг']},
-          {num:'03',title:'Ретрит пикового состояния',desc:'3-дневное очное погружение для топ-менеджеров. Физиология, ясность, стратегия, работа с идентичностью.',tags:['Ретрит','Лидерство','Глубокая работа']}],
-        framework:{ eyebrow:'ПИРАМИДА ПРОИЗВОДИТЕЛЬНОСТИ', h2:'Состояние → Стратегия → Системы → Идентичность',
-          pillars:[
-            {n:'01',title:'Пиковое состояние',desc:'Результаты начинаются с физиологии и эмоций. Утренний протокол мощи — работа из пика, а не по умолчанию. «Движение создаёт эмоцию.» — Тони Роббинс'},
-            {n:'02',title:'Стратегическая ясность',desc:'Куда идёт фокус — туда идёт энергия. CAP-фреймворк (Clarity · Action · Power) согласует действия с целями. Вдохновлено 4 Империями Шармы.'},
-            {n:'03',title:'Элитные системы',desc:'Высокоэффективные люди строят системы, а не силу воли. Делегирование, рычаги, дашборды — управляют вашим бизнесом, а не наоборот.'},
-            {n:'04',title:'Эволюция идентичности',desc:'«Кем мне нужно стать?» — самый важный вопрос. Работа с идентичностью на основе Привычек Бёрчарда.'}] },
-        testimonials:[
-          {name:'О состоянии',city:'Тони Роббинс',text:'«Качество вашей жизни — это качество ваших эмоций. Овладейте состоянием — овладеете жизнью.»'},
-          {name:'О ритуалах',city:'Робин Шарма',text:'«Секрет успеха — в вашей ежедневной рутине. Выиграйте утро — выиграете день.»'},
-          {name:'О производительности',city:'Брендон Бёрчард',text:'«Высокоэффективные люди не просто мыслят позитивно. Они создают определённость через ясность и привычки.»'}],
-      },
-      astro: { tag:'Натальная карта · ИИ-аналитик', name:'ИИ-Астролог', title:'Профессиональный ИИ астролог-аналитик — интерактивный, многоязычный, один вопрос за раз.',
-        tagline:'Используйте как зеркало для саморефлексии, а не предсказание судьбы. Вопросы, которые поднимает ваш ум при чтении — настоящий материал.',
-        pills:['Натальная карта','Транзиты','Синастрия','11 режимов','Многоязычность'],
-        about:{ eyebrow:'ЧТО ЭТО', h2:'Западный · Психологический · Кармический · Архетипический · Интегральный',
-          bio:'Точно настроенный промпт, превращающий DeepSeek, ChatGPT, Claude или Gemini в профессионального астролога-аналитика. Работает интерактивно: задаёт один вопрос за раз, валидирует данные рождения с учётом исторических тайм-зон, отделяет астрономию (UTC, LST, ASC, MC, дома, планеты, аспекты) от интерпретации (психологической, кармической, архетипической). Поддерживает 11 типов анализа: натальная, соляр, транзиты, синастрия, карьерный, финансовый, предназначение, духовный путь, детская карта, кризисный период, комплексный.',
-          bio2:'Позиция: инструмент рефлексии, а не предсказания. Никогда не предсказывает смерть, трагедии, абсолютные исходы. Показывает тенденции, потенциалы, зоны роста, точки трансформации. Три уровня глубины: Краткий · Стандартный · Глубинный (профессиональный анализ с диспозиторными цепочками, доминантами, стеллиумами, минорными аспектами, кармическими показателями).' },
-        stats:[{n:'11',l:'режимов анализа'},{n:'3',l:'уровня глубины'},{n:'5+',l:'ИИ-моделей'}],
-        programs:[
-          {num:'01',title:'Разбор натальной карты',desc:'Ядро личности, предназначение, таланты, отношения, карьера, финансы. Западный + психологический + архетипический подход.',tags:['База','Разовый','Высокая глубина']},
-          {num:'02',title:'Соляр / Транзиты',desc:'Темы года (соляр) или текущие активации (транзиты). Стратегический тайминг для больших решений.',tags:['Год','Прогноз','Стратегия']},
-          {num:'03',title:'Синастрия / Совместимость',desc:'Сравнение двух карт. Паттерны коммуникации, эмоциональный резонанс, зоны роста, кармика.',tags:['Отношения','Две карты','Глубоко']},
-          {num:'04',title:'Карьера · Предназначение',desc:'Направление дела жизни через MC, 10-й дом, доминанты, положение Сатурна. Стратегическая карьерная карта.',tags:['Карьера','MC','Практично']}],
-        testimonials:[
-          {name:'Об использовании',city:'Замечание автора',text:'«Используйте как зеркало, не как данные о вашей судьбе. Замечайте, что отзывается, что вызывает сопротивление. Вопросы, которые поднимает в вас — настоящий материал.»'},
-          {name:'Бесплатный путь',city:'DeepSeek + DeepThink',text:'Работает бесплатно в DeepSeek с DeepThink. Также в ChatGPT, Claude, Gemini.'},
-          {name:'Сильный приём',city:'Кросс-ИИ проверка',text:'Запустите один и тот же промпт в 2–3 ИИ, попросите третий сравнить. Расхождения покажут, где разные ИИ интерпретируют по-разному — там и золото.'}],
-      },
-      numer: { tag:'Квадрат Пифагора · NUMERA', name:'ИИ-Нумеролог', title:'NUMERA — интерактивный ИИ-аналитик нумерологии, квадрат Пифагора с тройной самопроверкой.',
-        tagline:'Каждый вывод объяснён через числа. Без мистики. Без фатализма. Структурированная модель личности из вашей даты рождения.',
-        pills:['Квадрат Пифагора','Тройная проверка','10 типов анализа','3 уровня глубины','Калькулятор ниже'],
-        about:{ eyebrow:'ЧТО ЭТО', h2:'Структурированная система личности — не оракул',
-          bio:'NUMERA превращает DeepSeek, ChatGPT, Claude или Gemini в нумеролога-аналитика в классической традиции квадрата Пифагора (русская школа А.Ф. Александрова). Интерактивный поток: язык → тип анализа (10 режимов от базового до полного) → уровень глубины (Краткий · Стандартный · Глубинный) → сбор данных (имя + ДД.ММ.ГГГГ) → расчёт → анализ → прогрессивное углубление.',
-          bio2:'Уникальная особенность: тройная самопроверка арифметики. ИИ-модели часто ошибаются при подсчёте цифр. NUMERA выполняет три независимых пересчёта и финальную сверку. Каждый вывод объяснён через числа: тезис → числовое обоснование → практический вывод.' },
-        stats:[{n:'10',l:'типов анализа'},{n:'3×',l:'проверка расчёта'},{n:'1',l:'нужный параметр'}],
-        programs:[
-          {num:'01',title:'Базовый профиль личности',desc:'Структура характера, стиль мышления, энергетика, паттерны коммуникации — строго из вашей матрицы.',tags:['База','15 мин','Суть']},
-          {num:'02',title:'Деньги · Финансовая модель',desc:'Числовые драйверы заработка, блокирующие паттерны, что усиливает финансовый успех.',tags:['Деньги','Поведение','Стратегия']},
-          {num:'03',title:'Отношения',desc:'Паттерны связи, что даёте и в чём нуждаетесь, динамика конфликтов — через призму матрицы.',tags:['Отношения','Паттерны','Динамика']},
-          {num:'04',title:'Карма · Жизненные циклы',desc:'Повторяющиеся сценарии, эволюционные тенденции, карта жизненных циклов. Только в глубинном режиме.',tags:['Карма','Циклы','Глубинно']}],
-        framework:{ eyebrow:'ИНТЕРАКТИВНЫЙ ПОТОК', h2:'Язык → Тип → Глубина → Расчёт → Анализ → Углубление',
-          pillars:[
-            {n:'01',title:'Шаг за шагом',desc:'Один вопрос за сообщение. Не перегружает. Строит модель в диалоге, а не выдаёт статичный отчёт.'},
-            {n:'02',title:'Тройная проверка',desc:'Расчёт выполняется трижды независимо до любого анализа. Сверяется. Главный прирост точности для ИИ-нумерологии.'},
-            {n:'03',title:'Прогрессивная глубина',desc:'Выбираете Краткий, Стандартный или Глубинный на входе. Можно углубляться дальше без рестарта — слои на той же матрице.'},
-            {n:'04',title:'Без мистики',desc:'Каждый вывод привязан к числам. Никакого фатализма, никаких размытых духовных утверждений. Логика причин и следствий.'}] },
-        testimonials:[
-          {name:'Ключевая проверка',city:'Делайте всегда',text:'После того как ИИ покажет расчёт матрицы, сверьте с независимым онлайн-калькулятором квадрата Пифагора. Совпадает — читайте анализ. Нет — пересчитайте или возьмите другой ИИ.'},
-          {name:'Зачем тройная проверка',city:'Реальность',text:'ИИ-модели регулярно ошибаются при подсчёте цифр и размещении в ячейках. Тройная проверка — разница между полезным и вводящим в заблуждение разбором.'},
-          {name:'Как использовать',city:'Рефлексия, не судьба',text:'Прочитайте разбор. Заметьте, что попадает в яблочко. Что кажется натянутым. Мысли, рождающиеся в процессе чтения — настоящий материал.'}],
-      },
-      svarga: { tag:'Интегральная практика · Svarga', name:'Система Svarga', title:'Интегральное внутреннее развитие — тело, дыхание, разум, осознанность в одной живой практике.',
-        tagline:'Где древние восточные традиции встречают современную психологию и работу с телом. Двадцать лет преподавания, сжатые в ежедневную систему.',
-        pills:['Медитация','Дыхание','Цигун','Энергетика','Ежедневная практика','Ретриты'],
-        about:{ eyebrow:'ЧТО ЭТО', h2:'Двадцать лет интегральной практики, кодифицированные в одну систему',
-          bio:'Система Svarga — синтез интегрального внутреннего развития, созданный Моше Ом за 20+ лет на трёх континентах. Объединяет восточные традиции (Линь Цзи Цигун, Железная Рубашка, Пранаяма, Випассана), современную трансперсональную психологию, соматическую работу с телом и энергетические практики. Не религия и не доктрина — живая практика, интегрирующая четыре измерения: тело, дыхание, разум, сознание.',
-          bio2:'Создана для современной жизни — не для пещеры, не для ашрама. Практики короткие, прикладные, встраиваются в обычные дни. 21-дневный марафон — вход; ретриты — углубление; наставничество — закрепление. Система растёт вместе с вами.' },
-        stats:[{n:'20+',l:'лет практики'},{n:'3 000+',l:'участников'},{n:'30+',l:'стран'}],
-        programs:[
-          {num:'01',title:'21-дневный марафон трансформации',desc:'Ежедневные интегральные практики — тело, дыхание, разум, сознание. Живые групповые звонки, записи, поддержка сообщества.',tags:['21 день','Ежедневно','Сообщество']},
-          {num:'02',title:'Серия ретритов',desc:'Многодневные погружения в сакральных местах. Глубокая соматическая и энергетическая работа в природе, малыми группами.',tags:['Очно','Несколько дней','Малые группы']},
-          {num:'03',title:'Личное наставничество',desc:'Персональное сопровождение 1:1 через трёхмесячный путь, выстроенный под вас. Для тех, кто готов к глубоким переменам.',tags:['1:1','Индивидуально','Еженедельно']}],
-        framework:{ eyebrow:'ЧЕТЫРЕ ИЗМЕРЕНИЯ', h2:'Тело · Дыхание · Разум · Сознание',
-          pillars:[
-            {n:'01',title:'Тело',desc:'Формы цигун, соматическая осознанность, заземление Железной Рубашки. Тело помнит то, что разум забывает — практика встречает его там, где оно живёт.'},
-            {n:'02',title:'Дыхание',desc:'Пранаяма, дыхательные практики, осознанное дыхание. Быстрейший рычаг между телом и разумом. Ежедневно; эффект сразу.'},
-            {n:'03',title:'Разум',desc:'Випассана, интеграция современной психологии, работа с ограничивающими паттернами. Осознание паттернов — первый шаг из них.'},
-            {n:'04',title:'Сознание',desc:'Прямая медитативная практика. Интегральное духовное развитие без догм — то, что есть до мысли.'}] },
-        testimonials:[
-          {name:'Анна М.',city:'Москва',text:'«За 21 день я прошла путь, который обычно занимает годы. Моше — невероятный проводник. Его присутствие само создаёт трансформацию.»'},
-          {name:'Дмитрий К.',city:'Санкт-Петербург',text:'«Практики дыхания и медитации стали ежедневным ритуалом. Ясность и сила, которых не было много лет — это просто работает.»'},
-          {name:'Елена В.',city:'Киев',text:'«Одно только сообщество того стоит. Ощущение, что ты не один в своём пути. Безграничная благодарность Моше и всей команде.»'}],
-      },
-    },
-    // ES — abridged
-    es: {
-      coach: { tag:'Coach Personal IA', name:'IA-Coach', title:'Coach IA a largo plazo con ICF, GROW, Rueda del Equilibrio y Co-Active — más cuatro ritmos diarios.',
-        tagline:'No es un asistente. No es un consultor. Un coach. Te ayuda a pensar con claridad, ver puntos ciegos y tomar decisiones fuertes a través de la conciencia — no del consejo.',
-        pills:['ICF','GROW','Rueda del Equilibrio','Co-Active','4 Ritmos'],
-        about:{ eyebrow:'QUÉ ES', h2:'Tres capas · Cuatro metodologías · Cuatro ritmos',
-          bio:'Sistema completo de coaching personal diseñado para Claude Projects, NotebookLM o Custom GPT. Tres capas: Contexto, Metodologías y Ritmos.',
-          bio2:'Principio central: el coach no da respuestas. Te ayuda a encontrar las tuyas a través de la conciencia. Directo, con cuidado.' },
-        stats:[{n:'4',l:'metodologías'},{n:'4',l:'ritmos'},{n:'9',l:'módulos'}],
-        programs:[
-          {num:'01',title:'Revisión Matinal · 5–7 min',desc:'Enfoque del día y primer paso concreto.',tags:['Diario','Enfoque']},
-          {num:'02',title:'Retro Vespertina · 10 min',desc:'Qué funcionó, qué no, una idea por día.',tags:['Diario','Reflexión']},
-          {num:'03',title:'Revisión Semanal · 30 min',desc:'Resumen y plan a través de GROW.',tags:['Semanal','GROW']},
-          {num:'04',title:'Auditoría Mensual · 60–90 min',desc:'Rueda + Co-Active + patrones.',tags:['Mensual','Profundo']}],
-        framework:{ eyebrow:'METODOLOGÍAS', h2:'La herramienta correcta para la pregunta correcta',
-          pillars:[{n:'ICF',title:'Conciencia mediante preguntas',desc:'Preguntas abiertas, escucha activa, sin consejos.'},
-                   {n:'GROW',title:'Meta · Realidad · Opciones · Voluntad',desc:'Tarea concreta que necesita decisión.'},
-                   {n:'WHEEL',title:'Rueda del Equilibrio',desc:'Auditoría de todas las áreas de vida.'},
-                   {n:'CO·A',title:'Valores y significado',desc:'Para las grandes preguntas — identidad, propósito.'}] },
-        testimonials:[
-          {name:'Punto de partida',city:'Para usuarios nuevos',text:'Solo escribe "¿Qué hay en foco hoy?" — el sistema elegirá la metodología.'},
-          {name:'Momentos difíciles',city:'Cuando estás atascado',text:'"Algo no va bien pero no sé qué" → activa ICF para clarificar.'},
-          {name:'Resultado a largo plazo',city:'Después de 1–3 meses',text:'El coach empieza a notar tus patrones recurrentes.'}],
-      },
-      biz: { tag:'Negocios y Alto Rendimiento', name:'Viktor Stern', title:'Coach IA de maestría empresarial y alto rendimiento. Síntesis de Robbins, Sharma y Burchard.',
-        tagline:'Tu negocio es un espejo de tu ser. Transforma lo interno — y lo externo seguirá.',
-        pills:['Estrategia','Estado Pico','Liderazgo','Identidad'],
-        about:{ eyebrow:'QUÉ ES', h2:'Tres gigantes sintetizados en un sistema ejecutable',
-          bio:'Coach IA de alto rendimiento destilado de Tony Robbins (arquitectura del estado pico), Robin Sharma (Club de las 5 AM, 4 Imperios Interiores) y Brendon Burchard (Hábitos de Alto Rendimiento).',
-          bio2:'Diseñado para emprendedores y ejecutivos que quieren un sistema operativo diario, no un discurso motivacional. Cuatro capas: Estado, Estrategia, Sistemas, Identidad.' },
-        stats:[{n:'3',l:'frameworks maestros'},{n:'4',l:'capas'},{n:'90',l:'días'}],
-        programs:[
-          {num:'01',title:'Avance de Negocio en 90 Días',desc:'Cambio de identidad, claridad estratégica, sistemas, hábitos diarios.',tags:['Estrategia','Identidad']},
-          {num:'02',title:'Protocolo de Poder Matinal',desc:'Fisiología, priming, ritual diario de claridad. 30 minutos que deciden el resto del día.',tags:['Diario','Fisiología']},
-          {num:'03',title:'Retiro Ejecutivo de Estado Pico',desc:'Inmersión de 3 días para líderes senior.',tags:['Retiro','Liderazgo']}],
-        framework:{ eyebrow:'LA PIRÁMIDE DEL RENDIMIENTO', h2:'Estado → Estrategia → Sistemas → Identidad',
-          pillars:[{n:'01',title:'Estado Pico',desc:'Los resultados empiezan con la fisiología. "El movimiento crea la emoción." — Tony Robbins'},
-                   {n:'02',title:'Claridad Estratégica',desc:'Framework CAP — alinea acciones con metas de máximo apalancamiento.'},
-                   {n:'03',title:'Sistemas de Elite',desc:'Construye sistemas, no fuerza de voluntad.'},
-                   {n:'04',title:'Evolución de Identidad',desc:'"¿Quién necesito llegar a ser?" — la pregunta empresarial más importante.'}] },
-        testimonials:[
-          {name:'Sobre el estado',city:'Tony Robbins',text:'"La calidad de tu vida es la calidad de tus emociones."'},
-          {name:'Sobre los rituales',city:'Robin Sharma',text:'"Gana la mañana — gana el día."'},
-          {name:'Sobre el rendimiento',city:'Brendon Burchard',text:'"Los altos performers crean certeza a través de claridad y hábito."'}],
-      },
-      astro: { tag:'Carta Natal · Analista IA', name:'IA-Astrólogo', title:'Analista IA profesional de astrología — interactivo, multilingüe, una pregunta a la vez.',
-        tagline:'Úsalo como espejo para la auto-reflexión, no como predicción del destino.',
-        pills:['Carta Natal','Tránsitos','Sinastría','11 Modos'],
-        about:{ eyebrow:'QUÉ ES', h2:'Occidental · Psicológico · Kármico · Arquetípico · Integral',
-          bio:'Sistema-prompt que convierte DeepSeek, ChatGPT, Claude o Gemini en un astrólogo-analista profesional. Trabaja interactivamente con conciencia de zonas horarias históricas, separando astronomía de interpretación.',
-          bio2:'Posición: instrumento de reflexión, no de predicción. Nunca predice muerte ni tragedias. Muestra tendencias, potenciales, zonas de crecimiento.' },
-        stats:[{n:'11',l:'modos'},{n:'3',l:'niveles'},{n:'5+',l:'modelos IA'}],
-        programs:[
-          {num:'01',title:'Lectura de Carta Natal',desc:'Núcleo de personalidad, propósito, talentos, relaciones, carrera, finanzas.',tags:['Base']},
-          {num:'02',title:'Retorno Solar / Tránsitos',desc:'Temas anuales o activaciones actuales.',tags:['Anual']},
-          {num:'03',title:'Sinastría / Compatibilidad',desc:'Comparación de dos cartas.',tags:['Relación']},
-          {num:'04',title:'Vocacional / Carrera',desc:'Dirección de la obra de vida a través del MC y casa 10.',tags:['Carrera']}],
-        testimonials:[
-          {name:'Sobre el uso',city:'Nota del autor',text:'"Úsalo como un espejo, no como datos sobre tu destino."'},
-          {name:'Camino gratuito',city:'DeepSeek + DeepThink',text:'Funciona gratis en DeepSeek con DeepThink activado.'},
-          {name:'Movimiento potente',city:'Verificación multi-IA',text:'Ejecuta el mismo prompt en 2–3 IAs y luego pide a una tercera comparar.'}],
-      },
-      numer: { tag:'Cuadrado de Pitágoras · NUMERA', name:'IA-Numerólogo', title:'NUMERA — analista IA interactivo de numerología, cuadrado de Pitágoras con triple verificación matemática.',
-        tagline:'Cada conclusión explicada mediante números. Sin misticismo. Sin fatalismo.',
-        pills:['Cuadrado de Pitágoras','Triple verificación','10 tipos de análisis','Calculadora abajo'],
-        about:{ eyebrow:'QUÉ ES', h2:'Un modelo estructurado de personalidad — no un oráculo',
-          bio:'NUMERA convierte DeepSeek, ChatGPT, Claude o Gemini en un analista de numerología en la tradición clásica del cuadrado de Pitágoras (escuela rusa de A.F. Alexandrov). Flujo interactivo: idioma → tipo de análisis → nivel → datos → cálculo → análisis → profundización.',
-          bio2:'Característica única: triple auto-verificación de la aritmética. Los modelos de IA comúnmente cometen errores matemáticos. NUMERA fuerza tres recálculos independientes.' },
-        stats:[{n:'10',l:'tipos'},{n:'3×',l:'verificación'},{n:'1',l:'dato necesario'}],
-        programs:[
-          {num:'01',title:'Perfil Básico de Personalidad',desc:'Estructura del carácter, estilo de pensamiento, energía.',tags:['Base']},
-          {num:'02',title:'Dinero · Modelo Financiero',desc:'Impulsores numéricos del comportamiento de ingresos.',tags:['Dinero']},
-          {num:'03',title:'Relaciones',desc:'Patrones de conexión.',tags:['Relaciones']},
-          {num:'04',title:'Patrones Kármicos · Ciclos',desc:'Guiones recurrentes. Solo modo Profundo.',tags:['Kármico']}],
-        framework:{ eyebrow:'FLUJO INTERACTIVO', h2:'Idioma → Tipo → Profundidad → Cálculo → Análisis',
-          pillars:[{n:'01',title:'Paso a paso',desc:'Una pregunta por mensaje.'},
-                   {n:'02',title:'Triple verificación',desc:'Cálculo ejecutado tres veces independientemente.'},
-                   {n:'03',title:'Profundidad progresiva',desc:'Corto, Estándar o Profundo.'},
-                   {n:'04',title:'Sin misticismo',desc:'Cada conclusión rastreable a números.'}] },
-        testimonials:[
-          {name:'Verificación de seguridad',city:'Hazlo siempre',text:'Verifica el cálculo contra una calculadora online independiente.'},
-          {name:'Por qué triple',city:'Realidad matemática',text:'Los modelos IA cometen errores rutinariamente al contar dígitos.'},
-          {name:'Cómo usarlo',city:'Reflexión, no destino',text:'Los pensamientos que surgen al leer son el material real.'}],
-      },
-      svarga: { tag:'Práctica Integral · Sistema Svarga', name:'Sistema Svarga', title:'Desarrollo interno integral — cuerpo, respiración, mente, conciencia tejidos en una práctica viva.',
-        tagline:'Donde las tradiciones orientales antiguas se encuentran con la psicología moderna y el trabajo somático.',
-        pills:['Meditación','Respiración','Qigong','Energía','Práctica Diaria','Retiros'],
-        about:{ eyebrow:'QUÉ ES', h2:'Veinte años de práctica integral codificados en un sistema',
-          bio:'El Sistema Svarga es la síntesis integral creada por Moshe Om durante más de 20 años en tres continentes. Combina tradiciones orientales (Lin Tzi Qigong, Pranayama, Vipassana), psicología transpersonal moderna y trabajo somático.',
-          bio2:'Diseñado para la vida moderna — no la cueva. Prácticas cortas, prácticas, integrables en días normales.' },
-        stats:[{n:'20+',l:'años'},{n:'3 000+',l:'participantes'},{n:'30+',l:'países'}],
-        programs:[
-          {num:'01',title:'Maratón de Transformación de 21 Días',desc:'Prácticas integrales diarias — cuerpo, respiración, mente, conciencia.',tags:['21 días','Diario']},
-          {num:'02',title:'Serie de Retiros',desc:'Inmersiones multi-día en lugares sagrados.',tags:['Presencial']},
-          {num:'03',title:'Mentoría Privada',desc:'Acompañamiento personalizado 1:1.',tags:['1:1','Personalizado']}],
-        framework:{ eyebrow:'CUATRO DIMENSIONES', h2:'Cuerpo · Respiración · Mente · Conciencia',
-          pillars:[{n:'01',title:'Cuerpo',desc:'Formas de Qigong, conciencia somática.'},
-                   {n:'02',title:'Respiración',desc:'Pranayama, respiración consciente.'},
-                   {n:'03',title:'Mente',desc:'Vipassana, integración con psicología moderna.'},
-                   {n:'04',title:'Conciencia',desc:'Práctica meditativa directa.'}] },
-        testimonials:[
-          {name:'Anna M.',city:'Moscú',text:'"En 21 días recorrí un camino que usualmente toma años."'},
-          {name:'Dmitry K.',city:'San Petersburgo',text:'"Las prácticas de respiración y meditación se volvieron un ritual diario."'},
-          {name:'Elena V.',city:'Kyiv',text:'"La comunidad por sí sola vale la pena."'}],
-      },
-    },
-    // IT — abridged
-    it: {
-      coach: { tag:'Coach IA Personale', name:'IA-Coach', title:'Coach IA a lungo termine con ICF, GROW, Ruota dell\'Equilibrio e Co-Active — più quattro ritmi quotidiani.',
-        tagline:'Non un assistente. Non un consulente. Un coach. Ti aiuta a pensare chiaramente attraverso la consapevolezza — non i consigli.',
-        pills:['ICF','GROW','Ruota dell\'Equilibrio','Co-Active','4 Ritmi'],
-        about:{ eyebrow:'COSA È', h2:'Tre strati · Quattro metodologie · Quattro ritmi',
-          bio:'Sistema completo di coaching personale per Claude Projects, NotebookLM o Custom GPT.',
-          bio2:'Principio centrale: il coach non dà risposte. Ti aiuta a trovare le tue attraverso la consapevolezza.' },
-        stats:[{n:'4',l:'metodologie'},{n:'4',l:'ritmi'},{n:'9',l:'moduli'}],
-        programs:[
-          {num:'01',title:'Revisione Mattutina · 5–7 min',desc:'Focus della giornata e primo passo concreto.',tags:['Quotidiano']},
-          {num:'02',title:'Retro Serale · 10 min',desc:'Cosa ha funzionato, una intuizione al giorno.',tags:['Quotidiano']},
-          {num:'03',title:'Revisione Settimanale · 30 min',desc:'Sintesi e piano tramite GROW.',tags:['Settimanale']},
-          {num:'04',title:'Audit Mensile · 60–90 min',desc:'Ruota + Co-Active + pattern.',tags:['Mensile']}],
-        framework:{ eyebrow:'METODOLOGIE', h2:'Lo strumento giusto per la domanda giusta',
-          pillars:[{n:'ICF',title:'Consapevolezza tramite domande',desc:'Domande aperte, ascolto attivo.'},
-                   {n:'GROW',title:'Obiettivo · Realtà · Opzioni · Volontà',desc:'Compito concreto.'},
-                   {n:'WHEEL',title:'Ruota dell\'Equilibrio',desc:'Audit di tutte le aree.'},
-                   {n:'CO·A',title:'Valori e significato',desc:'Identità, scopo.'}] },
-        testimonials:[
-          {name:'Punto di partenza',city:'Per nuovi utenti',text:'Scrivi "Cos\'è in focus oggi?" — il sistema sceglierà la metodologia.'},
-          {name:'Momenti difficili',city:'Quando sei bloccato',text:'"Qualcosa non va ma non so cosa" → attiva ICF.'},
-          {name:'Risultato a lungo termine',city:'Dopo 1–3 mesi',text:'Il coach inizia a notare i tuoi pattern ricorrenti.'}],
-      },
-      biz: { tag:'Business e Alta Performance', name:'Viktor Stern', title:'Coach IA di maestria aziendale e alta performance. Sintesi di Robbins, Sharma e Burchard.',
-        tagline:'Il tuo business è uno specchio del tuo essere. Trasforma l\'interiore — l\'esteriore seguirà.',
-        pills:['Strategia','Stato di Picco','Leadership','Identità'],
-        about:{ eyebrow:'COSA È', h2:'Tre giganti sintetizzati in un sistema eseguibile',
-          bio:'Coach IA distillato da Tony Robbins, Robin Sharma e Brendon Burchard.',
-          bio2:'Progettato per imprenditori e dirigenti che vogliono un sistema operativo quotidiano.' },
-        stats:[{n:'3',l:'framework'},{n:'4',l:'strati'},{n:'90',l:'giorni'}],
-        programs:[
-          {num:'01',title:'Svolta di Business in 90 Giorni',desc:'Cambio di identità, chiarezza strategica.',tags:['Strategia']},
-          {num:'02',title:'Protocollo di Potere Mattutino',desc:'Fisiologia, priming.',tags:['Quotidiano']},
-          {num:'03',title:'Ritiro Esecutivo di Stato di Picco',desc:'Immersione di 3 giorni.',tags:['Ritiro']}],
-        framework:{ eyebrow:'LA PIRAMIDE DELLA PERFORMANCE', h2:'Stato → Strategia → Sistemi → Identità',
-          pillars:[{n:'01',title:'Stato di Picco',desc:'"Il movimento crea emozione." — Tony Robbins'},
-                   {n:'02',title:'Chiarezza Strategica',desc:'Framework CAP.'},
-                   {n:'03',title:'Sistemi d\'Elite',desc:'Costruisci sistemi.'},
-                   {n:'04',title:'Evoluzione dell\'Identità',desc:'"Chi devo diventare?"'}] },
-        testimonials:[
-          {name:'Sullo stato',city:'Tony Robbins',text:'"La qualità della tua vita è la qualità delle tue emozioni."'},
-          {name:'Sui rituali',city:'Robin Sharma',text:'"Vinci il mattino — vinci la giornata."'},
-          {name:'Sulla performance',city:'Brendon Burchard',text:'"Gli alti performer creano certezza tramite chiarezza."'}],
-      },
-      astro: { tag:'Carta Natale · Analista IA', name:'IA-Astrologo', title:'Analista IA professionale di astrologia — interattivo, multilingue.',
-        tagline:'Usalo come specchio per l\'auto-riflessione, non come previsione del destino.',
-        pills:['Carta Natale','Transiti','Sinastria','11 Modalità'],
-        about:{ eyebrow:'COSA È', h2:'Occidentale · Psicologico · Karmico · Archetipico · Integrale',
-          bio:'Sistema-prompt che trasforma DeepSeek, ChatGPT, Claude o Gemini in un astrologo-analista professionale.',
-          bio2:'Posizione: strumento di riflessione, non di previsione.' },
-        stats:[{n:'11',l:'modalità'},{n:'3',l:'livelli'},{n:'5+',l:'modelli IA'}],
-        programs:[
-          {num:'01',title:'Lettura della Carta Natale',desc:'Nucleo della personalità, scopo, talenti.',tags:['Base']},
-          {num:'02',title:'Rivoluzione Solare / Transiti',desc:'Temi annuali o attivazioni attuali.',tags:['Annuale']},
-          {num:'03',title:'Sinastria / Compatibilità',desc:'Confronto tra due carte.',tags:['Relazione']},
-          {num:'04',title:'Vocazionale / Carriera',desc:'Direzione dell\'opera di vita.',tags:['Carriera']}],
-        testimonials:[
-          {name:'Sull\'uso',city:'Nota dell\'autore',text:'"Usalo come uno specchio, non come dati sul destino."'},
-          {name:'Percorso gratuito',city:'DeepSeek + DeepThink',text:'Funziona gratuitamente in DeepSeek con DeepThink.'},
-          {name:'Mossa potente',city:'Verifica multi-IA',text:'Esegui lo stesso prompt in 2–3 IA, poi confronta.'}],
-      },
-      numer: { tag:'Quadrato di Pitagora · NUMERA', name:'IA-Numerologo', title:'NUMERA — analista IA interattivo di numerologia, quadrato di Pitagora con tripla verifica matematica.',
-        tagline:'Ogni conclusione spiegata attraverso i numeri. Nessun misticismo.',
-        pills:['Quadrato di Pitagora','Tripla verifica','10 tipi','Calcolatore sotto'],
-        about:{ eyebrow:'COSA È', h2:'Un modello strutturato di personalità — non un oracolo',
-          bio:'NUMERA trasforma DeepSeek, ChatGPT, Claude o Gemini in un analista numerologo nella tradizione classica del quadrato di Pitagora.',
-          bio2:'Caratteristica unica: tripla auto-verifica dell\'aritmetica. Tre ricalcoli indipendenti.' },
-        stats:[{n:'10',l:'tipi'},{n:'3×',l:'verifica'},{n:'1',l:'dato necessario'}],
-        programs:[
-          {num:'01',title:'Profilo Base di Personalità',desc:'Struttura del carattere, stile di pensiero.',tags:['Base']},
-          {num:'02',title:'Denaro · Modello Finanziario',desc:'Driver numerici del comportamento di guadagno.',tags:['Denaro']},
-          {num:'03',title:'Relazioni',desc:'Pattern di connessione.',tags:['Relazioni']},
-          {num:'04',title:'Pattern Karmici · Cicli',desc:'Script ricorrenti. Solo modalità Profonda.',tags:['Karmico']}],
-        framework:{ eyebrow:'FLUSSO INTERATTIVO', h2:'Lingua → Tipo → Profondità → Calcolo → Analisi',
-          pillars:[{n:'01',title:'Passo dopo passo',desc:'Una domanda per messaggio.'},
-                   {n:'02',title:'Tripla verifica',desc:'Calcolo eseguito tre volte indipendentemente.'},
-                   {n:'03',title:'Profondità progressiva',desc:'Breve, Standard o Profondo.'},
-                   {n:'04',title:'Senza misticismo',desc:'Ogni conclusione tracciabile ai numeri.'}] },
-        testimonials:[
-          {name:'Verifica di sicurezza',city:'Fai sempre',text:'Verifica il calcolo contro un calcolatore online indipendente.'},
-          {name:'Perché tripla',city:'Realtà matematica',text:'I modelli IA commettono errori abitualmente.'},
-          {name:'Come usarlo',city:'Riflessione, non destino',text:'I pensieri che sorgono leggendo sono il materiale reale.'}],
-      },
-      svarga: { tag:'Pratica Integrale · Sistema Svarga', name:'Sistema Svarga', title:'Sviluppo interiore integrale — corpo, respiro, mente, consapevolezza intrecciati in una pratica viva.',
-        tagline:'Dove le antiche tradizioni orientali incontrano la psicologia moderna e il lavoro somatico.',
-        pills:['Meditazione','Respiro','Qigong','Energia','Pratica Quotidiana','Ritiri'],
-        about:{ eyebrow:'COSA È', h2:'Vent\'anni di pratica integrale codificati in un sistema',
-          bio:'Il Sistema Svarga è la sintesi integrale creata da Moshe Om in oltre 20 anni su tre continenti.',
-          bio2:'Progettato per la vita moderna — non la grotta. Pratiche brevi e pratiche.' },
-        stats:[{n:'20+',l:'anni'},{n:'3 000+',l:'partecipanti'},{n:'30+',l:'paesi'}],
-        programs:[
-          {num:'01',title:'Maratona di Trasformazione di 21 Giorni',desc:'Pratiche integrali quotidiane.',tags:['21 giorni']},
-          {num:'02',title:'Serie di Ritiri',desc:'Immersioni multi-giorno.',tags:['Presenza']},
-          {num:'03',title:'Mentoring Privato',desc:'Accompagnamento 1:1.',tags:['1:1']}],
-        framework:{ eyebrow:'QUATTRO DIMENSIONI', h2:'Corpo · Respiro · Mente · Coscienza',
-          pillars:[{n:'01',title:'Corpo',desc:'Forme di Qigong.'},
-                   {n:'02',title:'Respiro',desc:'Pranayama.'},
-                   {n:'03',title:'Mente',desc:'Vipassana.'},
-                   {n:'04',title:'Coscienza',desc:'Pratica meditativa diretta.'}] },
-        testimonials:[
-          {name:'Anna M.',city:'Mosca',text:'"In 21 giorni ho percorso un cammino che di solito richiede anni."'},
-          {name:'Dmitry K.',city:'San Pietroburgo',text:'"Le pratiche sono diventate un rituale quotidiano."'},
-          {name:'Elena V.',city:'Kiev',text:'"Solo la comunità ne vale la pena."'}],
-      },
-    },
-    // HE — abridged
-    he: {
-      coach: { tag:'מאמן AI אישי', name:'מאמן-AI', title:'מאמן AI ארוך-טווח עם ICF, GROW, גלגל איזון ו-Co-Active — וארבעה קצבים יומיים.',
-        tagline:'לא עוזר. לא יועץ. מאמן. עוזר לחשוב בבהירות דרך מודעות — לא דרך עצות.',
-        pills:['ICF','GROW','גלגל איזון','Co-Active','4 קצבים'],
-        about:{ eyebrow:'מה זה', h2:'שלוש שכבות · ארבע מתודות · ארבעה קצבים',
-          bio:'מערכת אימון אישית מלאה ל-Claude Projects, NotebookLM או Custom GPT.',
-          bio2:'עיקרון מרכזי: המאמן לא נותן תשובות. הוא עוזר לך למצוא את שלך דרך מודעות.' },
-        stats:[{n:'4',l:'מתודות'},{n:'4',l:'קצבים'},{n:'9',l:'מודולים'}],
-        programs:[
-          {num:'01',title:'סקירת בוקר · 5–7 דק׳',desc:'מיקוד היום והצעד הראשון.',tags:['יומי']},
-          {num:'02',title:'רטרו ערב · 10 דק׳',desc:'מה עבד, תובנה אחת ליום.',tags:['יומי']},
-          {num:'03',title:'סקירה שבועית · 30 דק׳',desc:'סיכום ותכנון דרך GROW.',tags:['שבועי']},
-          {num:'04',title:'אודיט חודשי · 60–90 דק׳',desc:'גלגל + Co-Active + דפוסים.',tags:['חודשי']}],
-        framework:{ eyebrow:'מתודות', h2:'הכלי הנכון לשאלה הנכונה',
-          pillars:[{n:'ICF',title:'מודעות דרך שאלות',desc:'שאלות פתוחות, ללא עצות.'},
-                   {n:'GROW',title:'מטרה · מציאות · אפשרויות · רצון',desc:'משימה קונקרטית.'},
-                   {n:'WHEEL',title:'גלגל איזון',desc:'אודיט של כל התחומים.'},
-                   {n:'CO·A',title:'ערכים ומשמעות',desc:'זהות, ייעוד.'}] },
-        testimonials:[
-          {name:'נקודת ההתחלה',city:'למשתמשים חדשים',text:'פשוט תכתוב „מה במוקד היום?" — המערכת תבחר.'},
-          {name:'רגעים קשים',city:'כשאתה תקוע',text:'„משהו לא במקום" → מפעיל ICF.'},
-          {name:'תוצאה ארוכת טווח',city:'אחרי 1–3 חודשים',text:'המאמן מתחיל להבחין בדפוסים החוזרים שלך.'}],
-      },
-      biz: { tag:'עסקים וביצועי שיא', name:'ויקטור שטרן', title:'מאמן AI לעסקים ופיק פרפורמנס. סינתזה של רובינס, שארמה ובורצ׳רד.',
-        tagline:'העסק שלך הוא מראה של ההוויה שלך.',
-        pills:['אסטרטגיה','מצב שיא','מנהיגות','זהות'],
-        about:{ eyebrow:'מה זה', h2:'שלושה ענקים מסונתזים',
-          bio:'מאמן AI שנזקק מטוני רובינס, רובין שארמה וברנדון בורצ׳רד.',
-          bio2:'נבנה ליזמים ומנהלים.' },
-        stats:[{n:'3',l:'פריימוורקס'},{n:'4',l:'שכבות'},{n:'90',l:'יום'}],
-        programs:[
-          {num:'01',title:'פריצת דרך עסקית ב-90 יום',desc:'שינוי זהות, בהירות אסטרטגית.',tags:['אסטרטגיה']},
-          {num:'02',title:'פרוטוקול עוצמת בוקר',desc:'פיזיולוגיה, פריימינג.',tags:['יומי']},
-          {num:'03',title:'ריטריט מצב שיא',desc:'שלושה ימי עבודה.',tags:['ריטריט']}],
-        framework:{ eyebrow:'פירמידת הביצועים', h2:'מצב ← אסטרטגיה ← מערכות ← זהות',
-          pillars:[{n:'01',title:'מצב שיא',desc:'„תנועה יוצרת רגש." — טוני רובינס'},
-                   {n:'02',title:'בהירות אסטרטגית',desc:'פריימוורק CAP.'},
-                   {n:'03',title:'מערכות עלית',desc:'בנה מערכות.'},
-                   {n:'04',title:'התפתחות זהות',desc:'„מי אני צריך להפוך?"'}] },
-        testimonials:[
-          {name:'על מצב',city:'טוני רובינס',text:'„איכות חייך היא איכות הרגשות שלך."'},
-          {name:'על טקסים',city:'רובין שארמה',text:'„נצח את הבוקר — נצח את היום."'},
-          {name:'על ביצועים',city:'ברנדון בורצ׳רד',text:'„בעלי ביצועים גבוהים יוצרים ודאות."'}],
-      },
-      astro: { tag:'מפה נטאלית · אנליסט AI', name:'אסטרולוג-AI', title:'אנליסט AI מקצועי לאסטרולוגיה — אינטראקטיבי, רב-לשוני.',
-        tagline:'השתמש כמראה להתבוננות עצמית, לא לניבוי גורל.',
-        pills:['מפה נטאלית','טרנזיטים','סינסטריה','11 מצבים'],
-        about:{ eyebrow:'מה זה', h2:'מערבי · פסיכולוגי · קארמי · ארכיטיפי · אינטגרלי',
-          bio:'פרומפט-מערכת שהופך AI לאסטרולוג-אנליסט מקצועי.',
-          bio2:'עמדה: כלי רפלקציה, לא ניבוי.' },
-        stats:[{n:'11',l:'מצבים'},{n:'3',l:'רמות'},{n:'5+',l:'דגמי AI'}],
-        programs:[
-          {num:'01',title:'קריאת מפה נטאלית',desc:'גרעין אישיות, ייעוד, כישרונות.',tags:['בסיס']},
-          {num:'02',title:'שיבת שמש / טרנזיטים',desc:'נושאי שנה או הפעלות נוכחיות.',tags:['שנתי']},
-          {num:'03',title:'סינסטריה / תאימות',desc:'השוואת שתי מפות.',tags:['קשרים']},
-          {num:'04',title:'קריירה · ייעוד',desc:'כיוון מלאכת החיים.',tags:['קריירה']}],
-        testimonials:[
-          {name:'על השימוש',city:'הערת המחבר',text:'„השתמש כמראה, לא כנתונים על הגורל."'},
-          {name:'מסלול חינמי',city:'DeepSeek + DeepThink',text:'עובד חינם ב-DeepSeek.'},
-          {name:'מהלך חזק',city:'אימות בין AI',text:'הרץ ב-2–3 AI ובקש מהשלישי להשוות.'}],
-      },
-      numer: { tag:'ריבוע פיתגורס · NUMERA', name:'נומרולוג-AI', title:'NUMERA — אנליסט AI אינטראקטיבי לנומרולוגיה, ריבוע פיתגורס עם בדיקה משולשת.',
-        tagline:'כל מסקנה מוסברת דרך מספרים. ללא מיסטיקה.',
-        pills:['ריבוע פיתגורס','בדיקה משולשת','10 סוגי ניתוח','מחשבון למטה'],
-        about:{ eyebrow:'מה זה', h2:'מודל אישיות מובנה — לא אורקל',
-          bio:'NUMERA הופך את DeepSeek, ChatGPT, Claude או Gemini לאנליסט נומרולוג בשיטת ריבוע פיתגורס.',
-          bio2:'ייחוד: בדיקה משולשת של החשבון. שלושה חישובים עצמאיים.' },
-        stats:[{n:'10',l:'סוגים'},{n:'3×',l:'אימות'},{n:'1',l:'נתון נדרש'}],
-        programs:[
-          {num:'01',title:'פרופיל אישיות בסיסי',desc:'מבנה האופי, סגנון החשיבה.',tags:['בסיס']},
-          {num:'02',title:'כסף · מודל פיננסי',desc:'מניעים נומריים של התנהגות הכנסה.',tags:['כסף']},
-          {num:'03',title:'יחסים',desc:'דפוסי חיבור.',tags:['יחסים']},
-          {num:'04',title:'דפוסים קארמיים · מחזורים',desc:'תסריטים חוזרים. מצב עומק בלבד.',tags:['קארמה']}],
-        framework:{ eyebrow:'זרימה אינטראקטיבית', h2:'שפה → סוג → עומק → חישוב → ניתוח',
-          pillars:[{n:'01',title:'צעד אחר צעד',desc:'שאלה אחת בכל הודעה.'},
-                   {n:'02',title:'בדיקה משולשת',desc:'חישוב שלוש פעמים באופן עצמאי.'},
-                   {n:'03',title:'עומק מתקדם',desc:'קצר, סטנדרטי או עמוק.'},
-                   {n:'04',title:'ללא מיסטיקה',desc:'כל מסקנה מתחקה למספרים.'}] },
-        testimonials:[
-          {name:'בדיקת בטיחות',city:'תמיד תעשה',text:'אמת את החישוב מול מחשבון מקוון עצמאי.'},
-          {name:'למה משולשת',city:'מציאות מתמטית',text:'מודלי AI עושים טעויות חשבוניות שגרתיות.'},
-          {name:'איך להשתמש',city:'רפלקציה, לא גורל',text:'המחשבות שעולות בקריאה הן החומר האמיתי.'}],
-      },
-      svarga: { tag:'פרקטיקה אינטגרלית · מערכת Svarga', name:'מערכת Svarga', title:'התפתחות פנימית אינטגרלית — גוף, נשימה, מוח, מודעות שזורים לפרקטיקה חיה אחת.',
-        tagline:'איפה שמסורות מזרחיות עתיקות פוגשות פסיכולוגיה מודרנית ועבודה סומטית.',
-        pills:['מדיטציה','נשימה','צ׳יגונג','אנרגיה','פרקטיקה יומית','ריטריטים'],
-        about:{ eyebrow:'מה זה', h2:'עשרים שנות פרקטיקה אינטגרלית קודיפיות במערכת אחת',
-          bio:'מערכת Svarga היא סינתזה אינטגרלית שנוצרה על ידי משה אום במשך 20+ שנים בשלוש יבשות.',
-          bio2:'נבנתה לחיים מודרניים — לא למערה. פרקטיקות קצרות ומעשיות.' },
-        stats:[{n:'20+',l:'שנים'},{n:'3,000+',l:'משתתפים'},{n:'30+',l:'מדינות'}],
-        programs:[
-          {num:'01',title:'מרתון טרנספורמציה של 21 ימים',desc:'פרקטיקות אינטגרליות יומיות.',tags:['21 ימים']},
-          {num:'02',title:'סדרת ריטריטים',desc:'התעמקות רב-יומית במקומות קדושים.',tags:['פנים']},
-          {num:'03',title:'מנטורינג פרטי',desc:'ליווי אישי 1:1.',tags:['1:1']}],
-        framework:{ eyebrow:'ארבעה ממדים', h2:'גוף · נשימה · מוח · תודעה',
-          pillars:[{n:'01',title:'גוף',desc:'צורות צ׳יגונג, מודעות סומטית.'},
-                   {n:'02',title:'נשימה',desc:'פראניאמה.'},
-                   {n:'03',title:'מוח',desc:'ויפסנה, אינטגרציה עם פסיכולוגיה מודרנית.'},
-                   {n:'04',title:'תודעה',desc:'תרגול מדיטטיבי ישיר.'}] },
-        testimonials:[
-          {name:'אנה מ.',city:'מוסקבה',text:'„ב-21 יום עברתי מסע שלרוב לוקח שנים."'},
-          {name:'דמיטרי ק.',city:'סנט פטרבורג',text:'„פרקטיקות הנשימה והמדיטציה הפכו לטקס יומי."'},
-          {name:'אלנה ו.',city:'קייב',text:'„קהילה לבדה שווה את זה."'}],
-      },
-    },
-  };
-
-  // Build SPECS array from COMMON + CONTENT
-  const SPECS = {};
-  for (const lang of ['en','ru','es','it','he']) {
-    SPECS[lang] = ['coach','biz','astro','numer','svarga'].map(id => ({ ...COMMON[id], ...CONTENT[lang][id] }));
-  }
-
-  // ─── ICONS ───
-  const IcoArrowR = ({s=14}) => <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>;
-  const IcoArrowL = ({s=14}) => <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>;
-  const IcoSun = () => <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>;
-  const IcoMoon = () => <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>;
-  const IcoWA = ({s=26}) => <svg width={s} height={s} viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>;
-  const IcoTG = ({s=18}) => <svg width={s} height={s} viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.94z"/></svg>;
-
-  // ─── REVEAL HOOK ───
-  function useReveal(dep) {
-    React.useEffect(() => {
-      const obs = new IntersectionObserver(
-        es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); }),
-        { threshold: 0.07 }
-      );
-      const timer = setTimeout(() => {
-        document.querySelectorAll('.rv').forEach(el => { el.classList.remove('in'); obs.observe(el); });
-      }, 80);
-      return () => { clearTimeout(timer); obs.disconnect(); };
-    }, [dep]);
-  }
-
-  // ─── PYTHAGORAS CALCULATOR ───
-  function calcPythagoras(dateStr) {
-    // Parse DD.MM.YYYY
-    const m = dateStr.trim().match(/^(\d{1,2})[.\-/](\d{1,2})[.\-/](\d{4})$/);
-    if (!m) return null;
-    const day = +m[1], month = +m[2], year = +m[3];
-    if (day < 1 || day > 31 || month < 1 || month > 12 || year < 1900 || year > 2100) return null;
-    const d = new Date(year, month - 1, day);
-    if (d.getDate() !== day || d.getMonth() !== month - 1) return null;
-
-    const digits = (m[1].padStart(2,'0') + m[2].padStart(2,'0') + m[3]).split('').map(Number);
-    const sumDigits = n => String(n).split('').map(Number).reduce((a,b)=>a+b,0);
-
-    const working = digits.reduce((a,b)=>a+b, 0);
-    const second  = sumDigits(working);
-    const firstDayDigit = +m[1].padStart(2,'0')[0]; // first digit of day
-    const third   = day - 2 * firstDayDigit;
-    const fourth  = sumDigits(Math.abs(third));
-
-    // Collect all non-zero digits for matrix
-    const allDigits = [
-      ...digits,
-      ...String(working).split('').map(Number),
-      ...String(second).split('').map(Number),
-      ...String(Math.abs(third)).split('').map(Number),
-      ...String(fourth).split('').map(Number),
-    ].filter(n => n > 0);
-
-    const counts = [0,1,2,3,4,5,6,7,8,9].map(n => allDigits.filter(d => d === n).length);
-    const matrix = [1,2,3,4,5,6,7,8,9].map(n => counts[n]);
-
-    return { working, second, third, fourth, matrix };
-  }
-
-  function PythagorasWidget({ lang, accent }) {
-    const ui = UI[lang].pyth;
-    const [val, setVal] = React.useState('');
-    const [res, setRes] = React.useState(null);
-    const [err, setErr] = React.useState('');
-
-    const handle = () => {
-      const r = calcPythagoras(val);
-      if (!r) { setErr(ui.err); setRes(null); }
-      else { setErr(''); setRes(r); }
+      he:{
+        nav:{specialists:'מומחים',tools:'כלים',about:'אודות',cta:'התחל'},
+        hero:{
+          tag:'פיתוח אישי מונע בינה מלאכותית',
+          h1:'שחרר את',h2:'הפוטנציאל',h3:'האנושי שלך',
+          sub:'שישה מערכות בינה מלאכותית המנחות את הטרנספורמציה שלך — אימון, אסטרולוגיה, נומרולוגיה ועוד.',
+          cta1:'גלה את המערכת',cta2:'הכר את המומחים',
+          s1:'10',sl1:'מומחי בינה מלאכותית',s2:'5',sl2:'שפות',s3:'6',sl3:'מערכות',s4:'∞',sl4:'אפשרויות'
+        },
+        tools:{label:'מערכות חכמות',h:'ערכת',em:' הטרנספורמציה',sub:'כל מערכת היא חבר בינה מלאכותית מתמחה.'},
+        specialists:{label:'הצוות שלנו',h:'הכר את',em:' מומחי הבינה המלאכותית',sub:'10 אישיויות בינה מלאכותית ייחודיות, כל אחת מומחה בתחומה.'},
+        footer:{col1:'גלה',col2:'מומחים',col3:'פלטפורמה',copy:'© 2025 LifeForge AI.',author:'נוצר על ידי'}
+      }
     };
 
-    // Order for visual 3×3 grid: cols=1,4,7 / 2,5,8 / 3,6,9 (per A.F. Alexandrov layout)
-    const gridOrder = [1,4,7,2,5,8,3,6,9];
+    /* ── TOOL SPECS ── */
+    const TOOLS_DATA={
+      en:[
+        {id:'coach',cat:'Coaching & Psychology',name:'Personal Life Coach',
+         desc:'Deep introspective coaching powered by evidence-based methodologies. Clarify your values, break limiting beliefs, and design a life of purpose.',
+         accent:'#D4B27A',glow:'rgba(212,178,122,.10)',badge:'AI Coach',
+         feats:['Values & purpose clarification','Limiting belief dissolution','Goal architecture & accountability','Emotional intelligence development','Weekly reflection frameworks']},
+        {id:'biz',cat:'Business & Strategy',name:'Business Accelerator',
+         desc:'From vision to execution. AI-driven business coaching to sharpen strategy, scale operations, and lead with clarity in complex markets.',
+         accent:'#C8946E',glow:'rgba(200,148,110,.10)',badge:'Biz AI',
+         feats:['Strategic vision mapping','Revenue model optimization','Leadership & team dynamics','Market positioning intelligence','Quarterly OKR frameworks']},
+        {id:'astro',cat:'Esoteric & Cosmic',name:'Astrology Oracle',
+         desc:'Celestial intelligence meets modern psychology. Explore natal charts, transits, and planetary cycles to understand your cosmic blueprint.',
+         accent:'#7E8EC8',glow:'rgba(126,142,200,.10)',badge:'Cosmic',
+         feats:['Natal chart interpretation','Current transit analysis','Planetary return forecasting','Synastry & compatibility','Moon phase rituals']},
+        {id:'numer',cat:'Numerology & Patterns',name:'Numerology Matrix',
+         desc:'The Pythagoras Square reveals your numerical DNA — energetic strengths, karmic lessons, and the hidden architecture of your life path.',
+         accent:'#6EA080',glow:'rgba(110,160,128,.10)',badge:'Numbers',
+         feats:['Live Pythagoras Square calculator','Life Path number analysis','Personal Year forecasting','Karmic debt identification','Name numerology']},
+        {id:'svarga',cat:'Integral Practice',name:'Svarga System',
+         desc:'The Svarga integral system synthesizes yogic traditions, consciousness practices, and modern embodiment work into a unified path of awakening.',
+         accent:'#B07ECC',glow:'rgba(176,126,204,.10)',badge:'Integral',
+         feats:['Meditation & pranayama protocols','Energy body mapping','Shadow integration practices','Mantra & sound healing','Integral life design']},
+        {id:'strategy',cat:'Life Strategy & AI',name:'Human Potential System',
+         desc:'The central intelligence layer. Synthesizes insights from all six systems to deliver a unified life strategy — your personal operating system.',
+         accent:'#C8D4E0',glow:'rgba(200,212,224,.12)',badge:'Core AI',
+         feats:['Cross-system intelligence synthesis','Long-horizon life architecture','Pattern recognition & forecasting','Integration of all six domains','Your Personal Operating System']}
+      ]
+    };
+    // Copy EN to other langs with translated names
+    const TOOL_NAMES={
+      ru:['Личный лайф-коуч','Бизнес-акселератор','Оракул астрологии','Матрица нумерологии','Система Сварга','Система человеческого потенциала'],
+      es:['Coach Personal','Acelerador de Negocios','Oráculo Astrológico','Matriz Numerológica','Sistema Svarga','Sistema de Potencial Humano'],
+      it:['Coach Personale','Acceleratore Business','Oracolo Astrologico','Matrice Numerologica','Sistema Svarga','Sistema del Potenziale Umano'],
+      he:['מאמן אישי','מאיץ עסקי','אורקל אסטרולוגי','מטריצת נומרולוגיה','מערכת סוורגה','מערכת הפוטנציאל האנושי']
+    };
+    ['ru','es','it','he'].forEach(l=>{
+      TOOLS_DATA[l]=TOOLS_DATA.en.map((t,i)=>({...t,name:TOOL_NAMES[l][i]}));
+    });
 
-    return (
-      <div className="pyth-widget">
-        <div style={{marginBottom:18}}>
-          <div className="eyebrow" style={{color:accent,marginBottom:8}}>{UI[lang].tryit}</div>
-          <h3 style={{fontFamily:'var(--font-d)',fontSize:'clamp(20px,2.5vw,28px)',fontWeight:400,color:'var(--text-1)',marginBottom:6,letterSpacing:'-.01em'}}>{ui.title}</h3>
-          <p style={{fontSize:'.85rem',color:'var(--text-2)',lineHeight:1.65}}>{ui.sub}</p>
-        </div>
-        <div className="pyth-input">
-          <input value={val} onChange={e=>setVal(e.target.value)} placeholder={ui.input} onKeyDown={e=>{if(e.key==='Enter')handle();}}/>
-          <button className="btn-p" onClick={handle} style={{padding:'13px 28px'}}>{ui.btn}</button>
-        </div>
-        {err && <div className="pyth-err">{err}</div>}
-        {res && (
-          <div style={{display:'grid',gridTemplateColumns:'auto 1fr',gap:'clamp(24px,4vw,40px)',marginTop:20,alignItems:'start'}}>
-            <div>
-              <div className="pyth-grid">
-                {gridOrder.map((n,i) => {
-                  const count = res.matrix[n-1];
-                  const cls = `pyth-cell${count>0?' has':''}${count>=3?' strong':''}`;
-                  return (
-                    <div key={n} className={cls} title={UI[lang].pyth.meanings[n-1]}>
-                      <span className="pyth-cell-num">{n}</span>
-                      <span className="pyth-cell-val">{count>0 ? String(n).repeat(count) : '–'}</span>
-                    </div>
-                  );
-                })}
-              </div>
+    /* ── SPECIALISTS DATA ── */
+    const SPECIALISTS=[
+      {id:'aria',name:'Aria Lux',role:'Life Strategy AI',phil:'I see the whole before the parts. Your life is a system — let\'s architect it together.',style:'Visionary · Strategic',accent:'#C8D4E0',emoji:'✦',bg:'linear-gradient(135deg,rgba(200,212,224,.15),rgba(126,142,200,.08))'},
+      {id:'maya',name:'Maya Chen',role:'Personal Life Coach',phil:'Every pattern has a purpose. The wound holds the wisdom — let\'s find yours.',style:'Empathic · Deep',accent:'#D4B27A',emoji:'◎',bg:'linear-gradient(135deg,rgba(212,178,122,.15),rgba(212,178,122,.04))'},
+      {id:'viktor',name:'Viktor Stern',role:'Business & Executive Coach',phil:'Clarity is a competitive advantage. Vague goals produce vague results.',style:'Direct · Analytical',accent:'#C8946E',emoji:'△',bg:'linear-gradient(135deg,rgba(200,148,110,.15),rgba(200,148,110,.04))'},
+      {id:'selene',name:'Selene Voss',role:'Astrologer & Cosmic Guide',phil:'The planets do not compel — they invite. Your chart is a map, not a verdict.',style:'Intuitive · Cosmic',accent:'#7E8EC8',emoji:'☽',bg:'linear-gradient(135deg,rgba(126,142,200,.15),rgba(126,142,200,.04))'},
+      {id:'pythia',name:'Pythia Nour',role:'Numerologist & Pattern Analyst',phil:'Numbers are the language the universe uses to describe itself.',style:'Precise · Mystical',accent:'#6EA080',emoji:'∑',bg:'linear-gradient(135deg,rgba(110,160,128,.15),rgba(110,160,128,.04))'},
+      {id:'kairos',name:'Kairos Silva',role:'Svarga & Integral Guide',phil:'The sacred and the practical are not opposites — they are partners.',style:'Grounded · Expansive',accent:'#B07ECC',emoji:'⊕',bg:'linear-gradient(135deg,rgba(176,126,204,.15),rgba(176,126,204,.04))'},
+      {id:'nadia',name:'Nadia Orel',role:'Psychological Depth Coach',phil:'Healing is not the absence of pain — it\'s the presence of meaning.',style:'Compassionate · Transformative',accent:'#E09080',emoji:'❋',bg:'linear-gradient(135deg,rgba(224,144,128,.15),rgba(224,144,128,.04))'},
+      {id:'alex',name:'Alex Vain',role:'Human Design & Gene Keys',phil:'You were born with a unique energetic signature. Alignment, not effort.',style:'Systematic · Liberating',accent:'#80B4D4',emoji:'◈',bg:'linear-gradient(135deg,rgba(128,180,212,.15),rgba(128,180,212,.04))'},
+      {id:'lena',name:'Lena Bright',role:'Relationships & Feminine Power',phil:'The quality of your relationships mirrors the relationship you have with yourself.',style:'Warm · Empowering',accent:'#D480A4',emoji:'✿',bg:'linear-gradient(135deg,rgba(212,128,164,.15),rgba(212,128,164,.04))'},
+      {id:'marco',name:'Marco Vega',role:'Career & Life Purpose Strategist',phil:'Purpose is not found — it is cultivated through courageous action.',style:'Bold · Catalytic',accent:'#A4C870',emoji:'◉',bg:'linear-gradient(135deg,rgba(164,200,112,.15),rgba(164,200,112,.04))'},
+    ];
+    const SPEC_I18N={
+      ru:[
+        {role:'Стратег жизненного пути',phil:'Я вижу целое прежде частей. Ваша жизнь — система. Давайте создадим её архитектуру вместе.'},
+        {role:'Лайф-коуч',phil:'Каждый паттерн имеет смысл. В ране — мудрость. Давайте найдём её вместе.'},
+        {role:'Бизнес и executive-коуч',phil:'Ясность — конкурентное преимущество. Размытые цели дают размытые результаты.'},
+        {role:'Астролог и космический гид',phil:'Планеты не принуждают — они приглашают. Ваша карта — это карта, не приговор.'},
+        {role:'Нумеролог',phil:'Числа — это язык, на котором Вселенная описывает саму себя.'},
+        {role:'Гид по системе Сварга',phil:'Сакральное и практическое не противоположности — они партнёры.'},
+        {role:'Психологический коуч',phil:'Исцеление — это не отсутствие боли. Это присутствие смысла.'},
+        {role:'Дизайн человека',phil:'Вы родились с уникальной энергетической сигнатурой. Выравнивание, а не усилие.'},
+        {role:'Отношения и женская сила',phil:'Качество ваших отношений отражает ваши отношения с самим собой.'},
+        {role:'Карьера и жизненное призвание',phil:'Призвание не находят — его культивируют через смелые действия.'},
+      ]
+    };
+
+    /* ── SVG ARTS ── */
+    function ArtCoach(){return(
+      <svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" style={{width:'100%',height:'100%'}}>
+        <circle cx="36" cy="36" r="28" stroke="#D4B27A" strokeWidth=".8" strokeDasharray="4 3" opacity=".4"/>
+        <circle cx="36" cy="36" r="20" stroke="#D4B27A" strokeWidth=".8" opacity=".6"/>
+        <circle cx="36" cy="36" r="12" stroke="#D4B27A" strokeWidth="1" opacity=".8"/>
+        <circle cx="36" cy="36" r="5" fill="#D4B27A" opacity=".9"/>
+        <line x1="36" y1="8" x2="36" y2="16" stroke="#D4B27A" strokeWidth="1" opacity=".5"/>
+        <line x1="36" y1="56" x2="36" y2="64" stroke="#D4B27A" strokeWidth="1" opacity=".5"/>
+        <line x1="8" y1="36" x2="16" y2="36" stroke="#D4B27A" strokeWidth="1" opacity=".5"/>
+        <line x1="56" y1="36" x2="64" y2="36" stroke="#D4B27A" strokeWidth="1" opacity=".5"/>
+      </svg>
+    )}
+    function ArtBiz(){return(
+      <svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" style={{width:'100%',height:'100%'}}>
+        <polygon points="36,10 62,58 10,58" stroke="#C8946E" strokeWidth=".9" fill="none" opacity=".7"/>
+        <polygon points="36,22 52,50 20,50" stroke="#C8946E" strokeWidth=".9" fill="none" opacity=".6"/>
+        <polygon points="36,34 44,50 28,50" stroke="#C8946E" strokeWidth="1" fill="rgba(200,148,110,.08)" opacity=".8"/>
+        <circle cx="36" cy="44" r="3" fill="#C8946E" opacity=".9"/>
+      </svg>
+    )}
+    function ArtAstro(){return(
+      <svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" style={{width:'100%',height:'100%'}}>
+        <circle cx="36" cy="36" r="26" stroke="#7E8EC8" strokeWidth=".8" strokeDasharray="2 4" opacity=".5"/>
+        <circle cx="36" cy="36" r="16" stroke="#7E8EC8" strokeWidth=".8" opacity=".6"/>
+        <circle cx="36" cy="20" r="4" fill="#7E8EC8" opacity=".8"/>
+        <circle cx="48" cy="44" r="3" fill="#7E8EC8" opacity=".6"/>
+        <circle cx="22" cy="42" r="2.5" fill="#7E8EC8" opacity=".5"/>
+        <path d="M36 20 L48 44 L22 42 Z" stroke="#7E8EC8" strokeWidth=".7" opacity=".4"/>
+        <circle cx="36" cy="36" r="3" fill="#7E8EC8" opacity=".5"/>
+      </svg>
+    )}
+    function ArtNumer(){return(
+      <svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" style={{width:'100%',height:'100%'}}>
+        <rect x="10" y="10" width="52" height="52" rx="4" stroke="#6EA080" strokeWidth=".8" opacity=".4"/>
+        {[0,1,2].map(r=>[0,1,2].map(c=>{
+          const n=3*r+c+1;
+          return <g key={`${r}-${c}`}>
+            <rect x={10+c*17+1} y={10+r*17+1} width="15" height="15" rx="2" fill="rgba(110,160,128,.06)" stroke="#6EA080" strokeWidth=".6" opacity=".6"/>
+            <text x={10+c*17+8.5} y={10+r*17+11.5} textAnchor="middle" fill="#6EA080" fontSize="7" fontFamily="Georgia" opacity=".8">{n}</text>
+          </g>
+        }))}
+      </svg>
+    )}
+    function ArtSvarga(){return(
+      <svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" style={{width:'100%',height:'100%'}}>
+        <circle cx="36" cy="36" r="10" stroke="#B07ECC" strokeWidth=".9" opacity=".8"/>
+        {[0,1,2,3,4,5].map(i=>{
+          const a=i*60*Math.PI/180;
+          const x=36+10*Math.cos(a), y=36+10*Math.sin(a);
+          return <circle key={i} cx={x} cy={y} r="10" stroke="#B07ECC" strokeWidth=".8" opacity=".5"/>
+        })}
+        <circle cx="36" cy="36" r="20" stroke="#B07ECC" strokeWidth=".7" strokeDasharray="3 4" opacity=".35"/>
+      </svg>
+    )}
+    function ArtStrategy(){return(
+      <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg" style={{width:'100%',height:'100%',animation:'spin-slow 40s linear infinite'}}>
+        <circle cx="80" cy="80" r="70" stroke="#C8D4E0" strokeWidth=".6" strokeDasharray="2 5" opacity=".35"/>
+        <circle cx="80" cy="80" r="52" stroke="#C8D4E0" strokeWidth=".8" opacity=".45"/>
+        <circle cx="80" cy="80" r="34" stroke="#C8D4E0" strokeWidth="1" opacity=".6"/>
+        <circle cx="80" cy="80" r="14" fill="rgba(200,212,224,.12)" stroke="#C8D4E0" strokeWidth="1.2" opacity=".8"/>
+        {[0,60,120,180,240,300].map(a=>{
+          const r=a*Math.PI/180;
+          return <g key={a}>
+            <line x1={80+34*Math.cos(r)} y1={80+34*Math.sin(r)} x2={80+70*Math.cos(r)} y2={80+70*Math.sin(r)} stroke="#C8D4E0" strokeWidth=".6" opacity=".3"/>
+            <circle cx={80+52*Math.cos(r)} cy={80+52*Math.sin(r)} r="3.5" fill="#C8D4E0" opacity=".55"/>
+          </g>
+        })}
+        <circle cx="80" cy="80" r="5" fill="#C8D4E0" opacity=".9"/>
+      </svg>
+    )}
+    function ArtSpec({emoji,accent,bg}){return(
+      <div style={{width:'100%',height:'100%',background:bg||'rgba(200,212,224,.08)',borderRadius:'50%',display:'flex',alignItems:'center',justifyContent:'center',fontSize:'1.8rem',border:`1px solid ${accent}40`}}>
+        {emoji}
+      </div>
+    )}
+
+    /* ── NAV ── */
+    function Nav({lang,setLang,theme,toggleTheme,onNav,t}){
+      const [scrolled,setScrolled]=useState(false);
+      useEffect(()=>{
+        const h=()=>setScrolled(window.scrollY>30);
+        window.addEventListener('scroll',h);return()=>window.removeEventListener('scroll',h);
+      },[]);
+      const langs=['en','ru','es','it','he'];
+      return(
+        <nav className={scrolled?'scrolled':''}>
+          <div className="nav-logo" onClick={()=>onNav('home')}>
+            <div className="nav-logo-mark">L</div>
+            <div><div className="nav-logo-text">LifeForge <em style={{fontStyle:'italic'}}>AI</em></div><div className="nav-logo-sub">Human Potential System</div></div>
+          </div>
+          <div className="nav-links">
+            <div className="nav-link" onClick={()=>onNav('home')}>{t.tools}</div>
+            <div className="nav-link" onClick={()=>onNav('specialists')}>{t.specialists}</div>
+          </div>
+          <div className="nav-controls">
+            {langs.map(l=><button key={l} className={`nav-lang${lang===l?' active':''}`} onClick={()=>setLang(l)}>{l.toUpperCase()}</button>)}
+            <button className="nav-theme" onClick={toggleTheme} title="Toggle theme">{theme==='dark'?'☀':'🌙'}</button>
+          </div>
+        </nav>
+      );
+    }
+
+    /* ── HERO ── */
+    function Hero({t,onExplore,onSpecialists}){
+      return(
+        <section className="hero">
+          <div className="hero-inner">
+            <div className="hero-tag h1">
+              <div className="hero-tag-dot"/>
+              <span className="eyebrow">{t.tag}</span>
             </div>
-            <div>
-              <div className="pyth-numbers">
-                <span><strong>{res.working}</strong> {ui.workNum}</span>
-                <span><strong>{res.second}</strong> {ui.secNum}</span>
-                <span><strong>{res.third}</strong> {ui.thrNum}</span>
-                <span><strong>{res.fourth}</strong> {ui.forNum}</span>
-              </div>
-              <div className="pyth-meaning">
-                {res.matrix.map((c,i) => c>0 ? (
-                  <div key={i} style={{marginBottom:6}}>
-                    <strong style={{color:accent,fontFamily:'var(--font-d)',fontSize:'.95rem'}}>{i+1}: </strong>
-                    <span style={{color:'var(--text-2)'}}>{c}× — {ui.meanings[i]}</span>
-                  </div>
-                ) : null)}
-              </div>
+            <h1 className="hero-h">
+              <span className="h2" style={{display:'block'}}>{t.h1}</span>
+              <em className="h3" style={{display:'block'}}>{t.h2}</em>
+              <span className="h4" style={{display:'block'}}>{t.h3}</span>
+            </h1>
+            <p className="hero-sub h5">{t.sub}</p>
+            <div className="hero-ctas h5">
+              <button className="btn-p" onClick={onExplore}>{t.cta1} →</button>
+              <button className="btn-g" onClick={onSpecialists}>{t.cta2}</button>
+            </div>
+            <div className="hero-stats h6">
+              {[{v:t.s1,l:t.sl1},{v:t.s2,l:t.sl2},{v:t.s3,l:t.sl3},{v:t.s4,l:t.sl4}].map(s=>(
+                <div key={s.l}>
+                  <div className="hero-stat-val">{s.v}</div>
+                  <div className="hero-stat-lab">{s.l}</div>
+                </div>
+              ))}
+            </div>
+            <div className="scroll-hint h6"><div className="scroll-arrow"/></div>
+          </div>
+        </section>
+      );
+    }
+
+    /* ── TOOL CARD ── */
+    function ToolCard({tool,onClick,delay=''}){
+      return(
+        <div className={`glass tool-card rv ${delay}`}
+          style={{'--card-glow':`radial-gradient(ellipse at 0% 100%,${tool.glow},transparent 70%)`}}
+          onClick={()=>onClick(tool.id)}
+        >
+          <div className="tool-card-shine"/>
+          <div>
+            <div className="tool-art">
+              {tool.id==='coach'&&<ArtCoach/>}
+              {tool.id==='biz'&&<ArtBiz/>}
+              {tool.id==='astro'&&<ArtAstro/>}
+              {tool.id==='numer'&&<ArtNumer/>}
+              {tool.id==='svarga'&&<ArtSvarga/>}
+            </div>
+            <div className="tool-cat eyebrow" style={{color:tool.accent,opacity:.8}}>{tool.cat}</div>
+            <h3 className="tool-name" style={{color:tool.accent}}>{tool.name}</h3>
+            <p className="tool-desc">{tool.desc}</p>
+          </div>
+          <div>
+            <div className="tool-cta" style={{color:tool.accent}}>
+              <span>Explore</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/></svg>
             </div>
           </div>
-        )}
-      </div>
-    );
-  }
+          <div className="tool-badge" style={{color:tool.accent}}>{tool.badge}</div>
+        </div>
+      );
+    }
 
-  // ─── NAV ───
-  function Nav({ lang, setLang, theme, toggleTheme, isPortal, onBack }) {
-    const ui = UI[lang];
-    const [scrolled, setScrolled] = React.useState(false);
-    const [langOpen, setLangOpen] = React.useState(false);
-    const [mobOpen,  setMobOpen]  = React.useState(false);
-
-    React.useEffect(() => {
-      const fn = () => setScrolled(window.scrollY > 50);
-      window.addEventListener('scroll', fn, { passive:true });
-      return () => window.removeEventListener('scroll', fn);
-    }, []);
-
-    React.useEffect(() => {
-      if (!langOpen) return;
-      const close = () => setLangOpen(false);
-      setTimeout(() => document.addEventListener('click', close), 0);
-      return () => document.removeEventListener('click', close);
-    }, [langOpen]);
-
-    const LANGS = [{c:'en',l:'English'},{c:'ru',l:'Русский'},{c:'es',l:'Español'},{c:'it',l:'Italiano'},{c:'he',l:'עברית'}];
-
-    return (
-      <>
-        <nav className={`nav-wrap${scrolled?' scrolled':''}`}>
-          <button className="nav-logo" onClick={onBack}>
-            <span className="nav-logo-mark">L</span>
-            <div><span className="nav-logo-name">LifeForge</span><span className="nav-logo-sub">AI · by G. Rivera</span></div>
-          </button>
-
-          <div className="nav-right dsk">
-            <div className="lang-wrap" onClick={e=>e.stopPropagation()}>
-              <button className="ctrl-btn" onClick={()=>setLangOpen(!langOpen)}>
-                {lang.toUpperCase()} <span style={{opacity:.45,fontSize:9}}>▾</span>
-              </button>
-              <div className={`lang-drop${langOpen?' open':''}`}>
-                {LANGS.map(l=>(
-                  <button key={l.c} className={`lang-opt${lang===l.c?' active':''}`}
-                    onClick={()=>{setLang(l.c);setLangOpen(false);}}>
-                    {l.l}
-                  </button>
+    /* ── CENTRAL CARD ── */
+    function CentralCard({tool,onClick}){
+      return(
+        <div className="glass central-card rv" onClick={()=>onClick('strategy')}>
+          <div className="central-grid-lines"/>
+          <div className="central-glow"/>
+          <div className="central-inner">
+            <div>
+              <div className="central-badge">
+                <div className="central-badge-dot"/>
+                <span className="eyebrow" style={{color:'#C8D4E0'}}>{tool.cat}</span>
+              </div>
+              <h2 className="central-h">{tool.name.split(' ').slice(0,-1).join(' ')} <em>{tool.name.split(' ').slice(-1)[0]}</em></h2>
+              <p style={{fontSize:'.88rem',color:'var(--text-2)',lineHeight:1.72,marginBottom:24}}>{tool.desc}</p>
+              <div className="central-features">
+                {tool.feats.slice(0,4).map(f=>(
+                  <div key={f} className="central-feat">
+                    <div className="central-feat-dot" style={{background:'#C8D4E0'}}/>
+                    <span>{f}</span>
+                  </div>
                 ))}
               </div>
+              <button className="btn-accent" style={{color:'#C8D4E0',borderColor:'#C8D4E080'}}>
+                Activate System →
+              </button>
             </div>
-            <button className="ctrl-btn" onClick={toggleTheme}>
-              {theme==='dark'?<IcoSun/>:<IcoMoon/>}
-              {theme==='dark'?ui.themeL:ui.themeD}
-            </button>
-            {!isPortal && (
-              <button className="btn-g" style={{padding:'8px 18px',fontSize:'.67rem'}} onClick={onBack}>
-                <IcoArrowL s={12}/> {ui.back}
-              </button>
-            )}
-          </div>
-
-          <button className="mob-only ctrl-btn" style={{letterSpacing:'.04em',borderRadius:6}}
-            onClick={()=>setMobOpen(true)}>☰</button>
-        </nav>
-
-        <div className={`mob-drawer${mobOpen?' open':''}`}>
-          <button style={{position:'absolute',top:20,right:22,background:'none',border:'none',color:'var(--text-2)',fontSize:'1.3rem',cursor:'pointer'}}
-            onClick={()=>setMobOpen(false)}>✕</button>
-          <div style={{display:'flex',flexDirection:'column',gap:18,paddingTop:8}}>
-            {LANGS.map(l=>(
-              <button key={l.c} style={{background:'none',border:'none',cursor:'pointer',textAlign:'left',
-                font:`500 1.05rem/1 var(--font-b)`,letterSpacing:'.06em',
-                color:lang===l.c?'var(--gold)':'var(--text-2)'}}
-                onClick={()=>{setLang(l.c);setMobOpen(false);}}>
-                {l.l}
-              </button>
-            ))}
-            <div style={{height:1,background:'var(--border)',margin:'4px 0'}}/>
-            <button style={{background:'none',border:'none',cursor:'pointer',textAlign:'left',
-              font:'400 .88rem/1 var(--font-b)',color:'var(--text-2)',letterSpacing:'.08em'}}
-              onClick={()=>{toggleTheme();setMobOpen(false);}}>
-              {theme==='dark'?'☀ Light Mode':'☾ Dark Mode'}
-            </button>
-            {!isPortal&&(
-              <button style={{background:'none',border:'none',cursor:'pointer',textAlign:'left',
-                font:'400 .88rem/1 var(--font-b)',color:'var(--text-2)',letterSpacing:'.08em'}}
-                onClick={()=>{onBack();setMobOpen(false);}}>
-                ← {ui.back}
-              </button>
-            )}
+            <div style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
+              <div className="central-art"><ArtStrategy/></div>
+            </div>
           </div>
         </div>
-      </>
-    );
-  }
+      );
+    }
 
-  // ─── CARD ───
-  function Card({ s, ui, onSelect, idx }) {
-    const Art = ART[s.art];
-    return (
-      <div className={`s-card rv d${(idx%4)+1}`} style={{'--card-accent':s.accent}} onClick={()=>onSelect(s.id)}>
-        <div className="s-card-art"><Art c={s.accent}/></div>
-        <div className="s-card-tag">{s.tag}</div>
-        <div className="s-card-name">{s.name}</div>
-        <div className="s-card-ttl">{s.title}</div>
-        <div className="s-card-tl">"{s.tagline}"</div>
-        <div className="s-card-pills">{s.pills.map(p=><span key={p} className="s-card-pill">{p}</span>)}</div>
-        <button className="s-card-cta">{ui.explore} <IcoArrowR s={12}/></button>
-      </div>
-    );
-  }
-
-  // ─── PORTAL ───
-  function Portal({ lang, onSelect }) {
-    const ui    = UI[lang];
-    const specs = SPECS[lang];
-    const primary   = specs.filter(s=>s.cat==='primary');
-    const secondary = specs.filter(s=>s.cat==='secondary');
-    const integral  = specs.filter(s=>s.cat==='integral');
-    useReveal(lang);
-
-    return (
-      <>
-        <section className="portal-hero">
-          <div className="portal-hero-content">
-            <div className="hero-tag-pill hl1"><span className="hero-tag-dot"></span>{ui.portal.tag}</div>
-            <h1 className="hl2" style={{fontFamily:'var(--font-d)',fontWeight:400,fontSize:'clamp(40px,6.6vw,84px)',lineHeight:1.06,color:'var(--text-1)',letterSpacing:'-.02em',marginBottom:22}}>
-              {ui.portal.h1a}<br/>
-              <em style={{color:'var(--gold)',fontStyle:'italic'}}>{ui.portal.h1b}</em>
-            </h1>
-            <p className="hl3" style={{fontFamily:'var(--font-d)',fontSize:'clamp(16px,2vw,20px)',color:'var(--text-2)',lineHeight:1.7,maxWidth:640,margin:'0 auto 30px'}}>
-              {ui.portal.sub}
-            </p>
-            <div className="hl4" style={{display:'flex',alignItems:'center',justifyContent:'center',gap:10,color:'var(--text-3)',fontSize:'.64rem',letterSpacing:'.18em',textTransform:'uppercase'}}>
-              <span style={{width:20,height:1,background:'var(--border-md)'}}/>
-              {ui.portal.hint}
-              <span style={{width:20,height:1,background:'var(--border-md)'}}/>
+    /* ── TOOLS SECTION ── */
+    function ToolsSection({tools,onTool,t}){
+      useReveal();
+      const [coach,biz,astro,numer,svarga,strategy]=tools;
+      return(
+        <section className="sp" id="tools">
+          <div className="mw">
+            <div className="sec-head rv">
+              <div className="eyebrow">{t.label}</div>
+              <h2 className="sec-h">{t.h}<em>{t.em}</em></h2>
+              <p className="sec-sub">{t.sub}</p>
+              <div className="divider"/>
+            </div>
+            <div className="tools-grid">
+              <ToolCard tool={coach} onClick={onTool} delay="d1"/>
+              <ToolCard tool={biz}   onClick={onTool} delay="d2"/>
+              <ToolCard tool={astro} onClick={onTool} delay="d3"/>
+              <div className="tools-central rv d4"><CentralCard tool={strategy} onClick={onTool}/></div>
+              <ToolCard tool={numer}  onClick={onTool} delay="d5"/>
+              <ToolCard tool={svarga} onClick={onTool} delay="d6"/>
             </div>
           </div>
         </section>
+      );
+    }
 
-        <div className="cat-wrap">
-          <section className="cat-section">
-            <div className="cat-header rv">
-              <span className="cat-num">I</span>
-              <span className="cat-title">{ui.cat.primary}</span>
-              <span className="cat-line"/>
+    /* ── SPECIALISTS SECTION ── */
+    function SpecialistsSection({lang,t}){
+      useReveal();
+      const specs=SPECIALISTS.map((s,i)=>{
+        if(lang==='ru'&&SPEC_I18N.ru[i])return{...s,...SPEC_I18N.ru[i]};
+        return s;
+      });
+      return(
+        <section className="sp" id="specialists">
+          <div className="mw">
+            <div className="sec-head rv">
+              <div className="eyebrow">{t.label}</div>
+              <h2 className="sec-h">{t.h}<em>{t.em}</em></h2>
+              <p className="sec-sub">{t.sub}</p>
+              <div className="divider"/>
             </div>
-            <p className="cat-sub rv d1">{ui.cat.primarySub}</p>
-            <div className="cards-grid">
-              {primary.map((s,i)=><Card key={s.id} s={s} ui={ui} onSelect={onSelect} idx={i}/>)}
-            </div>
-          </section>
-
-          <section className="cat-section">
-            <div className="cat-header rv">
-              <span className="cat-num">II</span>
-              <span className="cat-title">{ui.cat.secondary}</span>
-              <span className="cat-line"/>
-            </div>
-            <p className="cat-sub rv d1">{ui.cat.secondarySub}</p>
-            <div className="cards-grid">
-              {secondary.map((s,i)=><Card key={s.id} s={s} ui={ui} onSelect={onSelect} idx={i}/>)}
-            </div>
-          </section>
-
-          <section className="cat-section">
-            <div className="cat-header rv">
-              <span className="cat-num">III</span>
-              <span className="cat-title">{ui.cat.integral}</span>
-              <span className="cat-line"/>
-            </div>
-            <p className="cat-sub rv d1">{ui.cat.integralSub}</p>
-            <div className="cards-grid single">
-              {integral.map((s,i)=><Card key={s.id} s={s} ui={ui} onSelect={onSelect} idx={i}/>)}
-            </div>
-          </section>
-        </div>
-      </>
-    );
-  }
-
-  // ─── DETAIL ───
-  function SpecDetail({ lang, specId, onBack }) {
-    const ui = UI[lang];
-    const s  = SPECS[lang].find(x=>x.id===specId);
-    useReveal(specId+lang);
-    if (!s) return null;
-    const Art = ART[s.art];
-
-    return (
-      <div>
-        <button className="sp-back" onClick={onBack}><IcoArrowL s={12}/> {ui.back}</button>
-
-        <section className="sp-hero" style={{'--hero-glow':s.glow}}>
-          <div className="sp-hero-art mob-only-hide"><Art size={280} c={s.accent}/></div>
-          <div className="sp-hero-content">
-            <div className="eyebrow hl1" style={{color:s.accent,marginBottom:16}}>{s.tag} · LifeForge AI</div>
-            <h1 className="hl2" style={{fontFamily:'var(--font-d)',fontWeight:400,fontSize:'clamp(38px,6vw,78px)',lineHeight:1.06,color:'var(--text-1)',letterSpacing:'-.02em',marginBottom:14}}>
-              {s.name}
-            </h1>
-            <p className="hl3" style={{fontFamily:'var(--font-d)',fontSize:'clamp(15px,1.6vw,18px)',color:'var(--text-2)',lineHeight:1.55,maxWidth:640,marginBottom:14}}>
-              {s.title}
-            </p>
-            <p className="hl3" style={{fontFamily:'var(--font-d)',fontSize:'clamp(14px,1.5vw,17px)',fontStyle:'italic',color:'var(--text-3)',lineHeight:1.65,maxWidth:640,marginBottom:24}}>
-              "{s.tagline}"
-            </p>
-            <div className="hl4" style={{display:'flex',flexWrap:'wrap',gap:8}}>
-              {s.pills.map(p=>(
-                <span key={p} style={{fontSize:'.60rem',letterSpacing:'.12em',textTransform:'uppercase',padding:'6px 14px',background:'rgba(255,255,255,.06)',border:`1px solid ${s.accent}44`,borderRadius:20,color:s.accent}}>{p}</span>
+            <div className="spec-grid">
+              {specs.map((s,i)=>(
+                <div key={s.id} className={`glass spec-card rv d${Math.min(i+1,10)}`}
+                  style={{borderColor:`${s.accent}20`,'--hover-border':`${s.accent}40`}}>
+                  <div className="spec-avatar" style={{background:s.bg}}>
+                    <ArtSpec emoji={s.emoji} accent={s.accent} bg={s.bg}/>
+                  </div>
+                  <div className="spec-name">{s.name}</div>
+                  <div className="spec-role" style={{color:s.accent}}>{s.role}</div>
+                  <p className="spec-phil">"{s.phil}"</p>
+                  <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap',gap:8}}>
+                    <button className="spec-cta" style={{color:s.accent,borderColor:`${s.accent}60`}}>
+                      Talk to specialist →
+                    </button>
+                    <div className="spec-style-tag" style={{color:s.accent}}>{s.style}</div>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
         </section>
+      );
+    }
 
-        <section className="sp2" style={{background:'var(--bg-alt)'}}>
+    /* ── PYTHAGORAS TOOL PAGE ── */
+    function PythaCalc({lang}){
+      const [val,setVal]=useState('');
+      const [res,setRes]=useState(null);
+      const [err,setErr]=useState('');
+      const compute=()=>{
+        const r=calcPytha(val);
+        if(!r){setErr('Format: DD.MM.YYYY');setRes(null)}
+        else{setRes(r);setErr('')}
+      };
+      const POS=[[7,8,9],[4,5,6],[1,2,3]];
+      return(
+        <div className="calc-wrap glass">
+          <h3 style={{fontFamily:'var(--font-d)',fontSize:'1.5rem',fontWeight:400,marginBottom:8,color:'var(--gold)'}}>Pythagoras Square</h3>
+          <p style={{fontSize:'.83rem',color:'var(--text-2)',marginBottom:4,lineHeight:1.6}}>Live calculator — Alexandrov method</p>
+          <div className="calc-input-row">
+            <input className="calc-input" placeholder="DD.MM.YYYY" value={val} onChange={e=>setVal(e.target.value)} onKeyDown={e=>e.key==='Enter'&&compute()}/>
+            <button className="calc-submit" onClick={compute}>Calculate</button>
+          </div>
+          {err&&<div className="calc-error">{err}</div>}
+          {res&&<>
+            <div className="working-nums">
+              {[{v:res.w1,l:'I'},{v:res.w2,l:'II'},{v:Math.abs(res.w3),l:'III'},{v:res.w4,l:'IV'}].map(w=>(
+                <div key={w.l} className="wnum">
+                  <div className="wnum-val">{w.v}</div>
+                  <div className="wnum-lab">Working {w.l}</div>
+                </div>
+              ))}
+            </div>
+            <div className="pytha-grid">
+              {POS.map((row,ri)=>row.map(n=>{
+                const c=res.cnt[n]||0;
+                const cls=c>=3?'hot':c>0?'has':'empty';
+                return(
+                  <div key={`${ri}-${n}`} className={`pytha-cell ${cls}`}>
+                    {c>0?n.toString().repeat(c).slice(0,3):n}
+                  </div>
+                );
+              }))}
+            </div>
+            <p className="calc-note">
+              Diagonal 1-5-9: willpower axis. Diagonal 3-5-7: action axis. Diagonal 2-5-8: emotional axis.
+            </p>
+          </>}
+        </div>
+      );
+    }
+
+    /* ── TOOL DETAIL PAGE ── */
+    function ToolDetail({tool,lang,onBack}){
+      useReveal();
+      return(
+        <div className="detail-page">
           <div className="mw">
-            <div className="detail-grid">
-              <div>
-                <div className="eyebrow rv" style={{color:s.accent,marginBottom:14}}>{s.about.eyebrow}</div>
-                <h2 className="rv d1" style={{fontFamily:'var(--font-d)',fontWeight:400,fontSize:'clamp(26px,3.8vw,42px)',lineHeight:1.15,color:'var(--text-1)',marginBottom:22,letterSpacing:'-.01em'}}>
-                  {s.about.h2}
-                </h2>
-                <p className="rv d2" style={{fontSize:'.91rem',color:'var(--text-2)',lineHeight:1.82,marginBottom:14,fontWeight:300}}>{s.about.bio}</p>
-                <p className="rv d3" style={{fontSize:'.86rem',color:'var(--text-3)',lineHeight:1.78,fontWeight:300,fontStyle:'italic'}}>{s.about.bio2}</p>
+            <div className="detail-back rv" onClick={onBack}>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/></svg>
+              Back to systems
+            </div>
+            <div className="detail-header rv">
+              <div className="tag" style={{color:tool.accent,borderColor:`${tool.accent}30`}}>{tool.cat}</div>
+              <h1 className="detail-h" style={{color:tool.accent}}>{tool.name}</h1>
+              <p className="detail-sub">{tool.desc}</p>
+            </div>
+            <div className="detail-body">
+              <div className="detail-features">
+                {tool.feats.map((f,i)=>(
+                  <div key={i} className={`detail-feat rv d${i+1}`}>
+                    <div className="detail-feat-icon" style={{background:`${tool.accent}15`,color:tool.accent}}>
+                      {['◎','△','☽','∑','⊕','✦'][i]||'◎'}
+                    </div>
+                    <div>
+                      <div className="detail-feat-title">{f}</div>
+                      <div className="detail-feat-desc">AI-powered analysis and personalized guidance for your journey.</div>
+                    </div>
+                  </div>
+                ))}
               </div>
               <div className="rv d2">
-                <div style={{borderRadius:12,overflow:'hidden',border:`1px solid ${s.accent}38`,aspectRatio:'4/3',position:'relative',marginBottom:24,
-                  background:`radial-gradient(ellipse at 30% 30%, ${s.accent}25, var(--surface) 75%)`}}>
-                  <div style={{position:'absolute',inset:0,display:'flex',alignItems:'center',justifyContent:'center'}}>
-                    <Art size={200} c={s.accent}/>
-                  </div>
-                </div>
-                <div className="stat-row">
-                  {s.stats.map(st=>(
-                    <div key={st.l}>
-                      <span className="stat-num" style={{color:s.accent}}>{st.n}</span>
-                      <span className="stat-lbl">{st.l}</span>
+                {tool.id==='numer'||tool.id==='strategy'
+                  ? <PythaCalc lang={lang}/>
+                  : <div className="glass" style={{padding:32,borderRadius:'var(--r2)',display:'flex',flexDirection:'column',gap:24}}>
+                      <div style={{width:'100%',display:'flex',justifyContent:'center'}}>
+                        <div style={{width:160,height:160}}>
+                          {tool.id==='coach'&&<ArtCoach/>}
+                          {tool.id==='biz'&&<ArtBiz/>}
+                          {tool.id==='astro'&&<ArtAstro/>}
+                          {tool.id==='svarga'&&<ArtSvarga/>}
+                        </div>
+                      </div>
+                      <button className="btn-p" style={{alignSelf:'flex-start'}}>Start Session →</button>
                     </div>
-                  ))}
-                </div>
+                }
               </div>
+            </div>
+            <div style={{textAlign:'center',marginTop:48}} className="rv">
+              <button className="btn-p" onClick={onBack}>← Back to all systems</button>
             </div>
           </div>
-        </section>
+        </div>
+      );
+    }
 
-        {s.framework && (
-          <section className="sp2">
-            <div className="mw">
-              <div style={{textAlign:'center',marginBottom:44}}>
-                <div className="eyebrow rv" style={{color:s.accent,marginBottom:14}}>{s.framework.eyebrow}</div>
-                <h2 className="rv d1" style={{fontFamily:'var(--font-d)',fontWeight:400,fontSize:'clamp(24px,3.4vw,40px)',color:'var(--text-1)',letterSpacing:'-.01em'}}>{s.framework.h2}</h2>
-              </div>
-              <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(220px,1fr))',gap:16}}>
-                {s.framework.pillars.map((p,i)=>(
-                  <div key={p.n+i} className={`glass-card rv d${i+1}`}>
-                    <div style={{fontSize:'.58rem',letterSpacing:'.16em',textTransform:'uppercase',color:s.accent,marginBottom:12}}>{p.n}</div>
-                    <div style={{fontFamily:'var(--font-d)',fontSize:'1.18rem',fontWeight:400,color:'var(--text-1)',marginBottom:12}}>{p.title}</div>
-                    <div style={{fontSize:'.83rem',color:'var(--text-2)',lineHeight:1.78,fontWeight:300}}>{p.desc}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
-
-        {/* Live Pythagoras Widget — only for numerologist */}
-        {s.id === 'numer' && (
-          <section className="sp2" style={{background:s.framework?'var(--bg-alt)':'var(--bg)'}}>
-            <div className="mw" style={{maxWidth:860}}>
-              <div className="rv">
-                <PythagorasWidget lang={lang} accent={s.accent}/>
-              </div>
-            </div>
-          </section>
-        )}
-
-        <section className="sp2" style={{background:(s.framework && s.id !== 'numer') ? 'var(--bg-alt)' : 'var(--bg)'}}>
+    /* ── FOOTER ── */
+    function Footer({t,onNav}){
+      return(
+        <footer>
           <div className="mw">
-            <div className="eyebrow rv" style={{color:s.accent,marginBottom:32}}>{ui.programs}</div>
-            <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))',gap:16}}>
-              {s.programs.map((p,i)=>(
-                <div key={p.num} className={`glass-card rv d${i+1}`}>
-                  <div className="prog-num" style={{color:s.accent}}>{p.num}</div>
-                  <div style={{fontFamily:'var(--font-d)',fontSize:'1.18rem',fontWeight:400,color:'var(--text-1)',marginBottom:10,lineHeight:1.3}}>{p.title}</div>
-                  <div style={{fontSize:'.84rem',color:'var(--text-2)',lineHeight:1.78,fontWeight:300,marginBottom:16}}>{p.desc}</div>
-                  <div style={{display:'flex',flexWrap:'wrap',gap:6}}>
-                    {p.tags.map(t=>(
-                      <span key={t} style={{fontSize:'.58rem',letterSpacing:'.09em',textTransform:'uppercase',padding:'4px 10px',background:'var(--gold-f)',border:'1px solid var(--border)',borderRadius:20,color:'var(--text-3)'}}>{t}</span>
-                    ))}
-                  </div>
+            <div className="footer-grid">
+              <div>
+                <div style={{display:'flex',alignItems:'center',gap:10}}>
+                  <div className="nav-logo-mark">L</div>
+                  <div className="footer-brand-h">LifeForge <em style={{fontStyle:'italic'}}>AI</em></div>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="sp2" style={{background:'var(--bg-alt)'}}>
-          <div className="mw">
-            <div className="eyebrow rv" style={{color:s.accent,marginBottom:32}}>{ui.testimonials}</div>
-            <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))',gap:16}}>
-              {s.testimonials.map((tm,i)=>(
-                <div key={tm.name+i} className={`tcard rv d${i+1}`}>
-                  <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-start'}}>
-                    <div><div className="tcard-name">{tm.name}</div><div className="tcard-city">{tm.city}</div></div>
-                    <div style={{fontFamily:'var(--font-d)',fontSize:'2.2rem',color:s.accent,lineHeight:1,opacity:.35}}>"</div>
-                  </div>
-                  <div className="tcard-text">{tm.text}</div>
+                <p className="footer-brand-sub" style={{marginTop:12}}>Premium AI-powered personal development ecosystem. Unlock your human potential.</p>
+                <div className="footer-soc" style={{marginTop:20}}>
+                  {['T','in','✦'].map(s=><div key={s} className="footer-soc-btn">{s}</div>)}
                 </div>
-              ))}
+              </div>
+              <div>
+                <div className="footer-col-h">{t.col1}</div>
+                <div className="footer-links">
+                  {['Personal Coaching','Business Coaching','Astrology','Numerology','Svarga System','Life Strategy'].map(l=><div key={l} className="footer-link">{l}</div>)}
+                </div>
+              </div>
+              <div>
+                <div className="footer-col-h">{t.col2}</div>
+                <div className="footer-links">
+                  {SPECIALISTS.slice(0,5).map(s=><div key={s.id} className="footer-link">{s.name}</div>)}
+                </div>
+              </div>
+              <div>
+                <div className="footer-col-h">{t.col3}</div>
+                <div className="footer-links">
+                  {['About LifeForge','How it works','Privacy Policy','Terms of Service','Contact'].map(l=><div key={l} className="footer-link">{l}</div>)}
+                </div>
+              </div>
+            </div>
+            <div className="footer-bottom">
+              <div className="footer-copy">{t.copy}</div>
+              <div className="footer-author">{t.author} <a href="https://georgiirivera.ai" target="_blank" rel="noopener">Georgii Rivera</a> · <a href="https://t.me/riverapeople" target="_blank" rel="noopener">@riverapeople</a></div>
             </div>
           </div>
-        </section>
+        </footer>
+      );
+    }
 
-        <section className="cta-strip">
-          <div style={{position:'relative',zIndex:1}}>
-            <h2 className="rv" style={{fontFamily:'var(--font-d)',fontWeight:400,fontSize:'clamp(28px,5vw,54px)',color:'var(--text-1)',lineHeight:1.1,marginBottom:14,letterSpacing:'-.01em'}}>
-              {ui.cta.title}
-            </h2>
-            <p className="rv d1" style={{fontSize:'.88rem',color:'var(--text-2)',marginBottom:32,lineHeight:1.7,maxWidth:460,margin:'0 auto 32px'}}>
-              {ui.cta.sub}
-            </p>
-            <div className="rv d2" style={{display:'flex',gap:14,justifyContent:'center',flexWrap:'wrap'}}>
-              <a href={WHATSAPP} target="_blank" rel="noopener" className="btn-p">{ui.cta.wa}</a>
-              <a href={TELEGRAM} target="_blank" rel="noopener" className="btn-g"><IcoTG s={16}/> {ui.cta.tg}</a>
-            </div>
-          </div>
-        </section>
-      </div>
-    );
-  }
+    /* ── APP ── */
+    function App(){
+      const [lang,setLang]=useState('en');
+      const [theme,setTheme]=useState('dark');
+      const [view,setView]=useState('home');
+      const [toolId,setToolId]=useState(null);
+      const specialistsRef=useRef(null);
+      const toolsRef=useRef(null);
 
-  function Footer({ lang }) {
-    const t = UI[lang].footer;
-    return (
-      <footer className="footer-bar">
-        <div className="f-credit">{t.credit} <a href={AUTHOR_URL} target="_blank" rel="noopener">{t.author}</a> · <a href={AUTHOR_URL} target="_blank" rel="noopener">georgiirivera.ai</a></div>
-        <div className="f-copy">{t.copy}</div>
-      </footer>
-    );
-  }
+      useEffect(()=>{
+        document.documentElement.setAttribute('lang',lang);
+        document.documentElement.setAttribute('dir',lang==='he'?'rtl':'ltr');
+      },[lang]);
 
-  function App() {
-    const [lang,  setLang]  = React.useState('en');
-    const [theme, setTheme] = React.useState('dark');
-    const [view,  setView]  = React.useState('portal');
+      useEffect(()=>{
+        document.documentElement.setAttribute('data-theme',theme);
+      },[theme]);
 
-    React.useEffect(() => { document.documentElement.setAttribute('data-theme', theme); }, [theme]);
-    React.useEffect(() => {
-      document.documentElement.setAttribute('lang', lang);
-      document.documentElement.setAttribute('dir', lang === 'he' ? 'rtl' : 'ltr');
-    }, [lang]);
+      const toggleTheme=()=>setTheme(t=>t==='dark'?'light':'dark');
+      const t=T[lang]||T.en;
+      const tools=TOOLS_DATA[lang]||TOOLS_DATA.en;
+      const currentTool=toolId?tools.find(t=>t.id===toolId):null;
 
-    const toggleTheme = () => setTheme(t => t==='dark'?'light':'dark');
-    const openSpec = (id) => { setView(id); window.scrollTo({top:0,behavior:'instant'}); };
-    const goPortal = ()   => { setView('portal'); window.scrollTo({top:0,behavior:'instant'}); };
+      const scrollToTools=()=>{
+        if(view!=='home')setView('home');
+        setTimeout(()=>document.getElementById('tools')?.scrollIntoView({behavior:'smooth'}),100);
+      };
+      const scrollToSpecs=()=>{
+        if(view!=='home')setView('home');
+        setTimeout(()=>document.getElementById('specialists')?.scrollIntoView({behavior:'smooth'}),100);
+      };
+      const onTool=id=>{setToolId(id);setView('tool');window.scrollTo(0,0)};
+      const onBack=()=>{setView('home');setToolId(null);setTimeout(()=>document.getElementById('tools')?.scrollIntoView({behavior:'smooth'}),80)};
+      const onNav=v=>{
+        if(v==='home'){setView('home');window.scrollTo(0,0)}
+        else if(v==='specialists')scrollToSpecs();
+      };
 
-    const isPortal = view === 'portal';
+      return(
+        <>
+          <Nav lang={lang} setLang={setLang} theme={theme} toggleTheme={toggleTheme} onNav={onNav} t={t.nav}/>
+          {view==='home'&&(
+            <>
+              <Hero t={t.hero} onExplore={scrollToTools} onSpecialists={scrollToSpecs}/>
+              <ToolsSection tools={tools} onTool={onTool} t={t.tools}/>
+              <SpecialistsSection lang={lang} t={t.specialists}/>
+              <Footer t={t.footer} onNav={onNav}/>
+            </>
+          )}
+          {view==='tool'&&currentTool&&(
+            <ToolDetail tool={currentTool} lang={lang} onBack={onBack}/>
+          )}
+        </>
+      );
+    }
 
-    return (
-      <>
-        <Nav lang={lang} setLang={setLang} theme={theme} toggleTheme={toggleTheme} isPortal={isPortal} onBack={goPortal}/>
-        {isPortal
-          ? <Portal lang={lang} onSelect={openSpec}/>
-          : <SpecDetail lang={lang} specId={view} onBack={goPortal}/>
-        }
-        <Footer lang={lang}/>
-        <a href={WHATSAPP} target="_blank" rel="noopener" className="wa-float" aria-label="WhatsApp"><IcoWA s={26}/></a>
-      </>
-    );
-  }
-
-  ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+    ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
   </script>
 </body>
 </html>
