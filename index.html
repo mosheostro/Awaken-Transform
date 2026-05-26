@@ -491,6 +491,9 @@ en:{
   astro_analyzing:'Reading the celestial patterns...',
   pytha_title:'Pythagoras Square',pytha_placeholder:'Enter date (DD.MM.YYYY)',pytha_calc:'Calculate',pytha_error:'Please enter a valid date in DD.MM.YYYY format.',
   pytha_working:'Working Numbers',
+  pytha_char:'Character',pytha_health:'Health',pytha_luck:'Luck',pytha_logic:'Logic',
+  rune_tap:'tap to reveal',
+  coach_sessions:'sessions',
   rune_title:'Rune Oracle',rune_draw:'Draw Three Runes',rune_past:'Past',rune_present:'Present',rune_future:'Future',rune_again:'Draw Again',
   arch_title:'Archetype Discovery',arch_q1:'When facing a challenge, you tend to:',arch_q2:'Your deepest desire is:',arch_q3:'Others most often see you as:',
   arch_a1:['Strategize carefully before acting','Act boldly and trust instincts','Search for the deeper meaning','Support and care for those around you'],
@@ -530,6 +533,9 @@ ru:{
   astro_analyzing:'Читаю небесные паттерны...',
   pytha_title:'Квадрат Пифагора',pytha_placeholder:'Введите дату (ДД.ММ.ГГГГ)',pytha_calc:'Рассчитать',pytha_error:'Введите дату в формате ДД.ММ.ГГГГ.',
   pytha_working:'Рабочие Числа',
+  pytha_char:'Характер',pytha_health:'Здоровье',pytha_luck:'Удача',pytha_logic:'Логика',
+  rune_tap:'нажмите для открытия',
+  coach_sessions:'сессий',
   rune_title:'Оракул Рун',rune_draw:'Извлечь Три Руны',rune_past:'Прошлое',rune_present:'Настоящее',rune_future:'Будущее',rune_again:'Тянуть снова',
   arch_title:'Открытие Архетипа',arch_q1:'Сталкиваясь с вызовом, вы склонны:',arch_q2:'Ваше глубочайшее желание:',arch_q3:'Другие чаще всего видят вас как:',
   arch_a1:['Тщательно стратегизировать','Действовать смело и доверять инстинктам','Искать глубокий смысл','Поддерживать и заботиться об окружающих'],
@@ -569,6 +575,9 @@ es:{
   astro_analyzing:'Leyendo los patrones celestiales...',
   pytha_title:'Cuadrado de Pitágoras',pytha_placeholder:'Ingresa fecha (DD.MM.AAAA)',pytha_calc:'Calcular',pytha_error:'Ingresa una fecha válida en formato DD.MM.AAAA.',
   pytha_working:'Números de Trabajo',
+  pytha_char:'Carácter',pytha_health:'Salud',pytha_luck:'Suerte',pytha_logic:'Lógica',
+  rune_tap:'toca para revelar',
+  coach_sessions:'sesiones',
   rune_title:'Oráculo de Runas',rune_draw:'Extraer Tres Runas',rune_past:'Pasado',rune_present:'Presente',rune_future:'Futuro',rune_again:'Tirar de nuevo',
   arch_title:'Descubrimiento de Arquetipos',arch_q1:'Ante un desafío, tiendes a:',arch_q2:'Tu deseo más profundo es:',arch_q3:'Los demás te ven más frecuentemente como:',
   arch_a1:['Estrategizar cuidadosamente','Actuar con valentía y confiar en instintos','Buscar el significado más profundo','Apoyar y cuidar a quienes te rodean'],
@@ -608,6 +617,9 @@ it:{
   astro_analyzing:'Leggendo i pattern celesti...',
   pytha_title:'Quadrato di Pitagora',pytha_placeholder:'Inserisci data (GG.MM.AAAA)',pytha_calc:'Calcola',pytha_error:'Inserisci una data valida nel formato GG.MM.AAAA.',
   pytha_working:'Numeri di Lavoro',
+  pytha_char:'Carattere',pytha_health:'Salute',pytha_luck:'Fortuna',pytha_logic:'Logica',
+  rune_tap:'tocca per rivelare',
+  coach_sessions:'sessioni',
   rune_title:'Oracolo delle Rune',rune_draw:'Estrai Tre Rune',rune_past:'Passato',rune_present:'Presente',rune_future:'Futuro',rune_again:'Estrai di nuovo',
   arch_title:'Scoperta degli Archetipi',arch_q1:'Di fronte a una sfida, tendi a:',arch_q2:'Il tuo desiderio più profondo è:',arch_q3:'Gli altri ti vedono più spesso come:',
   arch_a1:['Strategizzare attentamente','Agire con audacia e fidarsi degli istinti','Cercare il significato più profondo','Supportare e prendersi cura di chi ti circonda'],
@@ -647,6 +659,9 @@ he:{
   astro_analyzing:'קורא את הדפוסים השמימיים...',
   pytha_title:'ריבוע פיתגורס',pytha_placeholder:'הכנס תאריך (DD.MM.YYYY)',pytha_calc:'חשב',pytha_error:'הכנס תאריך תקין בפורמט DD.MM.YYYY.',
   pytha_working:'מספרים עובדים',
+  pytha_char:'אופי',pytha_health:'בריאות',pytha_luck:'מזל',pytha_logic:'לוגיקה',
+  rune_tap:'הקש לחשוף',
+  coach_sessions:'סשנים',
   rune_title:'אורקל רונות',rune_draw:'שלוף שלוש רונות',rune_past:'עבר',rune_present:'הווה',rune_future:'עתיד',rune_again:'שלוף שוב',
   arch_title:'גילוי הארכיטיפ',arch_q1:'כשאתה מתמודד עם אתגר, אתה נוטה:',arch_q2:'הרצון העמוק ביותר שלך הוא:',arch_q3:'אחרים רואים אותך לרוב כ:',
   arch_a1:['לתכנן בקפידה לפני פעולה','לפעול בנועזות ולסמוך על האינסטינקטים','לחפש את המשמעות העמוקה יותר','לתמוך ולדאוג לאנשים סביבך'],
@@ -1407,14 +1422,35 @@ function LayerTabs({layer,setLayer,lang}){
   );
 }
 
+/* ═══════════════ STAR RATING ════════════════════════════════════════════ */
+function StarRating({rating}){
+  const stars=[];
+  for(let i=1;i<=5;i++){
+    const fill=Math.min(1,Math.max(0,rating-i+1));
+    stars.push(
+      <span key={i} style={{position:'relative',display:'inline-block',color:'var(--border-md)',fontSize:'1rem',lineHeight:1}}>
+        ★
+        <span style={{position:'absolute',left:0,top:0,overflow:'hidden',
+          width:`${fill*100}%`,color:'var(--gold)',whiteSpace:'nowrap'}}>★</span>
+      </span>
+    );
+  }
+  return <span style={{display:'inline-flex',gap:1}}>{stars}</span>;
+}
+
+const COACH_RATINGS=[4.9,4.8,4.7,4.6,4.5,4.1];
+const COACH_SESSIONS=[1840,2230,990,1620,740,1180];
+
 /* ═══════════════ COACH CARD ═════════════════════════════════════════════ */
 function CoachCard({coach,lang,onSelect}){
   const t=T[lang];
+  const idx=COACHES.indexOf(coach);
   const name=coach.name[lang]||coach.name.en;
   const title=coach.title[lang]||coach.title.en;
   const tagline=coach.tagline[lang]||coach.tagline.en;
   const specs=(coach.specialties[lang]||coach.specialties.en||[]).slice(0,3);
-  const sessions=[1840,2230,990,1620,740,1180][COACHES.indexOf(coach)];
+  const rating=COACH_RATINGS[idx]||4.8;
+  const sessions=COACH_SESSIONS[idx]||1200;
   return(
     <div className="glass coach-card rv" onClick={()=>onSelect(coach)}
       style={{'--accent':coach.color,'--card-accent':`${coach.color}14`}}>
@@ -1430,11 +1466,16 @@ function CoachCard({coach,lang,onSelect}){
         {specs.map((s,i)=><span key={i} className="spec-pill">{s}</span>)}
       </div>
       <div className="coach-meta">
-        <div className="coach-rating">
-          <span className="coach-rating-star">★★★★★</span>
-          <span style={{marginLeft:4}}>4.{8+COACHES.indexOf(coach)%3}</span>
+        <div style={{display:'flex',gap:20,flex:1,alignItems:'center'}}>
+          <div style={{display:'flex',flexDirection:'column',gap:2}}>
+            <StarRating rating={rating}/>
+            <span style={{fontSize:'.72rem',color:'var(--gold)',fontFamily:'var(--font-d)'}}>{rating.toFixed(1)}</span>
+          </div>
+          <div style={{display:'flex',flexDirection:'column',gap:2,textAlign:'right',marginLeft:'auto'}}>
+            <span style={{fontSize:'.88rem',color:'var(--text-1)',fontFamily:'var(--font-d)',fontWeight:500}}>{sessions.toLocaleString()}</span>
+            <span className="coach-sessions">{t.coach_sessions}</span>
+          </div>
         </div>
-        <div className="coach-sessions">{sessions?.toLocaleString()} sessions</div>
         <button className="pill-btn" style={{fontSize:'.66rem',padding:'6px 14px',color:'var(--accent,var(--gold))',borderColor:'var(--accent,var(--gold))'}}>
           {t.coach_view_profile} →
         </button>
@@ -1506,8 +1547,10 @@ function ChatInterface({coach,lang,onBack}){
   const [input,setInput]=useState('');
   const [typing,setTyping]=useState(false);
   const [idx,setIdx]=useState(0);
-  const endRef=useRef(null);
-  useEffect(()=>{endRef.current?.scrollIntoView({behavior:'smooth'});},[msgs,typing]);
+  const msgsRef=useRef(null);
+  useEffect(()=>{
+    if(msgsRef.current)msgsRef.current.scrollTop=msgsRef.current.scrollHeight;
+  },[msgs,typing]);
 
   function send(){
     const txt=input.trim();
@@ -1545,7 +1588,7 @@ function ChatInterface({coach,lang,onBack}){
           </div>
         </div>
         {/* messages */}
-        <div className="chat-msgs">
+        <div className="chat-msgs" ref={msgsRef}>
           {msgs.map((m,i)=>(
             <div key={i} className={`msg ${m.role}`}>
               {m.role==='coach'&&<CoachAvatarFull coach={coach} size={32}/>}
@@ -1557,7 +1600,6 @@ function ChatInterface({coach,lang,onBack}){
               <span/><span/><span/>
             </div>
           )}
-          <div ref={endRef}/>
         </div>
         {/* input */}
         <div className="chat-input-row">
@@ -1792,7 +1834,7 @@ function PythagoraTool({lang}){
           </div>
           <p className="form-label" style={{textAlign:'center',marginBottom:12}}>{t.pytha_working}</p>
           <div className="working-nums">
-            {[['n1',res.n1,'Character'],['n2',res.n2,'Health'],['n3',res.n3,'Luck'],['n4',res.n4,'Logic']].map(([k,v,lbl])=>(
+            {[['n1',res.n1,t.pytha_char],['n2',res.n2,t.pytha_health],['n3',res.n3,t.pytha_luck],['n4',res.n4,t.pytha_logic]].map(([k,v,lbl])=>(
               <div key={k} className="wnum">
                 <div className="wnum-val">{v}</div>
                 <div className="wnum-lab">{lbl}</div>
@@ -1831,7 +1873,7 @@ function RuneTool({lang}){
                 </>
               ):(
                 <div style={{fontSize:'.72rem',color:'var(--text-3)',fontFamily:'var(--font-b)',letterSpacing:'.1em'}}>
-                  tap to reveal
+                  {t.rune_tap}
                 </div>
               )}
             </div>
@@ -1862,7 +1904,7 @@ function ArchetypeTool({lang}){
     <div className="archetype-result glass">
       <div style={{fontSize:36,marginBottom:8}}>{result.sym}</div>
       <div className="archetype-name">{result.name[lang]||result.name.en}</div>
-      <div className="archetype-sub">{result.id}</div>
+      <div className="archetype-sub" style={{color:'var(--gold)',opacity:.7}}>{result.sym} {result.sym} {result.sym}</div>
       <p className="archetype-desc">{result.desc[lang]||result.desc.en}</p>
       <button className="btn-g" style={{margin:'0 auto'}} onClick={()=>{setAnswers([]);setResult(null);}}>
         {t.arch_retake}
@@ -1972,7 +2014,7 @@ function NumerologyTool({lang}){
             <div style={{background:'var(--surface-2)',border:'1px solid var(--border-md)',borderRadius:12,padding:'16px 18px'}}>
               <div className="form-label" style={{marginBottom:8}}>{t.pytha_working||'Working Numbers'}</div>
               <div style={{display:'flex',gap:16,flexWrap:'wrap'}}>
-                {[{l:ru?'Характер':'Character',v:res.pytha.n1},{l:ru?'Здоровье':'Health',v:res.pytha.n2},{l:ru?'Удача':'Luck',v:res.pytha.n3},{l:ru?'Логика':'Logic',v:res.pytha.n4}].map(({l,v})=>(
+                {[{l:t.pytha_char,v:res.pytha.n1},{l:t.pytha_health,v:res.pytha.n2},{l:t.pytha_luck,v:res.pytha.n3},{l:t.pytha_logic,v:res.pytha.n4}].map(({l,v})=>(
                   <div key={l} style={{textAlign:'center'}}>
                     <div style={{fontFamily:'var(--font-d)',fontSize:'1.4rem',color:'var(--gold)'}}>{v}</div>
                     <div style={{fontSize:'.6rem',color:'var(--text-3)',textTransform:'uppercase',letterSpacing:'.1em'}}>{l}</div>
@@ -2234,6 +2276,26 @@ const LEGAL_CONTENT={
       he:`כל התוכן ב-LifeForge AI הוא למטרות מידע וחינוך בלבד. אינו מהווה ייעוץ מקצועי.\n\nעדכון אחרון: מאי 2025`
     }
   },
+  data_protection:{
+    title:{en:'Data Protection (GDPR)',ru:'Защита Данных (GDPR)',es:'Protección de Datos (RGPD)',it:'Protezione dei Dati (GDPR)',he:'הגנת מידע (GDPR)'},
+    body:{
+      en:`**Your Rights Under GDPR**\nIf you are located in the European Economic Area (EEA), you have the following rights regarding your personal data:\n\n**Right of Access**\nYou may request a copy of the personal data we hold about you at any time, free of charge.\n\n**Right to Rectification**\nIf your personal data is inaccurate or incomplete, you have the right to request correction.\n\n**Right to Erasure ("Right to be Forgotten")**\nYou may request that we delete your personal data where there is no compelling reason for us to continue processing it.\n\n**Right to Restriction of Processing**\nYou may request that we restrict how we process your data in certain circumstances.\n\n**Right to Data Portability**\nYou have the right to receive your personal data in a structured, machine-readable format and to transmit it to another controller.\n\n**Right to Object**\nYou have the right to object to processing of your personal data based on our legitimate interests.\n\n**How We Process Your Data**\nLifeForge AI processes data entered into our tools (names, dates of birth, locations) exclusively within your browser session. This data is not transmitted to our servers or stored persistently unless you create an account. We use no third-party advertising networks.\n\n**Legal Basis for Processing**\nWe process your data under Article 6(1)(a) GDPR — your explicit consent, given when you enter data into our tools.\n\n**Data Transfers**\nAll processing occurs client-side. No international data transfers take place.\n\n**Supervisory Authority**\nIf you believe your data protection rights have been violated, you have the right to lodge a complaint with your national data protection supervisory authority.\n\n**Contact for Data Requests**\nTo exercise any of your rights, contact us at: moshe.svarga@gmail.com\nPlease include "GDPR DATA REQUEST" in the subject line.\n\nLast updated: May 2025`,
+      ru:`**Ваши права по GDPR**\nЕсли вы находитесь в Европейской экономической зоне (ЕЭЗ), вы имеете следующие права в отношении ваших персональных данных:\n\n**Право на доступ**\nВы можете запросить копию ваших персональных данных, которые мы храним, бесплатно.\n\n**Право на исправление**\nЕсли ваши данные неточны или неполны, вы можете запросить их исправление.\n\n**Право на удаление ("Право быть забытым")**\nВы можете запросить удаление ваших персональных данных, если нет веских оснований для их дальнейшей обработки.\n\n**Право на переносимость данных**\nВы имеете право получить ваши данные в структурированном машиночитаемом формате.\n\n**Как мы обрабатываем данные**\nLifeForge AI обрабатывает данные, введённые в наши инструменты, исключительно в сессии вашего браузера. Данные не передаются на наши серверы.\n\n**Контакт для запросов данных**\nmoshe.svarga@gmail.com — укажите "ЗАПРОС ДАННЫХ GDPR" в теме письма.\n\nПоследнее обновление: май 2025`,
+      es:`**Sus Derechos bajo el RGPD**\n\n**Derecho de Acceso**\nPuede solicitar una copia de sus datos personales en cualquier momento.\n\n**Derecho de Rectificación**\nPuede solicitar la corrección de datos inexactos.\n\n**Derecho de Supresión**\nPuede solicitar la eliminación de sus datos personales.\n\n**Derecho a la Portabilidad**\nTiene derecho a recibir sus datos en formato legible por máquina.\n\n**Contacto**\nmoshe.svarga@gmail.com — incluya "SOLICITUD RGPD" en el asunto.\n\nÚltima actualización: mayo 2025`,
+      it:`**I Suoi Diritti ai Sensi del GDPR**\n\n**Diritto di Accesso**\nPuoi richiedere una copia dei tuoi dati personali in qualsiasi momento.\n\n**Diritto di Rettifica**\nPuoi richiedere la correzione di dati inesatti.\n\n**Diritto alla Cancellazione**\nPuoi richiedere la cancellazione dei tuoi dati personali.\n\n**Diritto alla Portabilità**\nHai il diritto di ricevere i tuoi dati in formato leggibile da macchina.\n\n**Contatto**\nmoshe.svarga@gmail.com — includi "RICHIESTA GDPR" nell'oggetto.\n\nUltimo aggiornamento: maggio 2025`,
+      he:`**זכויותיך תחת GDPR**\n\n**זכות גישה**\nתוכל לבקש עותק של הנתונים האישיים שלך בכל עת.\n\n**זכות לתיקון**\nתוכל לבקש תיקון של נתונים שגויים.\n\n**זכות למחיקה**\nתוכל לבקש מחיקת הנתונים האישיים שלך.\n\n**זכות לניידות נתונים**\nיש לך זכות לקבל את הנתונים שלך בפורמט קריא מכונה.\n\n**יצירת קשר**\nmoshe.svarga@gmail.com — ציין "בקשת GDPR" בשורת הנושא.\n\nעדכון אחרון: מאי 2025`
+    }
+  },
+  accessibility:{
+    title:{en:'Accessibility Statement',ru:'Заявление о Доступности',es:'Declaración de Accesibilidad',it:'Dichiarazione di Accessibilità',he:'הצהרת נגישות'},
+    body:{
+      en:`**Our Commitment**\nLifeForge AI is committed to ensuring digital accessibility for people with disabilities. We continually improve the user experience for everyone and apply relevant accessibility standards.\n\n**Conformance Status**\nWe aim to conform to the Web Content Accessibility Guidelines (WCAG) 2.1 Level AA. These guidelines explain how to make web content more accessible to people with disabilities.\n\n**Measures We Take**\n- High-contrast theming with dark and light mode options\n- Semantic HTML structure for screen reader compatibility\n- Keyboard navigation support throughout the platform\n- Clear focus indicators on interactive elements\n- Sufficient colour contrast ratios for text and UI components\n- Text scaling support — the interface adapts to browser font size settings\n- RTL (right-to-left) language support for Hebrew users\n\n**Known Limitations**\nSome of our AI-generated content and complex visualisations may not be fully accessible. We are actively working to address these limitations.\n\n**Compatibility**\nLifeForge AI is designed to be compatible with the following assistive technologies:\n- Screen readers (NVDA, JAWS, VoiceOver)\n- Keyboard-only navigation\n- Browser zoom up to 200%\n\n**Feedback & Contact**\nWe welcome your feedback on the accessibility of LifeForge AI. If you experience accessibility barriers, please contact us:\n\nmoshe.svarga@gmail.com\n\nPlease include "ACCESSIBILITY" in the subject line. We aim to respond within 5 business days.\n\n**Formal Complaints**\nIf you are not satisfied with our response, you may contact your relevant national equality body or disability rights organisation.\n\nLast updated: May 2025`,
+      ru:`**Наше обязательство**\nLifeForge AI стремится обеспечить цифровую доступность для людей с ограниченными возможностями.\n\n**Принятые меры**\n- Высококонтрастное оформление с тёмным и светлым режимами\n- Семантическая структура HTML для совместимости со скринридерами\n- Поддержка навигации с клавиатуры\n- Поддержка языков с написанием справа налево (иврит)\n- Адаптация к настройкам размера шрифта браузера\n\n**Обратная связь**\nmoshe.svarga@gmail.com — укажите "ДОСТУПНОСТЬ" в теме письма.\n\nПоследнее обновление: май 2025`,
+      es:`**Nuestro Compromiso**\nLifeForge AI se compromete a garantizar la accesibilidad digital para personas con discapacidades.\n\n**Medidas que tomamos**\n- Tema de alto contraste con opciones de modo oscuro y claro\n- Soporte de navegación por teclado\n- Soporte de idioma RTL para usuarios de hebreo\n- Compatibilidad con lectores de pantalla\n\n**Comentarios**\nmoshe.svarga@gmail.com — incluya "ACCESIBILIDAD" en el asunto.\n\nÚltima actualización: mayo 2025`,
+      it:`**Il Nostro Impegno**\nLifeForge AI si impegna a garantire l'accessibilità digitale per le persone con disabilità.\n\n**Misure adottate**\n- Tema ad alto contrasto con modalità scura e chiara\n- Supporto navigazione da tastiera\n- Compatibilità con lettori di schermo\n- Supporto RTL per utenti ebraici\n\n**Feedback**\nmoshe.svarga@gmail.com — includi "ACCESSIBILITÀ" nell'oggetto.\n\nUltimo aggiornamento: maggio 2025`,
+      he:`**המחויבות שלנו**\nLifeForge AI מחויבת להבטיח נגישות דיגיטלית לאנשים עם מוגבלויות.\n\n**אמצעים שאנו נוקטים**\n- ערכת נושא בניגודיות גבוהה עם אפשרויות מצב כהה ובהיר\n- תמיכה בניווט מקלדת\n- תאימות לקוראי מסך\n- תמיכה ב-RTL עבור משתמשי עברית\n- התאמה להגדרות גודל גופן של הדפדפן\n\n**משוב**\nmoshe.svarga@gmail.com — ציין "נגישות" בשורת הנושא.\n\nעדכון אחרון: מאי 2025`
+    }
+  },
   contact:{
     title:{en:'Contact & Support',ru:'Контакты и Поддержка',es:'Contacto y Soporte',it:'Contatto e Supporto',he:'יצירת קשר ותמיכה'},
     body:{
@@ -2332,8 +2394,8 @@ function Footer({lang,onLegalOpen,onNavigate}){
             <div className="footer-col-h">{L.support}</div>
             <div className="footer-links">
               <span className="footer-link" onClick={()=>onLegalOpen('contact')} style={{cursor:'pointer'}}>{L.contact}</span>
-              <span className="footer-link" style={{cursor:'default',opacity:.6}}>{L.gdpr}</span>
-              <span className="footer-link" style={{cursor:'default',opacity:.6}}>{L.accessibility}</span>
+              <span className="footer-link" onClick={()=>onLegalOpen('data_protection')} style={{cursor:'pointer'}}>{L.gdpr}</span>
+              <span className="footer-link" onClick={()=>onLegalOpen('accessibility')} style={{cursor:'pointer'}}>{L.accessibility}</span>
               <a href="mailto:moshe.svarga@gmail.com" className="footer-link" style={{color:'var(--gold)'}}>moshe.svarga@gmail.com</a>
             </div>
           </div>
