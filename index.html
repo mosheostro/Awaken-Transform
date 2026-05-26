@@ -2,7 +2,11 @@
 <html lang="en" data-theme="dark" dir="ltr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5">
+<meta name="theme-color" content="#0A0907" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#FAF7EF" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="description" content="LifeForge AI — Premium transformation ecosystem.">
 <title>LifeForge AI · Human Potential System</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23E8C880'/><stop offset='1' stop-color='%239A7E4A'/></linearGradient></defs><circle cx='16' cy='16' r='14' fill='url(%23g)'/><text x='16' y='22' text-anchor='middle' font-family='Georgia' font-size='17' fill='%230D0B08' font-weight='600'>L</text></svg>">
@@ -406,6 +410,178 @@ input:focus,textarea:focus,.form-input:focus,.form-textarea:focus,.tool-input:fo
   nav.topnav .nav-logo-sub{display:none}
   nav.topnav .nav-lang{padding:5px 7px;font-size:.58rem}
 }
+
+/* ════════════════════════════════════════════════════════════════════════
+   COMPREHENSIVE RESPONSIVE LAYER — mobile-first premium adaptation
+   ═══════════════════════════════════════════════════════════════════════ */
+:root{--safe-b:env(safe-area-inset-bottom,0px);--safe-t:env(safe-area-inset-top,0px)}
+html{-webkit-text-size-adjust:100%}
+body{overflow-x:hidden}
+*{-webkit-tap-highlight-color:rgba(212,178,122,.18)}
+
+/* Hamburger button — desktop hidden by default */
+.nav-burger{display:none;width:44px;height:44px;align-items:center;justify-content:center;
+  background:none;border:1px solid var(--border);border-radius:8px;cursor:pointer;
+  color:var(--text-1);padding:0;flex-shrink:0;transition:all .25s}
+.nav-burger:hover{border-color:var(--gold);color:var(--gold)}
+.nav-burger svg{width:22px;height:22px}
+
+/* Mobile drawer */
+.nav-drawer{position:fixed;top:0;right:0;bottom:0;width:min(320px,82vw);
+  background:var(--surface);border-left:1px solid var(--border-md);z-index:300;
+  transform:translateX(110%);transition:transform .32s cubic-bezier(.2,0,.2,1);
+  padding:calc(20px + var(--safe-t)) 22px calc(28px + var(--safe-b));
+  display:flex;flex-direction:column;gap:6px;
+  overflow-y:auto;box-shadow:-12px 0 48px rgba(0,0,0,.45)}
+.nav-drawer.open{transform:translateX(0)}
+.nav-drawer-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:299;opacity:0;
+  pointer-events:none;transition:opacity .28s;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.nav-drawer-overlay.open{opacity:1;pointer-events:auto}
+.nav-drawer-close{align-self:flex-end;width:40px;height:40px;border:1px solid var(--border);
+  border-radius:8px;background:none;color:var(--text-2);cursor:pointer;font-size:18px;margin-bottom:8px}
+.nav-drawer-h{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--text-3);padding:14px 6px 6px}
+.nav-drawer-item{display:flex;align-items:center;gap:10px;padding:14px;border-radius:10px;
+  background:none;border:1px solid transparent;color:var(--text-1);font-size:.92rem;
+  cursor:pointer;text-align:left;font-family:var(--font-b);letter-spacing:.04em;
+  transition:all .2s;min-height:48px;width:100%}
+.nav-drawer-item:hover,.nav-drawer-item.active{background:var(--gold-f);
+  border-color:rgba(212,178,122,.28);color:var(--gold)}
+.nav-drawer-row{display:flex;gap:6px;flex-wrap:wrap;padding:4px 0}
+.nav-drawer-pill{flex:1;min-width:44px;padding:10px 8px;border-radius:8px;
+  background:var(--surface-2);border:1px solid var(--border);color:var(--text-2);
+  font-size:.7rem;letter-spacing:.10em;text-transform:uppercase;cursor:pointer;
+  font-family:var(--font-b);transition:all .2s;min-height:44px}
+.nav-drawer-pill.active{background:var(--gold-f);border-color:var(--gold);color:var(--gold)}
+
+/* RTL drawer slides from left */
+[dir="rtl"] .nav-drawer{right:auto;left:0;border-left:none;border-right:1px solid var(--border-md);
+  transform:translateX(-110%);box-shadow:12px 0 48px rgba(0,0,0,.45)}
+[dir="rtl"] .nav-drawer.open{transform:translateX(0)}
+
+/* === TABLET 1024px === */
+@media(max-width:1024px){
+  .detail-grid{grid-template-columns:1fr;gap:32px}
+  .detail-profile{position:static}
+  .footer-grid{grid-template-columns:repeat(2,1fr);gap:36px}
+  .coaches-grid{grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+}
+
+/* === TABLET PORTRAIT / LARGE PHONE 768px === */
+@media(max-width:768px){
+  nav.topnav{padding:0 16px;height:60px;flex-wrap:nowrap}
+  nav.topnav .nav-controls{display:none}
+  .nav-burger{display:inline-flex}
+  .nav-logo-sub{display:none}
+  .nav-logo-mark{width:32px;height:32px;font-size:14px}
+  .nav-logo-text{font-size:1.05rem}
+
+  .hero-inner{padding-top:90px}
+  .hero-ctas{flex-direction:column;align-items:stretch}
+  .hero-ctas .cta-btn,.hero-ctas .btn-g,.hero-ctas .pill-btn{width:100%;justify-content:center}
+  .hero-stats{justify-content:flex-start;gap:24px}
+
+  .coaches-grid{grid-template-columns:1fr;gap:14px}
+  .coach-card{padding:20px;border-radius:14px}
+  .coach-name{font-size:1.2rem}
+  .coach-meta{flex-direction:row;flex-wrap:wrap;gap:12px}
+
+  .esoteric-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .tool-card{padding:18px;min-height:160px;border-radius:14px}
+
+  .chat-wrap{height:calc(100svh - 140px);min-height:0;border-radius:14px}
+  .chat-header{padding:14px 16px}
+  .chat-msgs{padding:16px;max-height:none}
+  .chat-input-row{padding:10px 12px;padding-bottom:calc(10px + var(--safe-b))}
+  .msg-bubble{max-width:85%;font-size:.86rem}
+
+  .footer-grid{grid-template-columns:1fr;gap:28px}
+  .footer-bottom{flex-direction:column;gap:14px;text-align:center}
+
+  .pytha-grid{grid-template-columns:repeat(3,52px);gap:6px;justify-content:center}
+  .pytha-cell{width:52px;height:52px;font-size:1.15rem}
+
+  .archetype-blocks{grid-template-columns:1fr}
+  .runes-display{grid-template-columns:1fr;gap:14px}
+
+  .svarga-block{padding:18px 20px;border-radius:12px}
+
+  /* Touch-friendly tap targets */
+  button,a.footer-link,.nav-link,.nav-lang,.layer-tab,
+  .chat-send,.spec-pill,.pill-btn{min-height:44px}
+  .spec-pill,.pill-btn,.nav-lang{padding-top:10px;padding-bottom:10px}
+  .footer-link{display:inline-flex;align-items:center;min-height:36px;padding:6px 0}
+
+  .section-title{font-size:clamp(1.5rem,5vw,2rem)}
+  .sec-sub{font-size:.92rem}
+
+  .layer-tabs{display:flex;width:100%;padding:6px;border-radius:12px;gap:4px}
+  .layer-tab{flex:1;font-size:.62rem;padding:11px 6px;min-height:44px;letter-spacing:.06em}
+
+  .detail-page{padding:80px 18px 60px}
+}
+
+/* === LARGE PHONE 640px === */
+@media(max-width:640px){
+  .hero-title{font-size:clamp(2.4rem,11vw,3.6rem)!important}
+  .hero-sub{font-size:.95rem;margin-bottom:28px}
+  .esoteric-grid{grid-template-columns:1fr}
+  .working-nums{gap:10px;flex-wrap:wrap;justify-content:center}
+  .coach-meta{align-items:flex-start}
+  .coach-meta .pill-btn{width:100%;justify-content:center;margin-top:8px}
+
+  /* Prevent iOS zoom on inputs */
+  .form-row{grid-template-columns:1fr;gap:12px}
+  .tool-input,.form-input,.chat-input,textarea.tool-input,textarea.chat-input{
+    font-size:16px!important;padding:13px 16px;min-height:48px}
+}
+
+/* === SMALL PHONE 480px === */
+@media(max-width:480px){
+  nav.topnav{padding:0 12px;height:56px}
+  .nav-logo-text{font-size:.98rem}
+  .hero-inner{padding-top:80px}
+  .hero-stats{gap:18px}
+  .coach-card{padding:16px}
+  .coach-name{font-size:1.08rem}
+  .coach-quote{font-size:.8rem}
+  .spec-pill{font-size:.62rem;padding:6px 10px}
+  .glass{border-radius:12px}
+  .pytha-grid{grid-template-columns:repeat(3,46px)}
+  .pytha-cell{width:46px;height:46px;font-size:1rem}
+  .msg-bubble{max-width:88%;padding:10px 14px}
+  .footer-brand-h{font-size:1.05rem}
+  .section-title{font-size:1.4rem}
+}
+
+/* === TINY PHONE 380px === */
+@media(max-width:380px){
+  .hero-title{font-size:2.2rem!important}
+  .coach-card{padding:14px}
+  .nav-logo-text{font-size:.9rem}
+  .layer-tab{font-size:.55rem;padding:10px 4px}
+}
+
+/* === LANDSCAPE PHONE === */
+@media(max-height:500px) and (orientation:landscape){
+  .chat-wrap{height:calc(100svh - 100px)}
+  .hero-inner{padding-top:80px;padding-bottom:40px}
+}
+
+/* === TOUCH-SPECIFIC === */
+@media(hover:none) and (pointer:coarse){
+  .coach-card:hover,.tool-card:hover{transform:none;box-shadow:none}
+  button:active,.nav-drawer-item:active,.nav-drawer-pill:active{opacity:.7}
+}
+
+/* Reduced motion */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important;animation-iteration-count:1!important}
+  .nav-drawer{transition:none}
+}
+
+body.drawer-open{overflow:hidden}
+
 </style>
 </head>
 <body>
@@ -1322,12 +1498,23 @@ function Nav({lang,setLang,theme,setTheme,layer,setLayer,setView}){
   const langs=['en','ru','es','it','he'];
   const [scrolled,setScrolled]=useState(false);
   const [langOpen,setLangOpen]=useState(false);
+  const [drawerOpen,setDrawerOpen]=useState(false);
   useEffect(()=>{
     const h=()=>setScrolled(window.scrollY>20);
     window.addEventListener('scroll',h,{passive:true});
     return()=>window.removeEventListener('scroll',h);
   },[]);
+  useEffect(()=>{
+    if(drawerOpen)document.body.classList.add('drawer-open');
+    else document.body.classList.remove('drawer-open');
+    return()=>document.body.classList.remove('drawer-open');
+  },[drawerOpen]);
+  function navTo(id){setLayer(id);setView('home');updateOrbs(id);setDrawerOpen(false);}
+  const drawerLabel={en:'Menu',ru:'Меню',es:'Menú',it:'Menu',he:'תפריט'}[lang]||'Menu';
+  const themeLabel={en:'Theme',ru:'Тема',es:'Tema',it:'Tema',he:'ערכת נושא'}[lang]||'Theme';
+  const langLabel={en:'Language',ru:'Язык',es:'Idioma',it:'Lingua',he:'שפה'}[lang]||'Language';
   return(
+    <>
     <nav className={`topnav${scrolled?' scrolled':''}`}>
       <div className="nav-logo" onClick={()=>{setLayer('coach');setView('home');}}>
         <div className="nav-logo-mark">L</div>
@@ -1336,8 +1523,8 @@ function Nav({lang,setLang,theme,setTheme,layer,setLayer,setView}){
           <div className="nav-logo-sub">Human Potential System</div>
         </div>
       </div>
-      {/* Controls — always LTR regardless of page direction */}
-      <div className="nav-controls" style={{direction:'ltr',gap:6,display:'flex',alignItems:'center',flexWrap:'nowrap'}}>
+      {/* Desktop controls — hidden on mobile via CSS */}
+      <div className="nav-controls" style={{direction:'ltr',gap:6,alignItems:'center',flexWrap:'nowrap'}}>
         {[
           {id:'coach',label:t.nav_coaches},
           {id:'esoteric',label:t.nav_esoteric},
@@ -1373,7 +1560,48 @@ function Nav({lang,setLang,theme,setTheme,layer,setLayer,setView}){
           {theme==='dark'?'☀':'🌙'}
         </button>
       </div>
+      {/* Mobile hamburger — hidden on desktop via CSS */}
+      <button className="nav-burger" aria-label={drawerLabel} onClick={()=>setDrawerOpen(true)}>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+          <line x1="4" y1="7" x2="20" y2="7"/>
+          <line x1="4" y1="12" x2="20" y2="12"/>
+          <line x1="4" y1="17" x2="20" y2="17"/>
+        </svg>
+      </button>
     </nav>
+    {/* Mobile drawer */}
+    <div className={`nav-drawer-overlay${drawerOpen?' open':''}`} onClick={()=>setDrawerOpen(false)}/>
+    <div className={`nav-drawer${drawerOpen?' open':''}`} role="dialog" aria-label={drawerLabel}>
+      <button className="nav-drawer-close" onClick={()=>setDrawerOpen(false)} aria-label="Close">✕</button>
+      <div className="nav-drawer-h">{drawerLabel}</div>
+      {[
+        {id:'coach',label:t.nav_coaches},
+        {id:'esoteric',label:t.nav_esoteric},
+        {id:'svarga',label:t.nav_svarga}
+      ].map(({id,label})=>(
+        <button key={id} className={`nav-drawer-item${layer===id?' active':''}`} onClick={()=>navTo(id)}>
+          {label}
+        </button>
+      ))}
+      <div className="nav-drawer-h">{langLabel}</div>
+      <div className="nav-drawer-row">
+        {langs.map(l=>(
+          <button key={l} className={`nav-drawer-pill${l===lang?' active':''}`} onClick={()=>setLang(l)}>
+            {l.toUpperCase()}
+          </button>
+        ))}
+      </div>
+      <div className="nav-drawer-h">{themeLabel}</div>
+      <div className="nav-drawer-row">
+        <button className={`nav-drawer-pill${theme==='dark'?' active':''}`} onClick={()=>setTheme('dark')}>
+          🌙 {t.theme_dark}
+        </button>
+        <button className={`nav-drawer-pill${theme==='light'?' active':''}`} onClick={()=>setTheme('light')}>
+          ☀ {t.theme_light}
+        </button>
+      </div>
+    </div>
+    </>
   );
 }
 
@@ -1646,15 +1874,17 @@ function CoachLayer({lang,view,setView,selected,setSelected}){
 }
 
 /* ═══════════════ REUSABLE FIELD WITH VALIDATION ═════════════════════════ */
-function Field({label,value,onChange,placeholder,errFn,required,type='text'}){
+function Field({label,value,onChange,placeholder,errFn,required,type='text',inputMode}){
   const [touched,setTouched]=useState(false);
   const err=errFn?errFn(value):(!required||value.trim()?'':'Required');
   const invalid=touched&&!!err;
+  const isNumeric=placeholder&&(placeholder.includes('DD')||placeholder.includes('ДД')||placeholder.includes('GG')||placeholder.includes('HH'));
   return(
     <div className="form-field">
       <label className="form-label">{label}{required&&<span style={{color:'#C85050',marginLeft:3}}>*</span>}</label>
       <input
         type={type}
+        inputMode={inputMode||(isNumeric?'numeric':undefined)}
         value={value}
         onChange={e=>onChange(e.target.value)}
         onBlur={()=>setTouched(true)}
@@ -1815,7 +2045,7 @@ function PythagoraTool({lang}){
   return(
     <div>
       <div style={{display:'flex',gap:10,marginBottom:err?8:20}}>
-        <input className="tool-input" value={dob} onChange={e=>{setDob(e.target.value);setErr('');}}
+        <input className="tool-input" value={dob} inputMode="numeric" onChange={e=>{setDob(e.target.value);setErr('');}}
           placeholder={t.pytha_placeholder} onKeyDown={e=>e.key==='Enter'&&compute()}/>
         <button className="cta-btn" style={{whiteSpace:'nowrap',flexShrink:0}} onClick={compute}>{t.pytha_calc}</button>
       </div>
