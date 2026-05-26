@@ -682,6 +682,8 @@ en:{
   svarga_title:'Svarga Integral System',svarga_sub:'Six-dimensional holistic analysis of your current state',
   svarga_placeholder:'Describe your current state, challenge, or question in detail...',svarga_submit:'Receive Integral Analysis',svarga_analyzing:'Performing six-dimensional analysis...',
   svarga_dims:['Nutrition & Body','Breathing & Prana','Energy & Vitality','Mental & Mind','Physical Practice','Karma & Spirit'],
+  svarga_new:'New Analysis',
+  zodiac_label:'Zodiac Sign',
   footer_tagline:'Three intelligent systems. One transformation.',
   back_to_tools:'← All Tools',
 },
@@ -724,6 +726,8 @@ ru:{
   svarga_title:'Интегральная Система Сварга',svarga_sub:'Шестимерный целостный анализ вашего текущего состояния',
   svarga_placeholder:'Опишите ваше текущее состояние, задачу или вопрос подробно...',svarga_submit:'Получить Интегральный Анализ',svarga_analyzing:'Выполняю шестимерный анализ...',
   svarga_dims:['Питание и Тело','Дыхание и Прана','Энергия и Жизненность','Ментальное и Разум','Физическая Практика','Карма и Дух'],
+  svarga_new:'Новый анализ',
+  zodiac_label:'Знак зодиака',
   footer_tagline:'Три интеллектуальных системы. Одна трансформация.',
   back_to_tools:'← Все Инструменты',
 },
@@ -766,6 +770,8 @@ es:{
   svarga_title:'Sistema Svarga Integral',svarga_sub:'Análisis holístico de seis dimensiones de tu estado actual',
   svarga_placeholder:'Describe tu estado actual, desafío o pregunta en detalle...',svarga_submit:'Recibir Análisis Integral',svarga_analyzing:'Realizando análisis de seis dimensiones...',
   svarga_dims:['Nutrición y Cuerpo','Respiración y Prana','Energía y Vitalidad','Mental y Mente','Práctica Física','Karma y Espíritu'],
+  svarga_new:'Nuevo Análisis',
+  zodiac_label:'Signo Zodiacal',
   footer_tagline:'Tres sistemas inteligentes. Una transformación.',
   back_to_tools:'← Todas las Herramientas',
 },
@@ -808,6 +814,8 @@ it:{
   svarga_title:'Sistema Svarga Integrale',svarga_sub:'Analisi olistica a sei dimensioni del tuo stato attuale',
   svarga_placeholder:'Descrivi il tuo stato attuale, sfida o domanda in dettaglio...',svarga_submit:'Ricevi Analisi Integrale',svarga_analyzing:'Eseguendo l\'analisi a sei dimensioni...',
   svarga_dims:['Nutrizione e Corpo','Respirazione e Prana','Energia e Vitalità','Mentale e Mente','Pratica Fisica','Karma e Spirito'],
+  svarga_new:'Nuova Analisi',
+  zodiac_label:'Segno Zodiacale',
   footer_tagline:'Tre sistemi intelligenti. Una trasformazione.',
   back_to_tools:'← Tutti gli Strumenti',
 },
@@ -850,6 +858,8 @@ he:{
   svarga_title:'מערכת סוורגה אינטגרלית',svarga_sub:'ניתוח הוליסטי בשישה ממדים של מצבך הנוכחי',
   svarga_placeholder:'תאר את מצבך הנוכחי, האתגר או השאלה בפירוט...',svarga_submit:'קבל ניתוח אינטגרלי',svarga_analyzing:'מבצע ניתוח בשישה ממדים...',
   svarga_dims:['תזונה וגוף','נשימה ופראנה','אנרגיה וחיוניות','מנטלי ושכל','פרקטיקה פיזית','קארמה ורוח'],
+  svarga_new:'ניתוח חדש',
+  zodiac_label:'סימן גלגל המזלות',
   footer_tagline:'שלוש מערכות חכמות. טרנספורמציה אחת.',
   back_to_tools:'← כל הכלים',
 }};
@@ -886,7 +896,16 @@ const COACHES=[
       "The resistance you're feeling is not weakness — it's intelligence. Every high performer I've worked with experiences exactly this. The body knows when something is misaligned with identity. Let's reverse-engineer what alignment looks like here. Describe the outcome you'd be proud of in five years. Then the one you're afraid of. The gap between those two is your work."],
   ru:["Ваш инстинкт в правильном направлении — но давайте заострим. Паттерн в принятии решений с высокими ставками — оптимизация ради комфорта, а не ясности. Что бы вы выбрали, если бы провал был просто данными — а не приговором вашей ценности? Когда в последний раз вы принимали решение из своих ценностей, а не из страха?",
       "Стратегическая ясность не приходит от большего количества информации. Она приходит от лучших вопросов. Каковы ваши три «нельзя» в этой ситуации? Назовите их — и смотрите, как путь вперёд становится очевидным.",
-      "Сопротивление, которое вы чувствуете — не слабость, это интеллект. Каждый высокоэффективный человек, с которым я работал, переживает именно это. Опишите результат, которым будете гордиться через пять лет. Затем тот, которого боитесь. Разрыв между ними — ваша работа."]}
+      "Сопротивление, которое вы чувствуете — не слабость, это интеллект. Каждый высокоэффективный человек, с которым я работал, переживает именно это. Опишите результат, которым будете гордиться через пять лет. Затем тот, которого боитесь. Разрыв между ними — ваша работа."],
+  es:["Tu instinto apunta en la dirección correcta — pero afilemos el filo. El patrón en la toma de decisiones de alto riesgo es optimizar para la comodidad en lugar de la claridad. ¿Qué elegirías si el fracaso fuera simplemente datos — no un veredicto sobre tu valor? ¿Cuándo fue la última vez que tomaste una decisión desde tus valores en lugar de tus miedos?",
+      "La claridad estratégica no emerge de más información. Emerge de mejores preguntas. ¿Cuáles son tus tres absolutos en esta situación? Nómbralos y observa cómo el camino a seguir se vuelve evidente.",
+      "La resistencia que sientes no es debilidad — es inteligencia. Describe el resultado del que estarías orgulloso en cinco años. Luego el que temes. La brecha entre esos dos es tu trabajo."],
+  it:["Il tuo istinto è corretto nella direzione — ma affiliamo il taglio. Il pattern nel decision-making ad alto rischio è ottimizzare per il comfort invece che per la chiarezza. Cosa sceglieresti se il fallimento fosse semplicemente dati — non un verdetto sul tuo valore? Quando hai preso l'ultima decisione dai tuoi valori anziché dalle tue paure?",
+      "La chiarezza strategica non emerge da più informazioni. Emerge da domande migliori. Quali sono i tuoi tre assoluti in questa situazione? Nominali e osserva come il percorso diventa ovvio.",
+      "La resistenza che senti non è debolezza — è intelligenza. Descrivi il risultato di cui saresti orgoglioso tra cinque anni. Poi quello che temi. Il divario tra quei due è il tuo lavoro."],
+  he:["האינסטינקט שלך מכוון נכון — אבל בואו נחדד. הדפוס בקבלת החלטות בסיכון גבוה הוא אופטימיזציה לנוחות במקום לבהירות. מה היית בוחר אם כישלון היה פשוט נתונים — לא פסיקה על ערכך? מתי בפעם האחרונה קיבלת החלטה מהערכים שלך ולא מהפחדים?",
+      "בהירות אסטרטגית לא צומחת ממידע נוסף. היא צומחת משאלות טובות יותר. מהם שלושת הדברים הבלתי-מתפשרים שלך במצב זה? קרא להם בשם וצפה כיצד הדרך קדימה מתבהרת.",
+      "ההתנגדות שאתה מרגיש אינה חולשה — זוהי אינטליגנציה. תאר את התוצאה שתגאה בה בעוד חמש שנים. ואז את זו שאתה מפחד ממנה. הפער ביניהן הוא העבודה שלך."]}
 },
 {id:'elena',color:'#B07ECC',accent:'#8A5EAA',
  name:{en:'Dr. Elena Morozova',ru:'Д-р Елена Морозова',es:'Dra. Elena Morozova',it:'Dott.ssa Elena Morozova',he:'ד״ר אלנה מורוזובה'},
@@ -918,7 +937,16 @@ const COACHES=[
       "Relationship patterns are never random. They are exquisitely precise repetitions of early attachment architecture. When you describe this dynamic, I hear a very specific template — one formed long before this relationship existed. The question isn't 'why do they do this?' but 'what in me recognises and recreates this?' That's where agency lives."],
   ru:["То, что вы описываете, живёт в теле до того, как достигает разума. Автономная нервная система хранит реляционные паттерны как соматическую память. Когда вы замечаете это чувство — где именно в теле вы его ощущаете? Это место — дверь. Большинство людей пытаются думать через эмоциональные паттерны. Более глубокий путь — чувствовать через них — с точностью и состраданием, без силы воли.",
       "Тень — не враг, это изгнанник. Те части вас, заперты ради того, чтобы оставаться приемлемым, в безопасности, любимым. Но изгнанники не исчезают. Что сообщает вам эта часть, которая ждала свидетеля?",
-      "Паттерны отношений никогда не случайны. Они — точнейшие повторения ранней архитектуры привязанности. Вопрос не «почему они так делают?», а «что во мне узнаёт и воссоздаёт это?». Именно там живёт агентность."]}
+      "Паттерны отношений никогда не случайны. Они — точнейшие повторения ранней архитектуры привязанности. Вопрос не «почему они так делают?», а «что во мне узнаёт и воссоздаёт это?». Именно там живёт агентность."],
+  es:["Lo que describes vive en el cuerpo antes de llegar a la mente. El sistema nervioso autónomo almacena patrones relacionales como memoria somática. Cuando notas esta sensación — ¿dónde exactamente la sientes físicamente? Ese lugar es la puerta. La mayoría intenta *pensar* a través de los patrones emocionales. El camino más profundo es *sentirlos* — con precisión y compasión.",
+      "La sombra no es el enemigo — es el exiliado. Esas partes de ti encerradas para mantenerte aceptable, seguro, amado. Los exiliados no desaparecen; encuentran otras formas de expresarse. ¿Qué historia tiene este sentimiento que contarte?",
+      "Los patrones relacionales nunca son aleatorios. Son repeticiones precisas de la arquitectura de apego temprana. La pregunta no es '¿por qué hacen esto?' sino '¿qué en mí reconoce y recrea esto?' Ahí vive la agencia."],
+  it:["Quello che descrivi vive nel corpo prima di raggiungere la mente. Il sistema nervioso autonomo immagazzina schemi relazionali come memoria somatica. Quando noti questa sensazione — dove esattamente la senti fisicamente? Quel luogo è la porta. La maggior parte delle persone cerca di *pensare* attraverso i pattern emotivi. Il percorso più profondo è *sentirli* — con precisione e compassione.",
+      "L'ombra non è il nemico — è l'esiliato. Quelle parti di te chiuse per restare accettabile, al sicuro, amato. Gli esiliati non scompaiono; trovano altri modi per esprimersi. Che storia ha questo sentimento da raccontarti?",
+      "Gli schemi relazionali non sono mai casuali. Sono ripetizioni precise dell'architettura di attaccamento precoce. La domanda non è 'perché fanno così?' ma 'cosa in me riconosce e ricrea questo?' Lì vive l'agency."],
+  he:["מה שאתה מתאר חי בגוף לפני שמגיע לנפש. המערכת העצבית האוטונומית מאחסנת דפוסים יחסיים כזיכרון סומטי. כשאתה מבחין בתחושה הזו — איפה בדיוק אתה מרגיש אותה פיזית? המקום הזה הוא הדלת. רוב האנשים מנסים *לחשוב* דרך הדפוסים הרגשיים. הדרך העמוקה יותר היא *להרגיש* דרכם — עם דיוק וחמלה.",
+      "הצל אינו האויב — הוא הגולה. החלקים שלך שנסגרו כדי להישאר מקובל, בטוח, אהוב. גולים אינם נעלמים; הם מוצאים דרכים אחרות להתבטא. איזה סיפור יש לתחושה הזו לספר לך?",
+      "דפוסי מערכות יחסים אינם אקראיים. הם חזרות מדויקות של ארכיטקטורת ההתקשרות הראשונית. השאלה אינה 'למה הם עושים זאת?' אלא 'מה בי מזהה ומשחזר זאת?' שם חיה האוטונומיה."]}
 },
 {id:'james',color:'#7E8EC8',accent:'#5870B8',
  name:{en:'James Hartley',ru:'Джеймс Хартли',es:'James Hartley',it:'James Hartley',he:'ג׳יימס הארטלי'},
@@ -950,7 +978,16 @@ const COACHES=[
       "Mental resilience is not the absence of breaking — it's the speed of recovery. The Navy calls it 'embracing the suck.' Not enjoying difficulty, but removing the story that difficulty is *wrong*. What narrative are you running about this situation? Because that narrative — not the situation itself — is what's costing you performance."],
   ru:["Каждый элитный исполнитель сталкивается именно с этой стеной. Стена — не препятствие, это порог. Ваша нервная система защищает вас от воспринимаемой новизны. Немедленный протокол: дыхание 4-7-8 прямо сейчас. Вдох 4 счёта, задержка 7, выдох 8. Три цикла. Что изменилось? Затем скажите: чего вы на самом деле боитесь под поверхностной целью?",
       "Состояние потока имеет три инженерные переменные: вызов слегка превышает навык, чёткие немедленные цели и нулевой самоконтроль. Вы нарушаете третью. Внутренний наблюдатель, судящий ваш перформанс в реальном времени — убийца потока. Давайте спроектируем предперформационный ритуал, который его заглушит.",
-      "Ментальная устойчивость — не отсутствие срывов, это скорость восстановления. Какое повествование вы ведёте об этой ситуации? Потому что именно оно — а не сама ситуация — стоит вам производительности."]}
+      "Ментальная устойчивость — не отсутствие срывов, это скорость восстановления. Какое повествование вы ведёте об этой ситуации? Потому что именно оно — а не сама ситуация — стоит вам производительности."],
+  es:["Todo performer de élite que he entrenado enfrenta exactamente este muro. El muro no es un obstáculo — es un umbral. Protocolo inmediato: respiración 4-7-8 ahora mismo. Inhala 4 tiempos, retén 7, exhala 8. Tres ciclos. ¿Qué cambia? Dime: ¿de qué tienes *realmente* miedo debajo del objetivo superficial?",
+      "El estado de flujo tiene tres variables de ingeniería: desafío que supera ligeramente la habilidad, metas inmediatas claras, y cero automonitoreo. Estás rompiendo la tercera. Diseñemos un ritual previo al rendimiento que lo silencie.",
+      "La resiliencia mental no es la ausencia de quiebre — es la velocidad de recuperación. ¿Qué narrativa estás ejecutando sobre esta situación? Porque esa narrativa — no la situación en sí — es lo que te está costando rendimiento."],
+  it:["Ogni performer d'élite che ho allenato affronta esattamente questo muro. Il muro non è un ostacolo — è una soglia. Protocollo immediato: respirazione 4-7-8 adesso. Inspira 4 tempi, tieni 7, espira 8. Tre cicli. Cosa cambia? Dimmi: di cosa hai *davvero* paura sotto l'obiettivo superficiale?",
+      "Lo stato di flusso ha tre variabili ingegneristiche: sfida leggermente superiore alla skill, obiettivi immediati chiari, e zero automonitoraggio. Stai violando la terza. Progettiamo un rituale pre-performance che lo silenzi.",
+      "La resilienza mentale non è l'assenza di cedimento — è la velocità di recupero. Quale narrativa stai eseguendo su questa situazione? Perché quella narrativa — non la situazione stessa — è ciò che ti sta costando performance."],
+  he:["כל ספורטאי עלית שאימנתי עומד בדיוק בפני הקיר הזה. הקיר אינו מכשול — הוא סף. פרוטוקול מיידי: נשימת 4-7-8 עכשיו. שאף 4 ספירות, החזק 7, נשוף 8. שלושה מחזורים. מה משתנה? ספר לי: ממה אתה *באמת* מפחד מתחת למטרה השטחית?",
+      "מצב הזרימה כולל שלושה משתנים: אתגר שעולה מעט על הכישרון, יעדים מיידיים ברורים, ואפס מעקב עצמי. אתה מפר את השלישי. בואו נתכנן טקס לפני ביצוע שישתיק אותו.",
+      "חוסן מנטלי אינו היעדר שבירה — הוא מהירות ההתאוששות. איזה נרטיב אתה מריץ על המצב הזה? כי הנרטיב הזה — לא המצב עצמו — הוא מה שעולה לך בביצועים."]}
 },
 {id:'sophie',color:'#C8946E',accent:'#A8703A',
  name:{en:'Sophie Laurent',ru:'Софи Лоран',es:'Sophie Laurent',it:'Sophie Laurent',he:'סופי לוראן'},
@@ -982,7 +1019,16 @@ const COACHES=[
       "The values audit is the most revealing tool I use. Write your current top 5 priorities — how you actually spend your time. Then write your true top 5 values. The gap between those two lists is your design problem. Most people's calendars are autobiographies of other people's expectations. Let's write yours."],
   ru:["То, что я слышу — конфликт ценностей, замаскированный под стратегическую проблему. Вы спрашиваете «что мне делать?» — но настоящий вопрос «для кого я проектирую?». В вашей идеальной жизни через пять лет — что вы слышите? Что видите? Что чувствуете? Не что вы делаете. Что вы переживаете.",
       "Переизобретение карьеры — не смена работы, это восстановление авторства. По дороге история вашей жизни начала писаться внешними ожиданиями. Что вы притворялись, что не хотите?",
-      "Аудит ценностей — самый показательный инструмент. Запишите 5 реальных приоритетов по тому, как вы тратите время. Затем 5 истинных ценностей. Разрыв между ними — ваша дизайн-проблема."]}
+      "Аудит ценностей — самый показательный инструмент. Запишите 5 реальных приоритетов по тому, как вы тратите время. Затем 5 истинных ценностей. Разрыв между ними — ваша дизайн-проблема."],
+  es:["Lo que escucho es un conflicto de valores disfrazado de problema estratégico. Preguntas '¿qué debo hacer?' — pero la pregunta real es '¿para quién estoy diseñando?' En tu vida ideal dentro de cinco años — ¿qué *escuchas*? ¿Qué *ves*? ¿Qué *sientes*? No lo que estás haciendo. Lo que estás *experimentando*.",
+      "La reinvención de carrera no es cambiar de trabajo — es recuperar la autoría. Escribe tus cinco prioridades actuales — cómo gastas realmente tu tiempo. Luego tus cinco valores verdaderos. La brecha entre esas dos listas es tu problema de diseño.",
+      "La mayoría de los calendarios son autobiografías de las expectativas de otras personas. Vamos a escribir el tuyo. ¿Qué has estado pretendiendo no querer?"],
+  it:["Quello che sento è un conflitto di valori travestito da problema strategico. Chiedi 'cosa dovrei fare?' — ma la vera domanda è 'per chi sto progettando?' Nella tua vita ideale tra cinque anni — cosa *senti*? Cosa *vedi*? Cosa *provi*? Non cosa stai facendo. Cosa stai *vivendo*.",
+      "La reinvenzione della carriera non è cambiare lavoro — è recuperare la paternità. Scrivi le tue cinque priorità attuali — come spendi davvero il tuo tempo. Poi i tuoi cinque valori veri. Il divario tra quelle due liste è il tuo problema di design.",
+      "La maggior parte dei calendari sono autobiografie delle aspettative degli altri. Scriviamo il tuo. Cosa hai finto di non volere?"],
+  he:["מה שאני שומעת הוא קונפליקט ערכים מחופש לבעיה אסטרטגית. אתה שואל 'מה עלי לעשות?' — אבל השאלה האמיתית היא 'בשביל מי אני מתכנן?' בחיים האידיאליים שלך בעוד חמש שנים — מה אתה *שומע*? מה אתה *רואה*? מה אתה *מרגיש*? לא מה אתה עושה. מה אתה *חווה*.",
+      "המצאה מחדש של קריירה אינה החלפת עבודה — היא שחזור היוצרות. כתוב את חמשת סדרי העדיפויות הנוכחיים שלך — כיצד אתה מבלה את הזמן שלך בפועל. ואז את חמשת הערכים האמיתיים שלך. הפער בין שתי הרשימות הוא בעיית העיצוב שלך.",
+      "רוב לוחות השנה הם אוטוביוגרפיות של ציפיות של אחרים. בואו נכתוב את שלך. מה העמדת פנים שאינך רוצה?"]}
 },
 {id:'cyrus',color:'#6EB89A',accent:'#4E9878',
  name:{en:'Dr. Cyrus Tehrani',ru:'Д-р Кирус Техрани',es:'Dr. Cyrus Tehrani',it:'Dott. Cyrus Tehrani',he:'ד״ר קירוס טהרני'},
@@ -1014,7 +1060,16 @@ const COACHES=[
       "There's a difference between spiritual experience and spiritual integration. Many people have profound experiences — then return to the same psychological architecture, trying to fit a galaxy into a teacup. What you're describing is an integration challenge. The experience gave you data. Now we need to redesign the containers that hold it. What would change in your daily life if this experience were actually true?"],
   ru:["То, что вы переживаете, имеет имя в каждой мудрой традиции — и само это называние несёт исцеление. В суфийской традиции это фана: растворение сконструированного «я» перед бака. Что ощущается как потеря — на самом деле ослабление. Вопрос, с которым я сижу рядом с вами: не 'что это значит?', а 'на что это указывает?'",
       "Духовный кризис — не сбой, это процесс обновления, который изнутри выглядит катастрофически. У каждой традиции есть карта этой территории. Вы не ломаетесь. Вы прорываетесь сквозь конкретный слой сконструированной реальности.",
-      "Есть разница между духовным переживанием и духовной интеграцией. Многие люди имеют глубокий опыт — и возвращаются к той же психологической архитектуре. Что изменилось бы в вашей повседневной жизни, если бы этот опыт был действительно правдой?"]}
+      "Есть разница между духовным переживанием и духовной интеграцией. Многие люди имеют глубокий опыт — и возвращаются к той же психологической архитектуре. Что изменилось бы в вашей повседневной жизни, если бы этот опыт был действительно правдой?"],
+  es:["Lo que experimentas tiene un nombre en cada tradición de sabiduría — y ese nombramiento en sí mismo trae sanación. Lo que se siente como pérdida es en realidad un aflojamiento. La pregunta que comparto contigo no es '¿qué significa esto?' sino '¿hacia qué está apuntando?'",
+      "La crisis espiritual no es un mal funcionamiento — es un proceso de actualización que parece catastrófico desde adentro. No estás rompiéndote. Estás atravesando una capa específica de tu realidad construida. ¿Qué creías sobre ti mismo que ya no encaja?",
+      "Hay una diferencia entre experiencia espiritual e integración espiritual. Muchas personas tienen experiencias profundas — y regresan a la misma arquitectura psicológica. ¿Qué cambiaría en tu vida diaria si esta experiencia fuera realmente verdadera?"],
+  it:["Quello che stai vivendo ha un nome in ogni tradizione di saggezza — e quella denominazione stessa porta guarigione. Quello che sembra una perdita è in realtà un allentamento. La domanda che condivido con te non è 'cosa significa questo?' ma 'verso cosa sta puntando?'",
+      "La crisi spirituale non è un malfunzionamento — è un processo di aggiornamento che sembra catastrofico dall'interno. Non ti stai rompendo. Stai attraversando uno strato specifico della tua realtà costruita. Cosa credevi di te stesso che non si adatta più?",
+      "C'è una differenza tra esperienza spirituale e integrazione spirituale. Molte persone hanno esperienze profonde — e tornano alla stessa architettura psicologica. Cosa cambierebbe nella tua vita quotidiana se questa esperienza fosse davvero vera?"],
+  he:["מה שאתה חווה יש לו שם בכל מסורת חוכמה — וההגדרה עצמה נושאת ריפוי. מה שנרגש כאובדן הוא בעצם שחרור. השאלה שאני יושב איתה לצדך אינה 'מה זה אומר?' אלא 'לאן זה מצביע?'",
+      "משבר רוחני אינו תקלה — הוא תהליך עדכון שנראה קטסטרופלי מבפנים. אתה לא נשבר. אתה פורץ דרך שכבה ספציפית של המציאות הבנויה שלך. מה האמנת על עצמך שכבר לא מתאים?",
+      "יש הבדל בין חוויה רוחנית לאינטגרציה רוחנית. אנשים רבים חווים חוויות עמוקות — ושבים לאותה ארכיטקטורה פסיכולוגית. מה היה משתנה בחיי היומיום שלך אם החוויה הזו הייתה אמיתית?"]}
 },
 {id:'mila',color:'#A0C8A0',accent:'#6AA06A',
  name:{en:'Mila Sato',ru:'Мила Сато',es:'Mila Sato',it:'Mila Sato',he:'מילה סאטו'},
@@ -1046,7 +1101,16 @@ const COACHES=[
       "Movement is not exercise. Movement is listening. When we move in ways that are responsive rather than goal-oriented — slow, explorative, curious — the body reveals its own intelligence. I want to offer you a practice: close your eyes and let your body move however it wants for three minutes. No goal, no correctness. Just listening. What does it want?"],
   ru:["Начнём с того, с чего начинается вся моя работа: с сообщения тела. Прямо сейчас — что происходит в вашем физическом теле? Не то, что вы думаете о своей ситуации. Что тело делает. Напряжение в плечах, темп дыхания. Это состояние тела — не случайность по отношению к вашему вызову. Это и есть ваш вызов.",
       "Хронические паттерны напряжения — не дефекты тела. Это защитный интеллект, переживший свою угрозу. Терапевтический вопрос не «как мне расслабиться?», а «что это напряжение защищает?». Когда вы встречаете его с настоящим любопытством — что-то начинает смягчаться.",
-      "Движение — не упражнение. Движение — слушание. Закройте глаза и позвольте телу двигаться как хочет три минуты. Никаких целей, никакой правильности. Просто слушание. Чего оно хочет?"]}
+      "Движение — не упражнение. Движение — слушание. Закройте глаза и позвольте телу двигаться как хочет три минуты. Никаких целей, никакой правильности. Просто слушание. Чего оно хочет?"],
+  es:["Comencemos donde comienza todo mi trabajo: con el informe del cuerpo. Ahora mismo — ¿qué está pasando realmente en tu cuerpo físico? No lo que piensas sobre tu situación. Lo que tu cuerpo está *haciendo*. La tensión en tus hombros, el ritmo de tu respiración. Este estado corporal *es* tu desafío, expresado en el lenguaje que el cuerpo habla mejor.",
+      "Los patrones crónicos de tensión no son defectos del cuerpo — son inteligencia protectora que sobrevivió a su amenaza. La pregunta terapéutica no es '¿cómo me relajo?' sino '¿qué está protegiendo esta tensión?' Cuando la encuentras con genuina curiosidad — algo comienza a suavizarse.",
+      "El movimiento no es ejercicio. El movimiento es escuchar. Cierra los ojos y deja que tu cuerpo se mueva como quiera durante tres minutos. Sin meta, sin corrección. Solo escuchando. ¿Qué quiere?"],
+  it:["Iniziamo da dove inizia tutto il mio lavoro: con il rapporto del corpo. Proprio adesso — cosa sta accadendo davvero nel tuo corpo fisico? Non cosa pensi della tua situazione. Cosa il tuo corpo sta *facendo*. La tensione nelle spalle, il ritmo del respiro. Questo stato corporeo *è* la tua sfida, espressa nel linguaggio che il corpo parla meglio.",
+      "I pattern cronici di tensione non sono difetti del corpo — sono intelligenza protettiva che è sopravvissuta alla sua minaccia. La domanda terapeutica non è 'come mi rilasso?' ma 'cosa sta proteggendo questa tensione?' Quando la incontri con genuina curiosità — qualcosa inizia ad ammorbidirsi.",
+      "Il movimento non è esercizio. Il movimento è ascolto. Chiudi gli occhi e lascia che il tuo corpo si muova come vuole per tre minuti. Nessun obiettivo, nessuna correttezza. Solo ascolto. Cosa vuole?"],
+  he:["נתחיל מהמקום שבו מתחילה כל עבודתי: עם דוח הגוף. עכשיו ממש — מה קורה בפועל בגוף הפיזי שלך? לא מה שאתה חושב על המצב שלך. מה הגוף שלך *עושה*. המתח בכתפיים, קצב הנשימה. מצב הגוף הזה *הוא* האתגר שלך, מבוטא בשפה שהגוף מדבר הכי טוב.",
+      "דפוסי מתח כרוני אינם פגמים של הגוף — הם אינטליגנציה מגוננת ששרדה את האיום שלה. השאלה הטיפולית אינה 'איך אני נרגע?' אלא 'מה המתח הזה מגן עליו?' כשאתה פוגש אותו בסקרנות אמיתית — משהו מתחיל להתרכך.",
+      "תנועה אינה פעילות גופנית. תנועה היא הקשבה. עצום עיניים ותן לגוף שלך לנוע כרצונו שלוש דקות. ללא מטרה, ללא נכונות. פשוט הקשבה. מה הוא רוצה?"]}
 }];
 
 /* ═══════════════════════ RUNES, ARCHETYPES, UTILITIES ═════════════════ */
@@ -1693,18 +1757,18 @@ function CoachCard({coach,lang,onSelect}){
       <div className="detail-profile-specs">
         {specs.map((s,i)=><span key={i} className="spec-pill">{s}</span>)}
       </div>
-      <div className="coach-meta">
-        <div style={{display:'flex',gap:20,flex:1,alignItems:'center'}}>
+      <div className="coach-meta" style={{flexWrap:'wrap',rowGap:10}}>
+        <div style={{display:'flex',gap:16,alignItems:'center',flex:'1 1 auto',minWidth:0}}>
           <div style={{display:'flex',flexDirection:'column',gap:2}}>
             <StarRating rating={rating}/>
-            <span style={{fontSize:'.72rem',color:'var(--gold)',fontFamily:'var(--font-d)'}}>{rating.toFixed(1)}</span>
+            <span style={{fontSize:'.7rem',color:'var(--gold)',fontFamily:'var(--font-d)'}}>{rating.toFixed(1)}</span>
           </div>
-          <div style={{display:'flex',flexDirection:'column',gap:2,textAlign:'right',marginLeft:'auto'}}>
-            <span style={{fontSize:'.88rem',color:'var(--text-1)',fontFamily:'var(--font-d)',fontWeight:500}}>{sessions.toLocaleString()}</span>
+          <div style={{display:'flex',flexDirection:'column',gap:1}}>
+            <span style={{fontSize:'.84rem',color:'var(--text-1)',fontFamily:'var(--font-d)',fontWeight:500}}>{sessions.toLocaleString()}</span>
             <span className="coach-sessions">{t.coach_sessions}</span>
           </div>
         </div>
-        <button className="pill-btn" style={{fontSize:'.66rem',padding:'6px 14px',color:'var(--accent,var(--gold))',borderColor:'var(--accent,var(--gold))'}}>
+        <button className="pill-btn" style={{fontSize:'.66rem',padding:'6px 14px',flexShrink:0,color:'var(--accent,var(--gold))',borderColor:'var(--accent,var(--gold))'}}>
           {t.coach_view_profile} →
         </button>
       </div>
@@ -1768,9 +1832,15 @@ function CoachProfile({coach,lang,onStartChat,onBack}){
 function ChatInterface({coach,lang,onBack}){
   const t=T[lang];
   const name=coach.name[lang]||coach.name.en;
-  const greeting=lang==='ru'
-    ?`Здравствуйте. Я ${coach.name.ru||coach.name.en}. Чем могу вам помочь сегодня?`
-    :`Hello. I'm ${coach.name.en}. I'm here to support your growth. What's on your mind today?`;
+  const coachName=coach.name[lang]||coach.name.en;
+  const greetings={
+    en:`Hello. I'm ${coachName}. I'm here to support your growth. What's on your mind today?`,
+    ru:`Здравствуйте. Я ${coachName}. Чем могу вам помочь сегодня?`,
+    es:`Hola. Soy ${coachName}. Estoy aquí para apoyar tu crecimiento. ¿Qué tienes en mente hoy?`,
+    it:`Ciao. Sono ${coachName}. Sono qui per supportare la tua crescita. Cosa hai in mente oggi?`,
+    he:`שלום. אני ${coachName}. אני כאן לתמוך בצמיחה שלך. מה עולה לך בראש היום?`
+  };
+  const greeting=greetings[lang]||greetings.en;
   const [msgs,setMsgs]=useState([{role:'coach',text:greeting}]);
   const [input,setInput]=useState('');
   const [typing,setTyping]=useState(false);
@@ -1874,6 +1944,135 @@ function CoachLayer({lang,view,setView,selected,setSelected}){
 }
 
 /* ═══════════════ REUSABLE FIELD WITH VALIDATION ═════════════════════════ */
+/* ═══════════════ SEGMENTED DATE INPUT ══════════════════════════════════ */
+function DateInput({value,onChange,lang}){
+  const r0=useRef(null),r1=useRef(null),r2=useRef(null);
+  const refs=[r0,r1,r2];
+  const L={en:['DD','MM','YYYY'],ru:['ДД','ММ','ГГГГ'],es:['DD','MM','AAAA'],it:['GG','MM','AAAA'],he:['DD','MM','YYYY']}[lang]||['DD','MM','YYYY'];
+  const parse=v=>{
+    if(v&&/^\d{2}\.\d{2}\.\d{4}$/.test(v)){const[a,b,c]=v.split('.');return[a,b,c];}
+    return['','',''];
+  };
+  const [pts,setPts]=useState(()=>parse(value));
+  const [foc,setFoc]=useState([false,false,false]);
+  useEffect(()=>{setPts(parse(value));},[value]);
+  function emit(p){
+    if(p[0].length===2&&p[1].length===2&&p[2].length===4)onChange(p[0]+'.'+p[1]+'.'+p[2]);
+    else onChange('');
+  }
+  function handleChange(i,maxLen,e){
+    const v=e.target.value.replace(/\D/g,'').slice(0,maxLen);
+    const next=[...pts];next[i]=v;setPts(next);emit(next);
+    if(v.length===maxLen&&refs[i+1]?.current)refs[i+1].current.focus();
+  }
+  function handleKey(i,e){
+    if(e.key==='Backspace'&&pts[i]===''&&i>0)refs[i-1].current?.focus();
+    if(e.key==='ArrowRight'&&i<2)refs[i+1].current?.focus();
+    if(e.key==='ArrowLeft'&&i>0)refs[i-1].current?.focus();
+  }
+  function handlePaste(e){
+    const t=e.clipboardData.getData('text');
+    const m=t.match(/(\d{1,2})[.\-\/](\d{1,2})[.\-\/](\d{2,4})/);
+    if(m){e.preventDefault();const d=m[1].padStart(2,'0'),mo=m[2].padStart(2,'0'),y=m[3].length===2?'20'+m[3]:m[3];const p=[d,mo,y];setPts(p);onChange(d+'.'+mo+'.'+y);refs[2].current?.focus();}
+  }
+  const seg=(i)=>({flex:i===2?2:1,minWidth:0});
+  const inp=(active)=>({width:'100%',padding:'11px 6px',background:'var(--surface-2)',
+    border:`1px solid ${active?'var(--gold)':'var(--border-md)'}`,borderRadius:8,
+    color:'var(--text-1)',fontSize:16,outline:'none',textAlign:'center',fontFamily:'var(--font-b)',
+    caretColor:'var(--gold)',transition:'border-color .2s,box-shadow .2s',
+    boxShadow:active?'0 0 0 3px rgba(212,178,122,.12)':'none'});
+  const dot={color:'var(--text-3)',fontSize:'1.1rem',padding:'0 3px',lineHeight:'44px',flexShrink:0,userSelect:'none'};
+  return(
+    <div style={{display:'flex',gap:0,alignItems:'center'}} onPaste={handlePaste}>
+      {[0,1,2].map(i=>(
+        <React.Fragment key={i}>
+          {i>0&&<span style={dot}>·</span>}
+          <div style={seg(i)}>
+            <input ref={refs[i]} value={pts[i]}
+              onChange={e=>handleChange(i,[2,2,4][i],e)}
+              onKeyDown={e=>handleKey(i,e)}
+              onFocus={e=>{setFoc(f=>{const n=[...f];n[i]=true;return n;});e.target.select();}}
+              onBlur={()=>setFoc(f=>{const n=[...f];n[i]=false;return n;})}
+              inputMode="numeric" maxLength={[2,2,4][i]}
+              placeholder={L[i]} style={inp(foc[i])}/>
+          </div>
+        </React.Fragment>
+      ))}
+    </div>
+  );
+}
+
+/* ═══════════════ SEGMENTED TIME INPUT ══════════════════════════════════ */
+function TimeInput({value,onChange,lang}){
+  const r0=useRef(null),r1=useRef(null);
+  const refs=[r0,r1];
+  const PH={en:['HH','MM'],ru:['ЧЧ','ММ'],es:['HH','MM'],it:['OO','MM'],he:['שש','דד']}[lang]||['HH','MM'];
+  const parse=v=>{
+    if(v&&/^\d{2}:\d{2}$/.test(v)){const[h,m]=v.split(':');return[h,m];}
+    return['',''];
+  };
+  const [pts,setPts]=useState(()=>parse(value));
+  const [foc,setFoc]=useState([false,false]);
+  useEffect(()=>{setPts(parse(value));},[value]);
+  function emit(p){if(p[0].length===2&&p[1].length===2)onChange(p[0]+':'+p[1]);else onChange('');}
+  function handleChange(i,e){
+    const v=e.target.value.replace(/\D/g,'').slice(0,2);
+    const next=[...pts];next[i]=v;setPts(next);emit(next);
+    if(v.length===2&&i===0)refs[1].current?.focus();
+  }
+  function handleKey(i,e){
+    if(e.key==='Backspace'&&pts[i]===''&&i>0)refs[0].current?.focus();
+    if(e.key==='ArrowRight'&&i===0)refs[1].current?.focus();
+    if(e.key==='ArrowLeft'&&i===1)refs[0].current?.focus();
+  }
+  const inp=(active)=>({width:'100%',padding:'11px 6px',background:'var(--surface-2)',
+    border:`1px solid ${active?'var(--gold)':'var(--border-md)'}`,borderRadius:8,
+    color:'var(--text-1)',fontSize:16,outline:'none',textAlign:'center',fontFamily:'var(--font-b)',
+    caretColor:'var(--gold)',transition:'border-color .2s,box-shadow .2s',
+    boxShadow:active?'0 0 0 3px rgba(212,178,122,.12)':'none'});
+  const sep={color:'var(--text-3)',fontSize:'1.2rem',padding:'0 4px',lineHeight:'44px',flexShrink:0,fontWeight:500,userSelect:'none'};
+  return(
+    <div style={{display:'flex',gap:0,alignItems:'center'}}>
+      {[0,1].map(i=>(
+        <React.Fragment key={i}>
+          {i>0&&<span style={sep}>:</span>}
+          <div style={{flex:1}}>
+            <input ref={refs[i]} value={pts[i]}
+              onChange={e=>handleChange(i,e)}
+              onKeyDown={e=>handleKey(i,e)}
+              onFocus={e=>{setFoc(f=>{const n=[...f];n[i]=true;return n;});e.target.select();}}
+              onBlur={()=>setFoc(f=>{const n=[...f];n[i]=false;return n;})}
+              inputMode="numeric" maxLength={2}
+              placeholder={PH[i]} style={inp(foc[i])}/>
+          </div>
+        </React.Fragment>
+      ))}
+    </div>
+  );
+}
+
+/* ═══════════════ LABELED DATE / TIME FIELDS ════════════════════════════ */
+function DateField({label,value,onChange,lang,errFn,required}){
+  const [touched,setTouched]=useState(false);
+  const err=errFn?errFn(value):(!required||value?'':'Required');
+  const invalid=touched&&!!err;
+  return(
+    <div className="form-field" onBlur={()=>setTouched(true)}>
+      <label className="form-label">{label}{required&&<span style={{color:'#C85050',marginLeft:3}}>*</span>}</label>
+      <DateInput value={value} onChange={v=>{onChange(v);}} lang={lang}/>
+      {invalid&&<p style={{fontSize:'.68rem',color:'#C85050',marginTop:4}}>{err}</p>}
+    </div>
+  );
+}
+function TimeField({label,value,onChange,lang}){
+  return(
+    <div className="form-field">
+      <label className="form-label">{label}</label>
+      <TimeInput value={value} onChange={onChange} lang={lang}/>
+    </div>
+  );
+}
+
 function Field({label,value,onChange,placeholder,errFn,required,type='text',inputMode}){
   const [touched,setTouched]=useState(false);
   const err=errFn?errFn(value):(!required||value.trim()?'':'Required');
@@ -1964,15 +2163,14 @@ function AstrologyTool({lang}){
       </h3>
       <div className="form-stack">
         <Field label={t.astro_name} value={f.name} onChange={v=>setF(p=>({...p,name:v}))} required/>
-        <Field label={t.astro_dob} value={f.dob} onChange={v=>setF(p=>({...p,dob:v}))} placeholder="DD.MM.YYYY"
+        <DateField label={t.astro_dob} value={f.dob} onChange={v=>setF(p=>({...p,dob:v}))} lang={lang}
           errFn={v=>validateDOB(v).err} required/>
         <div className="form-row">
-          <Field label={t.astro_time} value={f.time} onChange={v=>setF(p=>({...p,time:v}))} placeholder="HH:MM"
-            errFn={v=>validateTime(v).err}/>
+          <TimeField label={t.astro_time} value={f.time} onChange={v=>setF(p=>({...p,time:v}))} lang={lang}/>
           <Field label={t.astro_location} value={f.loc} onChange={v=>setF(p=>({...p,loc:v}))}/>
         </div>
         <Field label={t.astro_city} value={f.city} onChange={v=>setF(p=>({...p,city:v}))}/>
-        {!f.time.trim()&&(
+        {!f.time&&(
           <p style={{fontSize:'.72rem',color:'var(--amber)',background:'rgba(200,148,110,.08)',
             border:'1px solid rgba(200,148,110,.2)',borderRadius:6,padding:'8px 12px',textAlign:'center'}}>
             ⚠ {t.astro_time_note}
@@ -1999,11 +2197,10 @@ function AstrologyTool({lang}){
       <h3 style={{fontFamily:'var(--font-d)',fontSize:'1.1rem',marginBottom:18,color:'var(--text-1)'}}>{t.astro_partner_name}</h3>
       <div className="form-stack">
         <Field label={t.astro_partner_name} value={f2.name} onChange={v=>setF2(p=>({...p,name:v}))} required/>
-        <Field label={t.astro_partner_dob} value={f2.dob} onChange={v=>setF2(p=>({...p,dob:v}))} placeholder="DD.MM.YYYY"
+        <DateField label={t.astro_partner_dob} value={f2.dob} onChange={v=>setF2(p=>({...p,dob:v}))} lang={lang}
           errFn={v=>validateDOB(v).err} required/>
         <div className="form-row">
-          <Field label={t.astro_time} value={f2.time} onChange={v=>setF2(p=>({...p,time:v}))} placeholder="HH:MM"
-            errFn={v=>validateTime(v).err}/>
+          <TimeField label={t.astro_time} value={f2.time} onChange={v=>setF2(p=>({...p,time:v}))} lang={lang}/>
           <Field label={t.astro_location} value={f2.loc} onChange={v=>setF2(p=>({...p,loc:v}))}/>
         </div>
       </div>
@@ -2044,11 +2241,10 @@ function PythagoraTool({lang}){
   const labels={n1:t.num_life,n2:'Vitality',n3:'Luck',n4:'Logic'};
   return(
     <div>
-      <div style={{display:'flex',gap:10,marginBottom:err?8:20}}>
-        <input className="tool-input" value={dob} inputMode="numeric" onChange={e=>{setDob(e.target.value);setErr('');}}
-          placeholder={t.pytha_placeholder} onKeyDown={e=>e.key==='Enter'&&compute()}/>
-        <button className="cta-btn" style={{whiteSpace:'nowrap',flexShrink:0}} onClick={compute}>{t.pytha_calc}</button>
+      <div style={{marginBottom:err?8:16}}>
+        <DateInput value={dob} onChange={v=>{setDob(v);setErr('');}} lang={lang}/>
       </div>
+      <button className="cta-btn" style={{width:'100%',justifyContent:'center',marginBottom:err?0:4}} onClick={compute}>{t.pytha_calc}</button>
       {err&&<p style={{fontSize:'.78rem',color:'#C85050',marginBottom:14,textAlign:'center'}}>{err}</p>}
       {res&&(
         <div>
@@ -2168,7 +2364,8 @@ function NumerologyTool({lang}){
   function compute(){
     const dobV=validateDOB(dob);
     if(dob.trim()&&!dobV.ok){setErr(dobV.err);return;}
-    if(!name.trim()&&!dob.trim()){setErr(ru?'Введите имя или дату рождения':'Enter a name or date of birth');return;}
+    const errMsg={en:'Enter a name or date of birth',ru:'Введите имя или дату рождения',es:'Ingresa un nombre o fecha de nacimiento',it:'Inserisci un nome o una data di nascita',he:'הכנס שם או תאריך לידה'}[lang]||'Enter a name or date of birth';
+    if(!name.trim()&&!dob.trim()){setErr(errMsg);return;}
     setErr('');
     const pytha=dob&&dobV.ok?calcPytha(dob):null;
     const nums=name.trim()?numFromName(name):null;
@@ -2211,8 +2408,8 @@ function NumerologyTool({lang}){
     <div>
       <div className="form-stack" style={{marginBottom:16}}>
         <Field label={t.num_name} value={name} onChange={setName}/>
-        <Field label={t.num_dob} value={dob} onChange={setDob} placeholder="DD.MM.YYYY"
-          errFn={v=>v.trim()?validateDOB(v).err:''}/>
+        <DateField label={t.num_dob} value={dob} onChange={setDob} lang={lang}
+          errFn={v=>v?validateDOB(v).err:''}/>
       </div>
       {err&&<p style={{fontSize:'.78rem',color:'#C85050',marginBottom:10,textAlign:'center'}}>{err}</p>}
       <button className="cta-btn" style={{width:'100%',justifyContent:'center'}} onClick={compute}>{t.num_calc}</button>
@@ -2235,7 +2432,7 @@ function NumerologyTool({lang}){
             {res.zodiac&&(
               <div style={{background:'var(--gold-f)',border:'1px solid rgba(212,178,122,.2)',
                 borderRadius:12,padding:'14px',textAlign:'center'}}>
-                <div className="form-label" style={{marginBottom:4}}>{ru?'Знак зодиака':'Zodiac'}</div>
+                <div className="form-label" style={{marginBottom:4}}>{t.zodiac_label}</div>
                 <div style={{fontSize:'1rem',color:'var(--gold)',marginTop:4,lineHeight:1.3}}>{res.zodiac}</div>
               </div>
             )}
@@ -2433,7 +2630,7 @@ function SvargaLayer({lang}){
               ))}
             </div>
             <div style={{textAlign:'center',marginTop:28}}>
-              <button className="btn-g" onClick={reset}>↺ {lang==='ru'?'Новый анализ':'New Analysis'}</button>
+              <button className="btn-g" onClick={reset}>↺ {t.svarga_new}</button>
             </div>
           </div>
         )}
