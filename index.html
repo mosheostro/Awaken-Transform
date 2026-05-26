@@ -348,6 +348,63 @@ footer{padding:clamp(40px,6vw,72px) clamp(22px,7vw,100px) 32px;position:relative
 [data-theme="light"] .msg.user .msg-bubble{color:#FAF7EF}
 .chat-input{flex:1;padding:11px 14px;background:var(--surface-2);border:1px solid var(--border-md);border-radius:var(--r);color:var(--text-1);font-size:.88rem;outline:none;transition:border-color .25s;line-height:1.5;min-height:44px;max-height:120px}
 .chat-input:focus{border-color:var(--gold)}
+
+/* ── RTL NAV FIX ─ nav controls always in fixed LTR order ─────────────── */
+[dir="rtl"] nav.topnav{direction:ltr}
+[dir="rtl"] nav.topnav .nav-logo-text,[dir="rtl"] nav.topnav .nav-logo-sub{direction:rtl}
+/* Keep coach grid, tool cards, stats LTR-like but allow text to flow RTL */
+[dir="rtl"] .hero-stats{flex-direction:row-reverse}
+[dir="rtl"] .coach-meta{flex-direction:row-reverse}
+[dir="rtl"] .detail-grid{direction:rtl}
+
+/* ── PULSE ANIMATION for typing dots ──────────────────────────────────── */
+@keyframes pulse{0%,100%{opacity:.4;transform:scale(.75)}50%{opacity:1;transform:scale(1)}}
+
+/* ── BUTTON CONTRAST HARDENING ────────────────────────────────────────── */
+/* Ensure all text on gold backgrounds is always dark */
+.btn-p,.cta-btn,.chat-send,.send-btn,.layer-tab.active{color:#0A0907!important}
+[data-theme="light"] .btn-p,[data-theme="light"] .cta-btn,
+[data-theme="light"] .chat-send,[data-theme="light"] .send-btn{color:#FAF7EF!important}
+/* Ghost/outline buttons always readable */
+.btn-g{color:var(--text-2)}
+.btn-g:hover{color:var(--gold)}
+/* Pill buttons */
+.pill-btn{color:var(--text-2)}
+.pill-btn:hover{color:var(--gold)}
+/* Nav lang buttons active state */
+.nav-lang.active,.nav-lang:hover{color:var(--gold)!important}
+/* Disabled states clearly dimmed */
+button:disabled{opacity:.38!important;cursor:not-allowed!important}
+
+/* ── QUIZ OPTIONS readable in both themes ─────────────────────────────── */
+.quiz-opt{color:var(--text-1);background:var(--surface-2)}
+.quiz-opt:hover{background:var(--indigo-f);color:var(--text-1);border-color:var(--indigo)}
+
+/* ── TOOL CARD hover ──────────────────────────────────────────────────── */
+.tool-card:hover .tool-icon{background:var(--indigo);color:#fff;border-color:var(--indigo)}
+.tool-card:hover .tool-name{color:var(--indigo)}
+.tool-card:hover .tool-cta{color:var(--text-1)}
+
+/* ── COACH CARD full-card hover border colour ─────────────────────────── */
+.coach-card:hover{border-color:var(--accent,rgba(212,178,122,.4))!important}
+
+/* ── SPEC PILLS use accent CSS var ───────────────────────────────────────*/
+.spec-pill{color:var(--accent,var(--gold));border-color:var(--accent,var(--gold))}
+
+/* ── LANG DROPDOWN items readable ────────────────────────────────────────*/
+.lang-item{padding:9px 16px;cursor:pointer;font-size:.72rem;font-family:var(--font-b);
+  letter-spacing:.12em;text-transform:uppercase;transition:background .15s}
+.lang-item:hover{background:var(--gold-f);color:var(--gold)}
+
+/* ── FORM INPUTS consistent focus ring ───────────────────────────────────*/
+input:focus,textarea:focus,.form-input:focus,.form-textarea:focus,.tool-input:focus{
+  border-color:var(--gold)!important;box-shadow:0 0 0 3px rgba(212,178,122,.12)}
+
+/* ── MOBILE nav wrap fix ─────────────────────────────────────────────────*/
+@media(max-width:640px){
+  nav.topnav .nav-logo-sub{display:none}
+  nav.topnav .nav-lang{padding:5px 7px;font-size:.58rem}
+}
 </style>
 </head>
 <body>
@@ -980,51 +1037,255 @@ function getAstroReading(mode,lang){
   return pick(pool[k]||pool.en);
 }
 
-// ─── NAV ─────────────────────────────────────────────────────────────────────
+/* ═══════════════ SVG COACH PORTRAITS ═══════════════════════════════════ */
+const PORTRAITS={
+  viktor:(
+    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+      <rect width="80" height="80" fill="#2A1F14"/>
+      {/* shoulders */}
+      <path d="M4 80 Q20 62 40 58 Q60 62 76 80Z" fill="#D4B27A" opacity=".15"/>
+      {/* neck */}
+      <rect x="33" y="49" width="14" height="14" rx="4" fill="#C8A880"/>
+      {/* head */}
+      <ellipse cx="40" cy="34" rx="20" ry="22" fill="#D8B898"/>
+      {/* dark hair */}
+      <path d="M20 22 Q22 8 40 7 Q58 8 60 22 Q54 14 40 13 Q26 14 20 22Z" fill="#1A1208"/>
+      <path d="M20 22 Q18 28 20 34" stroke="#1A1208" strokeWidth="4" fill="none"/>
+      <path d="M60 22 Q62 28 60 34" stroke="#1A1208" strokeWidth="4" fill="none"/>
+      {/* eyebrows */}
+      <path d="M27 27 Q31 25 35 26" stroke="#2A1A0A" strokeWidth="1.8" fill="none" strokeLinecap="round"/>
+      <path d="M45 26 Q49 25 53 27" stroke="#2A1A0A" strokeWidth="1.8" fill="none" strokeLinecap="round"/>
+      {/* eyes */}
+      <ellipse cx="31" cy="31" rx="4" ry="3.5" fill="white"/>
+      <ellipse cx="49" cy="31" rx="4" ry="3.5" fill="white"/>
+      <circle cx="31" cy="31.5" r="2.2" fill="#3A2C1C"/>
+      <circle cx="49" cy="31.5" r="2.2" fill="#3A2C1C"/>
+      <circle cx="32" cy="30.5" r=".7" fill="white" opacity=".9"/>
+      <circle cx="50" cy="30.5" r=".7" fill="white" opacity=".9"/>
+      {/* nose */}
+      <path d="M40 34 L38 40 Q40 42 42 40 L40 34Z" fill="#C09878" opacity=".7"/>
+      {/* mouth */}
+      <path d="M33 45 Q40 49 47 45" stroke="#A07858" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+      <path d="M35 45 Q40 47 45 45" stroke="#B08868" strokeWidth="1" fill="none" strokeLinecap="round" opacity=".5"/>
+    </svg>
+  ),
+  elena:(
+    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+      <rect width="80" height="80" fill="#14181E"/>
+      <path d="M4 80 Q20 60 40 56 Q60 60 76 80Z" fill="#7E8EC8" opacity=".15"/>
+      <rect x="34" y="50" width="12" height="13" rx="4" fill="#F0D4B8"/>
+      <ellipse cx="40" cy="33" rx="19" ry="21" fill="#F4DCC0"/>
+      {/* brunette hair flowing */}
+      <path d="M21 21 Q22 6 40 6 Q58 6 59 21 Q52 12 40 12 Q28 12 21 21Z" fill="#3C2418"/>
+      <path d="M21 21 Q17 32 19 45 Q21 52 24 55" stroke="#3C2418" strokeWidth="5" fill="none" strokeLinecap="round"/>
+      <path d="M59 21 Q63 32 61 45 Q59 52 56 55" stroke="#3C2418" strokeWidth="5" fill="none" strokeLinecap="round"/>
+      <path d="M21 21 Q18 40 22 58" stroke="#2A180E" strokeWidth="3" fill="none" strokeLinecap="round" opacity=".6"/>
+      {/* eyebrows elegant */}
+      <path d="M27 27 Q31 24.5 35 25.5" stroke="#2A1808" strokeWidth="1.4" fill="none" strokeLinecap="round"/>
+      <path d="M45 25.5 Q49 24.5 53 27" stroke="#2A1808" strokeWidth="1.4" fill="none" strokeLinecap="round"/>
+      {/* eyes */}
+      <ellipse cx="31" cy="31" rx="4.5" ry="3.5" fill="white"/>
+      <ellipse cx="49" cy="31" rx="4.5" ry="3.5" fill="white"/>
+      <circle cx="31" cy="31.5" r="2.4" fill="#3A4C5E"/>
+      <circle cx="49" cy="31.5" r="2.4" fill="#3A4C5E"/>
+      <circle cx="32" cy="30.5" r=".7" fill="white" opacity=".9"/>
+      <circle cx="50" cy="30.5" r=".7" fill="white" opacity=".9"/>
+      {/* lashes hint */}
+      <path d="M27 29 Q26 27 27 26" stroke="#1A1208" strokeWidth=".8" fill="none"/>
+      <path d="M35 29 Q36 27 35 26" stroke="#1A1208" strokeWidth=".8" fill="none"/>
+      {/* nose */}
+      <path d="M40 34 L38.5 39 Q40 41 41.5 39 L40 34Z" fill="#E0C4A8" opacity=".6"/>
+      {/* lips */}
+      <path d="M34 44 Q37 42.5 40 43 Q43 42.5 46 44" fill="#C08878" stroke="none"/>
+      <path d="M34 44 Q40 47.5 46 44" fill="#D09888" stroke="none" opacity=".7"/>
+    </svg>
+  ),
+  james:(
+    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+      <rect width="80" height="80" fill="#0F1A10"/>
+      <path d="M4 80 Q18 62 40 58 Q62 62 76 80Z" fill="#6EA080" opacity=".18"/>
+      <rect x="33" y="50" width="14" height="13" rx="4" fill="#D8C4A0"/>
+      <ellipse cx="40" cy="33" rx="20" ry="21" fill="#DCCAAC"/>
+      {/* medium brown hair */}
+      <path d="M20 20 Q23 6 40 6 Q57 6 60 20 Q52 11 40 11 Q28 11 20 20Z" fill="#5C4030"/>
+      <path d="M20 20 Q18 26 20 30" stroke="#5C4030" strokeWidth="4" fill="none"/>
+      <path d="M60 20 Q62 26 60 30" stroke="#5C4030" strokeWidth="4" fill="none"/>
+      {/* eyebrows */}
+      <path d="M27 27 Q31 25 35 26" stroke="#3C2818" strokeWidth="1.7" fill="none" strokeLinecap="round"/>
+      <path d="M45 26 Q49 25 53 27" stroke="#3C2818" strokeWidth="1.7" fill="none" strokeLinecap="round"/>
+      {/* eyes hazel */}
+      <ellipse cx="31" cy="31" rx="4.2" ry="3.5" fill="white"/>
+      <ellipse cx="49" cy="31" rx="4.2" ry="3.5" fill="white"/>
+      <circle cx="31" cy="31.5" r="2.3" fill="#3A5040"/>
+      <circle cx="49" cy="31.5" r="2.3" fill="#3A5040"/>
+      <circle cx="32" cy="30.5" r=".7" fill="white" opacity=".9"/>
+      <circle cx="50" cy="30.5" r=".7" fill="white" opacity=".9"/>
+      {/* nose */}
+      <path d="M40 34 L38 40 Q40 42 42 40Z" fill="#C8B498" opacity=".5"/>
+      {/* warm smile */}
+      <path d="M33 44 Q40 48.5 47 44" stroke="#A08060" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+      <path d="M35 44.5 Q40 46.5 45 44.5" stroke="#B89070" strokeWidth="1" fill="none" strokeLinecap="round" opacity=".5"/>
+    </svg>
+  ),
+  sophie:(
+    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+      <rect width="80" height="80" fill="#14100A"/>
+      <path d="M2 80 Q16 60 40 55 Q64 60 78 80Z" fill="#D4B27A" opacity=".12"/>
+      <rect x="34" y="50" width="12" height="13" rx="4" fill="#F8E8D0"/>
+      <ellipse cx="40" cy="32" rx="19" ry="21" fill="#FAECD8"/>
+      {/* blonde hair */}
+      <path d="M21 19 Q23 5 40 5 Q57 5 59 19 Q53 10 40 10 Q27 10 21 19Z" fill="#C8A848"/>
+      <path d="M21 19 Q16 32 18 52 Q20 58 23 60" stroke="#C8A848" strokeWidth="5" fill="none" strokeLinecap="round"/>
+      <path d="M59 19 Q64 32 62 52 Q60 58 57 60" stroke="#C8A848" strokeWidth="5" fill="none" strokeLinecap="round"/>
+      <path d="M21 19 Q15 38 19 60" stroke="#B89838" strokeWidth="2.5" fill="none" strokeLinecap="round" opacity=".5"/>
+      {/* delicate eyebrows */}
+      <path d="M27 26.5 Q31 24.5 35 25.5" stroke="#8C7228" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
+      <path d="M45 25.5 Q49 24.5 53 26.5" stroke="#8C7228" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
+      {/* blue-grey eyes */}
+      <ellipse cx="31" cy="30.5" rx="4.5" ry="3.8" fill="white"/>
+      <ellipse cx="49" cy="30.5" rx="4.5" ry="3.8" fill="white"/>
+      <circle cx="31" cy="31" r="2.5" fill="#4A5870"/>
+      <circle cx="49" cy="31" r="2.5" fill="#4A5870"/>
+      <circle cx="32" cy="30" r=".8" fill="white" opacity=".9"/>
+      <circle cx="50" cy="30" r=".8" fill="white" opacity=".9"/>
+      {/* lashes */}
+      <path d="M26.5 29 L25 27" stroke="#4A3820" strokeWidth=".9" fill="none"/>
+      <path d="M35.5 29 L37 27" stroke="#4A3820" strokeWidth=".9" fill="none"/>
+      <path d="M44.5 29 L43 27" stroke="#4A3820" strokeWidth=".9" fill="none"/>
+      <path d="M53.5 29 L55 27" stroke="#4A3820" strokeWidth=".9" fill="none"/>
+      {/* nose */}
+      <path d="M40 33 L38.5 38 Q40 40 41.5 38Z" fill="#ECD4B8" opacity=".5"/>
+      {/* lips rose */}
+      <path d="M34 43.5 Q37 41.5 40 42 Q43 41.5 46 43.5" fill="#C87878"/>
+      <path d="M34 43.5 Q40 47 46 43.5" fill="#D48888" opacity=".7"/>
+    </svg>
+  ),
+  cyrus:(
+    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+      <rect width="80" height="80" fill="#0E0A14"/>
+      <path d="M4 80 Q18 62 40 58 Q62 62 76 80Z" fill="#B07ECC" opacity=".15"/>
+      <rect x="33" y="50" width="14" height="13" rx="4" fill="#C0966A"/>
+      <ellipse cx="40" cy="33" rx="20" ry="21" fill="#C89A72"/>
+      {/* very dark hair */}
+      <path d="M20 21 Q22 6 40 6 Q58 6 60 21 Q54 12 40 12 Q26 12 20 21Z" fill="#100C06"/>
+      <path d="M20 21 Q18 26 20 30" stroke="#100C06" strokeWidth="4.5" fill="none"/>
+      <path d="M60 21 Q62 26 60 30" stroke="#100C06" strokeWidth="4.5" fill="none"/>
+      {/* stubble */}
+      <ellipse cx="40" cy="47" rx="12" ry="6" fill="#0A0806" opacity=".25"/>
+      {/* eyebrows strong */}
+      <path d="M26 26.5 Q31 24 35.5 25.5" stroke="#0A0806" strokeWidth="2" fill="none" strokeLinecap="round"/>
+      <path d="M44.5 25.5 Q49 24 54 26.5" stroke="#0A0806" strokeWidth="2" fill="none" strokeLinecap="round"/>
+      {/* dark eyes */}
+      <ellipse cx="31" cy="31" rx="4.5" ry="3.5" fill="white"/>
+      <ellipse cx="49" cy="31" rx="4.5" ry="3.5" fill="white"/>
+      <circle cx="31" cy="31.5" r="2.5" fill="#1C1208"/>
+      <circle cx="49" cy="31.5" r="2.5" fill="#1C1208"/>
+      <circle cx="32" cy="30.5" r=".7" fill="white" opacity=".9"/>
+      <circle cx="50" cy="30.5" r=".7" fill="white" opacity=".9"/>
+      {/* prominent nose */}
+      <path d="M40 33 L37.5 40 Q40 43 42.5 40 L40 33Z" fill="#B08860" opacity=".6"/>
+      {/* mouth */}
+      <path d="M33 45 Q40 49 47 45" stroke="#906840" strokeWidth="1.7" fill="none" strokeLinecap="round"/>
+    </svg>
+  ),
+  mila:(
+    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+      <rect width="80" height="80" fill="#0A0E18"/>
+      <path d="M4 80 Q18 62 40 58 Q62 62 76 80Z" fill="#7E8EC8" opacity=".12"/>
+      <rect x="34" y="51" width="12" height="13" rx="4" fill="#F0DCCC"/>
+      <ellipse cx="40" cy="34" rx="18" ry="20" fill="#F4E0D0"/>
+      {/* black hair — neat, straight */}
+      <path d="M22 20 Q24 5 40 5 Q56 5 58 20 Q52 10 40 10 Q28 10 22 20Z" fill="#060404"/>
+      <path d="M22 20 Q20 26 22 36" stroke="#060404" strokeWidth="4.5" fill="none"/>
+      <path d="M58 20 Q60 26 58 36" stroke="#060404" strokeWidth="4.5" fill="none"/>
+      <path d="M22 20 Q18 44 22 60" stroke="#060404" strokeWidth="3" fill="none" opacity=".5"/>
+      <path d="M58 20 Q62 44 58 60" stroke="#060404" strokeWidth="3" fill="none" opacity=".5"/>
+      {/* thin eyebrows */}
+      <path d="M27 27 Q31 25.5 35 26.5" stroke="#180C06" strokeWidth="1.3" fill="none" strokeLinecap="round"/>
+      <path d="M45 26.5 Q49 25.5 53 27" stroke="#180C06" strokeWidth="1.3" fill="none" strokeLinecap="round"/>
+      {/* almond eyes */}
+      <path d="M26.5 30 Q31 27.5 35.5 30 Q31 33 26.5 30Z" fill="white"/>
+      <path d="M44.5 30 Q49 27.5 53.5 30 Q49 33 44.5 30Z" fill="white"/>
+      <circle cx="31" cy="30.5" r="2.2" fill="#0A0606"/>
+      <circle cx="49" cy="30.5" r="2.2" fill="#0A0606"/>
+      <circle cx="31.8" cy="29.8" r=".6" fill="white" opacity=".9"/>
+      <circle cx="49.8" cy="29.8" r=".6" fill="white" opacity=".9"/>
+      {/* nose */}
+      <path d="M40 34 L38.8 38.5 Q40 40 41.2 38.5Z" fill="#E0CCBC" opacity=".5"/>
+      {/* subtle lips */}
+      <path d="M34.5 44 Q37.5 42.5 40 43 Q42.5 42.5 45.5 44" fill="#C09080"/>
+      <path d="M34.5 44 Q40 47 45.5 44" fill="#D0A090" opacity=".6"/>
+    </svg>
+  )
+};
+
+function CoachAvatarFull({coach,size=88}){
+  const svg=PORTRAITS[coach.id];
+  return(
+    <div className="coach-avatar" style={{width:size,height:size,'--accent':coach.color,
+      boxShadow:`0 0 0 3px ${coach.color}44, 0 8px 28px rgba(0,0,0,.4)`}}>
+      {svg||<span style={{fontFamily:'var(--font-d)',fontSize:size*.32,color:coach.color,fontWeight:600}}>
+        {(coach.name.en||'').split(' ').map(w=>w[0]).join('').slice(0,2)}
+      </span>}
+      <div className="coach-avatar-status"/>
+    </div>
+  );
+}
+
+/* ═══════════════ NAV ═══════════════════════════════════════════════════ */
 function Nav({lang,setLang,theme,setTheme,layer,setLayer,setView}){
   const t=T[lang];
   const langs=['en','ru','es','it','he'];
-  const [menuOpen,setMenuOpen]=React.useState(false);
+  const [scrolled,setScrolled]=useState(false);
+  const [langOpen,setLangOpen]=useState(false);
+  useEffect(()=>{
+    const h=()=>setScrolled(window.scrollY>20);
+    window.addEventListener('scroll',h,{passive:true});
+    return()=>window.removeEventListener('scroll',h);
+  },[]);
   return(
-    <nav style={{position:'fixed',top:0,left:0,right:0,zIndex:100,
-      background:'rgba(10,9,7,.85)',backdropFilter:'blur(18px)',
-      borderBottom:'1px solid rgba(212,178,122,.15)',
-      display:'flex',alignItems:'center',justifyContent:'space-between',
-      padding:'0 24px',height:60}}>
-      <div style={{display:'flex',alignItems:'center',gap:12,cursor:'pointer'}}
-           onClick={()=>{setView('home');setLayer('coach');}}>
-        <div style={{width:32,height:32,borderRadius:'50%',
-          background:'linear-gradient(135deg,#D4B27A,#7E8EC8)',
-          display:'flex',alignItems:'center',justifyContent:'center',
-          fontSize:14,fontWeight:700,color:'#0A0907'}}>LF</div>
-        <span style={{fontFamily:'var(--font-d)',fontSize:18,color:'var(--gold)',letterSpacing:1}}>LifeForge AI</span>
+    <nav className={`topnav${scrolled?' scrolled':''}`}>
+      <div className="nav-logo" onClick={()=>{setLayer('coach');setView('home');}}>
+        <div className="nav-logo-mark">L</div>
+        <div>
+          <div className="nav-logo-text">LifeForge<em style={{fontStyle:'italic',color:'var(--gold)'}}>·</em>AI</div>
+          <div className="nav-logo-sub">Human Potential System</div>
+        </div>
       </div>
-      <div style={{display:'flex',alignItems:'center',gap:8}}>
-        {/* Lang switcher */}
-        <div style={{position:'relative'}}>
-          <button onClick={()=>setMenuOpen(o=>!o)}
-            style={{background:'rgba(212,178,122,.1)',border:'1px solid rgba(212,178,122,.3)',
-              borderRadius:8,padding:'4px 10px',color:'var(--gold)',cursor:'pointer',fontSize:12,
-              fontFamily:'var(--font-b)',textTransform:'uppercase'}}>
-            {lang} ▾
+      {/* Controls — always LTR regardless of page direction */}
+      <div className="nav-controls" style={{direction:'ltr',gap:6,display:'flex',alignItems:'center',flexWrap:'nowrap'}}>
+        {[
+          {id:'coach',label:t.nav_coaches},
+          {id:'esoteric',label:t.nav_esoteric},
+          {id:'svarga',label:t.nav_svarga}
+        ].map(({id,label})=>(
+          <button key={id} className={`nav-lang${layer===id?' active':''}`}
+            onClick={()=>{setLayer(id);setView('home');updateOrbs(id);}}>
+            {label}
           </button>
-          {menuOpen&&(
-            <div style={{position:'absolute',top:36,right:0,background:'#18140e',
-              border:'1px solid rgba(212,178,122,.2)',borderRadius:8,overflow:'hidden',minWidth:60,zIndex:200}}>
+        ))}
+        <div style={{position:'relative'}}>
+          <button className={`nav-lang${langOpen?' active':''}`} onClick={()=>setLangOpen(o=>!o)}>
+            {lang.toUpperCase()} ▾
+          </button>
+          {langOpen&&(
+            <div style={{position:'absolute',top:42,right:0,background:'var(--surface)',
+              border:'1px solid var(--border-md)',borderRadius:10,overflow:'hidden',minWidth:70,
+              zIndex:200,boxShadow:'0 12px 32px rgba(0,0,0,.4)',direction:'ltr'}}>
               {langs.map(l=>(
-                <div key={l} onClick={()=>{setLang(l);setMenuOpen(false);}}
-                  style={{padding:'8px 14px',cursor:'pointer',fontSize:12,
-                    color:l===lang?'var(--gold)':'var(--platinum)',
-                    background:l===lang?'rgba(212,178,122,.08)':'transparent',
-                    fontFamily:'var(--font-b)',textTransform:'uppercase'}}>{l}</div>
+                <div key={l} onClick={()=>{setLang(l);setLangOpen(false);}}
+                  style={{padding:'9px 16px',cursor:'pointer',fontSize:'.72rem',
+                    color:l===lang?'var(--gold)':'var(--text-2)',fontWeight:l===lang?600:400,
+                    background:l===lang?'var(--gold-f)':'transparent',
+                    transition:'background .15s',fontFamily:'var(--font-b)',
+                    letterSpacing:'.12em',textTransform:'uppercase'}}>
+                  {l}
+                </div>
               ))}
             </div>
           )}
         </div>
-        {/* Theme toggle */}
-        <button onClick={()=>setTheme(t=>t==='dark'?'light':'dark')}
-          style={{background:'rgba(212,178,122,.1)',border:'1px solid rgba(212,178,122,.3)',
-            borderRadius:8,padding:'4px 10px',color:'var(--gold)',cursor:'pointer',fontSize:14}}>
+        <button className="nav-theme" onClick={()=>setTheme(t=>t==='dark'?'light':'dark')}>
           {theme==='dark'?'☀':'🌙'}
         </button>
       </div>
@@ -1032,453 +1293,423 @@ function Nav({lang,setLang,theme,setTheme,layer,setLayer,setView}){
   );
 }
 
-// ─── HERO ────────────────────────────────────────────────────────────────────
-function Hero({lang,setLayer,layer}){
+/* ═══════════════ HERO ═══════════════════════════════════════════════════ */
+function Hero({lang,setLayer}){
   const t=T[lang];
   return(
-    <section style={{paddingTop:120,paddingBottom:80,textAlign:'center',maxWidth:800,margin:'0 auto',padding:'120px 24px 80px'}}>
-      <div className="rv" style={{marginBottom:12}}>
-        <span style={{fontFamily:'var(--font-b)',fontSize:11,letterSpacing:3,
-          textTransform:'uppercase',color:'var(--gold)',opacity:.7}}>{t.hero_eyebrow}</span>
-      </div>
-      <h1 className="rv" style={{fontFamily:'var(--font-d)',fontSize:'clamp(2.4rem,5vw,4rem)',
-        lineHeight:1.1,color:'var(--platinum)',marginBottom:20,fontWeight:400}}>
-        {t.hero_title}
-      </h1>
-      <p className="rv" style={{fontFamily:'var(--font-b)',fontSize:'clamp(1rem,2vw,1.15rem)',
-        color:'rgba(200,212,224,.6)',lineHeight:1.7,marginBottom:40,maxWidth:560,margin:'0 auto 40px'}}>
-        {t.hero_sub}
-      </p>
-      <div className="rv" style={{display:'flex',gap:12,justifyContent:'center',flexWrap:'wrap'}}>
-        <button onClick={()=>setLayer('coach')}
-          style={{background:'linear-gradient(135deg,#D4B27A,#B8903A)',border:'none',
-            borderRadius:10,padding:'13px 28px',color:'#0A0907',fontWeight:700,
-            fontFamily:'var(--font-b)',fontSize:14,cursor:'pointer',letterSpacing:.5}}>
-          {t.hero_cta}
-        </button>
-        <button onClick={()=>setLayer('esoteric')}
-          style={{background:'rgba(126,142,200,.12)',border:'1px solid rgba(126,142,200,.4)',
-            borderRadius:10,padding:'13px 28px',color:'var(--indigo)',fontWeight:600,
-            fontFamily:'var(--font-b)',fontSize:14,cursor:'pointer'}}>
-          {t.hero_cta2}
-        </button>
+    <section className="hero">
+      <div className="hero-inner">
+        <div className="hero-tag rv">
+          <span className="hero-tag-dot"/>
+          <span className="eyebrow">{t.hero_tag}</span>
+        </div>
+        <h1 className="hero-h rv d1">
+          {t.hero_title_a}<em>{t.hero_title_b}</em>{t.hero_title_dot}{t.hero_title_c}
+        </h1>
+        <p className="hero-sub rv d2">{t.hero_sub}</p>
+        <div className="hero-ctas rv d3">
+          <button className="btn-p" onClick={()=>setLayer('coach')}>{t.hero_cta}</button>
+          <button className="btn-g" onClick={()=>setLayer('esoteric')}>{t.hero_cta2}</button>
+        </div>
+        <div className="hero-stats rv d4">
+          <div><div className="hero-stat-val">6</div><div className="hero-stat-lab">{t.hero_stat_coaches}</div></div>
+          <div><div className="hero-stat-val">3</div><div className="hero-stat-lab">{t.hero_stat_systems}</div></div>
+          <div><div className="hero-stat-val">∞</div><div className="hero-stat-lab">{t.hero_stat_paths}</div></div>
+        </div>
       </div>
     </section>
   );
 }
 
-// ─── LAYER TABS ───────────────────────────────────────────────────────────────
+/* ═══════════════ LAYER TABS ═════════════════════════════════════════════ */
 function LayerTabs({layer,setLayer,lang}){
   const t=T[lang];
-  const tabs=[
-    {id:'coach',label:t.tab_coach,color:'var(--gold)'},
-    {id:'esoteric',label:t.tab_esoteric,color:'var(--indigo)'},
-    {id:'svarga',label:t.tab_svarga,color:'var(--purple)'},
-  ];
   return(
-    <div style={{display:'flex',justifyContent:'center',gap:8,marginBottom:48,flexWrap:'wrap',padding:'0 16px'}}>
-      {tabs.map(tab=>(
-        <button key={tab.id} onClick={()=>setLayer(tab.id)}
-          style={{fontFamily:'var(--font-b)',fontSize:13,letterSpacing:.5,
-            padding:'10px 24px',borderRadius:40,cursor:'pointer',transition:'all .2s',
-            border:`1px solid ${layer===tab.id?tab.color:'rgba(200,212,224,.15)'}`,
-            background:layer===tab.id?`${tab.color}18`:'transparent',
-            color:layer===tab.id?tab.color:'rgba(200,212,224,.5)',fontWeight:layer===tab.id?700:400}}>
-          {tab.label}
-        </button>
-      ))}
+    <div style={{display:'flex',justifyContent:'center',padding:'0 24px 36px'}}>
+      <div className="layer-tabs">
+        <button className={`layer-tab${layer==='coach'?' active':''}`}
+          onClick={()=>setLayer('coach')}>{t.layer_coach}</button>
+        <button className={`layer-tab indigo${layer==='esoteric'?' active':''}`}
+          onClick={()=>setLayer('esoteric')}>{t.layer_esoteric}</button>
+        <button className={`layer-tab purple${layer==='svarga'?' active':''}`}
+          onClick={()=>setLayer('svarga')}>{t.layer_svarga}</button>
+      </div>
     </div>
   );
 }
 
-// ─── COACH AVATAR ─────────────────────────────────────────────────────────────
-function CoachAvatar({coach,size=64}){
-  const initials=(coach.name.en||'').split(' ').map(w=>w[0]).join('').slice(0,2);
-  const hue=coach.color;
-  return(
-    <div style={{width:size,height:size,borderRadius:'50%',flexShrink:0,
-      background:`radial-gradient(circle at 35% 35%, ${hue}dd, ${coach.accent||hue}88)`,
-      border:`2px solid ${hue}66`,display:'flex',alignItems:'center',justifyContent:'center',
-      fontSize:size*0.32,fontFamily:'var(--font-d)',fontWeight:700,
-      color:'#0A0907',letterSpacing:1,userSelect:'none',boxShadow:`0 0 20px ${hue}44`}}>
-      {initials}
-    </div>
-  );
-}
-
-// ─── COACH CARD ───────────────────────────────────────────────────────────────
+/* ═══════════════ COACH CARD ═════════════════════════════════════════════ */
 function CoachCard({coach,lang,onSelect}){
   const t=T[lang];
-  const [hov,setHov]=React.useState(false);
   const name=coach.name[lang]||coach.name.en;
   const title=coach.title[lang]||coach.title.en;
   const tagline=coach.tagline[lang]||coach.tagline.en;
   const specs=(coach.specialties[lang]||coach.specialties.en||[]).slice(0,3);
+  const sessions=[1840,2230,990,1620,740,1180][COACHES.indexOf(coach)];
   return(
-    <div className="rv" onClick={()=>onSelect(coach)}
-      onMouseEnter={()=>setHov(true)} onMouseLeave={()=>setHov(false)}
-      style={{background:'var(--glass-bg)',border:`1px solid ${hov?coach.color+'66':'rgba(240,235,224,.08)'}`,
-        borderRadius:'var(--r2)',padding:24,cursor:'pointer',transition:'all .25s',
-        transform:hov?'translateY(-4px)':'none',
-        boxShadow:hov?`0 12px 40px ${coach.color}22`:'none',
-        display:'flex',flexDirection:'column',gap:16}}>
-      <div style={{display:'flex',alignItems:'center',gap:14}}>
-        <CoachAvatar coach={coach} size={60}/>
-        <div>
-          <div style={{fontFamily:'var(--font-d)',fontSize:18,color:'var(--platinum)',fontWeight:600}}>{name}</div>
-          <div style={{fontFamily:'var(--font-b)',fontSize:12,color:coach.color,opacity:.85,marginTop:2}}>{title}</div>
+    <div className="glass coach-card rv" onClick={()=>onSelect(coach)}
+      style={{'--accent':coach.color,'--card-accent':`${coach.color}14`}}>
+      <div style={{display:'flex',alignItems:'flex-start',gap:14}}>
+        <CoachAvatarFull coach={coach} size={88}/>
+        <div style={{flex:1,minWidth:0}}>
+          <div className="coach-name" style={{color:'var(--text-1)'}}>{name}</div>
+          <div className="coach-title">{title}</div>
+          <div className="coach-quote">"{tagline}"</div>
         </div>
       </div>
-      <p style={{fontFamily:'var(--font-b)',fontSize:13,color:'rgba(200,212,224,.65)',lineHeight:1.6,margin:0}}>
-        "{tagline}"
-      </p>
-      <div style={{display:'flex',gap:6,flexWrap:'wrap'}}>
-        {specs.map((s,i)=>(
-          <span key={i} style={{fontSize:10,padding:'3px 8px',borderRadius:20,
-            background:`${coach.color}18`,border:`1px solid ${coach.color}44`,
-            color:coach.color,fontFamily:'var(--font-b)',letterSpacing:.3}}>
-            {s}
-          </span>
-        ))}
+      <div className="detail-profile-specs">
+        {specs.map((s,i)=><span key={i} className="spec-pill">{s}</span>)}
       </div>
-      <div style={{textAlign:'right'}}>
-        <span style={{fontSize:11,color:coach.color,fontFamily:'var(--font-b)',
-          fontWeight:600,letterSpacing:.5}}>
-          {t.view_profile} →
-        </span>
+      <div className="coach-meta">
+        <div className="coach-rating">
+          <span className="coach-rating-star">★★★★★</span>
+          <span style={{marginLeft:4}}>4.{8+COACHES.indexOf(coach)%3}</span>
+        </div>
+        <div className="coach-sessions">{sessions?.toLocaleString()} sessions</div>
+        <button className="pill-btn" style={{fontSize:'.66rem',padding:'6px 14px',color:'var(--accent,var(--gold))',borderColor:'var(--accent,var(--gold))'}}>
+          {t.coach_view_profile} →
+        </button>
       </div>
     </div>
   );
 }
 
-// ─── COACH PROFILE ────────────────────────────────────────────────────────────
+/* ═══════════════ COACH PROFILE PAGE ════════════════════════════════════ */
 function CoachProfile({coach,lang,onStartChat,onBack}){
   const t=T[lang];
   const name=coach.name[lang]||coach.name.en;
   const title=coach.title[lang]||coach.title.en;
   const bio=coach.bio[lang]||coach.bio.en;
-  const philosophy=coach.philosophy[lang]||coach.philosophy.en;
+  const phil=coach.philosophy[lang]||coach.philosophy.en;
   const approach=coach.approach[lang]||coach.approach.en;
   const specs=coach.specialties[lang]||coach.specialties.en||[];
   return(
-    <div style={{maxWidth:700,margin:'0 auto',padding:'80px 20px 40px'}}>
-      <button onClick={onBack}
-        style={{background:'none',border:'none',color:'rgba(200,212,224,.5)',
-          cursor:'pointer',fontSize:13,fontFamily:'var(--font-b)',marginBottom:24,display:'flex',alignItems:'center',gap:6}}>
-        ← {t.back}
-      </button>
-      {/* Header */}
-      <div style={{display:'flex',alignItems:'center',gap:20,marginBottom:32,
-        background:'var(--glass-bg)',border:'1px solid rgba(240,235,224,.08)',
-        borderRadius:'var(--r2)',padding:24}}>
-        <CoachAvatar coach={coach} size={80}/>
+    <div className="detail-page">
+      <button className="detail-back" onClick={onBack}>← {t.profile_back}</button>
+      <div className="detail-grid">
+        {/* Left sticky column */}
+        <div className="detail-profile">
+          <CoachAvatarFull coach={coach} size={140}/>
+          <div className="detail-profile-h" style={{marginTop:20}}>{name}</div>
+          <div className="detail-profile-title" style={{'--accent':coach.color}}>{title}</div>
+          <p className="detail-profile-bio">{bio}</p>
+          <blockquote className="detail-profile-phil" style={{'--accent':coach.color}}>"{phil}"</blockquote>
+          <div className="detail-profile-specs">
+            {specs.map((s,i)=><span key={i} className="spec-pill" style={{'--accent':coach.color}}>{s}</span>)}
+          </div>
+          <button className="btn-p" style={{marginTop:24,width:'100%',justifyContent:'center',background:`linear-gradient(135deg,${coach.color},${coach.accent||coach.color})`}}
+            onClick={()=>onStartChat(coach)}>
+            {t.profile_start_chat} →
+          </button>
+        </div>
+        {/* Right content */}
         <div>
-          <h2 style={{fontFamily:'var(--font-d)',fontSize:'clamp(1.5rem,3vw,2rem)',
-            color:'var(--platinum)',margin:0,fontWeight:400}}>{name}</h2>
-          <div style={{fontFamily:'var(--font-b)',fontSize:13,color:coach.color,marginTop:4}}>{title}</div>
+          <div className="glass" style={{padding:28,marginBottom:18}}>
+            <div className="eyebrow" style={{marginBottom:12}}>{t.profile_approach}</div>
+            <p style={{fontSize:'.90rem',color:'var(--text-2)',lineHeight:1.78}}>{approach}</p>
+          </div>
+          <div className="glass" style={{padding:28,marginBottom:18,borderColor:`${coach.color}33`}}>
+            <div className="eyebrow" style={{marginBottom:12,color:coach.color}}>{t.profile_philosophy}</div>
+            <p style={{fontSize:'.90rem',color:'var(--text-1)',lineHeight:1.78,fontStyle:'italic'}}>"{phil}"</p>
+          </div>
+          <div className="glass" style={{padding:28}}>
+            <div className="eyebrow" style={{marginBottom:14}}>{t.profile_specialties}</div>
+            <div style={{display:'flex',flexWrap:'wrap',gap:8}}>
+              {specs.map((s,i)=>(
+                <span key={i} className="tag" style={{background:`${coach.color}14`,borderColor:`${coach.color}30`,color:coach.color}}>{s}</span>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
-      {/* Bio */}
-      <section style={{marginBottom:24,background:'var(--glass-bg)',
-        border:'1px solid rgba(240,235,224,.08)',borderRadius:'var(--r2)',padding:24}}>
-        <h3 style={{fontFamily:'var(--font-d)',color:'var(--gold)',fontSize:16,marginBottom:12,fontWeight:600}}>{t.about}</h3>
-        <p style={{fontFamily:'var(--font-b)',color:'rgba(200,212,224,.75)',lineHeight:1.8,margin:0,fontSize:14}}>{bio}</p>
-      </section>
-      {/* Philosophy */}
-      <section style={{marginBottom:24,background:'var(--glass-bg)',
-        border:`1px solid ${coach.color}33`,borderRadius:'var(--r2)',padding:24}}>
-        <h3 style={{fontFamily:'var(--font-d)',color:coach.color,fontSize:16,marginBottom:12,fontWeight:600}}>{t.philosophy}</h3>
-        <p style={{fontFamily:'var(--font-b)',color:'rgba(200,212,224,.75)',lineHeight:1.8,margin:0,fontSize:14,fontStyle:'italic'}}>"{philosophy}"</p>
-      </section>
-      {/* Approach */}
-      <section style={{marginBottom:24,background:'var(--glass-bg)',
-        border:'1px solid rgba(240,235,224,.08)',borderRadius:'var(--r2)',padding:24}}>
-        <h3 style={{fontFamily:'var(--font-d)',color:'var(--gold)',fontSize:16,marginBottom:12,fontWeight:600}}>{t.approach}</h3>
-        <p style={{fontFamily:'var(--font-b)',color:'rgba(200,212,224,.75)',lineHeight:1.8,margin:0,fontSize:14}}>{approach}</p>
-      </section>
-      {/* Specialties */}
-      <section style={{marginBottom:32,background:'var(--glass-bg)',
-        border:'1px solid rgba(240,235,224,.08)',borderRadius:'var(--r2)',padding:24}}>
-        <h3 style={{fontFamily:'var(--font-d)',color:'var(--gold)',fontSize:16,marginBottom:12,fontWeight:600}}>{t.specialties}</h3>
-        <div style={{display:'flex',gap:8,flexWrap:'wrap'}}>
-          {specs.map((s,i)=>(
-            <span key={i} style={{fontSize:12,padding:'5px 12px',borderRadius:20,
-              background:`${coach.color}18`,border:`1px solid ${coach.color}44`,
-              color:coach.color,fontFamily:'var(--font-b)'}}>{s}</span>
-          ))}
-        </div>
-      </section>
-      <button onClick={()=>onStartChat(coach)}
-        style={{width:'100%',background:`linear-gradient(135deg,${coach.color},${coach.accent||coach.color})`,
-          border:'none',borderRadius:12,padding:'15px',color:'#0A0907',fontWeight:700,
-          fontFamily:'var(--font-b)',fontSize:15,cursor:'pointer',letterSpacing:.5}}>
-        {t.start_session}
-      </button>
     </div>
   );
 }
 
-// ─── CHAT INTERFACE ───────────────────────────────────────────────────────────
+/* ═══════════════ CHAT INTERFACE ════════════════════════════════════════ */
 function ChatInterface({coach,lang,onBack}){
   const t=T[lang];
-  const [msgs,setMsgs]=React.useState([
-    {role:'coach',text:(coach.greeting&&(coach.greeting[lang]||coach.greeting.en))||
-      (lang==='ru'?`Здравствуйте. Я ${coach.name.ru||coach.name.en}. Чем могу помочь вам сегодня?`
-      :`Hello. I'm ${coach.name.en}. How can I support you today?`)}
-  ]);
-  const [input,setInput]=React.useState('');
-  const [typing,setTyping]=React.useState(false);
-  const [msgIdx,setMsgIdx]=React.useState(0);
-  const endRef=React.useRef(null);
-  React.useEffect(()=>{endRef.current?.scrollIntoView({behavior:'smooth'});},[msgs,typing]);
+  const name=coach.name[lang]||coach.name.en;
+  const greeting=lang==='ru'
+    ?`Здравствуйте. Я ${coach.name.ru||coach.name.en}. Чем могу вам помочь сегодня?`
+    :`Hello. I'm ${coach.name.en}. I'm here to support your growth. What's on your mind today?`;
+  const [msgs,setMsgs]=useState([{role:'coach',text:greeting}]);
+  const [input,setInput]=useState('');
+  const [typing,setTyping]=useState(false);
+  const [idx,setIdx]=useState(0);
+  const endRef=useRef(null);
+  useEffect(()=>{endRef.current?.scrollIntoView({behavior:'smooth'});},[msgs,typing]);
+
   function send(){
     const txt=input.trim();
-    if(!txt)return;
+    if(!txt||typing)return;
     setInput('');
     setMsgs(m=>[...m,{role:'user',text:txt}]);
     setTyping(true);
     setTimeout(()=>{
-      const reply=coachReply(coach.id,lang,msgIdx);
-      setMsgs(m=>[...m,{role:'coach',text:reply}]);
-      setMsgIdx(i=>i+1);
+      setMsgs(m=>[...m,{role:'coach',text:coachReply(coach.id,lang,idx)}]);
+      setIdx(i=>i+1);
       setTyping(false);
-    },1200+Math.random()*800);
+    },1200+Math.random()*700);
   }
-  const name=coach.name[lang]||coach.name.en;
+  function newSession(){
+    setMsgs([{role:'coach',text:greeting}]);
+    setIdx(0);
+  }
   return(
-    <div style={{maxWidth:680,margin:'0 auto',padding:'80px 16px 20px',display:'flex',flexDirection:'column',height:'100vh',boxSizing:'border-box'}}>
-      {/* Header */}
-      <div style={{display:'flex',alignItems:'center',gap:12,marginBottom:16,
-        background:'var(--glass-bg)',borderRadius:'var(--r2)',padding:'12px 16px',
-        border:'1px solid rgba(240,235,224,.08)',flexShrink:0}}>
-        <button onClick={onBack} style={{background:'none',border:'none',color:'rgba(200,212,224,.5)',cursor:'pointer',fontSize:18}}>←</button>
-        <CoachAvatar coach={coach} size={40}/>
-        <div>
-          <div style={{fontFamily:'var(--font-d)',fontSize:15,color:'var(--platinum)',fontWeight:600}}>{name}</div>
-          <div style={{fontSize:11,color:coach.color,fontFamily:'var(--font-b)'}}>{t.online}</div>
+    <div className="detail-page" style={{display:'flex',flexDirection:'column',paddingTop:80}}>
+      <div style={{display:'flex',alignItems:'center',gap:12,marginBottom:20}}>
+        <button className="detail-back" style={{marginBottom:0}} onClick={onBack}>← {t.chat_back}</button>
+        <div style={{flex:1}}/>
+        <button className="btn-g" style={{padding:'7px 16px',fontSize:'.68rem'}} onClick={newSession}>{t.chat_new_session}</button>
+      </div>
+      <div className="glass chat-wrap" style={{'--accent':coach.color}}>
+        {/* header */}
+        <div className="chat-header">
+          <CoachAvatarFull coach={coach} size={44}/>
+          <div className="chat-header-info">
+            <div className="chat-header-name">{name}</div>
+            <div className="chat-header-status">
+              <span className="chat-status-dot"/>
+              {t.chat_online}
+            </div>
+          </div>
         </div>
-        <button onClick={()=>setMsgs([{role:'coach',text:(coach.greeting&&(coach.greeting[lang]||coach.greeting.en))||name+': '+t.chat_placeholder}])}
-          style={{marginLeft:'auto',background:'rgba(200,212,224,.07)',border:'1px solid rgba(200,212,224,.15)',
-            borderRadius:8,padding:'5px 10px',color:'rgba(200,212,224,.5)',cursor:'pointer',fontSize:11,fontFamily:'var(--font-b)'}}>
-          {t.new_session}
-        </button>
-      </div>
-      {/* Messages */}
-      <div style={{flex:1,overflowY:'auto',display:'flex',flexDirection:'column',gap:12,paddingBottom:8}}>
-        {msgs.map((m,i)=>(
-          <div key={i} style={{display:'flex',gap:10,alignItems:'flex-end',
-            flexDirection:m.role==='user'?'row-reverse':'row'}}>
-            {m.role==='coach'&&<CoachAvatar coach={coach} size={32}/>}
-            <div style={{maxWidth:'75%',padding:'12px 16px',borderRadius:16,
-              background:m.role==='user'?`linear-gradient(135deg,${coach.color}cc,${coach.accent||coach.color}99)`:'var(--glass-bg)',
-              border:m.role==='user'?'none':'1px solid rgba(240,235,224,.08)',
-              color:m.role==='user'?'#0A0907':'var(--platinum)',
-              fontFamily:'var(--font-b)',fontSize:13,lineHeight:1.7,
-              borderBottomRightRadius:m.role==='user'?4:16,
-              borderBottomLeftRadius:m.role==='coach'?4:16}}>
-              {m.text}
+        {/* messages */}
+        <div className="chat-msgs">
+          {msgs.map((m,i)=>(
+            <div key={i} className={`msg ${m.role}`}>
+              {m.role==='coach'&&<CoachAvatarFull coach={coach} size={32}/>}
+              <div className="msg-bubble">{m.text}</div>
             </div>
-          </div>
-        ))}
-        {typing&&(
-          <div style={{display:'flex',gap:10,alignItems:'flex-end'}}>
-            <CoachAvatar coach={coach} size={32}/>
-            <div style={{padding:'12px 16px',borderRadius:16,borderBottomLeftRadius:4,
-              background:'var(--glass-bg)',border:'1px solid rgba(240,235,224,.08)'}}>
-              <span style={{display:'inline-flex',gap:4}}>
-                {[0,1,2].map(i=>(
-                  <span key={i} style={{width:6,height:6,borderRadius:'50%',background:coach.color,
-                    animation:'pulse 1.2s ease-in-out infinite',animationDelay:`${i*0.2}s`,display:'inline-block'}}/>
-                ))}
-              </span>
+          ))}
+          {typing&&(
+            <div className="typing-indicator">
+              <span/><span/><span/>
             </div>
-          </div>
-        )}
-        <div ref={endRef}/>
-      </div>
-      {/* Input */}
-      <div style={{display:'flex',gap:8,marginTop:8,flexShrink:0}}>
-        <input value={input} onChange={e=>setInput(e.target.value)}
-          onKeyDown={e=>e.key==='Enter'&&!e.shiftKey&&send()}
-          placeholder={t.chat_placeholder}
-          style={{flex:1,background:'var(--glass-bg)',border:'1px solid rgba(240,235,224,.12)',
-            borderRadius:12,padding:'12px 16px',color:'var(--platinum)',
-            fontFamily:'var(--font-b)',fontSize:13,outline:'none'}}/>
-        <button onClick={send}
-          style={{background:`linear-gradient(135deg,${coach.color},${coach.accent||coach.color})`,
-            border:'none',borderRadius:12,padding:'12px 18px',color:'#0A0907',
-            cursor:'pointer',fontWeight:700,fontSize:15}}>→</button>
+          )}
+          <div ref={endRef}/>
+        </div>
+        {/* input */}
+        <div className="chat-input-row">
+          <textarea className="chat-input" rows={1} value={input}
+            onChange={e=>setInput(e.target.value)}
+            onKeyDown={e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send();}}}
+            placeholder={t.chat_placeholder}/>
+          <button className="chat-send" onClick={send} disabled={!input.trim()||typing}>
+            {t.chat_send}
+          </button>
+        </div>
       </div>
     </div>
   );
 }
 
-// ─── ASTROLOGY TOOL v2 ────────────────────────────────────────────────────────
+/* ═══════════════ COACH LAYER ════════════════════════════════════════════ */
+function CoachLayer({lang,view,setView,selected,setSelected}){
+  const t=T[lang];
+  if(view==='chat'&&selected)
+    return<ChatInterface coach={selected} lang={lang} onBack={()=>setView('profile')}/>;
+  if(view==='profile'&&selected)
+    return<CoachProfile coach={selected} lang={lang}
+      onBack={()=>{setView('home');setSelected(null);}}
+      onStartChat={c=>{setSelected(c);setView('chat');}}/>;
+  return(
+    <div className="sp2">
+      <div className="mw">
+        <div className="sec-head rv">
+          <span className="tag">{t.layer_coach}</span>
+          <h2 className="sec-h">{t.hero_stat_coaches}</h2>
+          <p className="sec-sub">{t.coaches_sub}</p>
+          <div className="divider"/>
+        </div>
+        <div className="coach-grid">
+          {COACHES.map(c=>(
+            <CoachCard key={c.id} coach={c} lang={lang}
+              onSelect={c=>{setSelected(c);setView('profile');}}/>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ═══════════════ ASTROLOGY TOOL ════════════════════════════════════════ */
 function AstrologyTool({lang}){
   const t=T[lang];
-  const modes=['natal','compat','transit','solar','destiny'];
-  const [step,setStep]=React.useState(0);
-  const [mode,setMode]=React.useState('natal');
-  const [form,setForm]=React.useState({name:'',dob:'',btime:'',bloc:'',city:''});
-  const [form2,setForm2]=React.useState({name:'',dob:'',btime:'',bloc:''});
-  const [reading,setReading]=React.useState('');
-  const [loading,setLoading]=React.useState(false);
-  const modeIcons={natal:'☉',compat:'♀♂',transit:'♃',solar:'🌟',destiny:'☽'};
-  const modeLabels={natal:t.astro_natal,compat:t.astro_compat,transit:t.astro_transit,solar:t.astro_solar,destiny:t.astro_destiny};
+  const modes=[
+    {id:'natal',  icon:'☉', label:t.astro_natal},
+    {id:'compat', icon:'♀♂',label:t.astro_compat},
+    {id:'transit',icon:'♃', label:t.astro_transit},
+    {id:'solar',  icon:'★', label:t.astro_solar},
+    {id:'destiny',icon:'☽', label:t.astro_destiny},
+  ];
+  const [step,setStep]=useState(0);
+  const [mode,setMode]=useState('natal');
+  const [f,setF]=useState({name:'',dob:'',time:'',loc:'',city:''});
+  const [f2,setF2]=useState({name:'',dob:'',time:'',loc:''});
+  const [reading,setReading]=useState('');
+  const [loading,setLoading]=useState(false);
+  const modeObj=modes.find(x=>x.id===mode)||modes[0];
+
   function generate(){
     setLoading(true);
-    setTimeout(()=>{
-      setReading(getAstroReading(mode,lang));
-      setLoading(false);
-      setStep(mode==='compat'?3:2);
-    },1600);
+    setTimeout(()=>{setReading(getAstroReading(mode,lang));setLoading(false);setStep(mode==='compat'?3:2);},1800);
   }
-  function reset(){setStep(0);setReading('');setForm({name:'',dob:'',btime:'',bloc:'',city:''});setForm2({name:'',dob:'',btime:'',bloc:''});}
-  const inp={background:'rgba(24,20,14,.6)',border:'1px solid rgba(240,235,224,.12)',
-    borderRadius:8,padding:'10px 12px',color:'var(--platinum)',fontFamily:'var(--font-b)',
-    fontSize:13,width:'100%',boxSizing:'border-box',outline:'none'};
+  function reset(){setStep(0);setReading('');setF({name:'',dob:'',time:'',loc:'',city:''});setF2({name:'',dob:'',time:'',loc:''});}
+
   if(step===0) return(
     <div>
-      <h3 style={{fontFamily:'var(--font-d)',color:'var(--indigo)',fontSize:18,marginBottom:20,fontWeight:600,textAlign:'center'}}>{t.astro_choose_mode}</h3>
-      <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(140px,1fr))',gap:12}}>
+      <p className="form-label" style={{textAlign:'center',marginBottom:16,letterSpacing:'.1em'}}>{t.astro_mode}</p>
+      <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(130px,1fr))',gap:12}}>
         {modes.map(m=>(
-          <button key={m} onClick={()=>{setMode(m);setStep(1);}}
-            style={{background:'rgba(126,142,200,.08)',border:'1px solid rgba(126,142,200,.25)',
-              borderRadius:12,padding:'16px 12px',cursor:'pointer',
-              display:'flex',flexDirection:'column',alignItems:'center',gap:8,transition:'all .2s'}}
-            onMouseEnter={e=>{e.currentTarget.style.borderColor='var(--indigo)';e.currentTarget.style.background='rgba(126,142,200,.15)';}}
-            onMouseLeave={e=>{e.currentTarget.style.borderColor='rgba(126,142,200,.25)';e.currentTarget.style.background='rgba(126,142,200,.08)';}}>
-            <span style={{fontSize:22}}>{modeIcons[m]}</span>
-            <span style={{fontFamily:'var(--font-b)',fontSize:11,color:'var(--indigo)',textAlign:'center',lineHeight:1.3}}>{modeLabels[m]}</span>
+          <button key={m.id} onClick={()=>{setMode(m.id);setStep(1);}}
+            style={{background:'var(--surface-2)',border:'1px solid var(--border-md)',borderRadius:12,
+              padding:'18px 12px',cursor:'pointer',display:'flex',flexDirection:'column',
+              alignItems:'center',gap:10,transition:'all .2s',
+              fontFamily:'var(--font-b)'}}
+            onMouseEnter={e=>{e.currentTarget.style.borderColor='var(--indigo)';e.currentTarget.style.background='var(--indigo-f)';}}
+            onMouseLeave={e=>{e.currentTarget.style.borderColor='var(--border-md)';e.currentTarget.style.background='var(--surface-2)';}}>
+            <span style={{fontSize:22,display:'block'}}>{m.icon}</span>
+            <span style={{fontSize:'.72rem',color:'var(--text-2)',textAlign:'center',lineHeight:1.3}}>{m.label}</span>
           </button>
         ))}
       </div>
     </div>
   );
+
+  const fieldStyle={width:'100%',padding:'11px 14px',background:'var(--surface-2)',
+    border:'1px solid var(--border-md)',borderRadius:10,color:'var(--text-1)',
+    fontSize:'.88rem',outline:'none',fontFamily:'var(--font-b)'};
+
   if(step===1) return(
     <div>
-      <button onClick={()=>setStep(0)} style={{background:'none',border:'none',color:'rgba(200,212,224,.5)',cursor:'pointer',fontSize:12,fontFamily:'var(--font-b)',marginBottom:20}}>← {t.back}</button>
-      <h3 style={{fontFamily:'var(--font-d)',color:'var(--indigo)',fontSize:18,marginBottom:20,fontWeight:600,textAlign:'center'}}>
-        {modeIcons[mode]} {modeLabels[mode]}
+      <button className="detail-back" style={{marginBottom:20,fontSize:'.68rem'}} onClick={()=>setStep(0)}>← {t.back_to_tools}</button>
+      <h3 style={{fontFamily:'var(--font-d)',fontSize:'1.2rem',marginBottom:18,color:'var(--text-1)',textAlign:'center'}}>
+        {modeObj.icon} {modeObj.label}
       </h3>
-      <div style={{display:'flex',flexDirection:'column',gap:12,marginBottom:20}}>
-        <div><label style={{fontSize:11,color:'rgba(200,212,224,.5)',fontFamily:'var(--font-b)',display:'block',marginBottom:4}}>{t.astro_name}</label>
-          <input style={inp} value={form.name} onChange={e=>setForm(f=>({...f,name:e.target.value}))} placeholder={t.astro_name_ph}/></div>
-        <div><label style={{fontSize:11,color:'rgba(200,212,224,.5)',fontFamily:'var(--font-b)',display:'block',marginBottom:4}}>{t.astro_dob}</label>
-          <input style={inp} value={form.dob} onChange={e=>setForm(f=>({...f,dob:e.target.value}))} placeholder="DD.MM.YYYY"/></div>
-        <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:12}}>
-          <div><label style={{fontSize:11,color:'rgba(200,212,224,.5)',fontFamily:'var(--font-b)',display:'block',marginBottom:4}}>{t.astro_btime}</label>
-            <input style={inp} value={form.btime} onChange={e=>setForm(f=>({...f,btime:e.target.value}))} placeholder="HH:MM"/></div>
-          <div><label style={{fontSize:11,color:'rgba(200,212,224,.5)',fontFamily:'var(--font-b)',display:'block',marginBottom:4}}>{t.astro_bloc}</label>
-            <input style={inp} value={form.bloc} onChange={e=>setForm(f=>({...f,bloc:e.target.value}))} placeholder={t.astro_city_ph}/></div>
+      <div className="form-stack">
+        <div className="form-field">
+          <label className="form-label">{t.astro_name}</label>
+          <input style={fieldStyle} value={f.name} onChange={e=>setF(p=>({...p,name:e.target.value}))} placeholder="—"/>
         </div>
-        <div><label style={{fontSize:11,color:'rgba(200,212,224,.5)',fontFamily:'var(--font-b)',display:'block',marginBottom:4}}>{t.astro_city}</label>
-          <input style={inp} value={form.city} onChange={e=>setForm(f=>({...f,city:e.target.value}))} placeholder={t.astro_city_ph}/></div>
+        <div className="form-field">
+          <label className="form-label">{t.astro_dob}</label>
+          <input style={fieldStyle} value={f.dob} onChange={e=>setF(p=>({...p,dob:e.target.value}))} placeholder="DD.MM.YYYY"/>
+        </div>
+        <div className="form-row">
+          <div className="form-field">
+            <label className="form-label">{t.astro_time}</label>
+            <input style={fieldStyle} value={f.time} onChange={e=>setF(p=>({...p,time:e.target.value}))} placeholder="HH:MM"/>
+          </div>
+          <div className="form-field">
+            <label className="form-label">{t.astro_location}</label>
+            <input style={fieldStyle} value={f.loc} onChange={e=>setF(p=>({...p,loc:e.target.value}))} placeholder="—"/>
+          </div>
+        </div>
+        <div className="form-field">
+          <label className="form-label">{t.astro_city}</label>
+          <input style={fieldStyle} value={f.city} onChange={e=>setF(p=>({...p,city:e.target.value}))} placeholder="—"/>
+        </div>
+        {!f.time&&<p style={{fontSize:'.72rem',color:'var(--text-3)',textAlign:'center'}}>{t.astro_time_note}</p>}
       </div>
-      {mode==='compat'
-        ?<button onClick={()=>setStep(2)} disabled={!form.name||!form.dob}
-            style={{width:'100%',background:form.name&&form.dob?'linear-gradient(135deg,var(--indigo),#5a6db0)':'rgba(126,142,200,.2)',
-              border:'none',borderRadius:10,padding:'12px',color:form.name&&form.dob?'#fff':'rgba(200,212,224,.3)',
-              cursor:form.name&&form.dob?'pointer':'default',fontFamily:'var(--font-b)',fontSize:14,fontWeight:600}}>
-            {t.astro_next} →
-          </button>
-        :<button onClick={generate} disabled={!form.name||!form.dob||loading}
-            style={{width:'100%',background:form.name&&form.dob?'linear-gradient(135deg,var(--indigo),#5a6db0)':'rgba(126,142,200,.2)',
-              border:'none',borderRadius:10,padding:'12px',color:form.name&&form.dob?'#fff':'rgba(200,212,224,.3)',
-              cursor:form.name&&form.dob?'pointer':'default',fontFamily:'var(--font-b)',fontSize:14,fontWeight:600}}>
-            {loading?t.analyzing:t.astro_generate}
-          </button>}
+      <div style={{marginTop:20}}>
+        {mode==='compat'
+          ?<button className="cta-btn" style={{width:'100%',justifyContent:'center'}}
+              onClick={()=>setStep(2)} disabled={!f.name||!f.dob}>
+              {t.astro_q_next}
+            </button>
+          :<button className="cta-btn" style={{width:'100%',justifyContent:'center'}}
+              onClick={generate} disabled={!f.name||!f.dob||loading}>
+              {loading?t.astro_analyzing:t.astro_submit}
+            </button>}
+      </div>
     </div>
   );
+
   if(step===2&&mode==='compat') return(
     <div>
-      <button onClick={()=>setStep(1)} style={{background:'none',border:'none',color:'rgba(200,212,224,.5)',cursor:'pointer',fontSize:12,fontFamily:'var(--font-b)',marginBottom:20}}>← {t.back}</button>
-      <h3 style={{fontFamily:'var(--font-d)',color:'var(--indigo)',fontSize:16,marginBottom:20,fontWeight:600}}>{t.astro_partner}</h3>
-      <div style={{display:'flex',flexDirection:'column',gap:12,marginBottom:20}}>
-        <div><label style={{fontSize:11,color:'rgba(200,212,224,.5)',fontFamily:'var(--font-b)',display:'block',marginBottom:4}}>{t.astro_name}</label>
-          <input style={inp} value={form2.name} onChange={e=>setForm2(f=>({...f,name:e.target.value}))} placeholder={t.astro_name_ph}/></div>
-        <div><label style={{fontSize:11,color:'rgba(200,212,224,.5)',fontFamily:'var(--font-b)',display:'block',marginBottom:4}}>{t.astro_dob}</label>
-          <input style={inp} value={form2.dob} onChange={e=>setForm2(f=>({...f,dob:e.target.value}))} placeholder="DD.MM.YYYY"/></div>
-        <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:12}}>
-          <div><label style={{fontSize:11,color:'rgba(200,212,224,.5)',fontFamily:'var(--font-b)',display:'block',marginBottom:4}}>{t.astro_btime}</label>
-            <input style={inp} value={form2.btime} onChange={e=>setForm2(f=>({...f,btime:e.target.value}))} placeholder="HH:MM"/></div>
-          <div><label style={{fontSize:11,color:'rgba(200,212,224,.5)',fontFamily:'var(--font-b)',display:'block',marginBottom:4}}>{t.astro_bloc}</label>
-            <input style={inp} value={form2.bloc} onChange={e=>setForm2(f=>({...f,bloc:e.target.value}))} placeholder={t.astro_city_ph}/></div>
+      <button className="detail-back" style={{marginBottom:20,fontSize:'.68rem'}} onClick={()=>setStep(1)}>← {t.back_to_tools}</button>
+      <h3 style={{fontFamily:'var(--font-d)',fontSize:'1.1rem',marginBottom:18,color:'var(--text-1)'}}>{t.astro_partner_name}</h3>
+      <div className="form-stack">
+        <div className="form-field">
+          <label className="form-label">{t.astro_partner_name}</label>
+          <input style={fieldStyle} value={f2.name} onChange={e=>setF2(p=>({...p,name:e.target.value}))} placeholder="—"/>
+        </div>
+        <div className="form-field">
+          <label className="form-label">{t.astro_partner_dob}</label>
+          <input style={fieldStyle} value={f2.dob} onChange={e=>setF2(p=>({...p,dob:e.target.value}))} placeholder="DD.MM.YYYY"/>
+        </div>
+        <div className="form-row">
+          <div className="form-field">
+            <label className="form-label">{t.astro_time}</label>
+            <input style={fieldStyle} value={f2.time} onChange={e=>setF2(p=>({...p,time:e.target.value}))} placeholder="HH:MM"/>
+          </div>
+          <div className="form-field">
+            <label className="form-label">{t.astro_location}</label>
+            <input style={fieldStyle} value={f2.loc} onChange={e=>setF2(p=>({...p,loc:e.target.value}))} placeholder="—"/>
+          </div>
         </div>
       </div>
-      <button onClick={generate} disabled={!form2.name||!form2.dob||loading}
-        style={{width:'100%',background:form2.name&&form2.dob?'linear-gradient(135deg,var(--indigo),#5a6db0)':'rgba(126,142,200,.2)',
-          border:'none',borderRadius:10,padding:'12px',color:form2.name&&form2.dob?'#fff':'rgba(200,212,224,.3)',
-          cursor:form2.name&&form2.dob?'pointer':'default',fontFamily:'var(--font-b)',fontSize:14,fontWeight:600}}>
-        {loading?t.analyzing:t.astro_generate}
+      <button className="cta-btn" style={{width:'100%',justifyContent:'center',marginTop:20}}
+        onClick={generate} disabled={!f2.name||!f2.dob||loading}>
+        {loading?t.astro_analyzing:t.astro_submit}
       </button>
     </div>
   );
-  // Reading result (step 2 non-compat or step 3)
+
+  // Result
   return(
     <div>
-      <div style={{background:'rgba(126,142,200,.07)',border:'1px solid rgba(126,142,200,.2)',borderRadius:12,padding:20,marginBottom:20}}>
-        <div style={{fontSize:11,color:'var(--indigo)',fontFamily:'var(--font-b)',marginBottom:8,textTransform:'uppercase',letterSpacing:1}}>
-          {modeLabels[mode]} · {form.name}
+      <div style={{background:'var(--indigo-f)',border:'1px solid rgba(126,142,200,.25)',borderRadius:14,padding:22,marginBottom:18}}>
+        <div className="eyebrow" style={{color:'var(--indigo)',marginBottom:8}}>
+          {modeObj.icon} {modeObj.label} · {f.name}
         </div>
-        <p style={{fontFamily:'var(--font-b)',color:'rgba(200,212,224,.85)',lineHeight:1.8,margin:0,fontSize:13,whiteSpace:'pre-line'}}>{reading}</p>
+        <p style={{fontSize:'.88rem',color:'var(--text-2)',lineHeight:1.8}}>{reading}</p>
       </div>
-      <button onClick={reset}
-        style={{width:'100%',background:'rgba(126,142,200,.1)',border:'1px solid rgba(126,142,200,.3)',
-          borderRadius:10,padding:'11px',color:'var(--indigo)',cursor:'pointer',
-          fontFamily:'var(--font-b)',fontSize:13,fontWeight:600}}>
-        ↺ {t.new_reading}
-      </button>
+      <button className="btn-g" style={{width:'100%',justifyContent:'center'}} onClick={reset}>{t.astro_new}</button>
     </div>
   );
 }
 
-// ─── PYTHAGORAS TOOL ──────────────────────────────────────────────────────────
+/* ═══════════════ PYTHAGORAS TOOL ════════════════════════════════════════ */
 function PythagoraTool({lang}){
   const t=T[lang];
-  const [dob,setDob]=React.useState('');
-  const [result,setResult]=React.useState(null);
+  const [dob,setDob]=useState('');
+  const [res,setRes]=useState(null);
+  const [err,setErr]=useState('');
   function compute(){
     const r=calcPytha(dob);
-    if(r)setResult(r);
+    if(!r){setErr(t.pytha_error);return;}
+    setErr('');setRes(r);
   }
-  const NUMS={1:'☀',2:'🌙',3:'♃',4:'♄',5:'☿',6:'♀',7:'♅',8:'♂',9:'♆'};
+  const labels={n1:t.num_life,n2:'Vitality',n3:'Luck',n4:'Logic'};
   return(
     <div>
-      <div style={{display:'flex',gap:8,marginBottom:20}}>
-        <input value={dob} onChange={e=>setDob(e.target.value)} placeholder="DD.MM.YYYY"
-          style={{flex:1,background:'rgba(24,20,14,.6)',border:'1px solid rgba(240,235,224,.12)',
-            borderRadius:8,padding:'10px 12px',color:'var(--platinum)',fontFamily:'var(--font-b)',fontSize:13,outline:'none'}}/>
-        <button onClick={compute}
-          style={{background:'linear-gradient(135deg,var(--indigo),#5a6db0)',border:'none',
-            borderRadius:8,padding:'10px 18px',color:'#fff',cursor:'pointer',fontFamily:'var(--font-b)',fontSize:13,fontWeight:600}}>
-          {t.calculate}
-        </button>
+      <div style={{display:'flex',gap:10,marginBottom:err?8:20}}>
+        <input className="tool-input" value={dob} onChange={e=>{setDob(e.target.value);setErr('');}}
+          placeholder={t.pytha_placeholder} onKeyDown={e=>e.key==='Enter'&&compute()}/>
+        <button className="cta-btn" style={{whiteSpace:'nowrap',flexShrink:0}} onClick={compute}>{t.pytha_calc}</button>
       </div>
-      {result&&(
+      {err&&<p style={{fontSize:'.78rem',color:'#C85050',marginBottom:14,textAlign:'center'}}>{err}</p>}
+      {res&&(
         <div>
-          <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:4,marginBottom:20,maxWidth:200,margin:'0 auto 20px'}}>
+          <div className="pytha-grid">
             {[7,8,9,4,5,6,1,2,3].map(n=>{
-              const count=result.cnt[n]||0;
+              const c=res.cnt[n]||0;
               return(
-                <div key={n} style={{aspectRatio:'1',background:'rgba(126,142,200,.08)',
-                  border:'1px solid rgba(126,142,200,.2)',borderRadius:8,
-                  display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',gap:2}}>
-                  <div style={{fontSize:16}}>{NUMS[n]}</div>
-                  <div style={{fontSize:10,color:'var(--indigo)',fontFamily:'var(--font-b)'}}>{n}</div>
-                  <div style={{fontSize:13,color:'var(--platinum)',fontFamily:'var(--font-d)',fontWeight:700}}>
-                    {Array(count).fill('●').join('')||'○'}
-                  </div>
+                <div key={n} className={`pytha-cell${c===0?' empty':c>=3?' hot':' has'}`}>
+                  {c===0?n:String(n).repeat(c)}
                 </div>
               );
             })}
           </div>
-          <div style={{display:'grid',gridTemplateColumns:'repeat(2,1fr)',gap:8}}>
-            {[{k:'pytha_char',v:result.n1},{k:'pytha_health',v:result.n2},{k:'pytha_luck',v:result.n3},{k:'pytha_logic',v:result.n4}].map(({k,v})=>(
-              <div key={k} style={{background:'rgba(126,142,200,.07)',border:'1px solid rgba(126,142,200,.15)',
-                borderRadius:8,padding:'10px 12px',textAlign:'center'}}>
-                <div style={{fontSize:11,color:'rgba(200,212,224,.5)',fontFamily:'var(--font-b)',marginBottom:4}}>{t[k]||k}</div>
-                <div style={{fontSize:24,fontFamily:'var(--font-d)',color:'var(--indigo)',fontWeight:700}}>{v}</div>
+          <p className="form-label" style={{textAlign:'center',marginBottom:12}}>{t.pytha_working}</p>
+          <div className="working-nums">
+            {[['n1',res.n1,'Character'],['n2',res.n2,'Health'],['n3',res.n3,'Luck'],['n4',res.n4,'Logic']].map(([k,v,lbl])=>(
+              <div key={k} className="wnum">
+                <div className="wnum-val">{v}</div>
+                <div className="wnum-lab">{lbl}</div>
               </div>
             ))}
           </div>
@@ -1488,410 +1719,390 @@ function PythagoraTool({lang}){
   );
 }
 
-// ─── RUNE TOOL ────────────────────────────────────────────────────────────────
+/* ═══════════════ RUNE TOOL ══════════════════════════════════════════════ */
 function RuneTool({lang}){
   const t=T[lang];
-  const [drawn,setDrawn]=React.useState([]);
-  const [flipped,setFlipped]=React.useState([]);
+  const positions=[t.rune_past,t.rune_present,t.rune_future];
+  const [drawn,setDrawn]=useState([]);
+  const [flipped,setFlipped]=useState([]);
   function draw(){
-    const shuffled=[...RUNES].sort(()=>Math.random()-.5).slice(0,3);
-    setDrawn(shuffled);
+    setDrawn([...RUNES].sort(()=>Math.random()-.5).slice(0,3));
     setFlipped([]);
   }
-  function flip(i){if(!flipped.includes(i))setFlipped(f=>[...f,i]);}
   return(
     <div style={{textAlign:'center'}}>
-      <button onClick={draw}
-        style={{background:'linear-gradient(135deg,var(--indigo),#5a6db0)',border:'none',
-          borderRadius:10,padding:'12px 28px',color:'#fff',cursor:'pointer',
-          fontFamily:'var(--font-b)',fontSize:14,fontWeight:600,marginBottom:24}}>
-        ᚠ {t.draw_runes}
-      </button>
+      <button className="btn-p" style={{marginBottom:24}} onClick={draw}>ᚠ {t.rune_draw}</button>
       {drawn.length>0&&(
-        <div style={{display:'flex',gap:12,justifyContent:'center',flexWrap:'wrap'}}>
+        <div className="runes-display">
           {drawn.map((r,i)=>(
-            <div key={i} onClick={()=>flip(i)}
-              style={{width:90,cursor:'pointer',background:flipped.includes(i)?'rgba(126,142,200,.1)':'rgba(126,142,200,.05)',
-                border:'1px solid rgba(126,142,200,.25)',borderRadius:12,padding:'16px 8px',transition:'all .3s'}}>
-              <div style={{fontSize:32,marginBottom:8}}>{flipped.includes(i)?r.symbol:'?'}</div>
-              {flipped.includes(i)&&(
-                <div>
-                  <div style={{fontSize:12,fontFamily:'var(--font-d)',color:'var(--indigo)',marginBottom:4}}>{r.name}</div>
-                  <div style={{fontSize:10,color:'rgba(200,212,224,.6)',fontFamily:'var(--font-b)',lineHeight:1.4}}>
-                    {r.meaning[lang]||r.meaning.en}
-                  </div>
+            <div key={i} className="rune-card" onClick={()=>!flipped.includes(i)&&setFlipped(f=>[...f,i])}>
+              <div className="rune-pos">{positions[i]}</div>
+              <div className="rune-symbol">{flipped.includes(i)?r.sym:'?'}</div>
+              {flipped.includes(i)?(
+                <>
+                  <div className="rune-name">{r.name}</div>
+                  <div className="rune-meaning">{r.meaning[lang]||r.meaning.en}</div>
+                </>
+              ):(
+                <div style={{fontSize:'.72rem',color:'var(--text-3)',fontFamily:'var(--font-b)',letterSpacing:'.1em'}}>
+                  tap to reveal
                 </div>
-              )}
-              {!flipped.includes(i)&&(
-                <div style={{fontSize:10,color:'rgba(200,212,224,.4)',fontFamily:'var(--font-b)'}}>{t.tap_reveal||'tap'}</div>
               )}
             </div>
           ))}
         </div>
       )}
+      {drawn.length>0&&<button className="btn-g" onClick={draw}>{t.rune_again}</button>}
     </div>
   );
 }
 
-// ─── ARCHETYPE TOOL ───────────────────────────────────────────────────────────
+/* ═══════════════ ARCHETYPE TOOL ═════════════════════════════════════════ */
 function ArchetypeTool({lang}){
   const t=T[lang];
-  const QUESTIONS=[
-    {q:t.arch_q1,opts:[t.arch_q1_a,t.arch_q1_b,t.arch_q1_c]},
-    {q:t.arch_q2,opts:[t.arch_q2_a,t.arch_q2_b,t.arch_q2_c]},
-    {q:t.arch_q3,opts:[t.arch_q3_a,t.arch_q3_b,t.arch_q3_c]},
+  const QS=[
+    {q:t.arch_q1, opts:t.arch_a1},
+    {q:t.arch_q2, opts:t.arch_a2},
+    {q:t.arch_q3, opts:t.arch_a3},
   ];
-  const [answers,setAnswers]=React.useState([]);
-  const [result,setResult]=React.useState(null);
+  const [answers,setAnswers]=useState([]);
+  const [result,setResult]=useState(null);
   function answer(i){
     const next=[...answers,i];
     setAnswers(next);
-    if(next.length===3){
-      const idx=scoreArchetype(next);
-      setResult(ARCHETYPES[idx]);
-    }
+    if(next.length===3)setResult(scoreArchetype(next));
   }
   if(result) return(
-    <div style={{textAlign:'center'}}>
-      <div style={{fontSize:48,marginBottom:12}}>{result.symbol||'✦'}</div>
-      <h3 style={{fontFamily:'var(--font-d)',fontSize:22,color:'var(--indigo)',margin:'0 0 12px',fontWeight:400}}>
-        {result.name[lang]||result.name.en}
-      </h3>
-      <p style={{fontFamily:'var(--font-b)',fontSize:13,color:'rgba(200,212,224,.75)',lineHeight:1.7,marginBottom:20}}>
-        {result.desc[lang]||result.desc.en}
-      </p>
-      <button onClick={()=>{setAnswers([]);setResult(null);}}
-        style={{background:'rgba(126,142,200,.1)',border:'1px solid rgba(126,142,200,.3)',
-          borderRadius:10,padding:'10px 20px',color:'var(--indigo)',cursor:'pointer',
-          fontFamily:'var(--font-b)',fontSize:13,fontWeight:600}}>
-        ↺ {t.retake}
+    <div className="archetype-result glass">
+      <div style={{fontSize:36,marginBottom:8}}>{result.sym}</div>
+      <div className="archetype-name">{result.name[lang]||result.name.en}</div>
+      <div className="archetype-sub">{result.id}</div>
+      <p className="archetype-desc">{result.desc[lang]||result.desc.en}</p>
+      <button className="btn-g" style={{margin:'0 auto'}} onClick={()=>{setAnswers([]);setResult(null);}}>
+        {t.arch_retake}
       </button>
     </div>
   );
-  const q=QUESTIONS[answers.length];
+  const q=QS[answers.length];
   if(!q)return null;
   return(
-    <div>
-      <div style={{fontSize:11,color:'rgba(200,212,224,.4)',fontFamily:'var(--font-b)',marginBottom:12,textAlign:'center'}}>
-        {answers.length+1} / 3
-      </div>
-      <p style={{fontFamily:'var(--font-b)',fontSize:14,color:'var(--platinum)',marginBottom:16,textAlign:'center',lineHeight:1.6}}>{q.q}</p>
-      <div style={{display:'flex',flexDirection:'column',gap:8}}>
-        {q.opts.map((o,i)=>(
-          <button key={i} onClick={()=>answer(i)}
-            style={{background:'rgba(126,142,200,.06)',border:'1px solid rgba(126,142,200,.2)',
-              borderRadius:10,padding:'12px 16px',color:'rgba(200,212,224,.8)',
-              cursor:'pointer',fontFamily:'var(--font-b)',fontSize:13,textAlign:'left',transition:'all .15s'}}
-            onMouseEnter={e=>{e.currentTarget.style.borderColor='var(--indigo)';e.currentTarget.style.background='rgba(126,142,200,.12)';}}
-            onMouseLeave={e=>{e.currentTarget.style.borderColor='rgba(126,142,200,.2)';e.currentTarget.style.background='rgba(126,142,200,.06)';}}>
-            {o}
-          </button>
+    <div className="quiz-q">
+      <div className="form-label" style={{textAlign:'center',marginBottom:6}}>{answers.length+1} / 3</div>
+      <div className="quiz-q-text">{q.q}</div>
+      <div className="quiz-opts">
+        {(q.opts||[]).map((o,i)=>(
+          <button key={i} className="quiz-opt" onClick={()=>answer(i)}>{o}</button>
         ))}
       </div>
     </div>
   );
 }
 
-// ─── NUMEROLOGY TOOL ──────────────────────────────────────────────────────────
+/* ═══════════════ NUMEROLOGY TOOL ════════════════════════════════════════ */
 function NumerologyTool({lang}){
   const t=T[lang];
-  const [name,setName]=React.useState('');
-  const [dob,setDob]=React.useState('');
-  const [result,setResult]=React.useState(null);
+  const [name,setName]=useState('');
+  const [dob,setDob]=useState('');
+  const [res,setRes]=useState(null);
   function compute(){
-    if(!name&&!dob)return;
-    const life=dob?calcPytha(dob):null;
-    const nameN=name?numFromName(name):null;
-    setResult({life:life?life.n4:null,name:nameN,zodiac:dob?zodiacSign(dob,lang):null});
+    const pytha=dob?calcPytha(dob):null;
+    const nums=name?numFromName(name):null;
+    const zodiac=dob?zodiacSign(dob,lang):'';
+    setRes({life:pytha?.n4||null,dest:nums?.dest||null,soul:nums?.soul||null,persona:nums?.persona||null,zodiac});
   }
+  const fieldS={width:'100%',padding:'11px 14px',background:'var(--surface-2)',border:'1px solid var(--border-md)',borderRadius:10,color:'var(--text-1)',fontSize:'.88rem',outline:'none',fontFamily:'var(--font-b)'};
   return(
     <div>
-      <div style={{display:'flex',flexDirection:'column',gap:10,marginBottom:16}}>
-        <input value={name} onChange={e=>setName(e.target.value)} placeholder={t.num_name_ph||t.astro_name_ph}
-          style={{background:'rgba(24,20,14,.6)',border:'1px solid rgba(240,235,224,.12)',
-            borderRadius:8,padding:'10px 12px',color:'var(--platinum)',fontFamily:'var(--font-b)',fontSize:13,outline:'none'}}/>
-        <input value={dob} onChange={e=>setDob(e.target.value)} placeholder="DD.MM.YYYY"
-          style={{background:'rgba(24,20,14,.6)',border:'1px solid rgba(240,235,224,.12)',
-            borderRadius:8,padding:'10px 12px',color:'var(--platinum)',fontFamily:'var(--font-b)',fontSize:13,outline:'none'}}/>
+      <div className="form-stack" style={{marginBottom:16}}>
+        <div className="form-field">
+          <label className="form-label">{t.num_name}</label>
+          <input style={fieldS} value={name} onChange={e=>setName(e.target.value)} placeholder="—"/>
+        </div>
+        <div className="form-field">
+          <label className="form-label">{t.num_dob}</label>
+          <input style={fieldS} value={dob} onChange={e=>setDob(e.target.value)} placeholder="DD.MM.YYYY"/>
+        </div>
       </div>
-      <button onClick={compute}
-        style={{width:'100%',background:'linear-gradient(135deg,var(--indigo),#5a6db0)',border:'none',
-          borderRadius:10,padding:'11px',color:'#fff',cursor:'pointer',fontFamily:'var(--font-b)',fontSize:14,fontWeight:600,marginBottom:16}}>
-        {t.calculate}
-      </button>
-      {result&&(
-        <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:10}}>
-          {result.life&&<div style={{background:'rgba(126,142,200,.08)',border:'1px solid rgba(126,142,200,.2)',borderRadius:10,padding:'14px',textAlign:'center'}}>
-            <div style={{fontSize:10,color:'rgba(200,212,224,.5)',fontFamily:'var(--font-b)',marginBottom:6}}>{t.num_life}</div>
-            <div style={{fontSize:28,fontFamily:'var(--font-d)',color:'var(--indigo)',fontWeight:700}}>{result.life}</div>
-          </div>}
-          {result.name&&<div style={{background:'rgba(126,142,200,.08)',border:'1px solid rgba(126,142,200,.2)',borderRadius:10,padding:'14px',textAlign:'center'}}>
-            <div style={{fontSize:10,color:'rgba(200,212,224,.5)',fontFamily:'var(--font-b)',marginBottom:6}}>{t.num_name}</div>
-            <div style={{fontSize:28,fontFamily:'var(--font-d)',color:'var(--indigo)',fontWeight:700}}>{result.name}</div>
-          </div>}
-          {result.zodiac&&<div style={{background:'rgba(126,142,200,.08)',border:'1px solid rgba(126,142,200,.2)',borderRadius:10,padding:'14px',textAlign:'center'}}>
-            <div style={{fontSize:10,color:'rgba(200,212,224,.5)',fontFamily:'var(--font-b)',marginBottom:6}}>{t.num_zodiac}</div>
-            <div style={{fontSize:18,color:'var(--indigo)',fontFamily:'var(--font-b)',marginTop:4}}>{result.zodiac}</div>
-          </div>}
+      <button className="cta-btn" style={{width:'100%',justifyContent:'center'}}
+        onClick={compute} disabled={!name&&!dob}>{t.num_calc}</button>
+      {res&&(
+        <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(110px,1fr))',gap:10,marginTop:20}}>
+          {[
+            {label:t.num_life,val:res.life},
+            {label:t.num_destiny,val:res.dest},
+            {label:t.num_soul,val:res.soul},
+            {label:t.num_persona,val:res.persona},
+          ].filter(x=>x.val).map(({label,val})=>(
+            <div key={label} style={{background:'var(--indigo-f)',border:'1px solid rgba(126,142,200,.2)',
+              borderRadius:12,padding:'14px',textAlign:'center'}}>
+              <div className="form-label" style={{marginBottom:6}}>{label}</div>
+              <div style={{fontFamily:'var(--font-d)',fontSize:'2.2rem',color:'var(--indigo)',fontWeight:400}}>{val}</div>
+            </div>
+          ))}
+          {res.zodiac&&(
+            <div style={{background:'var(--gold-f)',border:'1px solid rgba(212,178,122,.2)',
+              borderRadius:12,padding:'14px',textAlign:'center',gridColumn:'span 1'}}>
+              <div className="form-label" style={{marginBottom:6}}>Zodiac</div>
+              <div style={{fontSize:'1.1rem',color:'var(--gold)',marginTop:4}}>{res.zodiac}</div>
+            </div>
+          )}
         </div>
       )}
     </div>
   );
 }
 
-// ─── PERSONALITY TOOL ─────────────────────────────────────────────────────────
+/* ═══════════════ PERSONALITY TOOL (BIG FIVE SLIDERS) ═══════════════════ */
 function PersonalityTool({lang}){
   const t=T[lang];
-  const [input,setInput]=React.useState('');
-  const [result,setResult]=React.useState('');
-  const [loading,setLoading]=React.useState(false);
-  const profiles={
-    en:["Your responses reveal a **Visionary-Analyst** pattern: you process the world through structured intuition. You tend to see systems before you see details, and your deepest frustration comes when reality moves slower than your inner model. Your core strength: making the invisible legible. Your growth edge: releasing the need to already know the answer before asking the question.",
-        "The profile that emerges is a **Connector-Builder**: someone who draws energy from other people but executes best alone. You have an unusual talent for reading what's unspoken in a room, and this makes you a natural architect of trust. Your challenge: you give so consistently that you sometimes neglect the inventory of your own needs.",
-        "Your pattern matches the **Sovereign archetype**: independent, self-directed, and most alive when given complete ownership of a domain. You are not difficult — you are precise. You know what excellence feels like from the inside, and you cannot pretend otherwise. The invitation: bring others into your vision rather than executing it in isolation."],
-    ru:["Ваши ответы раскрывают паттерн **Визионера-Аналитика**: вы обрабатываете мир через структурированную интуицию. Вы склонны видеть системы раньше деталей, а ваше глубочайшее разочарование возникает, когда реальность движется медленнее вашей внутренней модели. Ваша сильная сторона: делать невидимое понятным. Ваша точка роста: освободиться от необходимости знать ответ до постановки вопроса.",
-        "Профиль, который проявляется, — **Коннектор-Строитель**: кто-то, кто черпает энергию от людей, но лучше всего работает в одиночестве. У вас есть редкий талант читать невысказанное в комнате. Ваш вызов: вы отдаёте настолько последовательно, что иногда пренебрегаете своими собственными потребностями.",
-        "Ваш паттерн соответствует архетипу **Суверена**: независимого, самонаправленного, живущего в полную силу, когда ему дано полное владение областью. Вы не сложны — вы точны. Приглашение: привлекайте других к своему видению, а не реализуйте его в изоляции."]
+  const dims=t.persona_dims||[];
+  const [vals,setVals]=useState([50,60,45,70,55]);
+  const [revealed,setRevealed]=useState(false);
+  const interprets={
+    en:["Your profile reveals a **Visionary-Analyst** pattern: structured intuition, systems thinking, and a deep frustration when reality moves slower than your internal model. Core strength: making the invisible legible. Growth edge: releasing the need to know the answer before asking the question.",
+        "The profile shows a **Connector-Architect**: drawing energy from others while executing best alone. Unusual talent for reading unspoken dynamics. Challenge: you give so consistently that the inventory of your own needs gets overlooked.",
+        "Your pattern matches the **Sovereign**: independent, self-directed, most alive when given complete domain ownership. You are not difficult — you are precise. The invitation: bring others into your vision rather than executing it alone."],
+    ru:["Ваш профиль раскрывает паттерн **Визионера-Аналитика**: структурированная интуиция, системное мышление, глубокое разочарование, когда реальность движется медленнее вашей внутренней модели. Ваша сила: делать невидимое понятным. Точка роста: отпустить потребность знать ответ до вопроса.",
+        "Профиль показывает **Коннектора-Архитектора**: черпает энергию от людей, но лучше работает в одиночестве. Редкий талант — читать невысказанную динамику. Вызов: вы отдаёте так последовательно, что ваши потребности остаются без внимания.",
+        "Ваш паттерн — **Суверен**: независимый, самонаправленный, живущий в полную силу при полном владении областью. Вы не сложны — вы точны. Приглашение: привлекайте других к своему видению."]
   };
+  function getInterpret(){
+    const pool=lang==='ru'?interprets.ru:interprets.en;
+    return pick(pool);
+  }
+  const [interpretation,setInterpretation]=useState('');
+  function reveal(){setInterpretation(getInterpret());setRevealed(true);}
+  return(
+    <div>
+      <div className="slider-stack" style={{marginBottom:20}}>
+        {dims.map(([letter,name,hiLbl,loLbl],i)=>(
+          <div key={i} className="slider-row">
+            <div className="slider-labels">
+              <span>{hiLbl}</span>
+              <span style={{color:'var(--text-1)',fontWeight:500}}>{name}</span>
+              <span>{loLbl}</span>
+            </div>
+            <input type="range" className="slider-input" min="0" max="100" value={vals[i]}
+              onChange={e=>{const n=[...vals];n[i]=+e.target.value;setVals(n);setRevealed(false);}}/>
+            <div style={{display:'flex',justifyContent:'space-between',marginTop:4}}>
+              <span style={{fontSize:'.58rem',color:'var(--text-3)',letterSpacing:'.1em',textTransform:'uppercase'}}>{letter}</span>
+              <span style={{fontSize:'.72rem',color:'var(--indigo)',fontWeight:600}}>{vals[i]}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+      <button className="cta-btn" style={{width:'100%',justifyContent:'center'}} onClick={reveal}>{t.persona_reveal}</button>
+      {revealed&&(
+        <div style={{marginTop:20,background:'var(--indigo-f)',border:'1px solid rgba(126,142,200,.2)',borderRadius:12,padding:20}}>
+          <p style={{fontSize:'.88rem',color:'var(--text-2)',lineHeight:1.78}}>{interpretation}</p>
+          <button className="btn-g" style={{marginTop:12,fontSize:'.68rem'}} onClick={reveal}>{t.persona_retake}</button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ═══════════════ ESOTERIC LAYER ═════════════════════════════════════════ */
+function EsotericLayer({lang}){
+  const t=T[lang];
+  const tools=[
+    {id:'astro', icon:'☉', name:t.tool_astro,  desc:lang==='ru'?'Натальная карта, транзиты, совместимость':'Natal chart, transits, compatibility & more',comp:'astro'},
+    {id:'pytha', icon:'◉', name:t.tool_pytha,  desc:lang==='ru'?'Матрица судьбы по дате рождения':'Fate matrix from your date of birth',comp:'pytha'},
+    {id:'runes', icon:'ᚠ', name:t.tool_runes,  desc:lang==='ru'?'Оракул Старшего Футарка из 24 рун':'Elder Futhark oracle — 24 ancient runes',comp:'runes'},
+    {id:'arch',  icon:'✦', name:t.tool_archetype,desc:lang==='ru'?'Откройте ваш главный архетип':'Discover your dominant archetype',comp:'arch'},
+    {id:'num',   icon:'∞', name:t.tool_num,    desc:lang==='ru'?'Числа судьбы, жизненного пути и зодиак':'Destiny, life path numbers & zodiac',comp:'num'},
+    {id:'pers',  icon:'◈', name:t.tool_persona,desc:lang==='ru'?'Профиль Большой Пятёрки':'Big Five personality calibration',comp:'pers'},
+  ];
+  const [active,setActive]=useState(null);
+  if(active){
+    const tool=tools.find(x=>x.id===active);
+    return(
+      <div className="sp2">
+        <div className="mw" style={{maxWidth:720}}>
+          <button className="detail-back" style={{marginBottom:20}} onClick={()=>setActive(null)}>← {t.back_to_tools}</button>
+          <h2 style={{fontFamily:'var(--font-d)',fontSize:'1.6rem',marginBottom:24,fontWeight:400,color:'var(--text-1)'}}>
+            {tool.icon} {tool.name}
+          </h2>
+          <div className="glass" style={{padding:28}}>
+            {active==='astro'&&<AstrologyTool lang={lang}/>}
+            {active==='pytha'&&<PythagoraTool lang={lang}/>}
+            {active==='runes'&&<RuneTool lang={lang}/>}
+            {active==='arch' &&<ArchetypeTool lang={lang}/>}
+            {active==='num'  &&<NumerologyTool lang={lang}/>}
+            {active==='pers' &&<PersonalityTool lang={lang}/>}
+          </div>
+        </div>
+      </div>
+    );
+  }
+  return(
+    <div className="sp2">
+      <div className="mw">
+        <div className="sec-head rv">
+          <span className="tag" style={{background:'var(--indigo-f)',borderColor:'rgba(126,142,200,.25)',color:'var(--indigo)'}}>{t.esoteric_title}</span>
+          <h2 className="sec-h">{t.layer_esoteric}</h2>
+          <p className="sec-sub">{t.esoteric_sub}</p>
+          <div className="divider" style={{background:'linear-gradient(90deg,transparent,var(--indigo),transparent)'}}/>
+        </div>
+        <div className="tools-grid">
+          {tools.map((tool)=>(
+            <div key={tool.id} className="glass tool-card rv"
+              style={{'--accent':'var(--indigo)','--accent-bg':'var(--indigo-f)'}}
+              onClick={()=>setActive(tool.id)}>
+              <div className="tool-icon">{tool.icon}</div>
+              <div>
+                <div className="tool-name">{tool.name}</div>
+                <p className="tool-desc">{tool.desc}</p>
+              </div>
+              <div className="tool-cta">{lang==='ru'?'Открыть':'Open'} →</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ═══════════════ SVARGA LAYER ═══════════════════════════════════════════ */
+function SvargaLayer({lang}){
+  const t=T[lang];
+  const dims=t.svarga_dims||[];
+  const dimIcons=['🌿','🌬','⚡','🧠','🏃','✨'];
+  const [input,setInput]=useState('');
+  const [loading,setLoading]=useState(false);
+  const [results,setResults]=useState(null);
   function analyze(){
     if(!input.trim())return;
     setLoading(true);
     setTimeout(()=>{
-      const pool=lang==='ru'?profiles.ru:profiles.en;
-      setResult(pick(pool));
+      setResults(generateSvarga(input,lang));
       setLoading(false);
-    },1400);
+    },1800+Math.random()*600);
   }
+  function reset(){setResults(null);setInput('');}
   return(
-    <div>
-      <p style={{fontFamily:'var(--font-b)',fontSize:13,color:'rgba(200,212,224,.6)',marginBottom:12,lineHeight:1.6}}>{t.personality_prompt||t.svarga_intro}</p>
-      <textarea value={input} onChange={e=>setInput(e.target.value)} rows={4}
-        placeholder={t.personality_ph||t.chat_placeholder}
-        style={{width:'100%',background:'rgba(24,20,14,.6)',border:'1px solid rgba(240,235,224,.12)',
-          borderRadius:8,padding:'10px 12px',color:'var(--platinum)',fontFamily:'var(--font-b)',
-          fontSize:13,outline:'none',resize:'vertical',boxSizing:'border-box',marginBottom:12}}/>
-      <button onClick={analyze} disabled={!input.trim()||loading}
-        style={{width:'100%',background:input.trim()?'linear-gradient(135deg,var(--indigo),#5a6db0)':'rgba(126,142,200,.2)',
-          border:'none',borderRadius:10,padding:'11px',color:input.trim()?'#fff':'rgba(200,212,224,.3)',
-          cursor:input.trim()?'pointer':'default',fontFamily:'var(--font-b)',fontSize:14,fontWeight:600,marginBottom:16}}>
-        {loading?t.analyzing:t.analyze}
-      </button>
-      {result&&(
-        <div style={{background:'rgba(126,142,200,.07)',border:'1px solid rgba(126,142,200,.2)',borderRadius:12,padding:16}}>
-          <p style={{fontFamily:'var(--font-b)',fontSize:13,color:'rgba(200,212,224,.85)',lineHeight:1.8,margin:0}}>{result}</p>
+    <div className="sp2">
+      <div className="mw">
+        <div className="sec-head rv">
+          <span className="tag" style={{background:'var(--purple-f)',borderColor:'rgba(176,126,204,.25)',color:'var(--purple)'}}>{t.svarga_title}</span>
+          <h2 className="sec-h">{t.layer_svarga}</h2>
+          <p className="sec-sub">{t.svarga_sub}</p>
+          <div className="divider" style={{background:'linear-gradient(90deg,transparent,var(--purple),transparent)'}}/>
         </div>
-      )}
-    </div>
-  );
-}
-
-// ─── ESOTERIC LAYER ───────────────────────────────────────────────────────────
-function EsotericLayer({lang}){
-  const t=T[lang];
-  const tools=[
-    {id:'astro',icon:'☉',label:t.tool_astro,comp:<AstrologyTool lang={lang}/>},
-    {id:'pytha',icon:'◉',label:t.tool_pytha,comp:<PythagoraTool lang={lang}/>},
-    {id:'runes',icon:'ᚠ',label:t.tool_runes,comp:<RuneTool lang={lang}/>},
-    {id:'arch', icon:'✦',label:t.tool_arch, comp:<ArchetypeTool lang={lang}/>},
-    {id:'num',  icon:'∞',label:t.tool_num,  comp:<NumerologyTool lang={lang}/>},
-    {id:'pers', icon:'◈',label:t.tool_pers, comp:<PersonalityTool lang={lang}/>},
-  ];
-  const [active,setActive]=React.useState('astro');
-  const current=tools.find(x=>x.id===active);
-  return(
-    <div style={{maxWidth:780,margin:'0 auto',padding:'0 16px 60px'}}>
-      {/* Tool nav pills */}
-      <div style={{display:'flex',gap:6,flexWrap:'wrap',marginBottom:28,justifyContent:'center'}}>
-        {tools.map(tool=>(
-          <button key={tool.id} onClick={()=>setActive(tool.id)}
-            style={{fontFamily:'var(--font-b)',fontSize:12,padding:'7px 14px',borderRadius:30,cursor:'pointer',
-              border:`1px solid ${active===tool.id?'var(--indigo)':'rgba(126,142,200,.2)'}`,
-              background:active===tool.id?'rgba(126,142,200,.15)':'transparent',
-              color:active===tool.id?'var(--indigo)':'rgba(200,212,224,.5)',transition:'all .15s'}}>
-            {tool.icon} {tool.label}
-          </button>
-        ))}
-      </div>
-      {/* Tool card */}
-      <div style={{background:'var(--glass-bg)',border:'1px solid rgba(126,142,200,.15)',
-        borderRadius:'var(--r2)',padding:28}}>
-        <h3 style={{fontFamily:'var(--font-d)',color:'var(--indigo)',fontSize:20,marginBottom:20,fontWeight:400,textAlign:'center'}}>
-          {current.icon} {current.label}
-        </h3>
-        {current.comp}
-      </div>
-    </div>
-  );
-}
-
-// ─── SVARGA CHAT ─────────────────────────────────────────────────────────────
-function SvargaLayer({lang}){
-  const t=T[lang];
-  const [msgs,setMsgs]=React.useState([
-    {role:'svarga',text:t.svarga_greeting}
-  ]);
-  const [input,setInput]=React.useState('');
-  const [typing,setTyping]=React.useState(false);
-  const endRef=React.useRef(null);
-  React.useEffect(()=>{endRef.current?.scrollIntoView({behavior:'smooth'});},[msgs,typing]);
-  function send(){
-    const txt=input.trim();
-    if(!txt)return;
-    setInput('');
-    setMsgs(m=>[...m,{role:'user',text:txt}]);
-    setTyping(true);
-    setTimeout(()=>{
-      const reply=generateSvarga(txt,lang);
-      setMsgs(m=>[...m,{role:'svarga',text:reply}]);
-      setTyping(false);
-    },1600+Math.random()*800);
-  }
-  return(
-    <div style={{maxWidth:680,margin:'0 auto',padding:'0 16px 20px',display:'flex',flexDirection:'column',height:'calc(100vh - 200px)'}}>
-      <div style={{textAlign:'center',marginBottom:20,flexShrink:0}}>
-        <div style={{fontSize:32,marginBottom:4}}>🌿</div>
-        <h2 style={{fontFamily:'var(--font-d)',color:'var(--purple)',fontSize:22,margin:0,fontWeight:400}}>{t.svarga_title}</h2>
-        <p style={{fontFamily:'var(--font-b)',fontSize:12,color:'rgba(200,212,224,.5)',margin:'6px 0 0'}}>{t.svarga_sub}</p>
-      </div>
-      <div style={{flex:1,overflowY:'auto',display:'flex',flexDirection:'column',gap:12,paddingBottom:8}}>
-        {msgs.map((m,i)=>(
-          <div key={i} style={{display:'flex',gap:10,alignItems:'flex-end',
-            flexDirection:m.role==='user'?'row-reverse':'row'}}>
-            {m.role==='svarga'&&(
-              <div style={{width:32,height:32,borderRadius:'50%',flexShrink:0,
-                background:'linear-gradient(135deg,#B07ECC,#7E8EC8)',
-                display:'flex',alignItems:'center',justifyContent:'center',fontSize:14}}>🌿</div>
-            )}
-            <div style={{maxWidth:'78%',padding:'12px 16px',borderRadius:16,
-              background:m.role==='user'?'linear-gradient(135deg,#B07ECC99,#7E8EC888)':'var(--glass-bg)',
-              border:m.role==='user'?'none':'1px solid rgba(176,126,204,.15)',
-              color:m.role==='user'?'#0A0907':'var(--platinum)',
-              fontFamily:'var(--font-b)',fontSize:13,lineHeight:1.7,whiteSpace:'pre-line',
-              borderBottomRightRadius:m.role==='user'?4:16,
-              borderBottomLeftRadius:m.role==='svarga'?4:16}}>
-              {m.text}
-            </div>
-          </div>
-        ))}
-        {typing&&(
-          <div style={{display:'flex',gap:10,alignItems:'flex-end'}}>
-            <div style={{width:32,height:32,borderRadius:'50%',background:'linear-gradient(135deg,#B07ECC,#7E8EC8)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:14}}>🌿</div>
-            <div style={{padding:'12px 16px',borderRadius:16,borderBottomLeftRadius:4,background:'var(--glass-bg)',border:'1px solid rgba(176,126,204,.15)'}}>
-              <span style={{display:'inline-flex',gap:4}}>
-                {[0,1,2].map(i=>(
-                  <span key={i} style={{width:6,height:6,borderRadius:'50%',background:'var(--purple)',
-                    animation:'pulse 1.2s ease-in-out infinite',animationDelay:`${i*0.2}s`,display:'inline-block'}}/>
-                ))}
-              </span>
+        {!results&&!loading&&(
+          <div className="svarga-input-wrap rv">
+            <div className="glass" style={{padding:28}}>
+              <textarea className="form-textarea" value={input} onChange={e=>setInput(e.target.value)}
+                placeholder={t.svarga_placeholder} style={{minHeight:140,marginBottom:16,
+                  background:'var(--surface-2)',border:'1px solid var(--border-md)',
+                  borderRadius:10,color:'var(--text-1)',width:'100%',padding:'12px 16px',
+                  fontFamily:'var(--font-b)',fontSize:'.9rem',outline:'none',resize:'vertical'}}/>
+              <button className="cta-btn" style={{justifyContent:'center',background:'linear-gradient(135deg,var(--purple),#7E8EC8)',width:'100%'}}
+                onClick={analyze} disabled={!input.trim()}>
+                {t.svarga_submit}
+              </button>
             </div>
           </div>
         )}
-        <div ref={endRef}/>
-      </div>
-      <div style={{display:'flex',gap:8,marginTop:8,flexShrink:0}}>
-        <input value={input} onChange={e=>setInput(e.target.value)}
-          onKeyDown={e=>e.key==='Enter'&&!e.shiftKey&&send()}
-          placeholder={t.svarga_ph||t.chat_placeholder}
-          style={{flex:1,background:'var(--glass-bg)',border:'1px solid rgba(176,126,204,.2)',
-            borderRadius:12,padding:'12px 16px',color:'var(--platinum)',
-            fontFamily:'var(--font-b)',fontSize:13,outline:'none'}}/>
-        <button onClick={send}
-          style={{background:'linear-gradient(135deg,#B07ECC,#7E8EC8)',border:'none',
-            borderRadius:12,padding:'12px 18px',color:'#fff',cursor:'pointer',fontWeight:700,fontSize:15}}>→</button>
+        {loading&&(
+          <div className="svarga-loading">
+            <div className="svarga-loader" style={{borderTopColor:'var(--purple)'}}/>
+            <p className="svarga-loading-text">{t.svarga_analyzing}</p>
+          </div>
+        )}
+        {results&&(
+          <div>
+            <div className="svarga-result">
+              {results.map((block,i)=>(
+                <div key={i} className="svarga-block glass">
+                  <div className="svarga-block-head">
+                    <div className="svarga-block-icon">{dimIcons[i]||'✦'}</div>
+                    <div>
+                      <div className="svarga-block-title">{dims[i]||block.dim}</div>
+                    </div>
+                  </div>
+                  <div className="svarga-block-body">{block.text}</div>
+                </div>
+              ))}
+            </div>
+            <div style={{textAlign:'center',marginTop:28}}>
+              <button className="btn-g" onClick={reset}>↺ {lang==='ru'?'Новый анализ':'New Analysis'}</button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
 }
 
-// ─── FOOTER ──────────────────────────────────────────────────────────────────
+/* ═══════════════ FOOTER ═════════════════════════════════════════════════ */
 function Footer({lang}){
   const t=T[lang];
   return(
-    <footer style={{borderTop:'1px solid rgba(240,235,224,.06)',padding:'32px 24px',textAlign:'center',
-      fontFamily:'var(--font-b)',fontSize:12,color:'rgba(200,212,224,.3)'}}>
-      <div style={{marginBottom:8}}>
-        <span style={{fontFamily:'var(--font-d)',color:'var(--gold)',fontSize:14,marginRight:12}}>LifeForge AI</span>
-        {t.footer_copy}
+    <footer>
+      <div className="mw">
+        <div className="footer-grid">
+          <div>
+            <div className="nav-logo-mark" style={{marginBottom:12}}>L</div>
+            <div className="footer-brand-h">LifeForge<em style={{fontStyle:'italic',color:'var(--gold)'}}>·</em>AI</div>
+            <p className="footer-brand-sub">{t.footer_tagline}</p>
+          </div>
+          {[t.nav_coaches,t.nav_esoteric,t.nav_svarga].map((section,i)=>(
+            <div key={i}>
+              <div className="footer-col-h">{section}</div>
+              <div className="footer-links">
+                {[t.hero_cta,t.hero_cta2,t.hero_stat_paths].map((link,j)=>(
+                  <span key={j} className="footer-link">{link}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="footer-bottom">
+          <div className="footer-copy">© 2025 LifeForge AI. All rights reserved.</div>
+          <div className="footer-author">
+            <a href="mailto:moshe.svarga@gmail.com">moshe.svarga@gmail.com</a>
+          </div>
+        </div>
       </div>
-      <div style={{fontSize:11,opacity:.6}}>{t.footer_disclaimer}</div>
     </footer>
   );
 }
 
-// ─── COACH LAYER ─────────────────────────────────────────────────────────────
-function CoachLayer({lang,view,setView,selectedCoach,setSelectedCoach}){
-  const t=T[lang];
-  if(view==='chat'&&selectedCoach){
-    return <ChatInterface coach={selectedCoach} lang={lang}
-      onBack={()=>{setView('profile');}}/>;
-  }
-  if(view==='profile'&&selectedCoach){
-    return <CoachProfile coach={selectedCoach} lang={lang}
-      onBack={()=>{setView('home');setSelectedCoach(null);}}
-      onStartChat={(c)=>{setSelectedCoach(c);setView('chat');}}/>;
-  }
-  // Coach grid
-  return(
-    <div style={{maxWidth:900,margin:'0 auto',padding:'0 16px 60px'}}>
-      <div style={{textAlign:'center',marginBottom:36}}>
-        <h2 style={{fontFamily:'var(--font-d)',fontSize:'clamp(1.6rem,3vw,2.2rem)',color:'var(--platinum)',
-          margin:0,fontWeight:400}}>{t.coaches_title}</h2>
-        <p style={{fontFamily:'var(--font-b)',fontSize:13,color:'rgba(200,212,224,.5)',marginTop:8}}>{t.coaches_sub}</p>
-      </div>
-      <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(260px,1fr))',gap:16}}>
-        {COACHES.map(c=>(
-          <CoachCard key={c.id} coach={c} lang={lang}
-            onSelect={coach=>{setSelectedCoach(coach);setView('profile');}}/>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-// ─── APP ─────────────────────────────────────────────────────────────────────
+/* ═══════════════ ROOT APP ═══════════════════════════════════════════════ */
 function App(){
-  const [lang,setLang]=React.useState('en');
-  const [theme,setTheme]=React.useState('dark');
-  const [layer,setLayer]=React.useState('coach');
-  const [view,setView]=React.useState('home');
-  const [selectedCoach,setSelectedCoach]=React.useState(null);
+  const [lang,setLang]=useState('en');
+  const [theme,setTheme]=useState('dark');
+  const [layer,setLayer]=useState('coach');
+  const [view,setView]=useState('home');
+  const [selected,setSelected]=useState(null);
 
-  // Apply theme + dir + data-layer
-  React.useEffect(()=>{
+  useEffect(()=>{
     document.documentElement.setAttribute('data-theme',theme);
     document.documentElement.setAttribute('dir',lang==='he'?'rtl':'ltr');
+    document.documentElement.setAttribute('lang',lang);
     document.documentElement.setAttribute('data-layer',layer);
+    updateOrbs(layer);
   },[theme,lang,layer]);
 
-  // Scroll reveal
   useReveal();
 
-  const t=T[lang];
-  const showHero=layer==='coach'&&view==='home';
-  const isChatFull=(view==='chat');
-
+  const isFullscreen=view==='chat'||view==='profile';
   return(
     <React.Fragment>
-      {!isChatFull&&<Nav lang={lang} setLang={setLang} theme={theme} setTheme={setTheme}
-        layer={layer} setLayer={l=>{setLayer(l);setView('home');setSelectedCoach(null);}}
-        setView={setView}/>}
-      <main style={{minHeight:'100vh',paddingTop:isChatFull?0:60}}>
-        {!isChatFull&&showHero&&(
-          <Hero lang={lang} setLayer={l=>{setLayer(l);setView('home');}} layer={layer}/>
-        )}
-        {!isChatFull&&(
-          <div style={{paddingTop:showHero?0:32}}>
-            <LayerTabs layer={layer} setLayer={l=>{setLayer(l);setView('home');setSelectedCoach(null);}} lang={lang}/>
-          </div>
-        )}
+      <Nav lang={lang} setLang={l=>{setLang(l);}} theme={theme} setTheme={setTheme}
+        layer={layer} setLayer={l=>{setLayer(l);setView('home');setSelected(null);}}
+        setView={setView}/>
+      <main style={{minHeight:'100svh',paddingTop:66}}>
+        {layer==='coach'&&view==='home'&&<Hero lang={lang} setLayer={l=>{setLayer(l);setView('home');}}/>}
+        {!isFullscreen&&<LayerTabs layer={layer} setLayer={l=>{setLayer(l);setView('home');setSelected(null);}} lang={lang}/>}
         {layer==='coach'&&(
-          <CoachLayer lang={lang} view={view} setView={setView}
-            selectedCoach={selectedCoach} setSelectedCoach={setSelectedCoach}/>
+          <CoachLayer lang={lang} view={view} setView={setView} selected={selected} setSelected={setSelected}/>
         )}
         {layer==='esoteric'&&<EsotericLayer lang={lang}/>}
         {layer==='svarga'&&<SvargaLayer lang={lang}/>}
       </main>
-      {!isChatFull&&<Footer lang={lang}/>}
+      {!isFullscreen&&<Footer lang={lang}/>}
     </React.Fragment>
   );
 }
