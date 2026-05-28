@@ -136,8 +136,8 @@ nav.topnav.scrolled{background:var(--nav-bg);backdrop-filter:blur(28px) saturate
 
 /* COACH CARD */
 .coach-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
-.coach-card{padding:28px;cursor:pointer;transition:all .35s cubic-bezier(.2,0,.2,1);position:relative;overflow:hidden;display:flex;flex-direction:column;gap:16px}
-.coach-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 0% 100%,var(--card-accent,rgba(212,178,122,.08)),transparent 60%);opacity:0;transition:opacity .4s}
+.coach-card{padding:28px;cursor:pointer;transition:all .35s cubic-bezier(.2,0,.2,1);position:relative;overflow:visible;display:flex;flex-direction:column;gap:16px}
+.coach-card::before{content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(ellipse at 0% 100%,var(--card-accent,rgba(212,178,122,.08)),transparent 60%);opacity:0;transition:opacity .4s;pointer-events:none}
 .coach-card:hover{transform:translateY(-6px);box-shadow:0 24px 56px rgba(0,0,0,.28);border-color:var(--accent,rgba(212,178,122,.4))}
 .coach-card:hover::before{opacity:1}
 .coach-avatar{width:88px;height:88px;border-radius:50%;flex-shrink:0;border:2px solid var(--accent,var(--gold));background:linear-gradient(135deg,var(--bg-alt),var(--surface));display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
@@ -1838,75 +1838,133 @@ const PORTRAITS={
     </svg>
   )
 
-/* Business coach portraits */
+/* Business coach portraits — realistic executive headshots */
 ,marcus:(
   <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-    <rect width="80" height="80" fill="#1A1208"/>
-    <ellipse cx="40" cy="72" rx="26" ry="14" fill="#E8A43A" opacity=".18"/>
-    <rect x="24" y="50" width="32" height="30" rx="4" fill="#C8841A" opacity=".7"/>
-    <ellipse cx="40" cy="36" rx="14" ry="16" fill="#C8943A"/>
-    <ellipse cx="40" cy="30" rx="16" ry="12" fill="#D4A462"/>
-    <path d="M24 30 Q26 14 40 12 Q54 14 56 30 Q56 22 40 20 Q24 22 24 30Z" fill="#1A1208" opacity=".7"/>
-    <path d="M24 32 Q24 20 40 18 Q56 20 56 32" fill="#1A1208" opacity=".5"/>
-    <path d="M27 30 Q31 27 35 29" stroke="#1A0800" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
-    <path d="M45 29 Q49 27 53 30" stroke="#1A0800" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
-    <path d="M28 34 Q32 31 36 34 Q32 37 28 34Z" fill="white"/>
-    <path d="M44 34 Q48 31 52 34 Q48 37 44 34Z" fill="white"/>
-    <circle cx="32" cy="34.5" r="2.3" fill="#1A0800"/>
-    <circle cx="48" cy="34.5" r="2.3" fill="#1A0800"/>
-    <circle cx="32.8" cy="33.7" r=".7" fill="white" opacity=".9"/>
-    <circle cx="48.8" cy="33.7" r=".7" fill="white" opacity=".9"/>
-    <path d="M40 38 L38.5 42 Q40 43.5 41.5 42Z" fill="#C89060" opacity=".5"/>
-    <path d="M33 47 Q36.5 45 40 46 Q43.5 45 47 47" fill="#C07050"/>
-    <path d="M33 47 Q40 51 47 47" fill="#D08070" opacity=".5"/>
-    <rect x="26" y="50" width="28" height="4" rx="2" fill="#E8A43A" opacity=".4"/>
+    <rect width="80" height="80" fill="#110A04"/>
+    <path d="M62 0 L80 0 L80 50 Q72 35 62 20Z" fill="#E8A030" opacity=".12"/>
+    <path d="M0 80 L0 60 L20 51 L27 57 L27 80Z" fill="#0E0C08"/>
+    <path d="M80 80 L80 60 L60 51 L53 57 L53 80Z" fill="#0E0C08"/>
+    <path d="M27 55 L53 55 L53 80 L27 80Z" fill="#EDE8D8"/>
+    <path d="M37.5 55 L42.5 55 L44 67 L40 70 L36 67Z" fill="#C48C18"/>
+    <path d="M37.5 55 L42.5 55 L40 60Z" fill="#9A6C10"/>
+    <path d="M27 57 L27 70 L36.5 60 L37.5 55Z" fill="#0E0C08"/>
+    <path d="M53 57 L53 70 L43.5 60 L42.5 55Z" fill="#0E0C08"/>
+    <path d="M32.5 44 L47.5 44 L48.5 55 L40 58 L31.5 55Z" fill="#5E3012"/>
+    <ellipse cx="40" cy="27" rx="17" ry="21" fill="#6A3818"/>
+    <ellipse cx="44" cy="24" rx="9" ry="13" fill="#7A4822" opacity=".6"/>
+    <ellipse cx="28" cy="27" rx="7" ry="18" fill="#3A1A08" opacity=".4"/>
+    <path d="M23 22 Q22.5 8 32 6 Q40 4 48 6 Q57.5 8 57 22 Q54 14 40 13 Q26 14 23 22Z" fill="#0A0604"/>
+    <path d="M23 22 Q22 28 23.5 32 Q21 28 21 22Z" fill="#0A0604"/>
+    <path d="M57 22 Q58 28 56.5 32 Q59 28 59 22Z" fill="#0A0604"/>
+    <ellipse cx="23" cy="30" rx="2.5" ry="4" fill="#4A2408"/>
+    <ellipse cx="57" cy="30" rx="2.5" ry="4" fill="#4A2408"/>
+    <path d="M27 22 Q31 19.5 36 21" stroke="#0A0402" strokeWidth="2.4" fill="none" strokeLinecap="round"/>
+    <path d="M44 21 Q49 19.5 53 22" stroke="#0A0402" strokeWidth="2.4" fill="none" strokeLinecap="round"/>
+    <ellipse cx="31.5" cy="26" rx="5" ry="3.2" fill="#F0EBE2"/>
+    <ellipse cx="48.5" cy="26" rx="5" ry="3.2" fill="#F0EBE2"/>
+    <circle cx="31.5" cy="26" r="2.8" fill="#1E0C04"/>
+    <circle cx="48.5" cy="26" r="2.8" fill="#1E0C04"/>
+    <circle cx="31.5" cy="26" r="1.6" fill="#0A0402"/>
+    <circle cx="48.5" cy="26" r="1.6" fill="#0A0402"/>
+    <circle cx="32.5" cy="25.1" r=".9" fill="white" opacity=".8"/>
+    <circle cx="49.5" cy="25.1" r=".9" fill="white" opacity=".8"/>
+    <path d="M26.5 24 Q31.5 22 36.5 24" stroke="#1A0A04" strokeWidth=".9" fill="none" opacity=".7"/>
+    <path d="M43.5 24 Q48.5 22 53.5 24" stroke="#1A0A04" strokeWidth=".9" fill="none" opacity=".7"/>
+    <path d="M38.5 30 Q37 34.5 36.5 37 Q38.5 38.8 40 38.5 Q41.5 38.8 43.5 37 Q43 34.5 41.5 30" fill="#3A1808" opacity=".45"/>
+    <ellipse cx="37.5" cy="37.5" rx="2.5" ry="1.5" fill="#2A1004" opacity=".5"/>
+    <ellipse cx="42.5" cy="37.5" rx="2.5" ry="1.5" fill="#2A1004" opacity=".5"/>
+    <path d="M33.5 42.5 Q37.5 45 40 45 Q42.5 45 46.5 42.5" stroke="#1A0804" strokeWidth="1.8" fill="none" strokeLinecap="round"/>
+    <path d="M56 14 Q60 24 58 38" stroke="#E8A030" strokeWidth="5" fill="none" opacity=".12" strokeLinecap="round"/>
   </svg>
 )
 ,arthur:(
   <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-    <rect width="80" height="80" fill="#0D1A14"/>
-    <ellipse cx="40" cy="72" rx="26" ry="14" fill="#5A8F70" opacity=".2"/>
-    <rect x="22" y="50" width="36" height="30" rx="3" fill="#2A4A38" opacity=".8"/>
-    <ellipse cx="40" cy="36" rx="14" ry="17" fill="#B8906A"/>
-    <ellipse cx="40" cy="29" rx="16" ry="11" fill="#C8A07A"/>
-    <path d="M24 28 Q26 10 40 9 Q54 10 56 28 Q53 16 40 16 Q27 16 24 28Z" fill="#C8D0C8" opacity=".85"/>
-    <path d="M26 35 Q26 27 40 26 Q54 27 54 35" fill="#A8A8A8" opacity=".4"/>
-    <path d="M27 33 Q31 30.5 35 32" stroke="#3A2A1A" strokeWidth="1.1" fill="none" strokeLinecap="round"/>
-    <path d="M45 32 Q49 30.5 53 33" stroke="#3A2A1A" strokeWidth="1.1" fill="none" strokeLinecap="round"/>
-    <path d="M27 37 Q31 34 35 37 Q31 40 27 37Z" fill="white"/>
-    <path d="M45 37 Q49 34 53 37 Q49 40 45 37Z" fill="white"/>
-    <circle cx="31" cy="37.5" r="2.2" fill="#2A1A0A"/>
-    <circle cx="49" cy="37.5" r="2.2" fill="#2A1A0A"/>
-    <circle cx="31.8" cy="36.8" r=".6" fill="white" opacity=".9"/>
-    <circle cx="49.8" cy="36.8" r=".6" fill="white" opacity=".9"/>
-    <path d="M40 41 L38.8 45 Q40 46.5 41.2 45Z" fill="#A87850" opacity=".5"/>
-    <path d="M33 49 Q36.5 47.5 40 48.5 Q43.5 47.5 47 49" fill="#907060"/>
-    <path d="M33 49 Q40 52.5 47 49" fill="#A08070" opacity=".5"/>
-    <rect x="24" y="50" width="32" height="3" rx="1.5" fill="#5A8F70" opacity=".4"/>
+    <rect width="80" height="80" fill="#080E0A"/>
+    <ellipse cx="65" cy="15" rx="20" ry="16" fill="#4A7A60" opacity=".12"/>
+    <path d="M0 80 L0 60 L20 52 L27 57 L27 80Z" fill="#0C1014"/>
+    <path d="M80 80 L80 60 L60 52 L53 57 L53 80Z" fill="#0C1014"/>
+    <path d="M27 55 L53 55 L53 80 L27 80Z" fill="#E8E4D8"/>
+    <path d="M37.5 55 L42.5 55 L44 66 L40 69 L36 66Z" fill="#2A3C30"/>
+    <path d="M37.5 55 L42.5 55 L40 59Z" fill="#1A2820"/>
+    <path d="M27 57 L27 70 L36.5 60 L37.5 55Z" fill="#0C1014"/>
+    <path d="M53 57 L53 70 L43.5 60 L42.5 55Z" fill="#0C1014"/>
+    <path d="M33 45 L47 45 L48 55 L40 57 L32 55Z" fill="#B8927A"/>
+    <ellipse cx="40" cy="29" rx="16" ry="20" fill="#CAA882"/>
+    <ellipse cx="43" cy="26" rx="8" ry="13" fill="#D8B890" opacity=".7"/>
+    <ellipse cx="28" cy="29" rx="6" ry="17" fill="#906840" opacity=".25"/>
+    <path d="M24 23 Q22 8 32 5 Q40 2 48 5 Q58 8 56 23 Q54 10 40 9 Q26 10 24 23Z" fill="#B0B0A8"/>
+    <path d="M22 24 Q20 18 22 10 Q24 5 32 4 Q24 9 23 18Z" fill="#A8A8A0"/>
+    <path d="M58 24 Q60 18 58 10 Q56 5 48 4 Q56 9 57 18Z" fill="#A8A8A0"/>
+    <path d="M30 8 Q38 6 46 8" stroke="#D8D8D4" strokeWidth="2" fill="none" opacity=".7" strokeLinecap="round"/>
+    <ellipse cx="23.5" cy="31" rx="3" ry="4.5" fill="#B08870"/>
+    <ellipse cx="56.5" cy="31" rx="3" ry="4.5" fill="#B08870"/>
+    <path d="M27.5 24 Q31 21.5 36 23" stroke="#7A7870" strokeWidth="2.2" fill="none" strokeLinecap="round"/>
+    <path d="M44 23 Q49 21.5 52.5 24" stroke="#7A7870" strokeWidth="2.2" fill="none" strokeLinecap="round"/>
+    <ellipse cx="31.5" cy="28" rx="4.5" ry="3" fill="#F2EDE4"/>
+    <ellipse cx="48.5" cy="28" rx="4.5" ry="3" fill="#F2EDE4"/>
+    <circle cx="31.5" cy="28" r="2.5" fill="#4A5858"/>
+    <circle cx="48.5" cy="28" r="2.5" fill="#4A5858"/>
+    <circle cx="31.5" cy="28" r="1.4" fill="#1E2828"/>
+    <circle cx="48.5" cy="28" r="1.4" fill="#1E2828"/>
+    <circle cx="32.4" cy="27" r=".8" fill="white" opacity=".8"/>
+    <circle cx="49.4" cy="27" r=".8" fill="white" opacity=".8"/>
+    <path d="M53.5 26 Q55 27 55 29" stroke="#906840" strokeWidth=".6" fill="none" opacity=".4" strokeLinecap="round"/>
+    <path d="M26.5 26 Q25 27 25 29" stroke="#906840" strokeWidth=".6" fill="none" opacity=".4" strokeLinecap="round"/>
+    <path d="M27 26.5 Q31.5 24.5 36 26.5" stroke="#3A2A1A" strokeWidth=".8" fill="none" opacity=".5"/>
+    <path d="M44 26.5 Q48.5 24.5 53 26.5" stroke="#3A2A1A" strokeWidth=".8" fill="none" opacity=".5"/>
+    <path d="M39 32 Q37.5 37 37 39 Q39 40.5 40 40 Q41 40.5 43 39 Q42.5 37 41 32" fill="#907050" opacity=".35"/>
+    <ellipse cx="38" cy="39" rx="2.5" ry="1.5" fill="#7A6050" opacity=".4"/>
+    <ellipse cx="42" cy="39" rx="2.5" ry="1.5" fill="#7A6050" opacity=".4"/>
+    <path d="M35 38 Q33.5 42 34 45" stroke="#906840" strokeWidth=".6" fill="none" opacity=".35"/>
+    <path d="M45 38 Q46.5 42 46 45" stroke="#906840" strokeWidth=".6" fill="none" opacity=".35"/>
+    <path d="M34.5 44 Q37.5 46 40 46 Q42.5 46 45.5 44" stroke="#6A4028" strokeWidth="1.6" fill="none" strokeLinecap="round"/>
+    <path d="M57 16 Q61 26 59 40" stroke="#5A8F70" strokeWidth="5" fill="none" opacity=".14" strokeLinecap="round"/>
   </svg>
 )
 ,lena:(
   <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-    <rect width="80" height="80" fill="#180A14"/>
-    <ellipse cx="40" cy="72" rx="26" ry="14" fill="#C8729A" opacity=".2"/>
-    <rect x="22" y="50" width="36" height="30" rx="3" fill="#8A3A68" opacity=".7"/>
-    <ellipse cx="40" cy="36" rx="14" ry="16" fill="#C8906A"/>
-    <ellipse cx="40" cy="29" rx="16" ry="12" fill="#D8A07A"/>
-    <path d="M24 27 Q26 10 40 8 Q54 10 56 27 Q54 15 49 13 Q44 11 40 12 Q36 11 31 13 Q26 15 24 27Z" fill="#1A0818" opacity=".8"/>
-    <path d="M20 25 Q18 38 24 40 Q22 36 24 32" fill="#1A0818" opacity=".5"/>
-    <path d="M60 25 Q62 38 56 40 Q58 36 56 32" fill="#1A0818" opacity=".5"/>
-    <path d="M27 32 Q31 29.5 35 31" stroke="#2A1A1A" strokeWidth="1.1" fill="none" strokeLinecap="round"/>
-    <path d="M45 31 Q49 29.5 53 32" stroke="#2A1A1A" strokeWidth="1.1" fill="none" strokeLinecap="round"/>
-    <path d="M27.5 36 Q31.5 33 35.5 36 Q31.5 39 27.5 36Z" fill="white"/>
-    <path d="M44.5 36 Q48.5 33 52.5 36 Q48.5 39 44.5 36Z" fill="white"/>
-    <circle cx="31.5" cy="36.5" r="2.2" fill="#1A0A14"/>
-    <circle cx="48.5" cy="36.5" r="2.2" fill="#1A0A14"/>
-    <circle cx="32.3" cy="35.8" r=".6" fill="white" opacity=".9"/>
-    <circle cx="49.3" cy="35.8" r=".6" fill="white" opacity=".9"/>
-    <path d="M40 40 L38.8 44 Q40 45.5 41.2 44Z" fill="#B07850" opacity=".5"/>
-    <path d="M33 47 Q36.5 45.5 40 46.5 Q43.5 45.5 47 47" fill="#D09080"/>
-    <path d="M33 47 Q40 51 47 47" fill="#E0A090" opacity=".5"/>
-    <rect x="24" y="50" width="32" height="3" rx="1.5" fill="#C8729A" opacity=".4"/>
+    <rect width="80" height="80" fill="#120810"/>
+    <ellipse cx="62" cy="14" rx="22" ry="17" fill="#C8729A" opacity=".1"/>
+    <path d="M0 80 L0 60 L20 52 L28 56 L28 80Z" fill="#1A0C18"/>
+    <path d="M80 80 L80 60 L60 52 L52 56 L52 80Z" fill="#1A0C18"/>
+    <path d="M28 54 L52 54 L52 80 L28 80Z" fill="#F0EAE8"/>
+    <path d="M36 54 L44 54 L40 66Z" fill="#E8C8D8" opacity=".4"/>
+    <path d="M28 56 L28 70 L36.5 62 L36 54Z" fill="#1A0C18"/>
+    <path d="M52 56 L52 70 L43.5 62 L44 54Z" fill="#1A0C18"/>
+    <path d="M34 43 L46 43 L47.5 54 L40 56 L32.5 54Z" fill="#B07850"/>
+    <ellipse cx="40" cy="27.5" rx="15.5" ry="20" fill="#C09070"/>
+    <ellipse cx="43" cy="24" rx="8" ry="13" fill="#D0A882" opacity=".65"/>
+    <ellipse cx="27" cy="28" rx="6" ry="16" fill="#785040" opacity=".3"/>
+    <path d="M24.5 22 Q23 8 32 5.5 Q40 3 48 5.5 Q57 8 55.5 22 Q53 11 40 10 Q27 11 24.5 22Z" fill="#180E0C"/>
+    <path d="M24.5 22 Q22 26 22.5 32 Q20.5 28 21 21Z" fill="#180E0C"/>
+    <path d="M55.5 22 Q58 26 57.5 32 Q59.5 28 59 21Z" fill="#180E0C"/>
+    <ellipse cx="40" cy="7" rx="9" ry="5" fill="#140C0A"/>
+    <path d="M32 8 Q40 5.5 48 8" stroke="#3A2820" strokeWidth="1.5" fill="none" opacity=".7" strokeLinecap="round"/>
+    <path d="M24 27 Q21 24 22 20" stroke="#2A1A16" strokeWidth="1" fill="none" opacity=".7" strokeLinecap="round"/>
+    <path d="M56 27 Q59 24 58 20" stroke="#2A1A16" strokeWidth="1" fill="none" opacity=".7" strokeLinecap="round"/>
+    <ellipse cx="24" cy="30" rx="2.5" ry="4" fill="#A07050"/>
+    <ellipse cx="56" cy="30" rx="2.5" ry="4" fill="#A07050"/>
+    <circle cx="24" cy="35" r="1.2" fill="#D4A0C0" opacity=".7"/>
+    <circle cx="56" cy="35" r="1.2" fill="#D4A0C0" opacity=".7"/>
+    <path d="M28 22.5 Q31.5 20 37 21.5" stroke="#1A0E0C" strokeWidth="1.8" fill="none" strokeLinecap="round"/>
+    <path d="M43 21.5 Q48.5 20 52 22.5" stroke="#1A0E0C" strokeWidth="1.8" fill="none" strokeLinecap="round"/>
+    <ellipse cx="32" cy="26.5" rx="4.5" ry="3" fill="#F2ECE8"/>
+    <ellipse cx="48" cy="26.5" rx="4.5" ry="3" fill="#F2ECE8"/>
+    <circle cx="32" cy="26.5" r="2.6" fill="#4A2C1A"/>
+    <circle cx="48" cy="26.5" r="2.6" fill="#4A2C1A"/>
+    <circle cx="32" cy="26.5" r="1.4" fill="#200E06"/>
+    <circle cx="48" cy="26.5" r="1.4" fill="#200E06"/>
+    <circle cx="33.2" cy="25.5" r=".9" fill="white" opacity=".8"/>
+    <circle cx="49.2" cy="25.5" r=".9" fill="white" opacity=".8"/>
+    <path d="M27.5 24.5 Q32 22.5 36.5 24.5" stroke="#180C0A" strokeWidth="1" fill="none" opacity=".7"/>
+    <path d="M43.5 24.5 Q48 22.5 52.5 24.5" stroke="#180C0A" strokeWidth="1" fill="none" opacity=".7"/>
+    <path d="M39 30.5 Q37.5 34.5 37.5 37 Q39 38.5 40 38 Q41 38.5 42.5 37 Q42.5 34.5 41 30.5" fill="#7A4828" opacity=".3"/>
+    <ellipse cx="38" cy="37.5" rx="2" ry="1.2" fill="#6A3C20" opacity=".4"/>
+    <ellipse cx="42" cy="37.5" rx="2" ry="1.2" fill="#6A3C20" opacity=".4"/>
+    <path d="M34 42 Q37 44.5 40 44.5 Q43 44.5 46 42" stroke="#6A3420" strokeWidth="1.6" fill="none" strokeLinecap="round"/>
+    <path d="M35 42 Q40 44 45 42 Q43 44.5 40 44.5 Q37 44.5 35 42Z" fill="#C87080" opacity=".3"/>
+    <path d="M56 14 Q60 24 58 38" stroke="#C8729A" strokeWidth="5" fill="none" opacity=".14" strokeLinecap="round"/>
   </svg>
 )
 };
@@ -2098,8 +2156,8 @@ function StarRating({rating}){
   return <span style={{display:'inline-flex',gap:1}}>{stars}</span>;
 }
 
-const COACH_RATINGS=[4.9,4.8,4.7,4.6,4.5,4.1];
-const COACH_SESSIONS=[1840,2230,990,1620,740,1180];
+const COACH_RATINGS=[4.9,4.8,4.7,4.6,4.5,4.1,4.9,4.8,4.7];
+const COACH_SESSIONS=[1840,2230,990,1620,740,1180,2460,3180,1920];
 
 /* ═══════════════ COACH CARD ═════════════════════════════════════════════ */
 function CoachCard({coach,lang,onSelect}){
@@ -2113,8 +2171,17 @@ function CoachCard({coach,lang,onSelect}){
   const sessions=COACH_SESSIONS[idx]||1200;
   return(
     <div className="glass coach-card rv" onClick={()=>onSelect(coach)}
-      style={{'--accent':coach.color,'--card-accent':`${coach.color}14`,position:'relative'}}>
-      {coach.type==='business'&&<div className="business-badge">💼</div>}
+      style={{'--accent':coach.color,'--card-accent':`${coach.color}18`,position:'relative',
+        ...(coach.type==='business'?{
+          borderColor:`${coach.color}40`,
+          boxShadow:`inset 0 0 0 1px ${coach.color}20, 0 4px 24px ${coach.color}18`
+        }:{})}}>
+      {coach.type==='business'&&(
+        <div className="business-badge" style={{
+          background:`linear-gradient(135deg,${coach.color},${coach.accent})`,
+          boxShadow:`0 2px 8px ${coach.color}50`
+        }}>💼</div>
+      )}
       <div style={{display:'flex',alignItems:'flex-start',gap:14}}>
         <CoachAvatarFull coach={coach} size={88}/>
         <div style={{flex:1,minWidth:0}}>
@@ -2126,18 +2193,20 @@ function CoachCard({coach,lang,onSelect}){
       <div className="detail-profile-specs">
         {specs.map((s,i)=><span key={i} className="spec-pill">{s}</span>)}
       </div>
-      <div className="coach-meta" style={{display:'flex',alignItems:'center',justifyContent:'space-between',gap:10}}>
-        <div style={{display:'flex',gap:14,alignItems:'center',flexShrink:0}}>
-          <div style={{display:'flex',flexDirection:'column',gap:2}}>
+      <div className="coach-meta" style={{display:'flex',alignItems:'center',justifyContent:'space-between',gap:8,flexWrap:'wrap'}}>
+        <div style={{display:'flex',gap:12,alignItems:'center',minWidth:0,flex:'0 1 auto'}}>
+          <div style={{display:'flex',flexDirection:'column',gap:2,flexShrink:0}}>
             <StarRating rating={rating}/>
             <span style={{fontSize:'.7rem',color:'var(--gold)',fontFamily:'var(--font-d)'}}>{rating.toFixed(1)}</span>
           </div>
-          <div style={{display:'flex',flexDirection:'column',gap:1}}>
+          <div style={{display:'flex',flexDirection:'column',gap:1,flexShrink:0}}>
             <span style={{fontSize:'.84rem',color:'var(--text-1)',fontFamily:'var(--font-d)',fontWeight:500}}>{sessions.toLocaleString()}</span>
             <span className="coach-sessions">{t.coach_sessions}</span>
           </div>
         </div>
-        <button className="pill-btn" style={{fontSize:'.66rem',padding:'6px 14px',flexShrink:0,color:'var(--accent,var(--gold))',borderColor:'var(--accent,var(--gold))'}}>
+        <button className="pill-btn" style={{fontSize:'.66rem',padding:'6px 12px',flexShrink:0,whiteSpace:'nowrap',
+          color:coach.type==='business'?coach.color:'var(--accent,var(--gold))',
+          borderColor:coach.type==='business'?coach.color:'var(--accent,var(--gold))'}}>
           {t.coach_view_profile} →
         </button>
       </div>
