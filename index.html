@@ -3023,7 +3023,7 @@ function druidTree(dob){
   const[d,m]=dob.split('.').map(Number);
   for(const t of DRUID_TREES){
     const[s,e]=t.dates.split('–');
-    function parse(str){const p=str.trim().split(' ');const months={Jan:1,Feb:2,Mar:3,Apr:4,May:5,Jun:6,Jul:7,Aug:8,Sep:9,Oct:10,Nov:11,Dec:12};return{d:parseInt(p[0]),m:months[p[1]]};}
+    function parse(str){const p=str.trim().split(' ');const months={Jan:1,Feb:2,Mar:3,Apr:4,May:5,Jun:6,Jul:7,Aug:8,Sep:9,Oct:10,Nov:11,Dec:12};return{d:parseInt(p[1]),m:months[p[0]]};}
     const st=parse(s),en=parse(e);
     if(st.m===en.m){if(m===st.m&&d>=st.d&&d<=en.d)return t;}
     else if(st.m<en.m){if((m===st.m&&d>=st.d)||(m>st.m&&m<en.m)||(m===en.m&&d<=en.d))return t;}
@@ -3266,7 +3266,7 @@ function DruidTool({lang}){
     </div>
   );
   return(
-    <div>
+    <form onSubmit={e=>{e.preventDefault();reveal();}}>
       <p style={{fontSize:'.84rem',color:'var(--text-3)',marginBottom:16,lineHeight:1.65}}>
         {lang==='ru'?'Введите дату рождения, чтобы раскрыть ваше священное кельтское дерево из лунного календаря друидов.':
          lang==='es'?'Introduce tu fecha de nacimiento para revelar tu árbol sagrado celta del calendario lunar druida.':
@@ -3278,8 +3278,8 @@ function DruidTool({lang}){
         <DateInput value={dob} onChange={v=>{setDob(v);setErr('');}} lang={lang}/>
       </div>
       {err&&<p style={{fontSize:'.78rem',color:'#C85050',marginBottom:10,textAlign:'center'}}>{err}</p>}
-      <button className="cta-btn" style={{width:'100%',justifyContent:'center',background:'linear-gradient(135deg,#2A5A3A,#5A8F70)'}} onClick={reveal}>{tree?t.druid_retake:t.druid_calc}</button>
-    </div>
+      <button type="submit" className="cta-btn" style={{width:'100%',justifyContent:'center',background:'linear-gradient(135deg,#2A5A3A,#5A8F70)'}}>{tree?t.druid_retake:t.druid_calc}</button>
+    </form>
   );
 }
 
@@ -3349,7 +3349,7 @@ function IChingTool({lang}){
     );
   }
   return(
-    <div>
+    <form onSubmit={e=>{e.preventDefault();if(!loading)cast();}}>
       <p style={{fontSize:'.84rem',color:'var(--text-3)',marginBottom:16,lineHeight:1.65}}>
         {lang==='ru'?'Сосредоточьтесь на вопросе или ситуации. Монеты будут брошены шесть раз, чтобы сформировать вашу гексаграмму.':
          lang==='es'?'Concéntrese en su pregunta o situación. Las monedas se lanzarán seis veces para formar su hexagrama.':
@@ -3358,11 +3358,11 @@ function IChingTool({lang}){
          'Focus on your question or situation. The coins will be cast six times to form your hexagram.'}
       </p>
       <Field label={t.iching_question} value={question} onChange={setQuestion}/>
-      <button className="cta-btn" style={{width:'100%',justifyContent:'center',marginTop:14,
-        background:'linear-gradient(135deg,#1A1408,#3A2A10)'}} onClick={cast} disabled={loading}>
+      <button type="submit" className="cta-btn" style={{width:'100%',justifyContent:'center',marginTop:14,
+        background:'linear-gradient(135deg,var(--gold),#C89020)',color:'#1A1208'}} disabled={loading}>
         {loading?<><span style={{marginRight:8}}>☯</span>{t.iching_casting}</>:<><span style={{marginRight:8}}>⬡</span>{t.iching_cast}</>}
       </button>
-    </div>
+    </form>
   );
 }
 
