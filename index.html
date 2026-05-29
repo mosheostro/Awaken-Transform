@@ -349,6 +349,14 @@ footer{padding:clamp(40px,6vw,72px) clamp(22px,7vw,100px) 32px;position:relative
 .auth-btn{width:100%;padding:13px;background:linear-gradient(135deg,var(--gold),#C89020);color:#0A0806;border:none;border-radius:10px;font-family:var(--font-b);font-size:.8rem;letter-spacing:.08em;font-weight:700;cursor:pointer;transition:opacity .2s;margin-top:8px}
 .auth-btn:hover{opacity:.88}
 .auth-btn:disabled{opacity:.45;cursor:default}
+.captcha-box{display:flex;align-items:center;gap:12px;width:100%;padding:11px 14px;background:var(--surface-2);border:1px solid var(--border-md);border-radius:10px;cursor:pointer;transition:border-color .2s;box-sizing:border-box}
+.captcha-box:hover{border-color:var(--gold)}
+.captcha-box.checked{border-color:var(--gold)}
+.captcha-check{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;flex:none;border:2px solid var(--border-md);border-radius:5px;color:var(--gold);font-size:.8rem;font-weight:700;transition:border-color .2s}
+.captcha-box.checked .captcha-check{border-color:var(--gold)}
+.captcha-label{color:var(--text-1);font-family:var(--font-b);font-size:.82rem}
+.captcha-math{display:flex;align-items:center;gap:12px;margin-top:10px;color:var(--text-2);font-family:var(--font-b);font-size:.82rem}
+.captcha-math-input{width:84px;flex:none;text-align:center}
 .history-entry{padding:14px 16px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s}
 .history-entry:hover{background:var(--surface-2)}
 .history-entry-type{font-size:.62rem;font-family:var(--font-b);letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
@@ -808,6 +816,7 @@ en:{
   depth_label:'Depth',depth_simple:'Simple',depth_std:'Standard',depth_deep:'Deep',
   auth_signin:'Sign In',auth_signup:'Create Account',auth_logout:'Sign Out',auth_profile:'My Profile',auth_history:'My History',
   auth_name:'Full Name',auth_email:'Email',auth_dob:'Date of Birth (DD.MM.YYYY)',auth_pw:'Password',
+  auth_robot:"I'm not a robot",auth_robot_err:'Please confirm you are not a robot.',auth_math_q:'Quick check: what is',auth_math_err:'Incorrect answer — please try again.',
   auth_signin_btn:'Sign In',auth_signup_btn:'Create Account',auth_cancel:'Cancel',
   auth_welcome:'Welcome back',auth_welcome_new:'Welcome',
   auth_history_empty:'No saved sessions yet. Generate a reading to save it here.',
@@ -871,6 +880,7 @@ ru:{
   depth_label:'Глубина',depth_simple:'Кратко',depth_std:'Стандарт',depth_deep:'Глубоко',
   auth_signin:'Войти',auth_signup:'Создать аккаунт',auth_logout:'Выйти',auth_profile:'Мой профиль',auth_history:'Моя история',
   auth_name:'Полное имя',auth_email:'Email',auth_dob:'Дата рождения (ДД.ММ.ГГГГ)',auth_pw:'Пароль',
+  auth_robot:'Я не робот',auth_robot_err:'Пожалуйста, подтвердите, что вы не робот.',auth_math_q:'Проверка: сколько будет',auth_math_err:'Неверный ответ — попробуйте ещё раз.',
   auth_signin_btn:'Войти',auth_signup_btn:'Создать аккаунт',auth_cancel:'Отмена',
   auth_welcome:'С возвращением',auth_welcome_new:'Добро пожаловать',
   auth_history_empty:'Сохранённых сессий пока нет. Создайте чтение, чтобы сохранить его здесь.',
@@ -934,6 +944,7 @@ es:{
   depth_label:'Profundidad',depth_simple:'Simple',depth_std:'Estándar',depth_deep:'Profundo',
   auth_signin:'Iniciar sesión',auth_signup:'Crear cuenta',auth_logout:'Cerrar sesión',auth_profile:'Mi perfil',auth_history:'Mi historial',
   auth_name:'Nombre completo',auth_email:'Correo electrónico',auth_dob:'Fecha de nacimiento (DD.MM.AAAA)',auth_pw:'Contraseña',
+  auth_robot:'No soy un robot',auth_robot_err:'Confirma que no eres un robot.',auth_math_q:'Comprobación: cuánto es',auth_math_err:'Respuesta incorrecta — inténtalo de nuevo.',
   auth_signin_btn:'Iniciar sesión',auth_signup_btn:'Crear cuenta',auth_cancel:'Cancelar',
   auth_welcome:'Bienvenido de nuevo',auth_welcome_new:'Bienvenido',
   auth_history_empty:'Aún no hay sesiones guardadas. Genera una lectura para guardarla aquí.',
@@ -1000,6 +1011,7 @@ it:{
   depth_label:'Profondità',depth_simple:'Semplice',depth_std:'Standard',depth_deep:'Esperto',
   auth_signin:'Accedi',auth_signup:'Crea account',auth_logout:'Esci',auth_profile:'Il mio profilo',auth_history:'La mia storia',
   auth_name:'Nome completo',auth_email:'Email',auth_dob:'Data di nascita (GG.MM.AAAA)',auth_pw:'Password',
+  auth_robot:'Non sono un robot',auth_robot_err:'Conferma di non essere un robot.',auth_math_q:'Verifica: quanto fa',auth_math_err:'Risposta errata — riprova.',
   auth_signin_btn:'Accedi',auth_signup_btn:'Crea account',auth_cancel:'Annulla',
   auth_welcome:'Bentornato',auth_welcome_new:'Benvenuto',
   auth_history_empty:'Nessuna sessione salvata. Genera una lettura per salvarla qui.',
@@ -1060,6 +1072,7 @@ he:{
   depth_label:'עומק',depth_simple:'פשוט',depth_std:'סטנדרטי',depth_deep:'מומחה',
   auth_signin:'התחברות',auth_signup:'יצירת חשבון',auth_logout:'יציאה',auth_profile:'הפרופיל שלי',auth_history:'ההיסטוריה שלי',
   auth_name:'שם מלא',auth_email:'אימייל',auth_dob:'תאריך לידה (יי.מ.שנשנש)',auth_pw:'סיסמה',
+  auth_robot:'אני לא רובוט',auth_robot_err:'אנא אשרו שאינכם רובוט.',auth_math_q:'בדיקה מהירה: כמה זה',auth_math_err:'תשובה שגויה — נסו שוב.',
   auth_signin_btn:'התחבר',auth_signup_btn:'צור חשבון',auth_cancel:'ביטול',
   auth_welcome:'ברוך שובך',auth_welcome_new:'ברוך הבא',
   auth_history_empty:'אין עדיין סשנים שמורים. צור קריאה כדי לשמור אותה כאן.',
@@ -4299,11 +4312,18 @@ function AuthModal({lang,onClose,onLogin}){
   const [email,setEmail]=useState('');
   const [pw,setPw]=useState('');
   const [err,setErr]=useState('');
+  const [robot,setRobot]=useState(false);
+  const [mathA,setMathA]=useState('');
+  const [challenge]=useState(()=>{const a=Math.floor(Math.random()*8)+2,b=Math.floor(Math.random()*8)+2;return{a,b,sum:a+b};});
   const isHe=lang==='he';
   function submit(e){
     e.preventDefault();
     if(!email.trim()||!pw.trim()){setErr('Please fill all required fields.');return;}
     if(tab==='signup'&&!name.trim()){setErr('Please enter your name.');return;}
+    if(tab==='signup'){
+      if(!robot){setErr(t.auth_robot_err||'Please confirm you are not a robot.');return;}
+      if(parseInt(mathA,10)!==challenge.sum){setErr(t.auth_math_err||'Incorrect answer — please try again.');return;}
+    }
     if(tab==='signin'){
       const existing=LS.getAccounts().find(u=>u.email===email.trim());
       if(!existing){setErr('No account found. Please create one.');return;}
@@ -4340,6 +4360,18 @@ function AuthModal({lang,onClose,onLogin}){
             <label className="auth-label">{t.auth_pw||'Password'}</label>
             <input className="auth-input" type="password" value={pw} onChange={e=>setPw(e.target.value)} placeholder="••••••••" autoComplete={tab==='signin'?'current-password':'new-password'} required/>
           </div>
+          {tab==='signup'&&(
+            <div className="auth-field">
+              <button type="button" className={`captcha-box${robot?' checked':''}`} onClick={()=>setRobot(r=>!r)} aria-pressed={robot}>
+                <span className="captcha-check">{robot?'✓':''}</span>
+                <span className="captcha-label">{t.auth_robot||"I'm not a robot"}</span>
+              </button>
+              <div className="captcha-math">
+                <span>{t.auth_math_q||'Quick check: what is'} {challenge.a} + {challenge.b}?</span>
+                <input className="auth-input captcha-math-input" type="text" inputMode="numeric" value={mathA} onChange={e=>setMathA(e.target.value.replace(/[^0-9]/g,''))} placeholder="?"/>
+              </div>
+            </div>
+          )}
           {err&&<p style={{color:'#E07070',fontSize:'.74rem',marginBottom:10}}>{err}</p>}
           <button type="submit" className="auth-btn">{tab==='signin'?(t.auth_signin_btn||'Sign In'):(t.auth_signup_btn||'Create Account')}</button>
         </form>
