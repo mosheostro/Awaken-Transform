@@ -708,10 +708,24 @@ const {useState,useEffect,useRef,useCallback}=React;
    I18N — every visible string is here, nothing hardcoded
    ═══════════════════════════════════════════════════════ */
 /* ═══════════════ USER ACCOUNT — localStorage ═══════════════════════════ */
+/* one-time migration: move legacy lf_user record into lf_accounts array */
+(function migrateLegacyUser(){
+  try{
+    const legacy=localStorage.getItem('lf_user');
+    if(!legacy)return;
+    const u=JSON.parse(legacy);
+    if(!u||!u.email)return;
+    const accounts=JSON.parse(localStorage.getItem('lf_accounts')||'[]');
+    if(accounts.find(a=>a.email===u.email))return;
+    accounts.unshift(u);
+    localStorage.setItem('lf_accounts',JSON.stringify(accounts));
+    /* keep lf_user so an active session key still resolves temporarily */
+  }catch{}
+})();
 const LS={
   getAccounts:()=>{try{return JSON.parse(localStorage.getItem('lf_accounts')||'[]');}catch{return[];}},
   saveAccount:u=>{try{const a=LS.getAccounts().filter(x=>x.email!==u.email);a.unshift(u);localStorage.setItem('lf_accounts',JSON.stringify(a));}catch{}},
-  getSession:()=>{try{const e=localStorage.getItem('lf_session');if(!e)return null;return LS.getAccounts().find(u=>u.email===e)||null;}catch{return null;}},
+  getSession:()=>{try{const e=localStorage.getItem('lf_session');if(!e){/* fall back to legacy lf_user for in-progress sessions */const leg=JSON.parse(localStorage.getItem('lf_user')||'null');if(leg&&leg.email){LS.setSession(leg.email);localStorage.removeItem('lf_user');return LS.getAccounts().find(u=>u.email===leg.email)||null;}return null;}return LS.getAccounts().find(u=>u.email===e)||null;}catch{return null;}},
   setSession:email=>{try{localStorage.setItem('lf_session',email);}catch{}},
   clearSession:()=>{try{localStorage.removeItem('lf_session');}catch{}},
   getHistory:()=>{try{return JSON.parse(localStorage.getItem('lf_history')||'[]');}catch{return[];}},
