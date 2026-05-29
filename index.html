@@ -709,9 +709,11 @@ const {useState,useEffect,useRef,useCallback}=React;
    ═══════════════════════════════════════════════════════ */
 /* ═══════════════ USER ACCOUNT — localStorage ═══════════════════════════ */
 const LS={
-  getUser:()=>{try{return JSON.parse(localStorage.getItem('lf_user')||'null');}catch{return null;}},
-  setUser:u=>{try{localStorage.setItem('lf_user',JSON.stringify(u));}catch{}},
-  clearUser:()=>{try{localStorage.removeItem('lf_user');}catch{}},
+  getAccounts:()=>{try{return JSON.parse(localStorage.getItem('lf_accounts')||'[]');}catch{return[];}},
+  saveAccount:u=>{try{const a=LS.getAccounts().filter(x=>x.email!==u.email);a.unshift(u);localStorage.setItem('lf_accounts',JSON.stringify(a));}catch{}},
+  getSession:()=>{try{const e=localStorage.getItem('lf_session');if(!e)return null;return LS.getAccounts().find(u=>u.email===e)||null;}catch{return null;}},
+  setSession:email=>{try{localStorage.setItem('lf_session',email);}catch{}},
+  clearSession:()=>{try{localStorage.removeItem('lf_session');}catch{}},
   getHistory:()=>{try{return JSON.parse(localStorage.getItem('lf_history')||'[]');}catch{return[];}},
   addHistory:(entry)=>{try{const h=LS.getHistory().slice(0,49);h.unshift({...entry,id:Date.now(),date:new Date().toISOString()});localStorage.setItem('lf_history',JSON.stringify(h));}catch{}},
   clearHistory:()=>{try{localStorage.removeItem('lf_history');}catch{}},
@@ -751,7 +753,7 @@ en:{
   hero_sub:'Premium personal development. Three intelligent systems. One transformational journey.',
   hero_cta:'Begin Your Journey',hero_cta2:'Explore Systems',
   hero_stat_coaches:'Premium Coaches',hero_stat_systems:'Intelligent Systems',hero_stat_paths:'Transformational Paths',
-  layer_coach:'Coaching System',layer_esoteric:'Esoteric & Analytical',layer_svarga:'Integral Systems',
+  layer_coach:'Coaching System',layer_esoteric:'Esoteric & Analytical',layer_svarga:'Integral Development',
   coaches_sub:'Six world-class specialists. Real methodologies. Transformational outcomes.',
   coach_specialties:'Specialties',coach_start:'Start Session',coach_philosophy:'Philosophy',coach_view_profile:'View Full Profile',
   chat_placeholder:"Share what's on your mind...",chat_send:'Send',chat_back:'← Back to Coaches',
@@ -779,12 +781,12 @@ en:{
   num_title:'Numerology Reading',num_name:'Full birth name',num_dob:'Date of birth (DD.MM.YYYY)',num_calc:'Calculate',num_life:'Life Path',num_destiny:'Destiny',num_soul:'Soul Urge',num_persona:'Personality',
   persona_title:'Big Five Personality Profile',persona_reveal:'Generate My Profile',persona_retake:'↺ Recalibrate',
   persona_dims:[['O','Openness','Curious & Creative','Practical & Conventional'],['C','Conscientiousness','Organized & Disciplined','Flexible & Spontaneous'],['E','Extraversion','Outgoing & Energized','Introspective & Reserved'],['A','Agreeableness','Empathetic & Cooperative','Independent & Direct'],['N','Stability','Resilient & Calm','Emotionally Sensitive']],
-  svarga_title:'Swarga Approach',svarga_sub:'Eight-dimensional holistic analysis of your current state',
+  svarga_title:'Swarga System',svarga_sub:'Eight-dimensional holistic analysis of your current state',
   svarga_placeholder:'Describe your current state, challenge, or question in detail...',svarga_submit:'Receive Integral Analysis',svarga_analyzing:'Performing holistic analysis...',
   svarga_dims:['Nutrition & Body','Breathing & Prana','Energy & Vitality','Mental & Mind','Physical Practice','Emotional Regulation','Recovery & Lifestyle','Karma & Spirit'],
   svarga_new:'New Analysis',
-  integral_tab_swarga:'Swarga Approach',integral_tab_biohack:'Biohacking',
-  integral_layer_title:'Integral Systems',integral_layer_sub:'Two intelligent wellness frameworks. One coherent transformation.',
+  integral_tab_swarga:'Swarga System',integral_tab_biohack:'Biohacking',
+  integral_layer_title:'Integral Development',integral_layer_sub:'Two intelligent wellness frameworks. One coherent transformation.',
   biohack_title:'Biohacking Protocols',biohack_sub:'Science-informed lifestyle optimization. Practical. Safe. Effective.',
   biohack_select:'Choose your focus area',biohack_submit:'Generate Protocol',biohack_analyzing:'Building your protocol...',biohack_new:'↺ New Protocol',
   biohack_areas:['Sleep Optimization','Focus & Cognition','Energy Management','Stress & Nervous System','Recovery & Performance','Circadian Rhythm'],
@@ -814,7 +816,7 @@ ru:{
   hero_sub:'Премиальное личностное развитие. Три интеллектуальных системы. Один трансформационный путь.',
   hero_cta:'Начать Путь',hero_cta2:'Изучить Системы',
   hero_stat_coaches:'Премиальных Коуча',hero_stat_systems:'Интеллектуальных Системы',hero_stat_paths:'Трансформационных Пути',
-  layer_coach:'Система Коучинга',layer_esoteric:'Эзотерика и Аналитика',layer_svarga:'Интегральные Системы',
+  layer_coach:'Система Коучинга',layer_esoteric:'Эзотерика и Аналитика',layer_svarga:'Интегральное Развитие',
   coaches_sub:'Шесть специалистов мирового класса. Реальные методологии. Трансформационные результаты.',
   coach_specialties:'Специализации',coach_start:'Начать Сессию',coach_philosophy:'Философия',coach_view_profile:'Открыть Профиль',
   chat_placeholder:'Поделитесь тем, что у вас на уме...',chat_send:'Отправить',chat_back:'← К Коучам',
@@ -842,12 +844,12 @@ ru:{
   num_title:'Нумерологический Расклад',num_name:'Полное имя при рождении',num_dob:'Дата рождения (ДД.ММ.ГГГГ)',num_calc:'Рассчитать',num_life:'Жизненный Путь',num_destiny:'Судьба',num_soul:'Число Души',num_persona:'Личность',
   persona_title:'Профиль Личности (Большая Пятёрка)',persona_reveal:'Создать Мой Профиль',persona_retake:'↺ Перекалибровать',
   persona_dims:[['O','Открытость','Любопытный и творческий','Практичный и традиционный'],['C','Добросовестность','Организованный и дисциплинированный','Гибкий и спонтанный'],['E','Экстраверсия','Общительный и энергичный','Интроспективный и сдержанный'],['A','Доброжелательность','Эмпатичный и кооперативный','Независимый и прямолинейный'],['N','Стабильность','Стойкий и спокойный','Эмоционально чувствительный']],
-  svarga_title:'Подход Сварга',svarga_sub:'Восьмимерный целостный анализ вашего текущего состояния',
+  svarga_title:'Система Сварга',svarga_sub:'Восьмимерный целостный анализ вашего текущего состояния',
   svarga_placeholder:'Опишите ваше текущее состояние, задачу или вопрос подробно...',svarga_submit:'Получить Интегральный Анализ',svarga_analyzing:'Выполняю шестимерный анализ...',
   svarga_dims:['Питание и Тело','Дыхание и Прана','Энергия и Жизненность','Ментальное и Разум','Физическая Практика','Эмоциональная Регуляция','Восстановление и Образ Жизни','Карма и Дух'],
   svarga_new:'Новый анализ',
-  integral_tab_swarga:'Подход Сварга',integral_tab_biohack:'Биохакинг',
-  integral_layer_title:'Интегральные Системы',integral_layer_sub:'Два интеллектуальных фреймворка велнеса. Одна трансформация.',
+  integral_tab_swarga:'Система Сварга',integral_tab_biohack:'Биохакинг',
+  integral_layer_title:'Интегральное Развитие',integral_layer_sub:'Два интеллектуальных фреймворка велнеса. Одна трансформация.',
   biohack_title:'Протоколы Биохакинга',biohack_sub:'Научно обоснованная оптимизация образа жизни. Практично. Безопасно.',
   biohack_select:'Выберите область фокуса',biohack_submit:'Создать протокол',biohack_analyzing:'Составляю протокол...',biohack_new:'↺ Новый протокол',
   biohack_areas:['Оптимизация сна','Фокус и когниция','Управление энергией','Стресс и нервная система','Восстановление и результативность','Циркадный ритм'],
@@ -877,7 +879,7 @@ es:{
   hero_sub:'Desarrollo personal premium. Tres sistemas inteligentes. Un viaje transformacional.',
   hero_cta:'Comenzar el Viaje',hero_cta2:'Explorar Sistemas',
   hero_stat_coaches:'Coaches Premium',hero_stat_systems:'Sistemas Inteligentes',hero_stat_paths:'Caminos Transformacionales',
-  layer_coach:'Sistema de Coaching',layer_esoteric:'Esotérico y Analítico',layer_svarga:'Sistemas Integrales',
+  layer_coach:'Sistema de Coaching',layer_esoteric:'Esotérico y Analítico',layer_svarga:'Desarrollo Integral',
   coaches_sub:'Seis especialistas de clase mundial. Metodologías reales. Resultados transformadores.',
   coach_specialties:'Especialidades',coach_start:'Iniciar Sesión',coach_philosophy:'Filosofía',coach_view_profile:'Ver Perfil Completo',
   chat_placeholder:'Comparte lo que tienes en mente...',chat_send:'Enviar',chat_back:'← Volver a Coaches',
@@ -905,12 +907,12 @@ es:{
   num_title:'Lectura Numerológica',num_name:'Nombre completo de nacimiento',num_dob:'Fecha de nacimiento (DD.MM.AAAA)',num_calc:'Calcular',num_life:'Camino de Vida',num_destiny:'Destino',num_soul:'Impulso del Alma',num_persona:'Personalidad',
   persona_title:'Perfil de Personalidad (Big Five)',persona_reveal:'Generar Mi Perfil',persona_retake:'↺ Recalibrar',
   persona_dims:[['O','Apertura','Curioso y Creativo','Práctico y Convencional'],['C','Responsabilidad','Organizado y Disciplinado','Flexible y Espontáneo'],['E','Extraversión','Sociable y Energético','Introspectivo y Reservado'],['A','Amabilidad','Empático y Cooperativo','Independiente y Directo'],['N','Estabilidad','Resistente y Tranquilo','Emocionalmente Sensible']],
-  svarga_title:'Sistema Svarga Integral',svarga_sub:'Análisis holístico de ocho dimensiones de tu estado actual',
+  svarga_title:'Sistema Swarga',svarga_sub:'Análisis holístico de ocho dimensiones de tu estado actual',
   svarga_placeholder:'Describe tu estado actual, desafío o pregunta en detalle...',svarga_submit:'Recibir Análisis Integral',svarga_analyzing:'Realizando análisis de seis dimensiones...',
   svarga_dims:['Nutrición y Cuerpo','Respiración y Prana','Energía y Vitalidad','Mental y Mente','Práctica Física','Regulación Emocional','Recuperación y Estilo de Vida','Karma y Espíritu'],
   svarga_new:'Nuevo Análisis',
-  integral_tab_swarga:'Enfoque Swarga',integral_tab_biohack:'Biohacking',
-  integral_layer_title:'Sistemas Integrales',integral_layer_sub:'Dos marcos de bienestar inteligentes. Una transformación coherente.',
+  integral_tab_swarga:'Sistema Swarga',integral_tab_biohack:'Biohacking',
+  integral_layer_title:'Desarrollo Integral',integral_layer_sub:'Dos marcos de bienestar inteligentes. Una transformación coherente.',
   biohack_title:'Protocolos de Biohacking',biohack_sub:'Optimización del estilo de vida basada en ciencia. Práctica. Segura. Eficaz.',
   biohack_select:'Elige tu área de enfoque',biohack_submit:'Generar Protocolo',biohack_analyzing:'Creando tu protocolo...',biohack_new:'↺ Nuevo Protocolo',
   biohack_areas:['Optimización del Sueño','Foco y Cognición','Gestión de Energía','Estrés y Sistema Nervioso','Recuperación y Rendimiento','Ritmo Circadiano'],
@@ -940,7 +942,7 @@ it:{
   hero_sub:'Sviluppo personale premium. Tre sistemi intelligenti. Un viaggio trasformativo.',
   hero_cta:'Inizia il Viaggio',hero_cta2:'Esplora i Sistemi',
   hero_stat_coaches:'Coach Premium',hero_stat_systems:'Sistemi Intelligenti',hero_stat_paths:'Percorsi Trasformativi',
-  layer_coach:'Sistema di Coaching',layer_esoteric:'Esoterico e Analitico',layer_svarga:'Sistemi Integrali',
+  layer_coach:'Sistema di Coaching',layer_esoteric:'Esoterico e Analitico',layer_svarga:'Sviluppo Integrale',
   coaches_sub:'Sei specialisti di classe mondiale. Metodologie reali. Risultati trasformativi.',
   coach_specialties:'Specialità',coach_start:'Inizia Sessione',coach_philosophy:'Filosofia',coach_view_profile:'Visualizza Profilo',
   chat_placeholder:'Condividi ciò che hai in mente...',chat_send:'Invia',chat_back:'← Torna ai Coach',
@@ -968,15 +970,15 @@ it:{
   num_title:'Lettura Numerologica',num_name:'Nome completo di nascita',num_dob:'Data di nascita (GG.MM.AAAA)',num_calc:'Calcola',num_life:'Percorso di Vita',num_destiny:'Destino',num_soul:'Impulso dell\'Anima',num_persona:'Personalità',
   persona_title:'Profilo della Personalità (Big Five)',persona_reveal:'Genera il Mio Profilo',persona_retake:'↺ Ricalibra',
   persona_dims:[['O','Apertura','Curioso e Creativo','Pratico e Convenzionale'],['C','Coscienziosità','Organizzato e Disciplinato','Flessibile e Spontaneo'],['E','Estroversione','Socievole ed Energetico','Introspettivo e Riservato'],['A','Gradevolezza','Empatico e Cooperativo','Indipendente e Diretto'],['N','Stabilità','Resiliente e Calmo','Emotivamente Sensibile']],
-  svarga_title:'Sistema Svarga Integrale',svarga_sub:'Analisi olistica a otto dimensioni del tuo stato attuale',
+  svarga_title:'Sistema Swarga',svarga_sub:'Analisi olistica a otto dimensioni del tuo stato attuale',
   svarga_placeholder:'Descrivi il tuo stato attuale, sfida o domanda in dettaglio...',svarga_submit:'Ricevi Analisi Integrale',svarga_analyzing:'Eseguendo l\'analisi a sei dimensioni...',
   svarga_dims:['Nutrizione e Corpo','Respirazione e Prana','Energia e Vitalità','Mentale e Mente','Pratica Fisica','Regolazione Emotiva','Recupero e Stile di Vita','Karma e Spirito'],
   svarga_new:'Nuova Analisi',
   zodiac_label:'Segno Zodiacale',
   coaches_life:'Life Coach',coaches_business:'Mentori di Business',
   coaches_sub_business:'Tre strateghi di business d\'élite. Framework collaudati. Risultati misurabili.',
-  integral_tab_swarga:'Approccio Swarga',integral_tab_biohack:'Biohacking',
-  integral_layer_title:'Sistemi Integrali',integral_layer_sub:'Due framework di benessere intelligenti. Una trasformazione coerente.',
+  integral_tab_swarga:'Sistema Swarga',integral_tab_biohack:'Biohacking',
+  integral_layer_title:'Sviluppo Integrale',integral_layer_sub:'Due framework di benessere intelligenti. Una trasformazione coerente.',
   biohack_title:'Protocolli di Biohacking',biohack_sub:'Ottimizzazione dello stile di vita basata sulla scienza. Pratica. Sicura. Efficace.',
   biohack_select:'Scegli la tua area di focus',biohack_submit:'Genera Protocollo',biohack_analyzing:'Costruendo il tuo protocollo...',biohack_new:'↺ Nuovo Protocollo',
   biohack_areas:['Ottimizzazione del Sonno','Focus e Cognizione','Gestione dell\'Energia','Stress e Sistema Nervoso','Recupero e Performance','Ritmo Circadiano'],
@@ -4288,9 +4290,9 @@ function AuthModal({lang,onClose,onLogin}){
     e.preventDefault();
     if(!email.trim()||!pw.trim()){setErr('Please fill all required fields.');return;}
     if(tab==='signup'&&!name.trim()){setErr('Please enter your name.');return;}
-    const existing=LS.getUser();
     if(tab==='signin'){
-      if(!existing||existing.email!==email.trim()){setErr('No account found. Please create one.');return;}
+      const existing=LS.getAccounts().find(u=>u.email===email.trim());
+      if(!existing){setErr('No account found. Please create one.');return;}
       if(existing.pw!==btoa(pw)){setErr('Incorrect password.');return;}
       onLogin(existing);
     }else{
@@ -4587,7 +4589,7 @@ function App(){
   const [selected,setSelected]=useState(null);
   const [legalDoc,setLegalDoc]=useState(null);
   const [depth,setDepth]=useState(()=>LS.getDepth());
-  const [user,setUser]=useState(()=>LS.getUser());
+  const [user,setUser]=useState(()=>LS.getSession());
   const [authOpen,setAuthOpen]=useState(false);
   const [profileOpen,setProfileOpen]=useState(false);
 
@@ -4622,7 +4624,7 @@ function App(){
         depth={depth} setDepth={setDepth}
         user={user}
         onAuthOpen={()=>setAuthOpen(true)}
-        onLogout={()=>{LS.clearUser();setUser(null);}}
+        onLogout={()=>{LS.clearSession();setUser(null);}}
         onProfileOpen={()=>setProfileOpen(true)}/>
       <main style={{minHeight:'100svh',paddingTop:66}}>
         {legalDoc?(
@@ -4646,7 +4648,7 @@ function App(){
       </main>
       <Footer lang={lang} onLegalOpen={openLegal} onNavigate={l=>navigate(l)}/>
       <ScrollTop/>
-      {authOpen&&<AuthModal lang={lang} onClose={()=>setAuthOpen(false)} onLogin={u=>{LS.setUser(u);setUser(u);setAuthOpen(false);}}/>}
+      {authOpen&&<AuthModal lang={lang} onClose={()=>setAuthOpen(false)} onLogin={u=>{LS.saveAccount(u);LS.setSession(u.email);setUser(u);setAuthOpen(false);}}/>}
       {profileOpen&&<ProfileModal lang={lang} user={user} onClose={()=>setProfileOpen(false)}/>}
     </React.Fragment>
   );
