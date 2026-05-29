@@ -296,6 +296,8 @@ nav.topnav.scrolled{background:var(--nav-bg);backdrop-filter:blur(28px) saturate
 .svarga-block:nth-child(4){animation-delay:.35s}
 .svarga-block:nth-child(5){animation-delay:.45s}
 .svarga-block:nth-child(6){animation-delay:.55s}
+.svarga-block:nth-child(7){animation-delay:.65s}
+.svarga-block:nth-child(8){animation-delay:.75s}
 @keyframes svarga-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 .svarga-block:hover{border-color:rgba(176,126,204,.40);transform:translateX(4px)}
 [dir="rtl"] .svarga-block:hover{transform:translateX(-4px)}
@@ -491,7 +493,7 @@ body{overflow-x:hidden}
   .detail-grid{grid-template-columns:1fr;gap:32px}
   .detail-profile{position:static}
   .footer-grid{grid-template-columns:repeat(2,1fr);gap:36px}
-  .coaches-grid{grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+  .coaches-grid,.coach-grid{grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
 }
 
 /* === TABLET PORTRAIT / LARGE PHONE 768px === */
@@ -508,7 +510,9 @@ body{overflow-x:hidden}
   .hero-ctas .cta-btn,.hero-ctas .btn-g,.hero-ctas .pill-btn{width:100%;justify-content:center}
   .hero-stats{justify-content:flex-start;gap:24px}
 
-  .coaches-grid{grid-template-columns:1fr;gap:14px}
+  .coaches-grid,.coach-grid{grid-template-columns:1fr;gap:14px}
+  .coach-type-tabs{gap:6px}
+  .coach-type-tab{padding:10px 8px;font-size:.66rem}
   .coach-card{padding:20px;border-radius:14px}
   .coach-name{font-size:1.2rem}
   .coach-meta{flex-direction:row;flex-wrap:wrap;gap:12px}
@@ -706,9 +710,9 @@ en:{
   num_title:'Numerology Reading',num_name:'Full birth name',num_dob:'Date of birth (DD.MM.YYYY)',num_calc:'Calculate',num_life:'Life Path',num_destiny:'Destiny',num_soul:'Soul Urge',num_persona:'Personality',
   persona_title:'Big Five Personality Profile',persona_reveal:'Generate My Profile',persona_retake:'↺ Recalibrate',
   persona_dims:[['O','Openness','Curious & Creative','Practical & Conventional'],['C','Conscientiousness','Organized & Disciplined','Flexible & Spontaneous'],['E','Extraversion','Outgoing & Energized','Introspective & Reserved'],['A','Agreeableness','Empathetic & Cooperative','Independent & Direct'],['N','Stability','Resilient & Calm','Emotionally Sensitive']],
-  svarga_title:'Svarga Integral System',svarga_sub:'Six-dimensional holistic analysis of your current state',
+  svarga_title:'Svarga Integral System',svarga_sub:'Eight-dimensional holistic analysis of your current state',
   svarga_placeholder:'Describe your current state, challenge, or question in detail...',svarga_submit:'Receive Integral Analysis',svarga_analyzing:'Performing six-dimensional analysis...',
-  svarga_dims:['Nutrition & Body','Breathing & Prana','Energy & Vitality','Mental & Mind','Physical Practice','Karma & Spirit'],
+  svarga_dims:['Nutrition & Body','Breathing & Prana','Energy & Vitality','Mental & Mind','Physical Practice','Emotional Regulation','Recovery & Lifestyle','Karma & Spirit'],
   svarga_new:'New Analysis',
   zodiac_label:'Zodiac Sign',
   coaches_life:'Life Coaches',coaches_business:'Business Mentors',
@@ -755,9 +759,9 @@ ru:{
   num_title:'Нумерологический Расклад',num_name:'Полное имя при рождении',num_dob:'Дата рождения (ДД.ММ.ГГГГ)',num_calc:'Рассчитать',num_life:'Жизненный Путь',num_destiny:'Судьба',num_soul:'Число Души',num_persona:'Личность',
   persona_title:'Профиль Личности (Большая Пятёрка)',persona_reveal:'Создать Мой Профиль',persona_retake:'↺ Перекалибровать',
   persona_dims:[['O','Открытость','Любопытный и творческий','Практичный и традиционный'],['C','Добросовестность','Организованный и дисциплинированный','Гибкий и спонтанный'],['E','Экстраверсия','Общительный и энергичный','Интроспективный и сдержанный'],['A','Доброжелательность','Эмпатичный и кооперативный','Независимый и прямолинейный'],['N','Стабильность','Стойкий и спокойный','Эмоционально чувствительный']],
-  svarga_title:'Интегральная Система Сварга',svarga_sub:'Шестимерный целостный анализ вашего текущего состояния',
+  svarga_title:'Интегральная Система Сварга',svarga_sub:'Восьмимерный целостный анализ вашего текущего состояния',
   svarga_placeholder:'Опишите ваше текущее состояние, задачу или вопрос подробно...',svarga_submit:'Получить Интегральный Анализ',svarga_analyzing:'Выполняю шестимерный анализ...',
-  svarga_dims:['Питание и Тело','Дыхание и Прана','Энергия и Жизненность','Ментальное и Разум','Физическая Практика','Карма и Дух'],
+  svarga_dims:['Питание и Тело','Дыхание и Прана','Энергия и Жизненность','Ментальное и Разум','Физическая Практика','Эмоциональная Регуляция','Восстановление и Образ Жизни','Карма и Дух'],
   svarga_new:'Новый анализ',
   zodiac_label:'Знак зодиака',
   coaches_life:'Лайф-коучи',coaches_business:'Бизнес-наставники',
@@ -804,9 +808,9 @@ es:{
   num_title:'Lectura Numerológica',num_name:'Nombre completo de nacimiento',num_dob:'Fecha de nacimiento (DD.MM.AAAA)',num_calc:'Calcular',num_life:'Camino de Vida',num_destiny:'Destino',num_soul:'Impulso del Alma',num_persona:'Personalidad',
   persona_title:'Perfil de Personalidad (Big Five)',persona_reveal:'Generar Mi Perfil',persona_retake:'↺ Recalibrar',
   persona_dims:[['O','Apertura','Curioso y Creativo','Práctico y Convencional'],['C','Responsabilidad','Organizado y Disciplinado','Flexible y Espontáneo'],['E','Extraversión','Sociable y Energético','Introspectivo y Reservado'],['A','Amabilidad','Empático y Cooperativo','Independiente y Directo'],['N','Estabilidad','Resistente y Tranquilo','Emocionalmente Sensible']],
-  svarga_title:'Sistema Svarga Integral',svarga_sub:'Análisis holístico de seis dimensiones de tu estado actual',
+  svarga_title:'Sistema Svarga Integral',svarga_sub:'Análisis holístico de ocho dimensiones de tu estado actual',
   svarga_placeholder:'Describe tu estado actual, desafío o pregunta en detalle...',svarga_submit:'Recibir Análisis Integral',svarga_analyzing:'Realizando análisis de seis dimensiones...',
-  svarga_dims:['Nutrición y Cuerpo','Respiración y Prana','Energía y Vitalidad','Mental y Mente','Práctica Física','Karma y Espíritu'],
+  svarga_dims:['Nutrición y Cuerpo','Respiración y Prana','Energía y Vitalidad','Mental y Mente','Práctica Física','Regulación Emocional','Recuperación y Estilo de Vida','Karma y Espíritu'],
   svarga_new:'Nuevo Análisis',
   zodiac_label:'Signo Zodiacal',
   coaches_life:'Life Coaches',coaches_business:'Mentores de Negocios',
@@ -853,9 +857,9 @@ it:{
   num_title:'Lettura Numerologica',num_name:'Nome completo di nascita',num_dob:'Data di nascita (GG.MM.AAAA)',num_calc:'Calcola',num_life:'Percorso di Vita',num_destiny:'Destino',num_soul:'Impulso dell\'Anima',num_persona:'Personalità',
   persona_title:'Profilo della Personalità (Big Five)',persona_reveal:'Genera il Mio Profilo',persona_retake:'↺ Ricalibra',
   persona_dims:[['O','Apertura','Curioso e Creativo','Pratico e Convenzionale'],['C','Coscienziosità','Organizzato e Disciplinato','Flessibile e Spontaneo'],['E','Estroversione','Socievole ed Energetico','Introspettivo e Riservato'],['A','Gradevolezza','Empatico e Cooperativo','Indipendente e Diretto'],['N','Stabilità','Resiliente e Calmo','Emotivamente Sensibile']],
-  svarga_title:'Sistema Svarga Integrale',svarga_sub:'Analisi olistica a sei dimensioni del tuo stato attuale',
+  svarga_title:'Sistema Svarga Integrale',svarga_sub:'Analisi olistica a otto dimensioni del tuo stato attuale',
   svarga_placeholder:'Descrivi il tuo stato attuale, sfida o domanda in dettaglio...',svarga_submit:'Ricevi Analisi Integrale',svarga_analyzing:'Eseguendo l\'analisi a sei dimensioni...',
-  svarga_dims:['Nutrizione e Corpo','Respirazione e Prana','Energia e Vitalità','Mentale e Mente','Pratica Fisica','Karma e Spirito'],
+  svarga_dims:['Nutrizione e Corpo','Respirazione e Prana','Energia e Vitalità','Mentale e Mente','Pratica Fisica','Regolazione Emotiva','Recupero e Stile di Vita','Karma e Spirito'],
   svarga_new:'Nuova Analisi',
   zodiac_label:'Segno Zodiacale',
   coaches_life:'Life Coach',coaches_business:'Mentori di Business',
@@ -902,9 +906,9 @@ he:{
   num_title:'קריאה נומרולוגית',num_name:'שם מלא בלידה',num_dob:'תאריך לידה (DD.MM.YYYY)',num_calc:'חשב',num_life:'נתיב חיים',num_destiny:'גורל',num_soul:'דחף הנשמה',num_persona:'אישיות',
   persona_title:'פרופיל אישיות (Big Five)',persona_reveal:'צור את הפרופיל שלי',persona_retake:'↺ כייל מחדש',
   persona_dims:[['O','פתיחות','סקרן ויצירתי','פרקטי ומסורתי'],['C','מצפוניות','מאורגן ומשמעתי','גמיש וספונטני'],['E','חוצפנות','חברותי ואנרגטי','מופנם ושקט'],['A','נחמדות','אמפתי ושיתופי','עצמאי וישיר'],['N','יציבות','חסין ורגוע','רגיש רגשית']],
-  svarga_title:'מערכת סוורגה אינטגרלית',svarga_sub:'ניתוח הוליסטי בשישה ממדים של מצבך הנוכחי',
+  svarga_title:'מערכת סוורגה אינטגרלית',svarga_sub:'ניתוח הוליסטי בשמונה ממדים של מצבך הנוכחי',
   svarga_placeholder:'תאר את מצבך הנוכחי, האתגר או השאלה בפירוט...',svarga_submit:'קבל ניתוח אינטגרלי',svarga_analyzing:'מבצע ניתוח בשישה ממדים...',
-  svarga_dims:['תזונה וגוף','נשימה ופראנה','אנרגיה וחיוניות','מנטלי ושכל','פרקטיקה פיזית','קארמה ורוח'],
+  svarga_dims:['תזונה וגוף','נשימה ופראנה','אנרגיה וחיוניות','מנטלי ושכל','פרקטיקה פיזית','ויסות רגשי','התאוששות ואורח חיים','קארמה ורוח'],
   svarga_new:'ניתוח חדש',
   zodiac_label:'סימן גלגל המזלות',
   coaches_life:'מאמני חיים',coaches_business:'מנטורים עסקיים',
@@ -1452,6 +1456,30 @@ const SVARGA_POOL={
     he:["תנועה היא תרופה — אבל הסוג חשוב. הפרופיל שלך מרמז על מעורבות יתר בתפוקה בעצימות גבוהה ומעורבות חסרה בתנועה משחזרת. הוסף יוגה נידרה או יין יוגה 3 פעמים בשבוע. אלה לא פסיביים — הם כיול פעיל מחדש של מערכת העצבים עם גיבוי מחקרי חזק.",
         "גופך נשא יותר מתח ממה שהוא מעבד. הפשייה מאחסנת תוכן רגשי לא פתור כדפוסי אחיזה כרוניים. עבודת גוף יומית — אפילו 10 דקות של עיסוי עצמי או מתיחה מודעת — מתחילה לשחרר מה שעיבוד אינטלקטואלי לא יכול להגיע אליו."]
   },
+  emotional:{
+    en:["Emotional regulation is not suppression — it is the capacity to feel fully without being governed by the feeling. Your current state suggests an accumulation of unprocessed emotional charge. The practice: name the emotion precisely (granular labelling measurably reduces amygdala activation), locate it in the body, and breathe into that location for 90 seconds — the natural lifespan of an emotion's chemical wave when it is not fed by narrative.",
+        "You are likely managing emotion through control rather than metabolism — holding the line instead of letting the wave move through. The somatic truth: emotions are energy in motion and require completion. Schedule a daily emotional discharge — vigorous movement, expressive writing, or vocal release — so the nervous system clears its charge instead of storing it as chronic tension."],
+    ru:["Эмоциональная регуляция — это не подавление, а способность чувствовать полностью, не будучи управляемым чувством. Ваше состояние предполагает накопление непереработанного эмоционального заряда. Практика: точно назовите эмоцию, найдите её в теле и дышите в это место 90 секунд — естественная продолжительность химической волны эмоции, когда её не питает нарратив.",
+        "Вероятно, вы управляете эмоциями через контроль, а не через метаболизм — держите оборону вместо того, чтобы позволить волне пройти. Запланируйте ежедневный эмоциональный разряд — интенсивное движение, экспрессивное письмо или голосовое освобождение — чтобы нервная система очищала заряд, а не хранила его как хроническое напряжение."],
+    es:["La regulación emocional no es supresión — es la capacidad de sentir plenamente sin ser gobernado por el sentimiento. Tu estado actual sugiere una acumulación de carga emocional no procesada. La práctica: nombra la emoción con precisión, localízala en el cuerpo y respira hacia ese lugar durante 90 segundos — la vida natural de la onda química de una emoción cuando no se alimenta de narrativa.",
+        "Probablemente gestionas la emoción mediante el control en lugar del metabolismo — sostienes la línea en vez de dejar que la ola atraviese. La verdad somática: las emociones son energía en movimiento y requieren completarse. Programa una descarga emocional diaria — movimiento vigoroso, escritura expresiva o liberación vocal — para que el sistema nervioso limpie su carga en lugar de almacenarla como tensión crónica."],
+    it:["La regolazione emotiva non è soppressione — è la capacità di sentire pienamente senza essere governati dal sentimento. Il tuo stato attuale suggerisce un accumulo di carica emotiva non elaborata. La pratica: nomina l'emozione con precisione, localizzala nel corpo e respira in quel punto per 90 secondi — la vita naturale dell'onda chimica di un'emozione quando non è alimentata dalla narrazione.",
+        "Probabilmente gestisci l'emozione attraverso il controllo anziché il metabolismo — tieni la linea invece di lasciare che l'onda attraversi. La verità somatica: le emozioni sono energia in movimento e richiedono completamento. Programma una scarica emotiva quotidiana — movimento vigoroso, scrittura espressiva o rilascio vocale — affinché il sistema nervoso ripulisca la sua carica invece di immagazzinarla come tensione cronica."],
+    he:["ויסות רגשי אינו דיכוי — זו היכולת להרגיש במלואו מבלי להיות נשלט על ידי הרגש. מצבך הנוכחי מרמז על הצטברות מטען רגשי לא מעובד. התרגול: תן שם מדויק לרגש, אתר אותו בגוף ונשום לתוך אותו מקום במשך 90 שניות — אורך החיים הטבעי של הגל הכימי של רגש כשאינו ניזון מנרטיב.",
+        "כנראה שאתה מנהל רגש דרך שליטה ולא דרך מטבוליזם — מחזיק את הקו במקום לתת לגל לעבור. האמת הסומטית: רגשות הם אנרגיה בתנועה והם דורשים השלמה. תזמן פריקה רגשית יומית — תנועה נמרצת, כתיבה אקספרסיבית או שחרור קולי — כדי שמערכת העצבים תנקה את המטען במקום לאחסן אותו כמתח כרוני."]
+  },
+  recovery:{
+    en:["Recovery is where adaptation actually happens — growth is built in rest, not in effort. Your pattern suggests a recovery deficit: too much output, too little structured restoration. Non-negotiables for this phase: a consistent sleep-wake window (±30 min), a hard digital sunset 60 minutes before bed, and one full day per week with no optimisation agenda. Recovery is the multiplier on everything else.",
+        "Your lifestyle architecture is leaking energy at the seams — the small daily frictions that compound invisibly. Audit your environment: light, noise, the first 30 minutes of your morning, the last 30 of your night. Redesign these four anchors and the rest of the day reorganises around them. Lifestyle is not willpower; it is design."],
+    ru:["Восстановление — это место, где на самом деле происходит адаптация: рост строится в покое, а не в усилии. Ваш паттерн предполагает дефицит восстановления. Необходимое для этой фазы: постоянное окно сна и пробуждения (±30 мин), цифровой закат за 60 минут до сна и один полный день в неделю без повестки оптимизации. Восстановление — множитель для всего остального.",
+        "Архитектура вашего образа жизни теряет энергию по швам — мелкие ежедневные трения, незаметно накапливающиеся. Проведите аудит среды: свет, шум, первые 30 минут утра, последние 30 минут ночи. Переработайте эти четыре якоря — и остальной день перестроится вокруг них. Образ жизни — это не сила воли, это дизайн."],
+    es:["La recuperación es donde realmente ocurre la adaptación — el crecimiento se construye en el descanso, no en el esfuerzo. Tu patrón sugiere un déficit de recuperación. Innegociables para esta fase: una ventana de sueño-vigilia consistente (±30 min), un ocaso digital 60 minutos antes de dormir, y un día completo a la semana sin agenda de optimización. La recuperación es el multiplicador de todo lo demás.",
+        "La arquitectura de tu estilo de vida pierde energía por las costuras — las pequeñas fricciones diarias que se acumulan invisiblemente. Audita tu entorno: luz, ruido, los primeros 30 minutos de tu mañana, los últimos 30 de tu noche. Rediseña estos cuatro anclajes y el resto del día se reorganiza en torno a ellos. El estilo de vida no es fuerza de voluntad; es diseño."],
+    it:["Il recupero è dove avviene realmente l'adattamento — la crescita si costruisce nel riposo, non nello sforzo. Il tuo schema suggerisce un deficit di recupero. Non negoziabili per questa fase: una finestra sonno-veglia costante (±30 min), un tramonto digitale 60 minuti prima di dormire e un giorno intero a settimana senza agenda di ottimizzazione. Il recupero è il moltiplicatore di tutto il resto.",
+        "L'architettura del tuo stile di vita perde energia dalle cuciture — le piccole frizioni quotidiane che si accumulano invisibilmente. Verifica il tuo ambiente: luce, rumore, i primi 30 minuti del mattino, gli ultimi 30 della notte. Riprogetta questi quattro ancoraggi e il resto della giornata si riorganizza attorno ad essi. Lo stile di vita non è forza di volontà; è progettazione."],
+    he:["התאוששות היא המקום שבו ההסתגלות באמת מתרחשת — צמיחה נבנית במנוחה, לא במאמץ. הדפוס שלך מרמז על גירעון התאוששות. בלתי ניתנים למשא ומתן בשלב זה: חלון שינה-עירות עקבי (±30 דקות), שקיעה דיגיטלית 60 דקות לפני השינה, ויום שלם בשבוע ללא אג'נדת אופטימיזציה. התאוששות היא המכפיל של כל השאר.",
+        "ארכיטקטורת אורח החיים שלך מדליפה אנרגיה בתפרים — החיכוכים היומיומיים הקטנים שמצטברים באופן בלתי נראה. בצע ביקורת על הסביבה שלך: אור, רעש, 30 הדקות הראשונות של הבוקר, 30 האחרונות של הלילה. עצב מחדש את ארבעת העוגנים הללו ושאר היום יתארגן סביבם. אורח חיים אינו כוח רצון; זה עיצוב."]
+  },
   karma:{
     en:["At the karmic level, you are completing a cycle that began several years ago. What feels like struggle is not punishment — it is the final contraction before expansion. The soul curriculum for this phase is trust: not naive trust, but earned trust in your own resilience and capacity to navigate what arises.",
         "Karma is not fate — it is pattern. And patterns can be interrupted. The recurring dynamic you're experiencing is asking to be consciously completed rather than unconsciously repeated. Bring full awareness to the moment of choice within the pattern. The instant you see it clearly, you are no longer entirely run by it."],
@@ -1505,7 +1533,7 @@ function renderMD(text){
   );
 }
 function stripMD(text){return text?text.replace(/\*\*([^*]+)\*\*/g,'$1'):''}function generateSvarga(input,lang){
-  const dims=['nutrition','breathing','energy','mental','body','karma'];
+  const dims=['nutrition','breathing','energy','mental','body','emotional','recovery','karma'];
   return dims.map(d=>({dim:d,text:pick(SVARGA_POOL[d][lang]||SVARGA_POOL[d].en)}));
 }
 function coachReply(id,lang,idx){
@@ -3523,7 +3551,7 @@ function EsotericLayer({lang}){
 function SvargaLayer({lang}){
   const t=T[lang];
   const dims=t.svarga_dims||[];
-  const dimIcons=['🌿','🌬','⚡','🧠','🏃','✨'];
+  const dimIcons=['🌿','🌬','⚡','🧠','🏃','💗','🌙','✨'];
   const [input,setInput]=useState('');
   const [loading,setLoading]=useState(false);
   const [results,setResults]=useState(null);
